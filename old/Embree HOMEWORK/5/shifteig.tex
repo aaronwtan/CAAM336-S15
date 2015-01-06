@@ -1,0 +1,19 @@
+Suppose $\BA\in\Rnn$ is a symmetric matrix with eigenvalues $\lambda_j$
+and associated eigenvectors $\Bv_j\ne\Bzero$: 
+\[ \BA\Bv_j = \lambda_j \Bv_j, \qquad j = 1, \ldots, n.\]
+
+Show that the vectors $\Bv_1, \ldots, \Bv_n$ are also eigenvectors
+of the matrix $\BB = \BA + \beta \BI$ for any fixed $\beta \in \R$.
+What are the corresponding eigenvalues $\mu_1, \ldots, \mu_n$ of $\BB$?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+To verify that $\Bv_j$ is an eigenvector of $\BB$, we compute
+\[ \BB \Bv_j = (\BA+\beta \BI)\Bv_j = \BA\Bv_j + \beta \BI\Bv_j 
+                                    = \lambda_j \Bv_j + \beta \Bv_j 
+                                    = (\lambda_j + \beta) \Bv_j.\]
+In the process we see that the corresponding eigenvalue is 
+$\mu_j = \lambda_j + \beta$.  This holds for all $j=1, \ldots, n$.
+\end{solution}}{}
+

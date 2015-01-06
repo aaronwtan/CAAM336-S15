@@ -1,0 +1,60 @@
+The equation $x_1 + x_2 + x_3 = 0$ defines a plane in $\R^3$ that passes through the origin.
+\begin{enumerate}
+\item Find two linearly independent vectors in $\R^3$ whose span is this plane.
+\item Find the point in this plane closest (in the standard Euclidean norm,
+$\norm{\Bz} = \sqrt{\Bz^T\Bz}$) to the vector
+\[ \Bv = \pmatrix{1\cr 0\cr 1}\]
+by formulating this as a best approximation problem.
+(You may use MATLAB to invert a matrix.)
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+\begin{enumerate}
+\item  Since two linearly independent vectors determine a plane, 
+       we simply need to find two linearly independent vectors 
+       that satisfy $x_1 + x_2 + x_3 = 0$.
+       One can do this by inspection, for example, and find 
+         \[ \pmatrix{1 \cr -1 \cr 0}, \qquad \pmatrix{0 \cr 1 \cr -1}.\]
+       However, it would be nice to have an orthogonal basis for this space.
+       To do that, pick one vector, say the first vector given above;
+       set the second vector to be $(\alpha, \beta, \gamma)^T$.
+       We would like the this vector to be in the plane:
+        \[ \alpha + \beta + \gamma = 0\]
+       and to be orthogonal to the first vector:
+         \[ \pmatrix{1 \cr -1 \cr 0}^T \pmatrix{\alpha \cr \beta \cr \gamma } 
+                   = \alpha - \beta + 0 = 0.\]
+       This gives two equations in three unknowns, which will be satisfied
+       if $\beta=\alpha$ and $\gamma = -2\alpha$ for any $\alpha$, 
+       i.e., we have the vector
+                 \[ \pmatrix{\alpha \cr \alpha  \cr -2\alpha}.\] 
+       With $\alpha =1 $, we have two orthogonal vectors whose span is the desired plane:
+         \[ \Bx = \pmatrix{1 \cr -1 \cr 0}, \qquad \By = \pmatrix{1 \cr 1 \cr -2}.\]
+       
+\item  The closest point in the plane to the vector $\Bv$ is found solving
+       the usual best-approximation problem matrix equation:
+       \[  \pmatrix{ \Bx^T\Bx & \Bx^T \By \cr \By^T\Bx & \By^T\By} 
+         \pmatrix{c_1\cr c_2}
+        = \pmatrix{ \Bx^T\Bv \cr \By^T \Bv},\]
+       that is, 
+       \[  \pmatrix{ 2 & 0 \cr 0 & 6} 
+         \pmatrix{c_1\cr c_2}
+        = \pmatrix{ 1 \cr -1}.\]
+       The orthogonality of the vectors $\Bx$ and $\By$ make this an easy problem to solve:
+        \[ c_1 = 1/2, \qquad c_2 = -1/6.\]
+       Thus, the best approximation to $\Bv = (1, 0, 1)^T$ is the vector
+         \[ \widehat{\Bv} = c_1 \Bx + c_2 \By = \pmatrix{1/2-1/6 \cr -1/2-1/6 \cr 1/3} 
+                                      = \pmatrix{ 1/3 \cr -2/3 \cr 1/3}.\]
+       We can verify this answer by checking 
+       (1) that $\widehat{\Bv}$ is in the desired plane: $1/3-2/3+1/3 = 0$, 
+        and (2) verifying that the error 
+            \[ \Bv - \widehat{\Bv} = \pmatrix{2/3 \cr -2/3 \cr 2/3}\]
+        is orthogonal to the two basis vectors $\Bx$ and $\By$ for the plane,
+        $(\Bv-\widehat{\Bv})^T\Bx = (\Bv-\widehat{\Bv})^T\By = 0$.
+          
+\end{enumerate}
+
+\end{solution}}{}
+

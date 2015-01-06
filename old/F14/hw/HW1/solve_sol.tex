@@ -1,0 +1,27 @@
+\begin{solution}
+\begin{enumerate}
+\item {[7 points]} $v(x) = 1/x^2$ is a solution of (1.1).\\      
+      To plug $v(x) = 1/x^2$ into the left-hand side of (1.1), we compute
+      $dv/dx = d(x^{-2})/dx = -2x^{-3}$.  Substituting this formula,
+      the left-hand side of (1.1) becomes 
+           \[ -2x^{-3} + 2x^{-1}x^{-2} = 0.\]
+      This agrees with the right-hand side of (1.1), so this $v$ is a solution.
+\\
+\item {[7 points]} $v(x,t) = t(t+x)$ is a solution of (1.2).\\
+      We compute $\partial v/\partial t =  2t+x$ and
+                 $\partial v/\partial x = t$.
+      Thus the left-hand side of (1.2) becomes
+        \[ (2t+x) - 3(t) = x-t.\]
+      This agrees with the right-hand side of (1.2), so this $v$ is a solution.
+\\
+\item {[7 points]} $u(x,t) = x e^t$ is \emph{not} a solution of (1.3).\\
+       We compute $\partial u /\partial t = xe^t$ and 
+       $\partial u/\partial x = e^t$.
+       From this it follows that 
+           \[ {\partial\over \partial x} \left[ 2u {\partial u\over \partial x}\right]
+                = {\partial \over \partial x} 2xe^{2t} = 2e^{2t}.\]
+       Thus the left-hand side of (1.3) is
+            \[ xe^t -2e^{2t},\]
+       which is nonzero in general, in disagreement with the right-hand side of (1.3).
+\end{enumerate}
+\end{solution}

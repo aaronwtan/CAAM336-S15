@@ -1,0 +1,2 @@
+Approximate exp(x) rather than cos(pi*x):  the latter gives zero
+for the first two approximations.

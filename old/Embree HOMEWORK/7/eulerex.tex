@@ -1,0 +1,46 @@
+For the matrix $\BA$ from problem~1(b), describe how large one can
+choose the time step $\Delta t$ so that the forward Euler method applied to
+$d\Bx/dt = \BA\Bx$, 
+\[ \Bx_{k+1} = \Bx_k + \Delta t\BA\Bx_k,\]
+will produce a solution that qualitatively matches the behavior
+of the true solution (i.e., the approximations $\Bx_k$ should grow, decay,
+or remain of the same size as the true solution does).
+
+Answer the same question for the backward Euler method
+\[ \Bx_{k+1} = \Bx_k + \Delta t\BA\Bx_{k+1}.\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+
+The eigenvalues for the matrix from problem~1(b) are 
+$\lambda_1 = -99$ and $\lambda_2 = -1$.
+Thus the solution to the equation $d\Bx/dt = \BA\Bx$ 
+will decay to zero as $t\to \infty$ for all choices 
+of initial condition $\Bx(0)$.
+
+We wish to choose the step size $\Delta t$ for the forward Euler
+method so that the iterates $\Bx_k$ decay to zero as $k\to\infty$.
+For this equation
+\[ \Bx_k = (\BI+\Delta t \BA)^k \Bx_0,\]
+and so we need all eigenvalues of the symmetric matrix 
+$\BI+\Delta t \BA$ to be less than one in magnitude.
+The eigenvalues of $\BI+\Delta t\BA$ are simply
+\[ \mu_1 = 1+\Delta t \lambda_1 = 1-99\Delta_t, \qquad
+   \mu_2 = 1+\Delta t \lambda_2 = 1-\Delta_t.\]
+For all $0<\Delta_t < 2$ we have $|\mu_2|<1$, 
+but to get $|\mu_1|<1$ we have a stricter requirement:
+\[  0 < \Delta t < 2/99.\]
+(Alternatively, one can simply look for $\Delta t$ 
+such that $\Delta t \lambda_1, \Delta t \lambda_2 \in (-2,0)$.)
+
+For the backward Euler method, we have
+\[ \Bx_k = (\BI-\Delta t \BA)^{-k} \Bx_0,\]
+and we need all eigenvalues of $(\BI-\Delta t\BA)^{-1}$
+to be less than one in magnitude.  Those eigenvalues are
+\[ \mu_1 = {1\over 1-\Delta t \lambda_1} = {1\over 1+99\Delta t}, \qquad
+   \mu_2 = {1\over 1-\Delta t \lambda_2} = {1\over 1+\Delta t}.\]
+These values are less than one in magnitude for all $\Delta t>0$,
+so there is no restriction on $\Delta t$ to obtain $\Bx_k \to 0$ as $k\to\infty$.
+\end{solution}}{}
+

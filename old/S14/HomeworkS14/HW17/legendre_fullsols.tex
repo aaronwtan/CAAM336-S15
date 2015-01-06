@@ -1,0 +1,98 @@
+\begin{solution}
+
+\begin{enumerate}
+\item {[4 points]} The best approximation to $f(x) = \cos(\pi x)$ from ${\rm span}\{\phi_1\}$ with respect to the norm $\norm{\cdot}$ is
+       \[ f_1(x) = {(f,\phi_1) \over (\phi_1, \phi_1)} \phi_1(x).\]
+      We compute
+\[
+          \ip{\phi_1,\phi_1} = \int_{-1}^1 1^2\,dx = \left[x\right]_{-1}^1=1-\left(-1\right)=2
+\]
+and
+\[
+          \ip{f,\phi_1} = \int_{-1}^1 \cos(\pi x)\,dx = \left[\frac{1}{\pi}\sin(\pi x)\right]_{-1}^1=\frac{1}{\pi}\sin(\pi)-\frac{1}{\pi}\sin(-\pi)=0-0=0
+\]
+      and hence
+       \[ f_1(x) = 0.\]
+\item {[7 points]} Since $\phi_1$ and $\phi_2$ are
+      orthogonal with respect to the inner product $\ip{\cdot,\cdot}$, i.e., $\ip{\phi_1, \phi_2} = 0$, the best approximation to $f(x) = \cos(\pi x)$ from ${\rm span}\{\phi_1,\phi_2\}$ with respect to the norm $\norm{\cdot}$ is
+       \[ f_2(x) = {(f,\phi_1) \over (\phi_1, \phi_1)} \phi_1(x) + {(f,\phi_2) \over (\phi_2, \phi_2)} \phi_2(x) = f_1(x) + {(f,\phi_2) \over (\phi_2, \phi_2)} \phi_2(x).\]
+      Noting that
+      \[
+         \ip{\phi_2,\phi_2} =\int_{-1}^1 x^2\,dx = \left[{x^3\over 3}\right]_{-1}^1 = {1 \over 3} - \left(-{-1 \over 3}\right) = {1 \over 3} - {1 \over 3} = {2\over 3}
+\]
+and
+\begin{eqnarray*}
+\ip{f,\phi_2} &=&\int_{-1}^1 x\cos(\pi x)\,dx 
+\\
+&=&\left[\frac{1}{\pi}x\sin(\pi x)\right]_{-1}^1-\int_{-1}^1 \frac{1}{\pi}\sin(\pi x)\,dx 
+\\
+&=& \frac{1}{\pi}\sin(\pi)-\left(-\frac{1}{\pi}\sin(-\pi)\right)-\left[-\frac{1}{\pi^2}\cos(\pi x)\right]_{-1}^1 
+\\
+&=& \frac{1}{\pi^2}\cos(\pi)-\frac{1}{\pi^2}\cos(-\pi)
+\\
+&=&-\frac{1}{\pi^2}-\left(-\frac{1}{\pi^2}\right)
+\\
+&=&0
+\end{eqnarray*}
+      we can compute that
+       \[ f_2(x) = f_1(x)
+                  + {(f,\phi_2) \over (\phi_2, \phi_2)} \phi_2(x) = 0.\]
+  
+
+\item {[7 points]}
+Since,
+ \[ (\phi_1,\phi_2) = (\phi_1,\phi_3) = (\phi_2,\phi_3) = 0,\]
+the best approximation to $f(x) = \cos(\pi x)$ from ${\rm span}\{\phi_1,\phi_2,\phi_3\}$ with respect to the norm $\norm{\cdot}$ is
+       \[ f_3(x) = {(f,\phi_1) \over (\phi_1, \phi_1)} \phi_1(x) + {(f,\phi_2) \over (\phi_2, \phi_2)} \phi_2(x) + {(f,\phi_3) \over (\phi_3, \phi_3)} \phi_3(x) = f_2(x) + {(f,\phi_3) \over (\phi_3, \phi_3)} \phi_3(x).\]
+Toward this end, compute
+\begin{eqnarray*}
+  \ip{\phi_3,\phi_3} &=& \int_{-1}^1 (3x^2-1)^2\,dx
+\\
+ &=& \int_{-1}^1 9x^4-6x^2+1\,dx
+\\
+ &=& \int_{-1}^1 9x^4\,dx-6\ip{\phi_2,\phi_2} +\ip{\phi_1,\phi_1}
+\\
+ &=& \left[{9x^5\over 5}\right]_{-1}^1-6{2\over 3} +2
+\\
+ &=& {9\over 5}-\left(-{9\over 5}\right)-{12\over 3} +2
+\\
+ &=& {18\over 5}-{12\over 3} +2
+\\
+ &=& {54\over 15}-{60\over 15} +{30\over 15}
+\\
+ &=& {24\over 15}
+\\
+ &=& {8\over 5}
+\end{eqnarray*}
+and
+\begin{eqnarray*}
+  \ip{f,\phi_3} &=& \int_{-1}^1 (3x^2-1)\cos(\pi x)\,dx
+\\
+ &=& 3\int_{-1}^1 x^2\cos(\pi x)\,dx-\ip{f,\phi_1}
+\\
+ &=& 3\int_{-1}^1 x^2\cos(\pi x)\,dx
+\\
+ &=& 3\left(\left[\frac{1}{\pi}x^2\sin(\pi x)\right]_{-1}^1-2\int_{-1}^1 \frac{1}{\pi}x\sin(\pi x)\,dx\right)
+\\
+ &=& 3\left(\frac{1}{\pi}\sin(\pi)-\frac{1}{\pi}\sin(-\pi)-\left[-\frac{2}{\pi^2}x\cos(\pi x)\right]_{-1}^1-\frac{2}{\pi^2}\int_{-1}^1 \cos(\pi x)\,dx\right)
+\\
+ &=& 3\left(-\left(-\frac{2}{\pi^2}\cos(\pi )-\frac{2}{\pi^2}\cos(-\pi)\right)-\frac{2}{\pi^2}\ip{f,\phi_1}\right)
+\\
+ &=& 3\left(-\frac{2}{\pi^2}-\frac{2}{\pi^2}\right)
+\\
+ &=& -\frac{12}{\pi^2}
+\end{eqnarray*}
+thus giving
+       \[ f_3(x) = f_2(x) + {(f,\phi_3) \over (\phi_3, \phi_3)} \phi_3(x) = -\frac{15}{2\pi^2} (3x^2-1) .\]
+
+\item {[7 points]} The following plot compares the best approximations to $f(x)$. Note that $f_2$ obscures $f_1$.
+
+\begin{center} \includegraphics[scale=0.5]{hw18d} \end{center}
+
+The code use to produce it is below.
+
+\lstinputlisting{HW18d.m}
+\end{enumerate}
+
+\end{solution}
+

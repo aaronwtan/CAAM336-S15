@@ -1,0 +1,91 @@
+Consider the fourth-order linear operator $L: C^4_H[0,1] \to C[0,1]$,
+\[ L u = u_{xxxx} + \eps @ u_{xx},\]
+where $C^4_H[0,1]$ consists of all $C^4[0,1]$ functions $v$ with 
+\emph{hinged} boundary conditions
+\[ v(0)= v''(0) = v(1) = v''(1) = 0.\]
+Here $\eps$ is a constant and we use the inner product
+\[ (f,g) = \int_0^1 f(x) g(x)\, \dop x.\]
+
+\begin{enumerate}
+\item The eigenfunctions of $L$ are 
+$\psi_k(x) = \sqrt{2} \sin(k\pi x)$, for $k=1,2,3\ldots.$\\
+  Find the corresponding eigenvalues $\lambda_k$ of $L$.
+\end{enumerate}
+
+\vspace*{1em}
+We wish to solve the partial differential equation
+\[ u_{t}(x,t) = -\big(u_{xxxx}(x,t)+\eps@u_{xx}(x,t)\big),\]
+for $x\in[0,1]$ and $t\ge 0$, with hinged boundary conditions
+\[ u(0,t)= u_{xx}(0,t) = u(1,t) = u_{xx}(1,t) = 0\]
+and initial condition
+\[ u(x,0) = u_0(x).\]
+
+\vspace*{1em}
+ 
+\begin{enumerate}
+\item[(b)] To compute the spectral method solution, 
+we pose this equation as
+\[ u_t = - L u \] 
+and seek the solution in the form
+\[ u(x,t) = \sum_{j=1}^\infty a_j(t) \psi_j(x).\]
+Identify the ordinary differential equation that $a_j$ must satisfy,
+solve that differential equation, and give a simplified formula for
+$a_j(t)$ that depends only on $u_0$, $\lambda_j$, $\psi_j$, and $t$.
+
+\vspace*{1em}
+\item[(c)] Under what conditions on $\eps$ can we ensure that the
+solution $u(x,t)$ decays to zero regardless of the initial data $u_0$?
+\end{enumerate}
+
+Now consider the following partial differential equation,
+which is related to a model of vibrations of a stiff piano wire:
+\[ u_{tt}(x,t) = -\big(u_{xxxx}(x,t)+\eps@u_{xx}(x,t)\big),\]
+again for $x\in[0,1]$ and $t\ge 0$, with hinged boundary conditions
+\[ u(0,t)= u_{xx}(0,t) = u(1,t) = u_{xx}(1,t) = 0\]
+and initial conditions
+\[ u(x,0) = u_0(x), \qquad 
+   u_t(x,0) = v_0(x).\]
+
+\vspace*{1em}
+For the rest of this question, assume that $\eps$ is chosen such
+that all eigenvalues are nonnegative: $\lambda_k\ge 0$ for all $k$.
+
+\begin{enumerate}
+\item[(d)] Now to compute the spectral method solution for this equation,
+we write
+\[ u_{tt} = - L u \] 
+and again seek the solution in the form
+\[ u(x,t) = \sum_{j=1}^\infty a_j(t) \psi_j(x).\]
+For this second-order problem in time,
+identify the ordinary differential equation that $a_j$ must satisfy,
+solve that differential equation, and give a simplified formula for
+$a_j(t)$ that depends only on $u_0$, $v_0$, $\lambda_j$, $\psi_j$, and $t$.
+
+\emph{Be sure to handle the special case where there is a zero eigenvalue.}
+
+\vspace*{1em}
+\item[(e)]
+How do solutions to this equation behave as $t\to\infty$ if there is no zero eigenvalue?\\
+Does this behavior change if there is a zero eigenvalue?
+
+\vspace*{1em}
+\item[(f)]
+  Suppose we solve the problem $u_t(x,t) = -u_{xxxx}(x,t)$
+  using the finite element method, and when $N$ elements are
+  used, the eigenvalues $\lambda$ of $\BM^{-1}\BK$ satisfy
+  $0<\lambda < 16 N^4$, with largest eigenvalue
+   $\lambda_N \approx 16 N^4$.
+
+  We wish to solve the equation $\Bc'(t) = -\BM^{-1}\BK \Bc(t)$
+  using the \emph{forward Euler method} with time step $\Delta t$.
+  Let $t_k = (\Delta t)k$.  
+
+  How should we pick the time step $\Delta t$ so that the approximate
+  solutions $\Bc_k\approx \Bc(t_k)$ decay to zero as $k\to\infty$?
+
+  If you double $N$, how should $\Delta t$ be adjusted to maintain
+  the decay to zero as $k\to\infty$?
+
+  How does your analysis change if we instead use the \emph{backward Euler method}?
+
+\end{enumerate}

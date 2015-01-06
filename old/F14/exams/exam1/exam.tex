@@ -1,0 +1,31 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+
+\begin{document}
+\setboolean{showsols}{false}
+\vspace*{-5em}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+Midterm 1 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Tuesday 7 October, 2014.
+\begin{center}
+\emph{Please write your name and \textbf{residential college} on your homework.}
+\end{center}
+
+\begin{enumerate}
+\item {[25 points: 5 points each]}\\  \input ipl
+\newpage
+\item {[25 points: 5 points each]}\\  \input accuracydb
+\newpage
+\item {[25 points: 5 points each]}\\  \input periodicheat
+
+
+\end{enumerate}
+\end{document}

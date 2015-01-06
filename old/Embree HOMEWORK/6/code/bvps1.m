@@ -1,0 +1,22 @@
+
+ xx = linspace(0,1,1000)';    % fine grid between x=0 and x=1
+
+ uN = zeros(size(xx));        
+ 
+ for k=0:20
+    figure(1), clf
+    plot(xx, -exp(xx)+(exp(1)-2)*xx+2,'b-','linewidth',2), hold on
+    if k>0
+       uN = uN + 2*(1-exp(1)*(-1)^k)/(k*pi*(1+k^2*pi^2))*sin(k*pi*xx);
+    end
+    plot(xx, 1-xx+uN, 'r--','linewidth',2)
+    legend('true solution', 'approximation')
+    set(gca,'fontsize',16)
+    xlabel('x')
+    title(sprintf('approximation from first %d terms in the series', k))
+    axis([0 1 0 1.15])
+    if ismember(k,[0 1 2 20]), 
+        eval(sprintf('print -depsc2 bvps1_%d',k))
+    end
+    pause
+ end

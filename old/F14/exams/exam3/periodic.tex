@@ -1,0 +1,176 @@
+% periodic spectral BCs
+
+Consider the heat equation with initial condition $\psi(x)$ and \textit{periodic} boundary conditions
+\begin{align*}
+\pd{u}{t}{} - \pd{u}{x}{2} &= f(x,t),\quad -1 < x < 1, \quad t \geq 0\\
+u(x,0) &= \psi(x)\\
+u(-1,t) &= u(1,t)\\
+\pd{u}{x}{}(-1,t) &= \pd{u}{x}{}(1,t).
+\end{align*}
+%\begin{figure}
+%\centering
+%\includegraphics[width=.25\textwidth]{CIRCULAR_TUBE.jpg}
+%\caption{A circular bar.}
+%\end{figure}
+We will use the spectral method: assume the solution $u(x,t)$ is of the form
+\[
+u(x,t) = \frac{1}{\sqrt{2}}\alpha_0(t) + \sum_{j=1}^\infty \alpha_j(t)\sin(j\pi x) + \sum_{j=1}^\infty \beta_j(t)\cos(j\pi x).
+\]
+Note that $1/\sqrt{2}, \sin(j\pi x), \cos(j\pi x)$ are \emph{orthonormal} with respect to the inner product on $[-1,1]$
+\[
+\left(u,v\right) = \int_{-1}^1 u(x)v(x) dx,
+\]
+This means specifically that, for $j \neq k$
+\[
+\int_{-1}^1 \cos(j\pi x)\cos(k\pi x)dx = \int_{-1}^1 \cos(j\pi x)\sin(k\pi x)dx = \int_{-1}^1 \sin(j\pi x)\sin(k\pi x)dx = 0,
+\]
+\[
+\int_{-1}^1 \sin(j\pi x)dx = \int_{-1}^1 \cos(j\pi x)dx = 0,
+\]
+\[
+\int_{-1}^1 \left(\sin(j\pi x)\right)^2 dx = \int_{-1}^1 \left(\cos(j\pi x)\right)^2 dx = 1.
+\]
+%This also implies that they are all linearly independent.  
+%\vspace{10em}
+%\begin{center}
+%\emph{The rest of this problem is on the next page}
+%\end{center}
+%\newpage
+\vspace{5em}
+\begin{enumerate}
+\item Show that $\alpha_0(t), \alpha_j(t)$, and $\beta_j(t)$ satisfy initial conditions 
+\[
+\alpha_0(0) = \frac{1}{\sqrt{2}} \int_{-1}^1\psi(x) dx, \quad \alpha_j(0) = \int_{-1}^1\psi(x) \sin(j\pi x) dx, \quad \beta_j(0) = \int_{-1}^1\psi(x)\cos(j\pi x) dx.
+\]
+%\emph{Hint: use orthogonality.}
+\vspace{2em}
+\item Suppose that we can represent $f(x,t)$ as
+\[
+f(x,t) = \frac{1}{\sqrt{2}} a_0(t) + \sum_{j=1}^\infty a_j(t)\sin(j\pi x) + \sum_{j=1}^\infty b_j(t)\cos(j\pi x).
+\]
+Using the formula for $u(x,t)$, show that the coefficients $\alpha_0(t), \alpha_j(t), \beta_j(t)$ satisfy
+\begin{align*}
+\pd{\alpha_0}{t}{} &= a_0(t)\\
+\pd{\alpha_j}{t}{} + (j\pi)^2\alpha_j(t) &= a_j(t)\\
+\pd{\beta_j}{t}{} + (j\pi)^2\beta_j(t)  &= b_j(t).
+\end{align*}
+\item Assume that $f=0$, such that $a_0 = a_j = b_j = 0$ for all $j > 0$.  Give explicit expressions for $\alpha_0(t), \alpha_j(t)$, and $\beta_j(t)$ that depend only on $j$ and the initial conditions $\alpha_0(0), \alpha_j(0), \beta_j(0)$.    
+
+\vspace{2em}
+\item Assume $f = 0$.  What function will $u(x,t)$ approach as $t\rightarrow \infty$?  Be as specific as possible.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \ifthenelse{\boolean{showsols}}{
+\begin{solution}
+\begin{enumerate}
+\item The spectral solution of problem is given
+\[
+u(x,t) = \frac{1}{\sqrt{2}}\alpha_0(t) + \sum_{j=1}^\infty \alpha_j(t)\sin(j\pi x) + \sum_{j=1}^\infty \beta_j(t)\cos(j\pi x).
+\]
+then initial condition ($t=0$)
+\[
+u(x,0) =\frac{1}{\sqrt{2}}\alpha_0(0) + \sum_{j=1}^\infty \alpha_j(0)\sin(j\pi x) + \sum_{j=1}^\infty \beta_j(0)\cos(j\pi x) = \psi(x) 
+\]
+Take inner product of both side with $\frac{1}{\sqrt{2}}$
+\[
+\ip{\frac{1}{\sqrt{2}}\alpha_0(0) + \sum_{j=1}^\infty \alpha_j(0)\sin(j\pi x) + \sum_{j=1}^\infty \beta_j(0)\cos(j\pi x), \frac{1}{\sqrt{2}} } = \ip{\psi(x), \frac{1}{\sqrt{2}}} 
+\]
+which is equal
+\[
+\ip{\frac{1}{\sqrt{2}}\alpha_0(0), \frac{1}{\sqrt{2}} } = \ip{\psi(x), \frac{1}{\sqrt{2}}}, \mbox{(because of the orthonormal eigenfunctions.)} \:\:\:
+\]
+where
+ \[
+\ip{\frac{1}{\sqrt{2}}\alpha_0(0), \frac{1}{\sqrt{2}} } = \frac{1}{2}  \int_{-1}^1 \alpha_0(0)  dx = \alpha_0(0).
+\]
+ Therefore
+\[
+\alpha_0(0) =  \frac{1}{\sqrt{2}}\ip{\psi(x),1} =  \frac{1}{\sqrt{2}} \int_{-1}^1\psi(x) dx.
+\]
+
+Now, we will repeat same steps for the eigenfunction  $\sin(k\pi x)$. Take inner product of both sides with $\sin(k\pi x)$
+\[
+\ip{\frac{1}{\sqrt{2}}\alpha_0(0) + \sum_{j=1}^\infty \alpha_j(0)\sin(j\pi x) + \sum_{j=1}^\infty \beta_j(0)\cos(j\pi x), \sin(k\pi x) } = \ip{\psi(x), \sin(k\pi x)} 
+\]
+which is equal
+\[
+\ip{\sum_{j=1}^\infty \alpha_j(0)\sin(j\pi x), \sin(k\pi x) } = \ip{\psi(x), \sin(k\pi x)}, \mbox{(because of the orthonormal eigenfunctions.)} \:\:\:
+\]
+Moreover when $j \neq	k$, $\ip{\sin(j\pi x), \sin(k\pi x) } = 0$. Therefore,  we get
+\[
+\ip{\alpha_j(0)\sin(j\pi x), \sin(j\pi x) } = \ip{\psi(x), \sin(j\pi x)},
+\]
+where
+ \[
+\ip{\alpha_j(0)\sin(j\pi x), \sin(j\pi x) } = \alpha_j(0)  \int_{-1}^1 (\sin(j\pi x))^2  dx = \alpha_j(0).
+\]
+Hence
+\[
+\alpha_j(0) =  \ip{\psi(x), \sin(j\pi x)} = \int_{-1}^1\psi(x) \sin(j\pi x) dx.
+\]
+
+Similarly,  we repeat the same procedure with $\cos(j\pi x)$ and we get,
+ \[
+\ip{\beta_j(0)\cos(j\pi x), \cos(j\pi x) } = \ip{\psi(x), \cos(j\pi x)},
+\]
+which implies 
+
+\[
+\beta_j(0) =  \ip{\psi(x), \cos(j\pi x)} = \int_{-1}^1\psi(x) \cos(j\pi x) dx.
+\]
+\item We will plug the spectral solution of $u(x,t)$ into the given PDE
+\begin{align*}
+\pd{u}{t}{} - \pd{u}{x}{2} &= \pd{\left(\frac{1}{\sqrt{2}}\alpha_0(t) + \sum_{j=1}^\infty \alpha_j(t)\sin(j\pi x) + \sum_{j=1}^\infty \beta_j(t)\cos(j\pi x)\right)}{t}{} \\\\
+                           & - \pd{\left(\frac{1}{\sqrt{2}}\alpha_0(t) + \sum_{j=1}^\infty \alpha_j(t)\sin(j\pi x) + \sum_{j=1}^\infty \beta_j(t)\cos(j\pi x)\right)}{x}{2} \\
+&= \frac{1}{\sqrt{2}}\alpha'_0(t) + \sum_{j=1}^\infty \alpha'_j(t)\sin(j\pi x) + \sum_{j=1}^\infty \beta'_j(t)\cos(j\pi x) \\
+&+ \sum_{j=1}^\infty \alpha_j(t) (j\pi)^2 \sin(j\pi x) + \sum_{j=1}^\infty \beta_j(t) (j\pi)^2\cos(j\pi x) \\
+&= \frac{1}{\sqrt{2}}\alpha'_0(t) + \sum_{j=1}^\infty \left[\alpha'_j(t) + (j\pi)^2  \alpha_j(t)\right]\sin(j\pi x) + \sum_{j=1}^\infty \left[\beta'_j(t) + (j\pi)^2  \beta_j(t)\right]\cos(j\pi x)\\
+&= f(x,t) \\
+&=\frac{1}{\sqrt{2}} a_0(t) + \sum_{j=1}^\infty a_j(t)\sin(j\pi x) + \sum_{j=1}^\infty b_j(t)\cos(j\pi x)
+\end{align*}
+
+Therefore, we got
+\begin{align*}
+&\frac{1}{\sqrt{2}}\alpha'_0(t) + \sum_{j=1}^\infty \left[\alpha'_j(t) + (j\pi)^2  \alpha_j(t)\right]\sin(j\pi x) + \sum_{j=1}^\infty \left[\beta'_j(t) + (j\pi)^2  \beta_j(t)\right]\cos(j\pi x)\\
+&=\frac{1}{\sqrt{2}} a_0(t) + \sum_{j=1}^\infty a_j(t)\sin(j\pi x) + \sum_{j=1}^\infty b_j(t)\cos(j\pi x)
+\end{align*}
+Similar to part (a), taking inner product with $1/\sqrt{2}, \sin(j\pi x)$ and  $\cos(j\pi x)$, respectively we get desired result
+\begin{align*}
+\alpha'_0(t) &= a_0(t)\\
+\alpha'_j(t) + (j\pi)^2  \alpha_j(t) &= a_j(t)\\
+\beta'_j(t) + (j\pi)^2  \beta_j(t) &= b_j(t).
+\end{align*}
+
+\item When $f=0$, we have following equations with given initial conditions 
+
+\begin{align*}
+\alpha'_0(t) &= 0,  \qquad \alpha_0(0) = \frac{1}{\sqrt{2}} \int_{-1}^1\psi(x) dx\\
+\alpha'_j(t) + (j\pi)^2  \alpha_j(t) &= 0 \qquad \alpha_j(0) = \int_{-1}^1\psi(x) \sin(j\pi x) dx \\
+\beta'_j(t) + (j\pi)^2  \beta_j(t) &= 0 \qquad  \beta_j(0) = \int_{-1}^1\psi(x)\cos(j\pi x) dx.
+\end{align*}
+
+Solutions of the above system are given respectively
+
+\begin{align*}
+\alpha_0(t) &= \alpha_0(0), \\
+\alpha_j(t) &=  \alpha_j(0) e^{-(j\pi)^2 t}  \\
+\beta_j(t) &= \beta_j(0) e^{-(j\pi)^2 t}
+\end{align*}
+
+\item if $f = 0$ by part (c), we have the following spectral solution 
+\begin{align*}
+u(x,t) &= \frac{1}{\sqrt{2}}\alpha_0(t) + \sum_{j=1}^\infty \alpha_j(t)\sin(j\pi x) + \sum_{j=1}^\infty \beta_j(t)\cos(j\pi x)\\
+&=\frac{1}{\sqrt{2}}\alpha_0(0) + \sum_{j=1}^\infty  \alpha_j(0) e^{-(j\pi)^2 t} \sin(j\pi x) + \sum_{j=1}^\infty \beta_j(0) e^{-(j\pi)^2 t}\cos(j\pi x)\\
+\end{align*}
+Note that when $t\rightarrow \infty$, $e^{-(j\pi)^2 t} \rightarrow 0$. This implies our solution 
+\[
+u(x,t)\rightarrow \frac{1}{\sqrt{2}}\alpha_0(0)
+\]
+
+ 
+\end{enumerate}
+ \end{solution}
+}{}

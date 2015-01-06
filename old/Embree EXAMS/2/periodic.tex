@@ -1,0 +1,73 @@
+Consider the linear operator $L:C^2_P[-1,1] \to C[-1,1]$
+given by $Lu = -u_{xx}$,
+where $C^2_P[-1,1]$ denotes the space of functions $v\in C^2[-1,1]$
+that satisfy the \emph{periodic} boundary conditions $v(-1)=v(1)$ and $v'(-1)=v'(1)$.
+We use the inner product
+\[ (f,g) = \int_{-1}^1 f(x) g(x)\,\dop x.\]
+
+\vspace*{1em}
+\begin{enumerate}
+\item Verify that the following are eigenfunctions of $L$:
+\begin{eqnarray*}
+    \psi_{-k}(x) &=& \cos(k \pi x), \qquad {k=1,2,\ldots, }\\[.5em]
+    \psi_{0}(x) &=& 1/2 \\[.5em]
+    \psi_{k}(x) &=& \sin(k \pi x), \qquad {k=1,2,\ldots. }
+\end{eqnarray*}
+What are the corresponding eigenvalues?  
+% Be sure to handle the three cases: $\lambda_{-k}, \lambda_0, \lambda_k$.
+
+\item Show how to expand a function $u \in C^2_P[-1,1]$ 
+      in the basis of
+      eigenfunctions, that is, specify a formula for coefficient $c_j$
+      in the sum
+      \[ u(x) = \sum_{j=-\infty}^\infty c_j \psi_j(x).\]
+    
+\item Show that if $u$ is an \emph{odd function}, that is, 
+      $u(-x) = -u(x)$,
+      then $c_j = 0$ for $j\le 0$.\\
+      Show that if $u$ is an \emph{even function}, that is,
+      $u(-x) = u(x)$, then $c_j = 0$ for $j>0$.\\[.25em]
+      Hint: write $\int_{-1}^1$ as $\int_{-1}^0 + \int_0^1$.
+
+\item Any function $u$ can be written as the sum of an odd function
+      and an even function:
+      \[ u(x) = v(x) + w(x), \qquad
+         v(x) = {u(x) - u(-x)\over 2}, \quad
+         w(x) = {u(x) + u(-x)\over 2},\]
+      where $v\in C^2_P[-1,1]$ is odd 
+      and $w\in C^2_P[-1,1]$ is even.
+
+      Show that $v(0)=v(1)=0$ (i.e., $v$ satisfies homogeneous Dirichlet conditions), \\
+      while $w'(0) = w'(1) = 0$ (i.e., $w$ satisfies homogeneous Neumann conditions). 
+
+\end{enumerate}
+
+
+\vspace*{1em}
+We now wish to consider the finite element solution of the original equation
+at the beginning of this problem.
+\begin{enumerate}
+\item Derive the weak form of this equation:  
+      \[ (u_t,v) = a(u,v), \qquad \mbox{for all $v\in V$},\]
+      where
+      \[ (u_t,v) = \int_{-1}^1 u_t(x,t) v(x) \,\dop x, 
+         \qquad a(u,v) = \int_{-1}^1  u_x(x,t) v_x(x)\,\dop x. \]
+      In particular, be very clear about which of the following
+      conditions you must require of the test functions $v\in V$:
+\begin{enumerate}
+\item[(i)] $v(-1)=v(1)$;
+\item[(ii)] $v_x(-1)=v_x(1)$;
+\item[(iii)] both (i) and (ii);
+\item[(iv)]  neither (i) nor (ii).
+\end{enumerate} 
+
+\item Now we wish to impose the weak form only on a finite-dimensional
+      subpace $V_N = {\rm span}\{\phi_0, \ldots, \phi_N\}$ of $V$,
+      where $\phi_1, \ldots, \phi_N$ are the hat functions centered 
+      at the grid points $x_1, \ldots, x_N$ for $x_j = -1+2j/(N+1)$.
+      Describe a good choice for the function $\phi_0$, to be consistent 
+      with any essential condition(s) on $v\in V$ that you identified in 
+      part~(X) and allow for a nonzero solution at grid points 
+      $x_0=-1$ and $x_{N+1}=1$?
+
+\end{enumerate}

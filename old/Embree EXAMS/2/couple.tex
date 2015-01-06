@@ -1,0 +1,34 @@
+Consider two metal bars in close proximity, so that the heat radiating
+off of each bar adds energy to the other.  
+We model the heat in these bars through the coupled partial differential
+equations
+\begin{eqnarray*}
+ u_t(x,t) &=& u_{xx}(x,t) + v(x,t) \\[0.5em]
+ v_t(x,t) &=& v_{xx}(x,t) + u(x,t)
+\end{eqnarray*}
+for $x\in[0,1]$ with homogeneous Dirichlet boundary conditions for
+$u$ and $v$, and initial heat distributions $u(x,0) = u_0(x)$ and
+$v(x,0) = v_0(x)$.  [Polyanin]
+
+\vspace*{1em}
+
+\begin{enumerate}
+\item
+Show that if $w$ and $z$ satisfy the standard heat equations
+\[ w_{t}(x,t) = w_{xx}(x,t), \qquad
+   z_{t}(x,t) = z_{xx}(x,t),\]
+then
+\begin{eqnarray*}
+   u(x,t) &=& {1\over 2}\Big( e^t w(x,t) + e^{-t} z(x,t)\Big)\\[.5em]
+   v(x,t) &=& {1\over 2}\Big( e^t w(x,t) - e^{-t} z(x,t)\Big)
+\end{eqnarray*}
+are solutions to the coupled partial differential equations.
+
+\vspace*{1em}
+\item
+What initial conditions should $w$ and $z$ satisfy, in terms of
+$u_0$ and $v_0$?\\[.5em]
+What boundary conditions should $w$ and $z$ satisfy?
+\end{enumerate}
+
+

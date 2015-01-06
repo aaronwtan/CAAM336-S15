@@ -1,0 +1,51 @@
+We wish to compute best approximations to the function $f(x) = 1/\sqrt{x}$ for $x\in[0,1]$.\\
+(Don't worry about the fact that $f(x)$ blows up at $x=0$: that does not affect the problem.)
+
+First consider the vector space $V = C[0,1]$ endowed with the inner product 
+     \[ (u, v) = \int_0^1 u(x) v(x) \, dx.\]
+
+      We seek the best approximation to $f$ from the subspace
+      $W = {\rm span}\{\phi_1, \phi_2\}$, where
+      \[ \phi_1(x) = 2, \qquad \phi_2(x) = 2-6x.\]
+      We will write the best approximation to $f(x) = 1/\sqrt{x}$ in the form
+      \[ f_1(x) = c_1 \phi_1(x) + c_2 \phi_2(x).\]
+
+\begin{enumerate}
+\item  Write out Gram matrix equation $\BA \Bc = \Bb$ from which we can
+       determine the coefficients $\Bc = [c_1\ c_2]^T$ of the best approximation,
+       \emph{computing the values of all inner products in $\BA$ and $\Bb$}.
+       Hint:  Your Gram matrix should be 
+       \[ \BA = \bmatrix{ 4 & -2\cr -2 & 4}.\]
+
+\vspace*{1em}
+\item Compute the eigenvalues and eigenvectors of the matrix $\BA$ in part~(a),
+      and solve $\BA \Bc = \Bb$ for $\Bc$ using the spectral method.
+      (If you cannot solve this with the spectral method, you may compute the
+      answer by any other method for partial credit.)
+
+\vspace*{1em}
+\item Use $\Bc$ from part~(b) to write down the best approximation $f_1(x) = c_1 \phi_1(x) + c_2 \phi_2(x)$; 
+      simplify as much as possible.
+
+\vspace*{1em}
+\item Now suppose we keep the approximation subspace $W$ and inner product
+      the same, but we change our \emph{basis} for the subspace space, writing
+      $W = {\rm span}\{\psi_1, \psi_2\}$, where
+         \[ \psi_1(x) = 1, \qquad \psi_2(x) = 3-5x.\]
+      Will this change of basis affect the best approximation?  Explain.\\
+      (You \emph{do not} need to do the computation to confirm your explanation.)
+
+\vspace*{1em}
+\item Now suppose we change to the \emph{inner product}
+      \[ \langle u, v \rangle = \int_0^1 u(x)@v(x)@\sqrt{x}\, dx.\]
+      Compute the best approximation to $f(x) = 1/\sqrt{x}$ from 
+      $W = {\rm span}\{\psi_1, \psi_2\}$ with respect to this new inner product:
+      Show that $\psi_1$ and $\psi_2$ are orthogonal in this inner product,
+      set up the Gram matrix equation with this inner product and the basis $\{\psi_1, \psi_2\}$, 
+      solve it however you like, and derive the best approximation 
+     \[ f_2(x) = {45\over 16} - {35\over 16} x.\]
+
+\vspace*{1em}
+\item Compare the results of (c) and (e).  
+      Are $f_1$ and $f_2$ the same or different?  Explain.
+\end{enumerate}

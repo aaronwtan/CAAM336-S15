@@ -1,0 +1,197 @@
+%We will show that this corresponds to defining two differential equations in a piecewise fashion.  
+ 
+  \begin{enumerate}
+ \item Consider the differential equation with $k(x) > 0$
+ \begin{align*}
+-\pd{}{x}{}\left(k(x)\pd{u}{x}{}\right) &= f(x), \quad 0 < x < 1\\
+ u(0) &= 0 \\
+ k(1) u'(1) &= \beta.  
+ \end{align*}
+Derive the weak form of the above PDE
+\[
+a(u,v) = \int_0^1k(x) \pd{u}{x}{}\pd{v}{x}{}dx = \int_0^1 f(x)v(x)dx + (???), \quad \forall v\in C^2_L([0,1]).
+\]
+Give an explicit expression for $(???)$ that depends on $\beta$.  
+\item An additional advantage of solving the weak form of a differential equation is that it allows for the diffusivity $k(x)$ to be discontinuous (which can happen when two different bars are joined together).  This is not technically possible with the strong form of the equation, since $k(x)\pd{u}{x}{}$ might no longer be differentiable.  
+
+Define $k(x)$ to be the discontinuous function
+ \[
+ k(x) = \begin{cases}
+k_1 & 0 < x < \frac{1}{2}\\
+k_2 & \frac{1}{2} < x < 1,
+ \end{cases}
+ \]
+Let us define $h = 1/4$ and define the points
+ \[
+ x_1 = \frac{1}{4}, \quad x_2 = \frac{1}{2}, \quad x_3 = \frac{3}{4}, \quad x_4 = 1.
+ \]
+and span of piecewise linear hat functions $V_N = {\rm span}\{\phi_1,\phi_2,\phi_3,\phi_4\}$ where
+\[
+\phi_j(x) = \begin{cases}
+\frac{x-x_{j-1}}{h} & x_{j-1} \leq x < x_j\\
+\frac{x_{j+1}-x}{h} & x_{j} \leq x < x_{j+1}\\
+0 & {\rm otherwise}
+\end{cases}
+\]
+and
+\[
+\phi_4(x) = \begin{cases}
+\frac{x-x_3}{h} & x_{3} \leq x < 1\\
+0 & {\rm otherwise}
+\end{cases}
+\]
+
+For $k_1 = 1$, $k_2 = 2$, construct the $4\times 4$ finite element system $K\alpha = b$, where 
+\[
+K_{ij} = a(\phi_j,\phi_i), \quad b_i = (f,\phi_i), \qquad 1 \leq i,j \leq 4.
+\]
+Write out all expressions in terms of $h$ and $\beta$.  
+\vspace{2cm}
+%\item Given points 
+%\[
+%0 = x_0,x_1,\ldots x_N,x_{N+1} = 1
+%\]
+%let $V_N$ be the span of piecewise linear basis functions ${\rm span}\{\phi_1,\ldots, \phi_{N+1}\}$.  Define the matrix $M$ such that 
+%\[
+%M_{ij} = \int_0^1 \phi_j(x)\phi_i(x).  
+%\]
+%Show that, if $u(x) = \sum_{j=1}^{N+1} c_j \phi_j(x)$ and $v(x) = \sum_{j=1}^{N+1} b_j \phi_j(x)$, that
+%\[
+%b^TMc = \int_0^1 u(x)v(x)dx.
+%\]
+%\item Assume now that $f(x)$ is piecewise linear with $f(0) = 0$; then, it is exactly representable in the form 
+%\[
+%f(x) = \sum_{j=1}^{N+1} \beta_j\phi_j(x).  
+%\]
+%Derive exactly what $\beta_j$ is in terms of $f(x)$ and $x_j$, and show that, if $b_i = \int_0^1 f(x)\phi_i(x)dx$, 
+%\[
+%b = M \beta
+%\]
+%\item Using the above two parts, for $k(x) = 1$ and $f(x) = x$, write down (in terms of $h$) the explicit finite element system and load vector for $V_N = {\rm span} \{\phi_1, \ldots, \phi_{N+1}\}$.  
+
+ \begin{center}
+ \emph{Turn to next page for the rest of the problem.}
+ \end{center}
+ 
+ \newpage
+ \item  You may ask yourself: ``what does it mean for $k(x)$ to be discontinuous?''  This part aims to show that it is equivalent to solving two different differential equations that are coupled together by boundary conditions enforcing that both temperature and heat flux are continuous.  
+ 
+  Consider the two differential equations with variables $u_1(x)$, $u_2(x)$
+ \begin{align*}
+-k_1\pd{u_1}{x}{2} &= f(x), \quad 0 < x < \frac{1}{2}\\
+-k_2\pd{u_2}{x}{2} &= f(x), \quad \frac{1}{2} < x < 1.
+ \end{align*}
+ with boundary conditions 
+ \begin{align*}
+ u_1(0) &= 0\\
+k_1 u_1'\left(\frac{1}{2}\right) &= k_2u_2'\left(\frac{1}{2}\right).
+ \end{align*}
+and
+ \begin{align*}
+u_1\left(\frac{1}{2}\right) &= u_2\left(\frac{1}{2}\right)\\
+ k_2 u'_2(1) &= \beta.
+% k_2 u'_2(1) &= 0.
+ \end{align*}
+We can define two weak forms for the above problems 
+ \begin{align*}
+a_1(u_1 ,v) &= \int_0^{1/2}f(x)v(x)\\
+a_2(u_2 ,v) &= \int_{1/2}^{1}f(x)v(x) + \beta v(1).  
+ \end{align*}
+Specify what $a_1(u_1,v)$ and $a_2(u_2,v)$ are, and show that, if we define $u(x)$ piecewise
+\[
+u(x) = \begin{cases}
+u_1(x), \quad 0 < x < \frac{1}{2}\\
+u_2(x), \quad \frac{1}{2} \leq x < 1.\\
+\end{cases}
+\]
+that $a_1(u_1,v) + a_2(u_2,v) = a(u,v).$
+
+ \end{enumerate}
+ \ifthenelse{\boolean{showsols}}{
+\begin{solution}
+\begin{enumerate}
+\item To derive the weak form, we multiply by a test function $v(x)$ such that $v(0) = 0$
+\[
+\int_0^1 -\pd{}{x}{}\left(k(x)\pd{u}{x}{}\right)v(x) = \int_0^1 f(x)v(x).
+\]
+Integrating the first term by parts gives
+\[
+\int_0^1 -\pd{}{x}{}\left(k(x)\pd{u}{x}{}\right)v(x) = \left[-k(x)\pd{u}{x}{}(x)v(x)\right] + \int_0^1 k(x)\pd{u}{x}{}\pd{v}{x}{}.
+\]
+Noting that $v(0) = 0$ and $k(1)\pd{u}{x}(1) = \beta$, we can simplify the above to 
+\[
+-\beta v(1) + \int_0^1 k(x)\pd{u}{x}{}\pd{v}{x}{} = \int_0^1 f(x)v(x).
+\]
+Rearranging the unknown solution $u(x)$ on one side gives
+\[
+\int_0^1 k(x)\pd{u}{x}{}\pd{v}{x}{} = \int_0^1 f(x)v(x) + \beta v(1).
+\]
+\item To compute the finite element system, we note that
+\[
+a(u,v) = \int_0^1 k(x)\pd{u}{x}{}\pd{v}{x}{}.
+\]
+Assuming that $u, v\in {\rm span}\{\phi_1,\ldots,\phi_4\}$, the entries of the stiffness matrix are $K_{ij} = a(\phi_j,\phi_i)$.  We note that $K_{ij} = 0$ if $|i-j| > 1$, and that $K_{ij} = K_{ji}$ by symmetry.  Using the fact that $k(x) = 1$ for $x < 1/2$ and $k(x) = 2$ for $x \geq 1/2$, we can compute explicitly all entries of $K$.  
+
+For $i = 1$, $K_{ij} \neq 0$ for $j = 1,2$.  Note that $k(x) = 1$ for these integrals.  
+\[
+K_{11} = \int_0^1 k(x) \phi_1'(x)\phi_1'(x) = \int_{0}^{x_2} k_1 \frac{1}{h^2} = k_1\frac{1}{h^2}\int_0^{2h} = k_1\frac{2}{h}
+\]
+\[
+K_{21} = \int_0^1 k(x) \phi_2'(x)\phi_1'(x) = \int_{x_1}^{x_2} k_1\frac{-1}{h}\frac{1}{h} = k_1\frac{-1}{h^2}\int_{h}^{2h} = -k_1\frac{1}{h}.
+\]
+
+For $i = 2$, $K_{ij} \neq 0$ for $j = 1, 2,3$.  Here, we have to be a little more careful, since the integral goes from $x_1 = 1/4$ to $x_3 = 3/4$, and $k(x)$ has a jump over this interval.  $K_{12}=K_{21}$ by symmetry, so we only need to compute $K_{22}$ and $K_{32}$
+\begin{align*}
+K_{22} &= \int_0^1 k(x) \phi_2'(x)\phi_2'(x) = \int_{x_1}^{x_3}k(x) \frac{1}{h}\frac{1}{h} = \frac{1}{h^2}\int_{1/4}^{3/4}k(x) \\
+&= \frac{1}{h^2}\left(\int_{1/4}^{1/2} k_1 + \int_{1/2}^{3/4} k_2\right) = \left( k_1 + k_2\right)\frac{1}{h}
+\end{align*}
+\[
+K_{32} = \int_0^1 k(x) \phi_3'(x)\phi_2'(x) = \int_{x_2}^{x_3} k(x)\frac{-1}{h}\frac{1}{h} = \frac{-1}{h^2}\int_{1/2}^{3/4} k_2 = -k_2\frac{1}{h}.
+\]
+For $i = 3$, we have roughly the same case as with $i = 1$ since $k(x) = k_2$ for all the integrals in this problem.  
+\[
+K_{33} = \int_0^1 k(x) \phi_3'(x)\phi_3'(x) = \int_{x_2}^{x_4} k_2 \frac{1}{h^2} = k_2\frac{1}{h^2}\int_0^{2h} = k_2\frac{2}{h}
+\]
+\[
+K_{34} = \int_0^1 k(x) \phi_4'(x)\phi_3'(x) = \int_{x_3}^{x_4} k_2\frac{-1}{h}\frac{1}{h} = k_2\frac{-1}{h}.
+\]
+Finally, for $i = 4$, we have
+\[
+K_{44} = \int_0^1 k(x) \phi_4'(x)\phi_4'(x) = \int_{x_3}^{x_4} k_2 \frac{1}{h^2} = k_2\frac{1}{h}.
+\]
+For $b_i = (f,\phi_i) + \beta \phi_i(1)$, we have (due to the fact that $\phi_i(1) = 0$ unless $i = 4$, in which case $\phi_4(1) = 1$)
+\[
+b_i = \begin{cases}
+(f,\phi_i), & i < 4 \\
+(f,\phi_4) + \beta, & i = 4.
+\end{cases}
+\]
+\item If we multiply both equations by a test function $v(x)$ and integrate over their respective domains, we get
+ \begin{align*}
+\int_0^{1/2}-k_1\pd{u_1}{x}{2}v(x) &= \int_0^{1/2}f(x)v(x)
+\int_{1/2}^1-k_2\pd{u_2}{x}{2}v(x) &= \int_{1/2}^1f(x)v(x).
+ \end{align*}
+ Integrating by parts gives
+ \begin{align*}
+\int_0^{1/2}-k_1\pd{u_1}{x}{2}v(x) &= \left[-k_1\pd{u_1}{x}{}v(x)\right]_0^{1/2} + \int_0^{1/2}k_1 \pd{u_1}{x}{}\pd{v}{x}{}\\
+\int_0^{1/2}-k_2\pd{u_2}{x}{2}v(x) &= \left[-k_2\pd{u_2}{x}{}v(x)\right]_{1/2}^1 + \int_{1/2}^1 k_2 \pd{u_2}{x}{}\pd{v}{x}{}.
+ \end{align*}
+ Using the boundary conditions, we can reduce the above to
+  \begin{align*}
+\left[-k_1\pd{u_1}{x}{}v(x)\right]_0^{1/2} + \int_0^{1/2}k_1 \pd{u_1}{x}{}\pd{v}{x}{} &= -k_1\pd{u_1}{x}{}(1/2)v(1/2) + \int_0^{1/2}k_1 \pd{u_1}{x}{}\pd{v}{x}{}\\
+\left[-k_2\pd{u_2}{x}{}v(x)\right]_{1/2}^{1} + \int_{1/2}^1 k_2 \pd{u_2}{x}{}\pd{v}{x}{} &= -k_2\pd{u_2}{x}{}(1)v(1) + k_2\pd{u_2}{x}{}(1/2)v(1/2) + \int_{1/2}^1k_2 \pd{u_2}{x}{}\pd{v}{x}{}\\
+&= -\beta v(1) + k_2\pd{u_2}{x}{}(1/2)v(1/2) + \int_{1/2}^1k_2 \pd{u_2}{x}{}\pd{v}{x}{}.
+ \end{align*}
+We can then adding these two above equations together.  Note that the boundary terms at $x = 1/2$ cancel out due to boundary conditions
+\[
+k_2\pd{u_2}{x}{}(1/2)v(1/2) -k_1\pd{u_1}{x}{}(1/2)v(1/2) = 0.
+\]
+As a result, summing the two bilinear forms and their right hand sides together gives 
+\[
+\int_0^{1/2}k_1 \pd{u_1}{x}{}\pd{v}{x}{}  + \int_{1/2}^1k_2 \pd{u_2}{x}{}\pd{v}{x}{} -\beta v(1) = \int_0^{1/2} f(x) v(x) + \int_{1/2}^{1} f(x) v(x).
+\]
+
+ \end{enumerate}
+ \end{solution}
+}{}
+ 

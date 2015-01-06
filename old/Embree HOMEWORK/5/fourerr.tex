@@ -1,0 +1,60 @@
+Consider the operator $L_D: C^2_D[0,1]\to C[0,1]$ defined by
+\[ L_D u = -{d^2 u \over dx^2},\]
+with homogeneous Dirichlet boundary conditions imposed by the domain
+\[ C^2_D[0,1] = \{ u \in C^2[0,1] : u(0) = u(1) = 0\}.\]
+Recall that the eigenvalues of $L_D$ are
+$\lambda_n = n^2 \pi^2$ with associated normalized eigenfunctions
+ \[ \psi_n(x) = \sqrt{2} \sin(n \pi x), \qquad n=1,2,\ldots.\]
+(``Normalized'' means that these eigenfunctions each have norm equal to one, 
+$\norm{\psi_n}^2 = (\psi_n,\psi_n)=1$.)
+
+We wish to study the equation $Lu=f$ for $f(x) = 1$, a problem to be
+addressed in Lecture~14.  First consider the best approximation to
+$f$ from ${\rm span}\{\psi_1, \ldots, \psi_N\}$:
+\[ f_N = \sum_{n=1}^N {\ip{f, \psi_n}\over \ip{\psi_n,\psi_n}} \psi_n
+       = \sum_{n=1}^N c_n \psi_n.\]
+In class we shall note that $f_N(x)$ \emph{does not converge} to $f(x)$ 
+for all points $x\in[0,1]$: in particular, $f_N(0)=f_N(1)=0$ for all $N$, 
+while $f(0)=f(1)=1$.  However, we claimed in class that $f_N$ 
+\emph{does converge to $f$ in norm}, that is, 
+$\norm{f-f_N} \to 0$ as $N\to\infty$.  
+In this problem, you will justify that statement.
+
+\begin{enumerate}
+\item Use the properties of inner products, the orthogonality of the
+      eigenfunctions, the fact that $(\psi_k, \psi_k) = 1$, and
+      $\norm{f-f_N}^2 = \ip{f-f_N, f-f_N}$ to derive the general formula
+      \[ \norm{f-f_N}^2  = \norm{f}^2 - \sum_{n=1}^N c_n^2.\]
+\item For $f(x) = 1$, we computed in class that 
+      $c_n = 2\sqrt{2}/(n \pi)$ for odd $n$, and $c_n = 0$ for even $n$.
+      Use this expression for $c_n$ and your formula from part~(a) to produce 
+      a \verb|loglog| plot of the error $\norm{f-f_N}$ versus $N$ for 
+      all integers $N = 1, \ldots, 10^4$.  (Optional: take $N=1,\ldots, 10^6$.
+      You will need to write efficient MATLAB code for this to run quickly.)
+\item For $f(x) = 1$, the equation $Lu = f$ has the exact solution $u(x) = x(1-x)/2$.
+      Confirm that the spectral method approximation
+      \[ u_N = \sum_{n=1}^N {c_n \over \lambda_n} \psi_n\] 
+      provides the best approximation to $u$ from the
+      subspace ${\rm span}\{\psi_1, \ldots, \psi_N\}$.  To do this, simply show that
+      the coefficient of $\psi_n$ you would get for the best approximation of $u$ 
+      (which requires knowledge of $u$) matches the coefficient produced by the 
+      spectral method (which did not require knowledge of $u$) for this particular 
+      $f$ and $u$:
+          \[ {\ip{u, \psi_n} \over \ip{\psi_n,\psi_n}} = {c_n \over \lambda_n},\]
+      where $c_n$ comes from the best approximation to $f$ given in part~(b).
+
+\item Given the result of part~(c), the same argument used in part~(a) tells us that 
+      \[ \norm{u - u_N}^{2} = \norm{u}^2 - \sum_{n=1}^N {c_n^2 \over \lambda_n^2}.\]
+      (You do not need to show this explicitly.)  Use this formula to produce a 
+      \verb|loglog| plot of the error $\norm{u-u_N}$ for $N=1,\ldots, 10^4$ 
+      (or $N=1,\ldots, 10^6$) on the same plot you made in part~(b).  
+      (Be aware that the error may appear to flatline 
+      around $10^{-8}$: this is a consequence of the computer's floating point
+      arithmetic, and is not a concern of ours here.  To learn more about this
+      phenomenon, take CAAM~353 or CAAM 453!)
+ 
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input fourerr_sol}{}

@@ -1,0 +1,75 @@
+
+Let
+\[
+\Omega=\left\{(x,y):\,0\le x\le 1,\,0\le y\le 1\right\}
+\]
+and let $f\in  C(\Omega)$ be defined by $f(x,y) = x(1-y)$. In this question we will consider the problem of finding the solution $u(x,y)$ to the steady-state heat equation
+\[ 
+-(u_{xx}(x,y) +u_{yy}(x,y)) = f(x,y), \qquad 0\le x \le 1, \quad 0\le y\le 1,
+\]
+with homogeneous Dirichlet boundary conditions
+\[
+u(x,0)=u(x,1)=u(0,y)=u(1,y)=0, \qquad 0\le x \le 1, \quad 0\le y\le 1.
+\]
+Let
+\[
+C^2_D(\Omega)=\left\{v\in C^2(\Omega):\,v(x,0)=v(x,1)=v(0,y)=v(1,y)=0,\,0\le x\le 1,\,0\le y\le 1\right\}.
+\]
+Let the linear operator $L:\,C^2_D(\Omega)\rightarrow C(\Omega)$ be defined by
+\[
+\left(L v\right)(x,y) = -\left(v_{xx}(x,y) + v_{yy}(x,y)\right).
+\]
+Let the inner product $\ip{\cdot,\cdot}:\,C(\Omega)\times C(\Omega)\rightarrow \R$ be defined by
+\[
+\ip{v,w} =\int_0^1 \int_0^1 v(x,y) w(x,y) \, dx\,dy.
+\]
+\\
+\begin{enumerate}
+\item Show that $L$ is symmetric by showing that
+\[
+\ip{Lv,w}=\ip{v,Lw}\mbox{ for all }v,w\in C^2_D(\Omega).
+\]
+\\
+\item The operator $L$ has eigenvalues $\lambda_{j,k}\in\R$ and eigenfunctions
+\[
+\psi_{j,k}(x,y) = 2 \sin(j \pi x) \sin(k \pi y)
+\]
+for $j,k = 1,2,\ldots$, which are such that
+\[
+L\psi_{j,k}=\lambda_{j,k}\psi_{j,k}
+\]
+for $j,k = 1,2,\ldots$. Obtain a formula for $\lambda_{j,k}$ for $j,k = 1,2,\ldots$.
+\\
+\item Let
+\[
+C^2_D[0,1]=\left\{v\in C^2[0,1]:\,v(0)=v(1)=0\right\}
+\]
+and let the linear operator $L_1:\,C^2_D[0,1]\rightarrow C[0,1]$ be defined by
+\[
+L_1w = -w''.
+\]
+Use what you know about the eigenfunctions of $L_1$ to compute $\ip{\psi_{j,k},\psi_{m,n}}$ for $j,k,m,n = 1,2,\ldots$.
+\\
+\item The solution to $Lu=f$ that we obtain using the spectral method is
+\[
+u(x,y) = \sum_{j=1}^\infty \sum_{k=1}^\infty{1\over \lambda_{j,k}} {(f,\psi_{j,k}) \over (\psi_{j,k},\psi_{j,k})}\, \psi_{j,k}(x,y).
+\]
+Plot
+\[
+u_N(x,y)= \sum_{j=1}^N \sum_{k=1}^N{1\over \lambda_{j,k}} {(f,\psi_{j,k}) \over (\psi_{j,k},\psi_{j,k})}\, \psi_{j,k}(x,y)
+\]
+for $N=1,2,3,4,5,10$. Note that, for $j,k = 1,2,\ldots$,
+\[
+\ip{f, \psi_{j,k}}=2{(-1)^{j+1} \over jk\pi^2}.
+\]
+Also note that to plot $\psi_{1,1}(x,y) = 2 \sin(\pi x)\sin(\pi y)$ you could use
+
+\lstinputlisting{hint.m}
+
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input twoD_sol}{}
+

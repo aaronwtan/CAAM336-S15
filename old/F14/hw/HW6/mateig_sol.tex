@@ -1,0 +1,142 @@
+\begin{solution}
+\begin{enumerate}
+\item {[14 points]} Since,
+\[
+\lambda\BI-\BD=\left[\begin{array}{cc}\lambda-4 & -1\\-1 & \lambda-4\end{array}\right]
+\]
+we have that
+\[
+\det\left(\lambda\BI-\BD\right)=\left(\lambda-4\right)^2-1=\lambda^2-8\lambda+15=\left(\lambda-3\right)\left(\lambda-5\right)
+\]
+and so
+\[
+\det\left(\lambda\BI-\BD\right)=0
+\]
+when $\lambda=3$ or $\lambda=5$. Hence, the eigenvalues of $\BD$ are
+\[
+\lambda_1=3
+\]
+and
+\[
+\lambda_2=5.
+\]
+
+Moreover,
+\[
+\left(\lambda_1\BI-\BD\right)\left[\begin{array}{c}f_1 \\ f_2\end{array}\right]=\left[\begin{array}{cc}-1 & -1\\-1 & -1\end{array}\right]\left[\begin{array}{c}f_1 \\ f_2\end{array}\right]=\left[\begin{array}{c}-f_1-f_2 \\ -f_1-f_2\end{array}\right]
+\]
+and so to make this vector zero we need to set $f_2=-f_1$. Hence, any vector of the form
+\[
+\left[\begin{array}{c}f_1 \\ -f_1\end{array}\right]
+\]
+where $f_1$ is a nonzero constant is an eigenvector of $\BD$ corresponding to the eigenvalue $\lambda_1$. Let us choose
+\[
+\Bv_1=\left[\begin{array}{c}1 \\ -1\end{array}\right].
+\]
+
+Furthermore,
+\[
+\left(\lambda_2\BI-\BD\right)\left[\begin{array}{c}d_1 \\ d_2\end{array}\right]=\left[\begin{array}{cc}1 & -1\\-1 & 1\end{array}\right]\left[\begin{array}{c}d_1 \\ d_2\end{array}\right]=\left[\begin{array}{c}d_1-d_2 \\ -d_1+d_2\end{array}\right]
+\]
+and so to make this vector zero we need to set $d_2=d_1$. Hence, any vector of the form
+\[
+\left[\begin{array}{c}d_1 \\ d_1\end{array}\right]
+\]
+where $d_1$ is a nonzero constant is an eigenvector of $\BD$ corresponding to the eigenvalue $\lambda_2$. Let us choose
+\[
+\Bv_2=\left[\begin{array}{c}1 \\ 1\end{array}\right].
+\]
+
+Since $\BD=\BD^T$, $\BD\Bv_1=\lambda_1\Bv_1$, $\BD\Bv_2=\lambda_2\Bv_2$ and $\lambda_1\ne\lambda_2$, $\Bv_1\cdot\Bv_2=0$. Now,
+\[
+\Bg\cdot\Bv_1=2-3=-1,
+\]
+\[
+\Bv_1\cdot\Bv_1=1^2+(-1)^2=1+1=2,
+\]
+\[
+\Bg\cdot\Bv_2=2+3=5,
+\]
+and
+\[
+\Bv_2\cdot\Bv_2=1^2+1^2=1+1=2.
+\]
+The spectral method then yields that
+\begin{eqnarray*}
+\Bc&=&{1\over\lambda_1}{\Bg\cdot\Bv_1\over\Bv_1\cdot\Bv_1}\Bv_1+{1\over\lambda_2}{\Bg\cdot\Bv_2\over\Bv_2\cdot\Bv_2}\Bv_2
+\\
+&=&{1\over3}{-1\over2}\left[\begin{array}{c}1 \\ -1\end{array}\right]+{1\over5}{5\over2}\left[\begin{array}{c}1 \\ 1\end{array}\right]
+\\
+&=&\left[\begin{array}{c}-{1\over6} \\ {1\over6}\end{array}\right]+\left[\begin{array}{c}{1\over2} \\ {1\over2}\end{array}\right]
+\\
+&=&\left[\begin{array}{c}-{1\over6}+{3\over6} \\ {1\over6}+{3\over6}\end{array}\right]
+\\
+&=&\left[\begin{array}{c}{2\over6} \\ {4\over6}\end{array}\right]
+\\
+&=&\left[\begin{array}{c}{1\over3} \\ {2\over3}\end{array}\right].
+\end{eqnarray*}
+\\
+\item {[14 points]} For this matrix $\BA$ we have
+\[ \lambda\BI - \BA = \left[\begin{array}{ccc}\lambda-3 & 0 & 0 \\ 0 & \lambda & 1 \\ 0 & 1 & \lambda\end{array}\right],\]
+and hence the characteristic polynomial is 
+\[ \det(\lambda\BI - \BA) = (\lambda-3)(\lambda^2 - 1) = (\lambda-3)(\lambda-1)(\lambda+1).\]
+The eigenvalues of $\BA$ are the roots of the characteristic polynomial, which we label
+\[ \lambda_1 = -1, \qquad
+   \lambda_2 = 1, \qquad
+   \lambda_3 = 3.\]
+
+To compute the eigenvectors associated with the eigenvalue $\lambda_1=-1$, we seek $\Bu = (u_1, u_2, u_3)^T$ that makes the following vector zero:
+\[ (\lambda_1 \BI-\BA) \Bu = \left[\begin{array}{ccc}-4 & 0 & 0 \\ 0 & -1 & 1 \\ 0 & 1 & -1\end{array}\right]
+                             \left[\begin{array}{c}u_1 \\ u_2\\ u_3\end{array}\right]
+                           = \left[\begin{array}{c}-4u_1 \\ -u_2+u_3 \\ u_2-u_3\end{array}\right].\]
+To make this vector zero we need to set $u_1 = 0$ and $u_3 = u_2$.
+Thus any vector of the form
+\[ \left[\begin{array}{c}0 \\ u_2 \\ u_2\end{array}\right], \quad u_2 \ne 0\]
+is an eigenvector associated with the eigenvalue $\lambda_1=-1$.
+
+To compute the eigenvectors associated with the eigenvalue $\lambda_2=1$ we now seek $\Bu = (u_1, u_2, u_3)^T$ that makes the following vector zero:
+\[ (\lambda_2 \BI-\BA) \Bu = \left[\begin{array}{ccc}-2& 0 & 0 \\ 0 & 1 & 1 \\ 0 & 1 & 1\end{array}\right]
+                             \left[\begin{array}{c}u_1 \\ u_2\\ u_3\end{array}\right]
+                           = \left[\begin{array}{c}-2u_1 \\ u_2+u_3 \\ u_3+u_2\end{array}\right].\]
+To make this vector zero we need to set $u_1 = 0$ and $u_3 = -u_2$.
+Thus any vector of the form
+\[ \left[\begin{array}{c}0 \\ u_2 \\ -u_2\end{array}\right], \quad u_2 \ne 0\]
+is an eigenvector associated with the eigenvalue $\lambda_2=1$.
+
+To compute the eigenvectors associated with the eigenvalue $\lambda_3=3$ we now seek $\Bu = (u_1, u_2, u_3)^T$ that makes the following vector zero:
+\[ (\lambda_3 \BI-\BA) \Bu = \left[\begin{array}{ccc}0& 0 & 0 \\ 0 & 3 & 1 \\ 0 & 1 & 3\end{array}\right]
+                             \left[\begin{array}{c}u_1 \\ u_2\\ u_3\end{array}\right]
+                           = \left[\begin{array}{c}0 \\ 3u_2+u_3 \\ u_2+3u_3\end{array}\right].\]
+To make the second component zero we need $u_2 = -u_3/3$, while to make
+the third component zero we need $u_3 = -u_2/3$.  The only way to accomplish
+both is to set $u_2=u_3=0$.  Thus any vector of the form
+\[ \left[\begin{array}{c}u_1 \\ 0 \\ 0\end{array}\right], \quad u_1 \ne 0\]
+is an eigenvector associated with the eigenvalue $\lambda_3=3$.
+
+We choose the eigenvectors
+\[ \Bu_1 = {1\over \sqrt{2}} \left[\begin{array}{c}0 \\ 1 \\ 1\end{array}\right],\]
+\[ \Bu_2 = {1\over \sqrt{2}} \left[\begin{array}{c}0 \\ 1 \\ -1\end{array}\right],\]
+and
+\[ \Bu_3 = \left[\begin{array}{c}1 \\ 0 \\ 0\end{array}\right].\]
+We can compute that
+
+      \[ \Bu_1^T \Bu_2 = \Bu_2^T\Bu_1 = 0\cdot0 + (1/\sqrt{2})\cdot (1/\sqrt{2}) + (1/\sqrt{2})\cdot (-1/\sqrt{2}) = 0,\]
+      \[ \Bu_1^T \Bu_3 = \Bu_3^T\Bu_1 = 0\cdot1 + (1/\sqrt{2})\cdot 0 + (1/\sqrt{2})\cdot 0 = 0,\]
+and
+      \[ \Bu_2^T \Bu_3 = \Bu_3^T\Bu_2 = 0\cdot1 + (1/\sqrt{2})\cdot 0 + (-1/\sqrt{2})\cdot 0 = 0.\]
+
+Now, for $j=1,2,3$, $\BA\Bu_j=\lambda_j\Bu_j$ and $\Bu_j^T \Bu_j=1$. Since $\BA=\BA^T$, the spectral method then yields that
+         \[ \Bx = \sum_{j=1}^3 {1 \over \lambda_j} {\Bu_j^T\Bb \over \Bu_j^T \Bu_j} \Bu_j = \sum_{j=1}^3 {\Bu_j^T\Bb \over \lambda_j} \Bu_j.\]
+      We can compute that
+          \[ \Bu_1^T\Bb = 0\cdot 2 + (1/\sqrt{2}) \cdot (-1) + (1/\sqrt{2}) \cdot 3 = \sqrt{2}, \]
+          \[ \Bu_2^T\Bb = 0\cdot 2 + (1/\sqrt{2}) \cdot (-1) + (-1/\sqrt{2}) \cdot 3 = -2\sqrt{2}, \]
+and
+          \[ \Bu_3^T\Bb = 1\cdot 2 + 0 \cdot (-1) + 0 \cdot 3 = 2, \]
+and hence
+\[ \Bx =   {\sqrt{2} \over -1} \left[\begin{array}{c} 0 \\ 1/\sqrt{2} \\ 1/\sqrt{2}\end{array}\right]
+         + {-2\sqrt{2} \over 1} \left[\begin{array}{c}0 \\ 1/\sqrt{2} \\ -1/\sqrt{2}\end{array}\right]
+         + {2 \over 3} \left[\begin{array}{c}1 \\ 0 \\ 0\end{array}\right]
+       =   \left[\begin{array}{c}2/3 \\ -3\\ 1\end{array}\right].\]
+We can multiply $\BA\Bx$ out to verify that the desired $\Bb$ is obtained.
+\end{enumerate} 
+\end{solution}

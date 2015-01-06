@@ -1,0 +1,17 @@
+Heat equation - based on a question from Jonathan Zev
+
+Suppose u_0(x) = x(1-x).
+Then u_xx(x,0) = -2.
+So u_t(x,0) = -2.
+But this cannot be true at x=0 and x=1, since
+u(0,t) = u(1,t) = 0 is constant.
+
+What gives?  Explore for an example.
+
+-------------
+
+CFL condition for fourth order equation...
+
+What is the timestep restriction if you want
+to ensure that the solution is positive, for the heat eqn?
+

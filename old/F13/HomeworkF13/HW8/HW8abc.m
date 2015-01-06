@@ -1,0 +1,28 @@
+u = inline('exp(2*x)');
+uprime = inline('2*exp(2*x)');
+Nvec = 2.^(1:9).';
+err = zeros(size(Nvec));
+x = 1/2;
+fprintf('\n part (a)\n')
+for k=1:length(Nvec)
+    N = Nvec(k);
+    h = 1/(N+1);
+    deriv = (u(x+h)-u(x))/h;
+    err(k) = abs(uprime(x)-deriv);
+    fprintf(' %3d %10.7f\n', N, err(k));
+end
+loglog(Nvec,err,'k.-','linewidth',2,'markersize',20)
+fprintf('\n part (b)\n')
+for k=1:length(Nvec)
+    N = Nvec(k);
+    h = 1/(N+1);
+    deriv = (u(x+h)-u(x-h))/(2*h);
+    err(k) = abs(uprime(x)-deriv);
+    fprintf(' %3d %10.7f\n', N, err(k));
+end
+hold on
+loglog(Nvec,err,'r--','linewidth',2,'marker','.','markersize',20)
+set(gca,'fontsize',14)
+xlabel('N', 'fontsize',14)
+legend('errors from part (a)','errors from part (b)',3)
+print -depsc2 findiff.eps

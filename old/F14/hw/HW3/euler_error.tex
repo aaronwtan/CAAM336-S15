@@ -1,0 +1,53 @@
+
+This problem will aim to show how the error in Forwards/Backwards Euler methods grows over time.  
+
+Consider the time-dependent heat equation
+\begin{align*}
+\pd{u}{t}{}-\kappa\pd{u}{x}{2} &= 0, \quad x\in (0,1)\\
+u(0,t) &= u_0\\
+u(1,t) &= u_1\\
+u(x,0) &= \sin(\pi x).
+\end{align*}
+
+\begin{enumerate}
+\item Determine the constant $\alpha$ such that
+\[
+u(x,t) = e^{\alpha t}\sin(\pi x)
+\]
+is a solution to the time-dependent heat equation with the above initial and boundary conditions.  % \alpha = -\kappa\pi^2
+\item Let us discretize using finite differences in space, but not in time.  In other words, we will specify grid points $x_i$, and let
+\[
+\pd{u(x_i,t)}{x}{2} \approx \frac{u_{i+1}(t) - 2u_i(t) + u_{i-1}(t)}{h^2}.
+\]
+Substituting this into the heat equation gives, for $\vec{u}_i(t) = u_i(t)$,
+\[
+\frac{d \vec{u}(t)}{dt} + A\vec{u}(t) = 0
+\]
+where
+\[
+A = {\kappa\over h^2} \left[\begin{array}{rrrrr}
+              2 & -1 \\[0.25em]
+               -1 & 2 & -1 \\
+                 &  -1  & 2 & \ddots \\
+                 & & \ddots & \ddots & -1 \\[0.25em]
+                 & & & -1 & 2 
+               \end{array}\right]
+\]
+In other words, by \emph{discretizing in space but not in time}, we end up with a system of ODEs.  From CAAM 335/Math 211, the exact solution to this system of ODEs can be written as
+\[
+\vec{u}(t) = e^{-At}.
+\]
+This can be computed in \textsc{Matlab} using the command \verb+expm(-A*t)+.
+\item d
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input solve_sol}{
+%Rewrite the finite difference approximation at point $x_N$ as
+%\[
+%\frac{u(x_{N-1}) - 2u(x_N) + u(x_{N+1})}{h^2} = \frac{u(x_{N-1}) - u(x_N)}{h^2} + \frac{u(x_{N+1})-u(x_N)}{h^2}.
+%\]
+}
+

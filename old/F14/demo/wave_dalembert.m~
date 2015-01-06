@@ -1,0 +1,23 @@
+x = linspace(-10,10,1000);
+
+c = 1; % wave speed
+u0 = @(x) exp(-x.^2); % Gaussian initial distribution
+% u0 = @(x) (x > -.5) & (x < .5); % discontinuous initial condition
+
+tVec = 0:.1:5;
+uMat = [];
+for t = tVec
+    u = .5*u0(x - c*t) + .5*u0(x + c*t);
+    
+    plot(x,u)
+    axis([-10 10 0 1])    
+    drawnow
+    
+    uMat = [uMat; u];
+%     plot3(x,t*ones(size(x)),.5*u0(x - c*t) + .5*u0(x + c*t));hold on
+%     drawnow
+    
+end
+
+surf(x,tVec,uMat)
+shading interp

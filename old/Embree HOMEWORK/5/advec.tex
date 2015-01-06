@@ -1,0 +1,31 @@
+
+Many fluid dynamics problems lead to 
+\emph{advection--diffusion} equations, the 
+simplest example of which is
+\[ u''(x) + c u'(x) = f(x),\]
+for $x\in[0,1]$ with $u(0)=u(1) = 0$.
+(The $u''$ term describes diffusion of a fluid;
+the constant $c$ describes the strength with which
+the fluid advects across the domain through the $cu'$ term.)
+
+\vspace*{1em}
+Define the linear operator $L: C^2_D[0,1] \to C[0,1]$ by $L u = u'' + c u'$.
+
+\vspace*{1em}
+Determine all the eigenvalues and eigenfunctions of $L$.\\
+Are the eigenfunctions orthogonal?  Explain.
+
+\ifthenelse{\boolean{showsols}}{
+\begin{solution}
+The eigenvalues are 
+\[ \lambda_n = {-{c^2\over 4} - n^2 \pi^2}, \quad n = 1, 2, \ldots\]
+with corresponding eigenfunctions
+ \[ \psi_n(x) = e^{-cx/2} \sin(n \pi x), \qquad n=1,2,\ldots.\]
+If $c\ne 0$, then these eigenfunctions are not orthogonal
+(and the operator is not symmetric). 
+
+To receive credit, students must show how they derived these eigenvalues and eigenfunctions.
+
+\textbf{GRADERS}: please let me know those students who got this bonus problem correct.
+\end{solution} }{}
+

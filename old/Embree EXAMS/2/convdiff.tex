@@ -1,0 +1,49 @@
+The challenge problem on Problem Set~5 introduced the 
+steady-state \emph{convection--diffusion} equation, which arises often
+in fluid dynamics.  Here we shall consider the time dependent version,
+$$ u_t(x,t) = u_{xx}(x,t) + c@u_x(x,t) \eqno{(*)} $$
+for $x\in[0,1]$ and $t\ge 0$ with
+constant parameter $c$, boundary conditions $u(0,t)=u(1,t)=0$,
+and initial condition $u(x,0) = u_0(x)$.
+
+\begin{enumerate}
+\item  The $c@u_x$ term prevents us from tackling this problem directly
+       using the spectral method.  Instead, write $u(x,t)$ in the form
+       \[ u(x,t) = e^{-cx/2} w(x,t).\]
+      
+       Show that $w$ satisfies the equation
+       $$ w_t(x,t) = w_{xx}(x,t) - {c^2\over 4} w(x,t). \eqno{(**)} $$
+
+       Specify the correct initial and boundary conditions for $w$.
+
+\vspace*{1em}
+\item  We now seek a series solution for $w$.
+
+       Write the equation~$(**)$  in the form $w_t = - L w$. 
+       Clearly define the operator $L$.
+    
+       The eigenfunctions of your $L$ should be the familiar $\psi_k(x) = \sqrt{2} \sin(k \pi x)$.\\
+       Use these to compute the eigenvalues of $L$.
+       Write down a full series solution for $w$,\\
+       and from this write down a series solution for $u$.
+
+\vspace*{1em}
+\item  We now wish to solve the problem~$(*)$ with inhomogeneous Dirichlet 
+       boundary conditions,
+       $u(0,t) = \alpha$ and $u(1,t) = \beta e^{-c/2}$.
+
+\smallskip
+       As before, we will write $u(x,t) = e^{-cx/2}w(x,t)$, where now
+       $w$ satisfies the inhomogeneous Dirichlet conditions
+       $w(0,t) = \alpha$ and $w(1,t) = \beta$.
+
+\smallskip
+       Explain how to find the solution in the form $w(x,t) = \widehat{w}(x,t)+g(x)$,
+       where $\widehat{w}$ satisfies homogeneous Dirichlet boundary
+       conditions and solves the problem
+       $\widehat{w}_t = - L \widehat{w} + f$.  
+       Specify $f$, $g$, and the initial condition 
+       $\widehat{w}_0(x) = \widehat{w}(x,0)$. 
+       \emph{You do not need to solve for $\widehat{w}$.} 
+
+\end{enumerate}

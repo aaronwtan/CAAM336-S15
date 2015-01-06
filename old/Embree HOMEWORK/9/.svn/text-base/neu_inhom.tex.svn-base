@@ -1,0 +1,68 @@
+Describe how to solve the heat equation
+\[ u_t(x,t) = u_{xx}(x,t) + f(x,t), \qquad 0<x<1, \quad t\ge 0 \]
+with \emph{inhomogeneous} Neumann boundary conditions
+\[ u_x(0,t) = \alpha, \qquad u_x(1,t) = \beta\]
+and initial condition $u(x,0) = u_0(x)$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+\def\uhat{\widehat{u}}
+\def\fhat{\widehat{f}}
+We shall attempt to write the solution $u(x)$ in the form
+\[ u(x,t) = \uhat(x,t) + v(x),\]
+where $v(x)$ is some function that we shall construct 
+that satisfies the boundary conditions
+\[ v'(0) = \alpha, \qquad
+   v'(1) = \beta,\]
+and $\uhat(x,t)$ is some function we shall determine by 
+solving the heat equation with homogeneous Neumann boundary conditions:
+\[ \uhat_x(0,t) = 0, \qquad
+   \uhat_x(1,t) = 0.\]
+
+There are various ways to arrive at the function $v(x)$.
+Some students noticed that since we know $v'(x)$ at two points,
+we can define $v'(x)$ to be the line that passes through $(0,\alpha)$ and $(1,\beta)$, i.e.,
+\[ v'(x) = \alpha + (\beta-\alpha)x.\]
+Integrate this polynomial to get
+\[ v(x) = \alpha x + {\textstyle{1\over2}}(\beta-\alpha)x^2 +C\]
+for any constant $C$.  Taking $C=0$ gives the cleanest form:
+\[ v(x) = \alpha x + {\textstyle{1\over2}}(\beta-\alpha)x^2.\]
+Given this formula for $v(x)$, we must determine the constraints on $\uhat(x,t)$.
+Since $u(x,t) = \uhat(x,t) + v(x)$ is to solve the differential equation $u_t = u_{xx}+f$,
+we consider:
+\[ u_t(x,t) = \uhat_t(x,t) + v_t(x) = \uhat_t(x,t),\]
+since $v(x)$ is independent of $t$, and
+\begin{eqnarray*} 
+    u_{xx}(x,t) + f(x,t) &=& \uhat_{xx}(x,t) + v_{xx}(x) + f(x,t) \\
+                         &=& \uhat_{xx}(x,t) + (\beta-\alpha) + f(x,t) \\
+                         &=& \uhat_{xx}(x,t) + \fhat(x,t),
+\end{eqnarray*}
+where we have defined
+\[ \fhat(x,t) = \beta - \alpha + f(x,t).\]
+Equating the expressions for $u_t$ and $u_{xx}+f$, we arrive at the partial differential equation
+\[ \uhat_t(x,t) = \uhat_{xx}(x,t) + \fhat(x,t).\]
+To fully specify this PDE, we must determine the boundary conditions and initial condition.
+At the boundaries, we want
+\begin{eqnarray*}
+    \alpha &=& u_x(0,t) = \uhat_x(0,t) + v_x(0) = \uhat_x(0,t) + \alpha \\[0.5em]
+    \beta  &=& u_x(1,t) = \uhat_x(1,t) + v_x(1) = \uhat_x(1,t) + \beta,
+\end{eqnarray*}
+so we conclude that
+\[ \uhat_x(0,t) = \uhat_x(1,t) = 0,\]
+as we were intending (since we already know how to solve equations 
+with \emph{homogeneous} Neumann conditions). 
+
+What can be said of the initial condition? We want
+\[ u_0(x) = u(x,0) = \uhat(x,0) + v(x),\]
+and so we arrive at the initial condition that $\uhat$ must satisfy:
+\[ \uhat(x,0) = u_0(x)-v(x).\]
+
+[GRADERS: A complete solutions must specify four essential ingredients:
+(i) the function $v$; (ii) the PDE for $\uhat$ with the correct $\fhat$ term;
+(iii) the boundary conditions for $\uhat$; (iv) the correct shifted initial
+conditions for $\uhat$.  Deduct 5~points each for any of these ingredients
+that are missing.  Note that other corrections are also possible: the correct
+answer is not unique.  Please grade carefully!]
+\end{solution}}{}
+

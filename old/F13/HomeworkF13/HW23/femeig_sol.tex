@@ -1,0 +1,87 @@
+\begin{solution}
+\begin{enumerate}
+\item  {[5 points]} For $k=0,\ldots,N$, when $x\in[x_k,x_{k+1}]$,
+\[
+\sum_{j=0}^{N+1}\phi_j(x)=\phi_k(x)+\phi_{k+1}(x)={x_{k+1}-x \over h}+{x-x_k \over h}={x_{k+1}-x+x-x_k \over h}={x_{k+1}-x_k \over h}={h \over h}=1.
+\]
+Therefore $w(x)=1$ for all $x\in[0,1]$.
+
+
+
+\item {[5 points]} The function $w$ from part (a) is such that $w\in V_N$ and $w(x)=1$ for all $x\in[0,1]$. However, $\ip{w,w}=0$. Hence, the inner product is not positive-definite as there are nonzero $u\in V_N$ for which $\ip{u,u}=0$.
+
+\item {[3 points]} We have that
+\[
+\left[\begin{array}{ccc}2 & -2 & 0 \\ -2 & 4 & -2 \\ 0 & -2 & 2\end{array}\right]\left[\begin{array}{c}1 \\ 1 \\ 1\end{array}\right]=\left[\begin{array}{c}0 \\ 0 \\ 0\end{array}\right]=0\left[\begin{array}{c}1 \\ 1 \\ 1\end{array}\right];
+\]
+\[
+\left[\begin{array}{ccc}2 & -2 & 0 \\ -2 & 4 & -2 \\ 0 & -2 & 2\end{array}\right]\left[\begin{array}{c}1 \\ 0 \\ -1\end{array}\right]=\left[\begin{array}{c}2 \\ 0 \\ -2\end{array}\right]=2\left[\begin{array}{c}1 \\ 0 \\ -1\end{array}\right]
+\]
+and
+\[
+\left[\begin{array}{ccc}2 & -2 & 0 \\ -2 & 4 & -2 \\ 0 & -2 & 2\end{array}\right]\left[\begin{array}{c}1 \\ -2 \\ 1\end{array}\right]=\left[\begin{array}{c}6 \\ -12 \\ 6\end{array}\right]=6\left[\begin{array}{c}1 \\ -2 \\ 1\end{array}\right].
+\]
+So, $0$ is the eigenvalue corresponding to the eigenvector $\left[\begin{array}{c}1 \\ 1 \\ 1\end{array}\right]$, $2$ is the eigenvalue corresponding to the eigenvector $\left[\begin{array}{c}1 \\ 0 \\ -1\end{array}\right]$ and $6$ is the eigenvalue corresponding to the eigenvector $\left[\begin{array}{c}1 \\ -2 \\ 1\end{array}\right]$.
+
+
+
+\item {[7 points]} Since a $3\times3$ matrix can only have three eigenvalues, the eigenvalues of $K$ are $0$, $2$ and $6$. Since only one of these is zero and $\left[\begin{array}{c}1 \\ 1 \\ 1\end{array}\right]$ is an eigenvector corresponding to the eigenvalue $0$, then, since $\BK=\BK^T$, there will only exist solutions to $\BK\Bc=\Bf$ if
+\[
+\Bf\cdot\left[\begin{array}{c}1 \\ 1 \\ 1\end{array}\right]=0.
+\]
+Now,
+\[
+\left[\begin{array}{c}2 \\ 2 \\ 2\end{array}\right]\cdot\left[\begin{array}{c}1 \\ 1 \\ 1\end{array}\right]=2+2+2=6\ne0
+\]
+and so there exist no solutions to $\BK\Bc=\Bf$ when $\Bf=\left[\begin{array}{c}2 \\ 2 \\ 2\end{array}\right]$.
+However,
+\[
+\left[\begin{array}{c}2 \\ -3 \\ 1\end{array}\right]\cdot\left[\begin{array}{c}1 \\ 1 \\ 1\end{array}\right]=2-3+1=0
+\]
+and so there are infinitely many solutions to $\BK\Bc=\Bf$ when $\Bf=\left[\begin{array}{c}2 \\ -3 \\ 1\end{array}\right]$ and since $\BK=\BK^T$ we can use the spectral method to obtain these solutions.
+
+Henceforth, let $\Bv_1=\left[\begin{array}{c}1 \\ 1 \\ 1\end{array}\right]$, $\Bv_2=\left[\begin{array}{c}1 \\ 0 \\ -1\end{array}\right]$, $\Bv_3=\left[\begin{array}{c}1 \\ -2 \\ 1\end{array}\right]$ and $\Bf=\left[\begin{array}{c}2 \\ -3 \\ 1\end{array}\right]$. Then, for any $\alpha\in\R$,
+\[
+\Bc={1 \over 2}{\Bf\cdot\Bv_2 \over \Bv_2\cdot\Bv_2}\Bv_2+{1 \over 6}{\Bf\cdot\Bv_3 \over \Bv_3\cdot\Bv_3}\Bv_3+\alpha\Bv_1
+\]
+is a solution to $\BK\Bc=\Bf$. Now, $\Bf\cdot\Bv_2=1$ and $\Bf\cdot\Bv_3=9$. Also, $\Bv_2\cdot\Bv_2=2$ and $\Bv_3\cdot\Bv_3=6$. So,
+\[
+{1 \over 2}{\Bf\cdot\Bv_2 \over \Bv_2\cdot\Bv_2}\Bv_2+{1 \over 6}{\Bf\cdot\Bv_3 \over \Bv_3\cdot\Bv_3}\Bv_3={1 \over 2}{1 \over 2}\left[\begin{array}{c}1 \\ 0 \\ -1\end{array}\right]+{1 \over 6}{9 \over 6}\left[\begin{array}{c}1 \\ -2 \\ 1\end{array}\right]=\left[\begin{array}{c}1/4 \\ 0 \\ -1/4\end{array}\right]+\left[\begin{array}{c}1/4 \\ -1/2 \\ 1/4\end{array}\right]=\left[\begin{array}{c}1/2 \\ -1/2 \\ 0\end{array}\right].
+\]
+Therefore, the solutions $\Bc\in\R^3$ to $\BK\Bc=\Bf$ are
+\[
+\Bc=\left[\begin{array}{c}1/2 \\ -1/2 \\ 0\end{array}\right]+\alpha\left[\begin{array}{c}1 \\ 1 \\ 1\end{array}\right]
+\]
+for any $\alpha\in\R$.
+
+
+
+\item {[5 points]} As in part (d), there will exist solutions to
+\[
+\BK\Bc=\left[\begin{array}{c}\displaystyle{\int_0^1g(x)\phi_0(x)dx} \\ \displaystyle{\int_0^1g(x)\phi_1(x)dx} \\ \displaystyle{\int_0^1g(x)\phi_2(x)dx}\end{array}\right]
+\]
+if and only if
+\[
+\left[\begin{array}{c}\displaystyle{\int_0^1g(x)\phi_0(x)dx} \\ \displaystyle{\int_0^1g(x)\phi_1(x)dx} \\ \displaystyle{\int_0^1g(x)\phi_2(x)dx}\end{array}\right]\cdot\left[\begin{array}{c}1 \\ 1 \\ 1\end{array}\right]=0.
+\]
+Now,
+\begin{eqnarray*}
+&&\left[\begin{array}{c}\displaystyle{\int_0^1g(x)\phi_0(x)dx} \\ \displaystyle{\int_0^1g(x)\phi_1(x)dx} \\ \displaystyle{\int_0^1g(x)\phi_2(x)dx}\end{array}\right]\cdot\left[\begin{array}{c}1 \\ 1 \\ 1\end{array}\right]
+\\
+&&=\displaystyle{\int_0^1g(x)\phi_0(x)dx+\int_0^1g(x)\phi_1(x)dx+\int_0^1g(x)\phi_2(x)dx}
+\\
+&&=\displaystyle{\int_0^1g(x)\left(\phi_0(x)+\phi_1(x)+\phi_2(x)\right)dx}
+\\
+&&=\displaystyle{\int_0^1g(x)dx}
+\end{eqnarray*}
+by part (a). Hence, if $g\in C[0,1]$ is such that $\displaystyle{\int_0^1g(x)dx=0}$ then
+\[
+\left[\begin{array}{c}\displaystyle{\int_0^1g(x)\phi_0(x)dx} \\ \displaystyle{\int_0^1g(x)\phi_1(x)dx} \\ \displaystyle{\int_0^1g(x)\phi_2(x)dx}\end{array}\right]\cdot\left[\begin{array}{c}1 \\ 1 \\ 1\end{array}\right]=0
+\]
+and there will exist solutions to
+\[
+\BK\Bc=\left[\begin{array}{c}\displaystyle{\int_0^1g(x)\phi_0(x)dx} \\ \displaystyle{\int_0^1g(x)\phi_1(x)dx} \\ \displaystyle{\int_0^1g(x)\phi_2(x)dx}\end{array}\right].
+\]
+
+\end{enumerate} 
+\end{solution}

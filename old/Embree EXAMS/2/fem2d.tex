@@ -1,0 +1,82 @@
+On Problem Sets~10 and 12, we considered the spectral method solution of 
+differential equations in two spatial dimensions.
+In this problem, we shall develop the finite element solution
+of such a problem.
+
+For convenience we shall work on the square domain in two
+spatial dimensions given by $-1\le x \le 1$ and $-1\le y \le 1$.
+
+Consider the differential equation
+\[ \hspace*{10em}-(u_{xx}(x,y) +u_{yy}(x,y)) = f(x,y),
+   \qquad -1\le x \le 1, \quad -1\le y\le 1,\]
+with homogeneous Neumann boundary conditions on all four sides of the domain:
+\[ u_x(-1,y) = u_x(1,y) = u_y(x,-1)=u_y(x,1) = 0.\]
+
+Let $C^2[-1,1]^2$ denote the set of all continuous functions 
+of $x\in[-1,1]$ and $y\in[-1,1]$ 
+with all first and second derivatives continuous.
+
+\begin{enumerate}
+\item Show that if $u\in C^2[-1,1]^2$ solves the differential equation, then 
+\[  a(u,v) = (f,v) \qquad \mbox{for all $v \in C^2[-1,1]^2$},\]
+where
+\begin{eqnarray*}
+   a(u,v) &=& \int_{-1}^1 \int_{-1}^1 
+    \Big(u_x(x,y) v_x(x,y) + u_y(x,y)v_y(x,y)\Big)\,\dop x\,\dop y \\[.5em]
+    (f,v) &=& \int_{-1}^1 \int_{-1}^1 f(x,y) v(x,y) \,\dop x\,\dop y.
+\end{eqnarray*}
+\end{enumerate}
+
+\vspace*{1em}
+Let $V_N = {\rm span}\{\phi_1, \ldots, \phi_N\}$.  
+      To solve the Galerkin problem, we seek 
+     \[ u_N = \sum_{j=1}^N c_j \phi_j(x,y)\]
+      such that
+      \[  a(u_N,v) = (f,v) \qquad \mbox{for all $v \in V_N$}.\]
+\begin{enumerate} 
+\item[(b)] Show how the constants $c_1, \ldots, c_N$ can be found
+       by solving the matrix equation $\BK\Bc = \Bf$,
+       where the $(j,k)$ entry of $\BK$ equals $a(\phi_k,\phi_j)$.
+       Be sure to specify the entries in $\Bf$.
+
+\vspace*{1em}
+\item[(c)] To expedite future calculations, compute these integrals:
+\[ I_1 = \int_{-1}^1 (1-s)^2\,\dop s, \qquad
+   I_2 = \int_{-1}^1 (1+s)^2\,\dop s, \qquad
+   I_3 = \int_{-1}^1 (1-s)(1+s)\,\dop s.\]
+
+\newpage
+\item[(d)] Compute the matrix $\BK$ for the case $N=4$ with
+\begin{center}
+\begin{tabular}{ll}
+$\phi_1(x,y) = {1\over4}(1-x)(1-y)$, & 
+$\phi_2(x,y) = {1\over4}(1+x)(1-y)$, \\[.5em]
+$\phi_3(x,y) = {1\over4}(1-x)(1+y)$, & 
+$\phi_4(x,y) = {1\over4}(1+x)(1+y)$.
+\end{tabular}\end{center} 
+Hint:  The (1,1) entry of $\BK$ is $2/3$.
+
+\vspace*{1em}
+\item[(e)] Find a nonzero vector $\Bw$ such that $\BK\Bw = \Bzero$.
+
+\vspace*{1em}
+\item[(f)] From the vector $\Bw$ in part~(e), construct the function
+\[ w(x,y) = \sum_{j=1}^4 w_j \phi_j(x,y).\]
+Simplify as much as possible.
+
+How does this function $w$ relate to the differential equation
+with Neumann boundary conditions?  (You may draw inspiration 
+from the analogous problem in one spatial dimension.)
+
+\vspace*{1em}
+\item[(g)] Now suppose we add an inhomogeneous Neumann 
+condition on one side:
+\[ u_x(-1,y) = u_x(1,y) = u_y(x,-1)=0, \qquad u_y(x,1) = g(x).\]
+Explain how you should change the weak form that you derived 
+in part~(a) and the system $\BK\Bc=\Bf$ derived in part~(b)
+to accommodate these boundary conditions.\\
+Be as explicit as possible.
+
+\end{enumerate}
+
+

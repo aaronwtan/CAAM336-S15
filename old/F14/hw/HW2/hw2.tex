@@ -1,0 +1,56 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen,amsmath,subfigure}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+
+\begin{document}
+
+\newcommand{\pd}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+
+\setboolean{showsols}{true}
+\vspace*{-5em}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+Homework 2 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Wednesday 3, September 2014.  Due 5pm Wednesday 10, September 2014.
+
+\begin{center}
+\emph{Please write your name and \textbf{residential college} on your homework.}
+\end{center}
+
+\begin{enumerate}
+%\addtocounter{enumi}{0}
+\item {[28 points: 8 each (a),(b), 12 for (c)]}  \input FDsimple
+\newpage
+\item {[27 points: 9 each]}  \input inhomogBCs
+\newpage
+\item {[23 points]}  \input accuracy
+%\item {[15 points]}  \input NeumannBCs
+%\item {[15 points]}  \input stability
+
+%\addtocounter{enumi}{0}
+%\newpage
+%\item {[40 points: 14 each for (a),(c), 7 for (b), 5 for (d)]}  %\input FD
+
+%\item {[15 points]}  \input FD
+%
+\newpage
+\item {[22 points]}  \input forwardhand
+
+%\item {[20 points]}  \input forward2
+
+%\item {[20 points]}  \input heat
+
+%\item {[20 points]}  \input burger
+
+
+\end{enumerate}
+
+
+\end{document}
+

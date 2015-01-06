@@ -1,0 +1,11 @@
+Consider the constant
+\[ \kappa(x) = \left\{\begin{array}{ll}
+                       1, & x\in[0,1/2];\\
+                       2, & x\in[1/2,0].
+               \end{array}\right.\] 
+\begin{enumerate}
+\item Build the stiffness matrix
+
+\item Build the load vector for $f$.
+
+\end{enumerate}

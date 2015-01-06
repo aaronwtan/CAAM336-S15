@@ -1,0 +1,117 @@
+\begin{solution}
+\begin{enumerate}
+\item {[5 points]}
+\begin{enumerate}
+\item For $j=1,\ldots,N$ and $k=0,1,\ldots,N+1$, the definition of $\phi_j$ yields that $\phi_j(x_k)=0$ if $k\ne j$. Moreover, for $j=1,\ldots,N$,
+\[
+\phi_j(x_j)={(x_j+x_{j+1}-2x_j)(x_{j+1}-x_j) \over h^2}={(x_{j+1}-x_j)(x_{j+1}-x_j) \over h^2}={h^2 \over h^2}=1.
+\]
+Consequently, for $j=1,\ldots,N$,
+\[ \phi_j(x_k) = \left\{ \begin{array}{l}
+1\mbox{ if }k=j, \\
+0\mbox{ if }k\ne j,
+\end{array}\right. \]
+for $k=0,1,\ldots,N+1$.
+\\
+\item For $j=1,\ldots,N$, the definition of $\phi_j$ yields that $\displaystyle{\phi_j\left({x_{k-1}+x_k \over 2}\right)=0}$ for $k=1,\ldots,N+1$.
+\\
+\item For $j=1,\ldots,N+1$, the definition of $\psi_j$ yields that $\psi_j(x_k)=0$ for $k=0,1,\ldots,N+1$.
+\\
+\item For $j,k=1,\ldots,N+1$, the definition of $\psi_j$ yields that $\displaystyle{\psi_j\left({x_{k-1}+x_k \over 2}\right)=0}$ if $k\ne j$. Moreover, for $j=1,\ldots,N+1$,
+\[
+\psi_j(x)={4(x-x_{j-1})(x_j-x) \over h^2}={(2x-2x_{j-1})(2x_j-2x) \over h^2}
+\]
+and so
+\[
+\psi_j\left({x_{j-1}+x_j \over 2}\right)={(x_{j-1}+x_j-2x_{j-1})(2x_j-(x_{j-1}+x_j)) \over h^2}={(x_j-x_{j-1})(x_j-x_{j-1}) \over h^2}={h^2 \over h^2}=1.
+\]
+Consequently, for $j=1,\ldots,N+1$,
+\[ \psi_j\left({x_{k-1}+x_k \over 2}\right) = \left\{ \begin{array}{l}
+1\mbox{ if }k=j, \\
+0\mbox{ if }k\ne j,
+\end{array}\right. \]
+for $k=1,\ldots,N+1$.
+\\
+\end{enumerate}
+\item {[5 points]} If $\alpha_j,\beta_j\in\R$ and $\displaystyle{\sum_{j=1}^N\alpha_j\phi_j\left(x\right)+\sum_{j=1}^{N+1}\beta_j\psi_j\left(x\right)=0}$ for all $x\in[0,1]$ then $\displaystyle{\sum_{j=1}^N\alpha_j\phi_j\left(x_k\right)+\sum_{j=1}^{N+1}\beta_j\psi_j\left(x_k\right)=0}$ for $k=1,\ldots,N$. The answer to parts (a)i. and (a)iii. then allows us to conclude that $\alpha_k=0$ for $k=1,\ldots,N$ since $\displaystyle{\sum_{j=1}^N\alpha_j\phi_j\left(x_k\right)+\sum_{j=1}^{N+1}\beta_j\psi_j\left(x_k\right)=\alpha_k}$. Moreover, if $\alpha_j,\beta_j\in\R$ and $\displaystyle{\sum_{j=1}^N\alpha_j\phi_j\left(x\right)+\sum_{j=1}^{N+1}\beta_j\psi_j\left(x\right)=0}$ for all $x\in[0,1]$ then $\displaystyle{\sum_{j=1}^N\alpha_j\phi_j\left({x_{k-1}+x_k \over 2}\right)+\sum_{j=1}^{N+1}\beta_j\psi_j\left({x_{k-1}+x_k \over 2}\right)=0}$ for $k=1,\ldots,N+1$. The answer to parts (a)ii. and (a)iv. then allows us to conclude that $\beta_k=0$ for $k=1,\ldots,N+1$ since $\displaystyle{\sum_{j=1}^N\alpha_j\phi_j\left({x_{k-1}+x_k \over 2}\right)+\sum_{j=1}^{N+1}\beta_j\psi_j\left({x_{k-1}+x_k \over 2}\right)=\beta_k}$. Therefore, if $\alpha_j,\beta_j\in\R$ and $\displaystyle{\sum_{j=1}^N\alpha_j\phi_j\left(x\right)+\sum_{j=1}^{N+1}\beta_j\psi_j\left(x\right)=0}$ for all $x\in[0,1]$ then $\alpha_j=0$ for $j=1,\ldots,N$ and $\beta_j=0$ for $j=1,\ldots,N+1$.
+\\
+\item {[5 points]} Since
+\[
+\phi_j(x)=\left\{\begin{array}{ll}
+\displaystyle{{(x-x_{j-1})(2x-x_{j-1}-x_j) \over h^2}} & \displaystyle{\mbox{if }x\in[x_{j-1},x_j)},
+\\[10pt]
+\displaystyle{{(x_j+x_{j+1}-2x)(x_{j+1}-x) \over h^2}} & \displaystyle{\mbox{if }x\in[x_j,x_{j+1})},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\]
+for $j=1,\ldots,N$,
+\[
+\psi_j(x)=\left\{\begin{array}{ll}
+\displaystyle{{4(x-x_{j-1})(x_j-x) \over h^2}} & \displaystyle{\mbox{if }x\in[x_{j-1},x_j)},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\]
+for $j=1,\ldots,N+1$, and
+\[
+\psi_{j+1}(x)=\left\{\begin{array}{ll}
+\displaystyle{{4(x-x_j)(x_{j+1}-x) \over h^2}} & \displaystyle{\mbox{if }x\in[x_j,x_{j+1})},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\]
+for $j=0,\ldots,N$, we have that, for $j=1,\ldots,N$,
+\begin{eqnarray*}
+&&\phi_j(x)+{1 \over 2}\left(\psi_j(x)+\psi_{j+1}(x)\right)
+\\
+&=&\left\{\begin{array}{ll}
+\displaystyle{{(x-x_{j-1})(2x-x_{j-1}-x_j)+2(x-x_{j-1})(x_j-x) \over h^2}} & \displaystyle{\mbox{if }x\in[x_{j-1},x_j)},
+\\[10pt]
+\displaystyle{{(x_j+x_{j+1}-2x)(x_{j+1}-x)+2(x-x_j)(x_{j+1}-x) \over h^2}} & \displaystyle{\mbox{if }x\in[x_j,x_{j+1})},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\\
+&=&\left\{\begin{array}{ll}
+\displaystyle{{(x-x_{j-1})((2x-x_{j-1}-x_j)+2(x_j-x)) \over h^2}} & \displaystyle{\mbox{if }x\in[x_{j-1},x_j)},
+\\[10pt]
+\displaystyle{{(x_{j+1}-x)((x_j+x_{j+1}-2x)+2(x-x_j)) \over h^2}} & \displaystyle{\mbox{if }x\in[x_j,x_{j+1})},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\\
+&=&\left\{\begin{array}{ll}
+\displaystyle{{(x-x_{j-1})(x_j-x_{j-1}) \over h^2}} & \displaystyle{\mbox{if }x\in[x_{j-1},x_j)},
+\\[10pt]
+\displaystyle{{(x_{j+1}-x)(x_{j+1}-x_j) \over h^2}} & \displaystyle{\mbox{if }x\in[x_j,x_{j+1})},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\\
+&=&\left\{\begin{array}{ll}
+\displaystyle{{(x-x_{j-1}) \over h}} & \displaystyle{\mbox{if }x\in[x_{j-1},x_j)},
+\\[10pt]
+\displaystyle{{(x_{j+1}-x) \over h}} & \displaystyle{\mbox{if }x\in[x_j,x_{j+1})},
+\\[10pt]
+0 & \mbox{otherwise}.
+\end{array}\right.
+\end{eqnarray*}
+Therefore, for $j=1,\ldots,N$,
+\[
+\phi_j+{1 \over 2}\left(\psi_j+\psi_{j+1}\right)=\widehat{\phi}_j.
+\]
+\\
+\item {[5 points]} Yes, since from part (c) we have that
+\[
+\widehat{\phi}_j=\phi_j+{1 \over 2}\psi_j+{1 \over 2}\psi_{j+1}
+\]
+and so $\widehat{\phi}_j\in\rm{span}\{\phi_1,\ldots,\phi_N,\psi_1,\ldots,\psi_{N+1}\}$.
+\\
+\item {[5 points]} No, as for any $j=1,\ldots,N$,
+\[
+\phi_j+{1 \over 2}\psi_j+{1 \over 2}\psi_{j+1}-\widehat{\phi}_j=0.
+\]
+\end{enumerate}
+\end{solution}
+

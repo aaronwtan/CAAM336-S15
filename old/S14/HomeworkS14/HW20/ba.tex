@@ -1,0 +1,80 @@
+
+All parts of this question should be done by hand.
+
+Let $\phi_1\in C[-1,1]$, $\phi_2\in C[-1,1]$, $f_1\in C[-1,1]$, and $f_2\in C[-1,1]$ be defined by
+\[
+\phi_1(x) = \frac{1}{\sqrt{2}},
+\]
+\[
+\phi_2(x) = \frac{\sqrt{3}}{\sqrt{2}}x,
+\]
+\[
+f_1(x) = \sin(\pi x),
+\]
+and
+\[
+f_2(x) = \cos(\pi x),
+\]
+for all $x\in[-1,1]$. Note that $\{\phi_1,\phi_2\}$ is linearly independent. Let the inner product $\ip{\cdot,\cdot}:\mbox{ }C[-1,1]\times C[-1,1]\rightarrow\R$ be defined by
+\[
+\ip{u,v} = \int_{-1}^1 u(x)v(x)\, dx
+\]
+and let the norm $\norm{\cdot}:\mbox{ }C[-1,1]\rightarrow\R$ be defined by
+\[
+\norm{u} = \sqrt{\ip{u,u}}.
+\]
+Note that $\{\phi_1,\phi_2\}$ is orthonormal with respect to the inner product $\ip{\cdot,\cdot}$. Also, let $\psi_1\in C[0,1]$, $\psi_2\in C[0,1]$, $g_1\in C[0,1]$, and $g_2\in C[0,1]$ be defined by
+\[
+\psi_1(x) = \frac{1}{\sqrt{2}},
+\]
+\[
+\psi_2(x) = \frac{\sqrt{3}}{\sqrt{2}}x,
+\]
+\[
+g_1(x) = \sin(\pi x),
+\]
+and
+\[
+g_2(x) = \cos(\pi x),
+\]
+for all $x\in[0,1]$. Note that $\{\psi_1,\psi_2\}$ is linearly independent.  Let the inner product $B\ip{\cdot,\cdot}:\mbox{ }C[0,1]\times C[0,1]\rightarrow\R$ be defined by
+\[
+B\ip{u,v} = \int_0^1 u(x)v(x)\, dx
+\]
+and let the norm $\norm{\cdot}_B:\mbox{ }C[0,1]\rightarrow\R$ be defined by
+\[
+\norm{u}_B = \sqrt{B\ip{u,u}}.
+\]
+Note that
+\[
+\ip{f_1,\phi_2}={\sqrt{6}\over \pi},
+\]
+\[
+B\ip{g_1,\psi_1}={\sqrt{2}\over \pi},
+\]
+\[
+B\ip{g_1,\psi_2}={\sqrt{6}\over 2\pi},
+\]
+\[
+B\ip{g_2,\psi_2}=-{\sqrt{6}\over \pi^2},
+\]
+and
+\[
+\ip{f_1,\phi_1}=\ip{f_2,\phi_1}=\ip{f_2,\phi_2}=B\ip{g_2,\psi_1}=0.
+\]
+\\
+\begin{enumerate}
+\item Construct the best approximation to $f_1$ from ${\rm span}\{\phi_1,\phi_2\}$ with respect to the norm $\norm{\cdot}$.
+\\
+\item Construct the best approximation to $f_2$ from ${\rm span}\{\phi_1,\phi_2\}$ with respect to the norm $\norm{\cdot}$.
+\\
+\item Construct the best approximation to $g_1$ from ${\rm span}\{\psi_1,\psi_2\}$ with respect to the norm $\norm{\cdot}_B$.
+\\
+\item Construct the best approximation to $g_2$ from ${\rm span}\{\psi_1,\psi_2\}$ with respect to the norm $\norm{\cdot}_B$.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input ba_sol}{}
+

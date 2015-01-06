@@ -1,0 +1,34 @@
+\begin{solution}
+\begin{enumerate}
+\item {[20 points]} The matrix $\BA$ has eigenvalues $\lambda_1 = -1$ and $\lambda_2 = 1$ and eigenvectors
+\[
+\Bv_1 = \left[\begin{array}{c}{1\over\sqrt{2}} \\ -{1\over\sqrt{2}}\end{array}\right]
+\]
+and
+\[
+\Bv_2 = \left[\begin{array}{c}{1\over\sqrt{2}} \\ {1\over\sqrt{2}}\end{array}\right]
+\]
+which are such that $\BA\Bv_1=\lambda_1\Bv_1$, $\BA\Bv_2=\lambda_2\Bv_2$, $\Bv_1\cdot\Bv_1=\Bv_2\cdot\Bv_2=1$,  and $\Bv_1\cdot\Bv_2=\Bv_2\cdot\Bv_1=0$. Since $\BA=\BA^T$, if we set
+\[
+\BV = [\Bv_1\ \Bv_2]=\left[\begin{array}{cc}{1\over\sqrt{2}} & {1\over\sqrt{2}} \\ -{1\over\sqrt{2}} & {1\over\sqrt{2}}\end{array}\right]
+\]
+and
+\[
+\BLambda = \left[\begin{array}{cc}\lambda_1 & 0 \\ 0 & \lambda_2\end{array}\right]=\left[\begin{array}{cc}-1 & 0 \\ 0 & 1\end{array}\right]
+\]
+then we have that
+\[
+\BA = \BV\BLambda\BV^T
+\]
+and
+\[
+e^{t\BA} = \BV e^{t\BLambda} \BV^T= \left[\begin{array}{cc}{1\over\sqrt{2}} & {1\over\sqrt{2}} \\ -{1\over\sqrt{2}} & {1\over\sqrt{2}}\end{array}\right] \left[\begin{array}{cc}e^{-t} & 0 \\ 0 & e^{t}\end{array}\right] \left[\begin{array}{cc}{1\over\sqrt{2}} & -{1\over\sqrt{2}} \\ {1\over\sqrt{2}} & {1\over\sqrt{2}}\end{array}\right]=\left[\begin{array}{cc}{1\over2}\left(e^t+e^{-t}\right) & {1\over2}\left(e^t - e^{-t}\right) \\ {1\over2}\left(e^t-e^{-t}\right) & {1\over2}\left(e^{t}+e^{-t}\right)\end{array}\right].
+\]
+Hence,
+\[
+\Bx(t) = e^{t\BA} \Bx_0 = \left[\begin{array}{cc}{1\over2}\left(e^t+e^{-t}\right) & {1\over2}\left(e^t - e^{-t}\right) \\ {1\over2}\left(e^t-e^{-t}\right) & {1\over2}\left(e^{t}+e^{-t}\right)\end{array}\right]\left[\begin{array}{c}2 \\ 0\end{array}\right] = \left[\begin{array}{c}e^t+e^{-t} \\ e^t-e^{-t}\end{array}\right].
+\]
+
+\item {[5 points]} Since $\lambda_2>0$ and $\Bv_2\cdot\Bx_0={2\over\sqrt{2}}\ne0$, $\norm{\Bx(t)}\rightarrow\infty$ as $t\rightarrow\infty$.
+\end{enumerate}
+\end{solution}

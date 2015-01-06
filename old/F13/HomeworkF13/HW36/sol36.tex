@@ -1,0 +1,24 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+
+\begin{document}
+
+\setboolean{showsols}{true}
+\vspace*{-5em}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+Homework 36 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Friday 1 November 2013.  Due 5pm Wednesday 13 November 2013.
+
+\begin{enumerate}\addtocounter{enumi}{35}
+\item {[25 points]}  \input errfemN
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,38 @@
+Consider the equation
+\[ -u''(x) = f(x), \quad x\in[0,1] \]
+with a homogeneous Dirichlet boundary condition on the left,
+\[ u(0) = 0\]
+and a homogeneous \emph{mixed} condition on the right,
+\[ u(1) - u'(1) = 0.\]
+
+Define the linear operator $L: V\to C[0,1]$ via $Lu = -u''$ with
+\[ V = \{u\in C^2[0,1]: u(0)= u(1)-u'(1)=0\}.\]
+
+\begin{enumerate}
+\item Prove that $L$ is symmetric.
+
+\vspace*{1em}
+\item Compute the eigenfunctions of $L$, and show that the eigenvalues 
+      $\lambda$ must satisfy the equation
+      \[ \tan(\sqrt{\lambda}) = \sqrt{\lambda}.\]
+      [Recall that any function that satisfies $-\psi '' = \lambda \psi$ 
+       must have the general form\\ $\psi(x) = A \sin(\sqrt{\lambda} x) + B \cos(\sqrt{\lambda} x)$.]
+
+\vspace*{1em}
+\item Is $\lambda=0$ an eigenvalue of $L$?
+
+\vspace*{1em}
+\item Draw a plot of $g(x) = \tan(x)$ for $x\in [0, 4\pi]$ and superimpose a plot of $h(x)=x$.\\
+      Mark the points where these two plots intersect.
+
+\vspace*{1em}
+\item Use your plot in~(d) to argue that $L$ has infinitely many eigenvalues, \\
+      with $(n-1)^2 \pi^2 < \lambda_n < n^2\pi^2$.
+      What value does $\lambda_n$ tend to as $n\to\infty$?
+
+\vspace*{1em}
+\item Write down the spectral method solution to the equation
+       \[ -u''(x) = f(x), \quad u(0) = u(1)-u'(1) = 0.\]
+      (You do not need to work out numerical values for the inner products.)
+      
+\end{enumerate}

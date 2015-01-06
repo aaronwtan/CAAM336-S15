@@ -1,0 +1,47 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+
+\begin{document}
+\setboolean{showsols}{true}
+\vspace*{-5em}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+Homework 8 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Wednesday 22 October, 2014.  Due 5pm Wednesday 29 October, 2014.
+\begin{center}
+\emph{Please write your name and \textbf{residential college} on your homework.}
+\end{center}
+
+\begin{enumerate}
+\item {[20 points: 10 points each]}\\ \input weakform
+\newpage
+\item {[20 points: 10 points each]}\\  \input errfem1
+\newpage
+\item {[30 points: 6 points each]}\\  \input hats
+\newpage
+\item {[30 points: 6 points each]}\\  \input fem
+\newpage
+
+%\item {[25 points: 5 points each]}\\  \input  best
+%\newpage
+%\item {[25 points: 5 points each]}\\  \input cpqfem1
+%\newpage
+%\item {[25 points: 5 points each]}\\  \input cpqfem
+%\newpage
+%\item {[25 points: 5 points each]}\\  \input cpqfem2
+%\newpage
+%\item {[25 points: 5 points each]}\\  \input errfem2
+%\newpage
+%\item {[25 points: 5 points each]}\\  \input blf
+
+\end{enumerate}
+\end{document}

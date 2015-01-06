@@ -1,0 +1,76 @@
+Let $H^1_D\left(0,1\right)=\{v\in H^1\left(0,1\right):\,v(0)=0\}$. Let N be a positive integer, let $\displaystyle{h={1 \over N+1}}$ and let $x_k=kh$ for $k=0,1,\ldots,N+1$. Let the continuous piecewise linear hat functions $\phi_j\in H^1_D(0,1)$ be such that
+\[
+\phi_j(x) = \left\{\begin{array}{ll}
+\displaystyle{{x-x_{j-1} \over h}} & \displaystyle{\mbox{if }x\in[x_{j-1},x_j)},
+\\[10pt]
+\displaystyle{{x_{j+1}-x \over h}} & \displaystyle{\mbox{if }x\in[x_j,x_{j+1})},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\]
+for $j=1,\ldots,N$ and
+\[
+\phi_{N+1}(x) = \left\{\begin{array}{ll}
+\displaystyle{x-x_N \over h} & \mbox{if }x\in[x_N,x_{N+1}],\\
+0& \mbox{otherwise.}
+\end{array}\right.
+\]
+Let the timestep $\Delta t\in\R$ be such that $\Delta t>0$ and let $t_k=k\Delta t$ for $k=0,1,2,\ldots$. Let $V_N={\rm span}\left\{\phi_1,\ldots\phi_{N+1}\right\}$, let $u_0\in H^1_D(0,1)$ be such that
+\[
+u_0(x)=\left\{\begin{array}{ll}
+0 & \mbox{if }x\in[0,1/4],\\
+4x-1 & \mbox{if }x\in(1/4,1/2],\\
+3-4x & \mbox{if }x\in(1/2,3/4],\\
+0 & \mbox{if }x\in(3/4,1],
+\end{array}\right.
+\]
+and let
+\[
+u_{0,N}(x)=\sum_{j=1}^{N+1}u_0(x_j)\phi_j(x).
+\]
+Let $u(x,t)$ be the solution of
+\begin{eqnarray*}
+\frac{\partial u}{\partial t}(x,t) - \frac{\partial}{\partial x}\left((\sin(\pi x)+1)\frac{\partial u}{\partial x}(x,t)\right)&=&0, \quad 0<x<1, \quad t>0,\\
+u(0,t)&=&0, \quad t\ge0,\\
+\frac{\partial u}{\partial x}(1,t)&=&0, \quad t\ge0,\\
+u(x,0)&=&u_0(x), \quad 0<x<1.
+\end{eqnarray*}
+
+\begin{enumerate}
+\item We can obtain finite element approximations to $u$ by finding $u_N$ such that
+\[
+u_N(x,t)=\sum_{j=1}^{N+1}\alpha_j(t)\phi_j(x)
+\]
+where the $\alpha_j(t)$ are such that
+\[
+\int_0^1\frac{\partial u_N}{\partial t}(x,t)v(x)\,dx+\int_0^1(\sin(\pi x)+1)\frac{\partial u_N}{\partial x}(x,t)v'(x)\,dx=0\mbox{ for all }v\in V_N
+\]
+and
+\[
+u_N(x,0)=u_{0,N}(x),\quad 0<x<1.
+\]
+Let
+\[
+\boldsymbol{\alpha}(t)=\left[\begin{array}{c}\alpha_1(t) \\ \alpha_2(t) \\ \vdots \\ \alpha_{N+1}(t)\end{array}\right].
+\]
+What system of ordinary differential equations and initial condition does $\boldsymbol{\alpha}(t)$ satisfy?
+
+\vspace*{1em}
+\item For the remainder of the question, your answers and codes should not feature the inverse of any matrices. What system of equations has to be solved in order to use the forward Euler method to compute an approximation $\boldsymbol{\alpha}^{(k)}$ to $\boldsymbol{\alpha}(t_k)$ for $k=1,2,3,\ldots$?
+
+\vspace*{1em}
+\item Use the forward Euler method with a timestep of $\Delta t=10^{-5}$ to obtain approximations to $u_N(x,t)$ (and hence $u(x,t)$) at $t=0.001,0.01,0.1,0.2$ for $N=15,31$. Produce a plot showing these approximations but use a different figure for each value of $N$. Also plot $u_N(x,0)$ on both of your figures.
+
+\vspace*{1em}
+\item Repeat part (c) but take the timestep $\Delta t=10^{-4}$.
+
+\vspace*{1em}
+\item What system of equations has to be solved in order to use the backward Euler method to compute an approximation $\boldsymbol{\alpha}^{(k)}$ to $\boldsymbol{\alpha}(t_k)$ for $k=1,2,3,\ldots$?
+
+\vspace*{1em}
+\item Use the backward Euler method with a timestep of $\Delta t=10^{-3}$ to obtain approximations to $u_N(x,t)$ (and hence $u(x,t)$) at $t=0.001,0.01,0.1,0.2$ for $N=15,31$. Produce a plot showing these approximations but use a different figure for each value of $N$. Also plot $u_N(x,0)$ on both of your figures.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\boolean{showsols}}{\input heatFEM_sol}{}
+

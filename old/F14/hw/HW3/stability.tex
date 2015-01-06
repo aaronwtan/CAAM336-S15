@@ -1,0 +1,108 @@
+Consider the time-dependent heat equation with no source
+\begin{align*}
+\pd{u}{t}{}-\kappa\pd{u}{x}{2} &= 0, \quad x\in (0,1)\\
+u(0,t) &= 0\\
+u(1,t) &= 0\\
+u(x,0) &= \psi(x).
+\end{align*}
+Before we even try to solve this equation over time, it would be good to verify that this equation is \textit{stable} in time --- in other words, that $u(x,t)$ doesn't blow up as $t\rightarrow \infty$.  This can be done by deriving an ``energy estimate''.
+\begin{enumerate}
+\item Consider, as with the previous problem, discretizing using finite differences in space, but not in time.  In other words, by specifying grid points $x_i$, and substituting in a finite difference approximation of $\pd{u(x_i,t)}{x}{2}$  in the  heat equation gives, for $\vec{u}_i(t) = u_i(t)$,
+\[
+\frac{d \vec{u}(t)}{dt} + A\vec{u}(t) = 0.
+\]
+Multiply the entire equation on the left by $\vec{u}(t)^T$ to derive the energy estimate
+\[
+\frac{1}{2}\frac{d}{dt} \|\vec{u}(t)\|^2 + \vec{u}(t)^T A \vec{u}(t) = 0.
+\]
+Use the fact that $A$ is symmetric positive-definite (from Problem 1) to conclude that $\frac{d}{dt} \|\vec{u}(t)\|^2 < 0$ for all times $t$, and explain why this implies $\vec{u}(t)$  will not approach $\infty$ as $t\rightarrow \infty$.  
+
+\vspace{1em}
+
+Hint: to simplify $\vec{u(t)}^T\frac{d\vec{u(t)}}{dt} = \frac{d}{dt} u(t)^Tu(t)$, write out the dot product in terms of 
+\[
+\vec{u(t)}^T\frac{d\vec{u(t)}}{dt} = u_1(t) \frac{du_1(t)}{dt} + u_2(t) \frac{du_2(t)}{dt} + \ldots + u_N(t) \frac{du_N(t)}{dt}
+\]
+and use the fact that for a function $f(t)$, 
+\[
+\frac{df}{dt}{}f = \frac{1}{2}\frac{d(f^2)}{dt}.
+\]
+
+\item There is also an energy estimate that we can derive for the exact differential equation.  Multiply the time-dependent heat equation by the solution $u(x,t)$ and integrate over $x$ in the domain $(0,1)$ to get
+\[
+\int_0^1 \left(\pd{u}{t}{}u - \kappa\pd{u}{x}{2}u\right) dx= 0
+\]
+Using again the fact that for a function $f(t)$, 
+\[
+\pd{f}{t}{}f = \frac{1}{2}\pd{(f^2)}{t}{}
+\]
+as well as integration by parts, derive the energy estimate
+\[
+\frac{1}{2}\pd{}{t}{} \int_0^1 u^2 dx+ \kappa \int_0^1 \left(\pd{u}{x}{}\right)^2 dx = 0.
+\]
+If $\kappa > 0$, explain qualitatively why this statement implies that $u(t)$ will not approach $\infty$ as $t\rightarrow \infty$.  
+
+\vspace{1em}
+
+(Hint: the quantity
+\[
+\int_0^1 u^2 dx
+\]
+can be thought of as measuring the \emph{size} of $u$ - if $u$ is really large in magnitude, then $\int_0^1 u^2 dx$ will also be large, since $u^2$ will be positive and the integral gives the measure of area under a curve.)  
+%\item 
+%
+%\item Consider the zero-flux boundary conditions
+%\begin{align*}
+%\pd{u}{t}{}-\kappa\pd{u}{x}{2} &= 0, \quad x\in (0,1)\\
+%u'(0,t) &= 0\\
+%u'(1,t) &= 0\\
+%u(x,0) &= \psi(x).
+%\end{align*}
+%
+%\item 
+%\item We noted in the previous homework that, under boundary conditions
+%\[
+%u'(0) = u'(1) = 0
+%\]
+%that the steady state heat equation does not have a unique solution, and that for any $u(x)$ satisfying the steady heat equation, that $u + C$ for any constant $C$ was also a solution to the same steady state heat equation.  We may use the above time-stability 
+%
+%This implies an important fact: that 
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\boolean{showsols}}{
+\begin{solution}
+\begin{enumerate}
+\item Multiplying by $\vec{u}^T$ on both sides gives
+\[
+\vec{u}^T\frac{d \vec{u}(t)}{dt} + \vec{u}^TA\vec{u}(t) = 0.
+\]
+By the hint, $\vec{u}^T\frac{d \vec{u}(t)}{dt} = \frac{1}{2}\frac{d}{dt}\|\vec{u}\|^2$, and we get that
+\[
+\frac{1}{2}\frac{d}{dt}\|\vec{u}\|^2 = -\vec{u}^TA\vec{u} < 0
+\]
+by merit of $A$ being positive definite.  This implies that the time-rate of change ($\frac{d}{dt}$) of the magnitude ($\|\vec{u}\|^2$) of $\vec{u}$ is negative - in other words, the size of $\vec{u}$ is decreasing in time.  Since you cannot have a negative size of $\vec{u}$, this implies that the magnitude of $\vec{u}$ will always decrease until the magnitude of $\vec{u} = 0$.  
+\item Multiplying by $u(x,t)$ on both sides gives
+\[
+\int_0^1 \left(\pd{u}{t}{}u - \kappa\pd{u}{x}{2}u\right) dx= 0
+\]
+Integrating by parts the second term gives
+\[
+\int_0^1 -\kappa\pd{u}{x}{2}u dx= -\kappa \pd{u(1,t)}{x}{}u(1,t) + \kappa\pd{u(0,t)}{x}{}u(0,t) + \int_0^1\kappa \left(\pd{u}{x}{2}\right)^2 = \int_0^1\kappa \left(\pd{u}{x}{2}\right)^2
+\]
+since $u(x,t)$ is a solution to the PDE with boundary conditions $u(0,t) = u(1,t) = 0$.  
+
+By the hint, we then get 
+\[
+\int_0^1 \pd{u}{t}{}u = \frac{1}{2}\pd{u}{t}{} \int_0^1 u^2
+\]
+and rewriting the whole expression, we have
+\[
+\frac{1}{2}\pd{u}{t}{} \int_0^1 u^2 = -\int_0^1\kappa \left(\pd{u}{x}{2}\right)^2 < 0
+\]
+if $\kappa > 0$.  $\int_0^1 u^2$ similarly measures total magnitude of a function over the interval $[0,1]$ (similarly to the way $\|\vec{u}\|^2$ measures magnitude of $\vec{u}$), so we once again can conclude that the magnitude of $u(x,t)$ will always decrease until the magnitude of $u(x,t) = 0$.  
+\end{enumerate}
+\end{solution}
+}{}
+

@@ -1,0 +1,38 @@
+\begin{solution}
+\begin{enumerate}
+\item {[4 points]} This set \emph{is not} a real vector space.\\
+The vector $\displaystyle{\Bx = \left[\begin{array}{c}1\\ 1\end{array}\right]}$  is in the set, yet $\displaystyle{2\Bx = \left[\begin{array}{c}2\\ 2\end{array}\right]}$ is not, since $2 \ne 2^3 = 8$.
+\\
+\item {[4 points]} This set \emph{is} a real vector space.\\
+The set is a subset of $\R^3$ and $\left[\begin{array}{c} 0 \\ 0 \\ 0\end{array}\right]$ is a member of this set. Now, suppose $\Bx$ and $\By$ are members of this set. Then $3x_1 + 2x_2 + x_3 = 0$ and  $3y_1 + 2y_2 + y_3 = 0$. Adding these two equations gives
+\[
+ 3(x_1+y_1) + 2(x_2+y_2) + (x_3+y_3) = 0,
+\]
+and hence $\Bx + \By$ is also in the set. Multiplying $3x_1 + 2x_2 + x_3 = 0$ by an arbitrary constant $\alpha\in\R$ gives
+\[
+3(\alpha x_1) + 2(\alpha x_2) + \alpha x_3 = 0,
+\]
+and hence $\alpha \Bx$ is also in the set. Consequently, the set is a subspace of $\R^3$ and is hence a real vector space.
+\\
+\item {[4 points]} This set \emph{is not} a real vector space.\\
+Let $f(x) = 1$ for $x\in[0,1]$. Then $f$ is in the set, but a scalar multiple, $-1\cdot f(x) = -1$ for $x\in[0,1]$, takes negative values and thus violates the requirement for membership in the set.
+\\
+\item {[4 points]} This set \emph{is not} a real vector space.\\
+Let $f(x) = 1$ for $x\in[0,1]$. Then $f$ is in the set, but a scalar multiple, $2\cdot f(x) = 2$ for $x\in[0,1]$, takes values greater than one and thus violates the requirement for membership in the set.
+\\
+\item {[4 points]} This set \emph{is not} a real vector space.\\
+The function $z$ defined by $z(x)=0$ for $x\in[0,1]$ is not in the set since $z(1)=0$ and thus violates the requirement for membership in the set.
+\\
+\item {[5 points]} This set \emph{is} a real vector space.\\
+The set is a subset of $C^2[0,1]$ and the function $z$ defined by $z(x)=0$ for $x\in[0,1]$ is in the set. If $f$ and $g$ are in the set, then $f(1)=g(1)=0$, so
+\[
+(f+g)(1) = f(1)+g(1) = 0+0 = 0
+\]
+and hence $f+g$ is in the set. Also, if $f$ is in the set and $\alpha\in\R$, then
+\[
+(\alpha f)(1) = \alpha f(1) = \alpha\cdot 0 = 0
+\]
+and hence $\alpha f$ is in the set. Consequently, the set is a subspace of $C^2[0,1]$ and is hence a real vector space.
+       
+\end{enumerate}
+\end{solution}

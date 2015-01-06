@@ -1,0 +1,59 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+\begin{document}
+\setboolean{showsols}{true}
+%\vspace*{-3em}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+ Problem Set 11 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+<<<<<<< HEAD
+Posted Friday 21 November 2014. Due Monday 1 December 2014, 5pm
+=======
+Posted Friday 21 November 2014.  Due Monday 1 December 2014, 5pm.
+
+%\begin{center}
+%%This problem set counts for 75~points.\\
+%{Late problem sets are accepted without penalty until 5pm on Monday 1 December 2014.}
+%\end{center}
+>>>>>>> 1d373372a058a56574ffd845b57a41778895a464
+
+
+\begin{enumerate}
+
+<<<<<<< HEAD
+\vspace*{1em}
+\item {[20 points: 3 points each for (a) and (b); 7 points for (c)-(d)]}\\ \input heat_v_wave
+
+\newpage
+\item {[40 points: 8 points each]} \\ \input damp
+
+\newpage
+\item {[40 points: 9 points each for (a), (b), (c), 13 points for (e)]} \input twoD
+=======
+\item {[20 points: 3 points each for (a) and (b); 7 points for (c)-(d)]}\\ \input heat_v_wave
+
+%\item {[30 points: 7 points each for (a), (b), (c); 9 points for (d)]}\\  \input dalembert
+
+%\vspace*{1em}
+%\item {[10 points]}\\ \input wavinhom
+\newpage
+\item {[40 points: 8 points each]}\\ \input damp
+
+\newpage
+\item {[40 points: 9 points each for (a), (b), (c), 13 points for (e)]}\\  \input twoD
+
+
+%\newpage
+>>>>>>> 1d373372a058a56574ffd845b57a41778895a464
+
+
+\end{enumerate}
+
+\end{document}

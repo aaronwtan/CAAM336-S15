@@ -1,0 +1,505 @@
+<html>
+<head> <title>CAAM 336 - Rice University - Fall 2013</title>
+       <link rel="stylesheet"
+              href="class_style.css"
+              type="text/css">
+</head>
+
+<body bgcolor="#f0f0f0">
+ <br>
+<center>
+<table width="95%" bgcolor="#f0f0f0">
+<tr><td><br>
+<center>
+   <h1> CAAM 336 &#183 Differential Equations in Science and Engineering </h1>
+   <h2> Fall 2013 &#183 Rice University </h2><br>
+
+<a href="index.html">SYLLABUS</a>
+   &nbsp;&nbsp;//&nbsp;&nbsp;   
+<a href="recitations.html">RECITATIONS</a>
+   &nbsp;&nbsp;//&nbsp;&nbsp;
+<a href="matlab.html">MATLAB</a>
+   &nbsp;&nbsp;//&nbsp;&nbsp;   
+<a href="homework.html">HOMEWORK</a>
+   &nbsp;&nbsp;//&nbsp;&nbsp;   
+<a href="exams.html">EXAMS</a> 
+<br><br>
+
+ <h2>Lectures</h2>
+
+<table width="85%"><tr><td>
+<!--
+<tr><td valign="top" width="12%">Lecture 39:<br> <font style="font-size: 80%;">Mon 15 Apr</font></td>
+      <td valign="top">Review session<br>
+
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 38:<br> <font style="font-size: 80%;">Fri 12 Apr</font></td>
+      <td valign="top">Field day: physical examples of vibrations with strings, plates, and fire<br>
+                       Chladni plate videos (nodal lines for a plate):
+                           <a href="http://www.youtube.com/watch?v=wMIvAsZvBiw">here</a>,
+                           <a href="http://mearaoreilly.com/index.php?/project/chladni-singing/">here</a>,
+                           and <a href="http://www.youtube.com/watch?v=bvnyot6T-QQ&feature=fvsr">here!</a><br>
+                       See nodal lines for design of a <a href="http://www.youtube.com/watch?v=3uMZzVvnSiU">violin</a>
+                           and <a href="http://www.youtube.com/watch?v=hS8L7xPmtP0">acoustic guitar</a>.<br>
+                       Rubens tube video: <a href="http://www.youtube.com/watch?v=EOdTMm_QxTw">here!</a>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 37:<br> <font style="font-size: 80%;">Wed 10 Apr</font></td>
+      <td valign="top">Finite elements for the wave equation: forward/backward Euler, trapezoid methods<br>
+                       Reading: Gockenbach, Section 7.3 <br>
+                       MATLAB: <a href="wave_fem1.m">wave_fem1.m</a>: finite elements w/matrix exponential <br>
+                       MATLAB: <a href="wave_fem2.m">wave_fem2.m</a>: finite elements w/forward Euler (blow-up)<br>
+                       MATLAB: <a href="wave_fem3.m">wave_fem3.m</a>: finite elements w/backward Euler (decay)<br>
+                       MATLAB: <a href="wave_fem4.m">wave_fem4.m</a>: finite elements w/trapezoid rule (stable)<br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 36:<br> <font style="font-size: 80%;">Mon 8 Apr</font></td>
+      <td valign="top">Spectral method for the wave equation<br>
+                       Reading: Gockenbach, Section 7.2<br>
+                       MATLAB: <a href="wave_fourier1.m">wave_fourier1.m</a>: spectral method for wave equation<br>
+                       MATLAB: <a href="wave_fourier2.m">wave_fourier2.m</a>: same initial position, different velocity<br>
+                       MATLAB: <a href="heat_fourier_comp.m">heat_fourier_comp.m</a>: heat equation, same initial position<br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 35:<br> <font style="font-size: 80%;">Fri 5 Apr</font></td>
+      <td valign="top">D'Alembert's solution of the wave equation on an unbounded domain<br>
+                       Reading: Gockenbach, Section 7.1<br>
+                       MATLAB: <a href="wave_inf_l.m">wave_inf_l.m</a>: first order wave equation, left-moving <br>
+                       MATLAB: <a href="wave_inf_r.m">wave_inf_r.m</a>: first order wave equation, right-moving <br>
+                       MATLAB: <a href="wave_inf.m">wave_inf.m</a>: second order wave equation (left- and right-moving)<br>
+                       MATLAB: <a href="waveEqnDemo.m">waveEqnDemo.m</a>: Examples from Gockenbach<br>
+                       <a href="http://en.wikipedia.org/wiki/Jean_le_Rond_d%27Alembert">Jean le Rond d'Alembert</a> on Wikipedia<br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 34:<br> <font style="font-size: 80%;">Wed 3 Apr</font></td>
+      <td valign="top">Time-dependent heat equation: FEM implementation<br>
+                       Reading: Gockenbach, Section 6.4<br>
+                       MATLAB: <a href="invMK_eigs.m">invMK_eigs.m</a>: eigenvalues of <em>M</em><sup>-1</sup><em>K</em><br>
+                       <a href="http://en.wikipedia.org/wiki/Richard_Courant">Richard Courant</a>
+                        and his <a href="http://genealogy.math.ndsu.nodak.edu/id.php?id=7378">mathematical genealogy</a><br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 33:<br> <font style="font-size: 80%;">Mon 1 Apr</font></td>
+      <td valign="top">Time-dependent heat equation: FEM implementation<br>
+                       Reading: Gockenbach, Section 6.4<br>
+                       MATLAB: <a href="heat_fem1.m">heat_fem1.m</a>: finite elements for heat equation (matrix exponential)<br>
+                       MATLAB: <a href="heat_fem2.m">heat_fem2.m</a>: finite elements for heat equation with forcing term<br>
+                       MATLAB: <a href="heat_fem3.m">heat_fem3.m</a>: finite elements for heat equation (forward Euler)<br>
+                       MATLAB: <a href="heat_fem4.m">heat_fem4.m</a>: finite elements for heat equation (backward Euler)<br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 32:<br> <font style="font-size: 80%;">Fri 29 Mar</font></td>
+      <td valign="top">Time-dependent heat equation: Fourier series<br>
+                       Reading: Gockenbach, Section 6.2<br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 31:<br> <font style="font-size: 80%;">Wed 27 Mar</font></td>
+      <td valign="top">Time-dependent heat equation: Fourier series<br>
+                       Reading: Gockenbach, Section 6.1<br>
+                       MATLAB: <a href="heat_fourier2.m">heat_fourier2.m</a>: solution of heat equation,
+                                inhomogeneous Dirichlet b.c.<br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 30:<br> <font style="font-size: 80%;">Mon 25 Mar</font></td>
+      <td valign="top">Fourier series for the heat equation: Fourier series<br>
+                       Reading: Gockenbach, Section 6.1<br>
+                       MATLAB: <a href="heat_fourier1.m">heat_fourier1.m</a>: solution of heat equation,
+                                homogeneous Dirichlet b.c.<br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 29:<br> <font style="font-size: 80%;">Fri 22 Mar</font></td>
+      <td valign="top">Dynamical systems: finite dimensional linear systems via the backward Euler method <br>
+                       Reading: Gockenbach, Section 4.4 and 4.5<br>
+                       MATLAB: <a href="bweulerdemo.m">bweulerdemo.m</a>: Backward Euler approximation for
+                               <em>x</em>'(<em>t</em>) = <em>A&nbsp;x</em>(<em>t</em>), symmetric <em>A</em><br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 28:<br> <font style="font-size: 80%;">Wed 20 Mar</font></td>
+      <td valign="top">Midterm return and discussion<br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 27:<br> <font style="font-size: 80%;">Mon 18 Mar</font></td>
+      <td valign="top">Dynamical systems: finite dimensional linear systems via the forward Euler method <br>
+                       Reading: Gockenbach, Section 4.4 and 4.5<br>
+                       MATLAB: <a href="fweulerdemo.m">fweulerdemo.m</a>: Forward Euler approximation for
+                               <em>x</em>'(<em>t</em>) = <em>A&nbsp;x</em>(<em>t</em>), symmetric <em>A</em><br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 26:<br> <font style="font-size: 80%;">Fri 15 Mar</font></td>
+      <td valign="top">Dynamical systems: finite dimensional linear systems via the matrix exponential <br>
+                       Reading: Gockenbach, Section 4.3<br>
+                       MATLAB: <a href="expdemo.m">expdemo.m</a>: solution of
+                               <em>x</em>'(<em>t</em>) = <em>A&nbsp;x</em>(<em>t</em>) for symmetric <em>A</em><br>
+                       MATLAB: <a href="expdemo_nonsymm.m">expdemo_nonsymm.m</a>: solution of
+                               <em>x</em>'(<em>t</em>) = <em>A&nbsp;x</em>(<em>t</em>) for nonsymmetric <em>A</em><br>
+                       MATLAB: <a href="expdemo_norm.m">expdemo_norm.m</a>: solution of
+                               <em>x</em>'(<em>t</em>) = <em>A&nbsp;x</em>(<em>t</em>) showing decay w.r.t. time<br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 25:<br> <font style="font-size: 80%;">Wed 13 Mar</font></td>
+      <td valign="top">Finite Element Method: convergence theory<br>
+                       Reading: <a href="lecture25.pdf">lecture25.pdf</a><br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 24:<br> <font style="font-size: 80%;">Mon 11 Mar</font></td>
+      <td valign="top">Finite Element Method: varying the boundary conditions<br>
+                       Reading: Gockenbach, Section 5.6<br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td valign="top" width="12%">Lecture 23:<br> <font style="font-size: 80%;">Fri 8 Mar</font></td>
+      <td valign="top">Finite Element Method: varying the boundary conditions<br>
+                       Reading: Gockenbach, Section 5.6<br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td valign="top" width="12%">Lecture 22:<br> <font style="font-size: 80%;"> Wed 6 Mar</font></td>
+      <td valign="top">Review session<br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 21:<br> <font style="font-size: 80%;"> Mon 4 Mar</font></td>
+      <td valign="top">Finite Element Method<br>
+                       Reading: Gockenbach, Section 5.6<br>
+                       MATLAB: <a href="fem_demo1.m">fem_demo1.m</a>: finite element method for -<em>u</em>'' = <em>f</em><br>
+                       MATLAB: <a href="hat.m">hat.m</a>: code for evaluating a hat function<br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 20:<br> <font style="font-size: 80%;">Fri 22 Feb</font></td>
+      <td valign="top">The Galerkin Method<br>
+                       Reading: Gockenbach, Section 5.5<br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 19:<br> <font style="font-size: 80%;">Wed 20 Feb</font></td>
+      <td valign="top">The weak form of the steady-state heat equation<br>
+                       Reading: Gockenbach, Section 5.4<br>
+                       Reading: <a href="lecture19.pdf">lecture19.pdf</a><br>
+                       <a href="http://en.wikipedia.org/wiki/John_Strutt,_3rd_Baron_Rayleigh">Lord Rayleigh</a> (1842-1919) on Wikipedia<br>
+                       <a href="http://en.wikipedia.org/wiki/Walther_Ritz">Walther Ritz</a> (1878-1909) on Wikipedia and
+                            <a href="http://gdz.sub.uni-goettingen.de/no_cache/dms/load/img/?IDDOC=261182">Ritz's 1909 paper</a><br>
+                       <a href="http://en.wikipedia.org/wiki/Boris_Galerkin">Boris Galerkin</a> (1871-1945) on Wikipedia
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 18:<br> <font style="font-size: 80%;">Mon 18 Feb</font></td>
+      <td valign="top">Spectral Method: varying the boundary conditions and the operator<br>
+                       Reading: Gockenbach, Section 5.3
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 17:<br> <font style="font-size: 80%;">Fri 15 Feb</font></td>
+      <td valign="top">Spectral Method: varying the boundary conditions and the operator<br>
+                       Reading: Gockenbach, Section 5.3
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 16:<br> <font style="font-size: 80%;">Wed 13 Feb</font></td>
+      <td valign="top">Spectral Method: varying the boundary conditions and the operator<br>
+                       Reading: Gockenbach, Section 5.3
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 15:<br> <font style="font-size: 80%;">Mon 11 Feb</font></td>
+      <td valign="top">Spectral Method for the Laplacian with Dirichlet boundary conditions<br>
+                       Reading: Gockenbach, Section 5.3<br>
+                       MATLAB: <a href="fone.m">fone.m</a>, <a href="uone.m">uone.m</a>: solve -<em>u</em>'' = 1,
+                               <em>u</em>(0) = <em>u</em>(1) = 0<br>
+                       <a href="mathematica.txt">Helpful tip useful for computing trig integrals</a> with Mathematica.
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 14:<br> <font style="font-size: 80%;">Fri 8 Feb</font></td>
+      <td valign="top">Eigenvalues and eigenfunctions of symmetric linear operators<br>
+                       Reading: Gockenbach, Sections 5.1 and 5.2<br>
+                       MATLAB: <a href="sindemo.m">sindemo.m</a>: eigenfunctions and boundary conditions<br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 13:<br> <font style="font-size: 80%;">Wed 6 Feb</font></td>
+      <td valign="top">The spectral method for solving Ax=b; Symmetric linear operators<br>
+                       Reading: Gockenbach, Sections 3.5 and 5.1
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 12:<br> <font style="font-size: 80%;">Mon 4 Feb</font></td>
+      <td valign="top">Eigenvalues and eigenvectors of matrices; The Fredholm alternative<br>
+                       Reading: Gockenbach, Sections 3.5 and 3.2<br>
+                       Reading: <a href="lecture12.pdf">lecture12.pdf</a><br>
+                       MATLAB: <a href="demo12.txt">demo12</a>: eigenvalue computations<br>
+                       <a href="http://en.wikipedia.org/wiki/Galois">&Eacute;variste Galois</a> at Wikipedia<br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 11:<br> <font style="font-size: 80%;">Fri 1 Feb</font></td>
+      <td valign="top">Best approximation and projections<br>
+                       Reading: Gockenbach, Section 3.4<br>
+                       MATLAB: <a href="proj_fun.m">proj_fun.m</a>: best approximation from polynomials<br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td valign="top" width="12%">Lecture 10:<br> <font style="font-size: 80%;">Wed 30 Jan</font></td>
+      <td valign="top">Best approximation from a finite-dimensional subspace<br>
+                       Reading: Gockenbach, Section 3.4
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td valign="top" width="12%">Lecture 9:<br> <font style="font-size: 80%;">Mon 28 Jan</font></td>
+      <td valign="top">Norms; Orthogonality; Best approximation from a one-dimensional subspace<br>
+                       Reading: Gockenbach, Section 3.4<br>
+                       MATLAB: <a href="proj1d_vec.m">proj1d_vec.m</a>: best approximation from a 1d space (vectors)<br>
+                       MATLAB: <a href="proj1d_fun.m">proj1d_fun.m</a>: best approximation from a 1d space (functions)<br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td valign="top" width="12%">Lecture 8:<br> <font style="font-size: 80%;">Fri 25 Jan</font></td>
+      <td valign="top">Inner products<br>
+                       Reading: Gockenbach, Section 3.4<br>
+                       MATLAB: <a href="ip_demo1.m">ip_demo1.m</a>: inner products of vectors and functions<br>
+                       MATLAB: <a href="ip_demo2.m">ip_demo2.m</a>: inner products of orthogonal functions<br>
+                       <a href="http://en.wikipedia.org/wiki/File:Byrne_1847_Satz_des_Pythagoras_Hochformat.jpg">Euclid's proof of the Pythagorean Theorem</a>, colorfully rendered by 
+                       <a href="http://en.wikipedia.org/wiki/Oliver_Byrne_(mathematician)">Oliver Byrne</a>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td valign="top" width="12%">Lecture 7:<br> <font style="font-size: 80%;">Wed 23 Jan</font></td>
+      <td valign="top">Span; Linear independence; Basis and dimension<br>
+                       Reading: Gockenbach, Section 3.3<br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td valign="top" width="12%">Lecture 6:<br> <font style="font-size: 80%;">Fri 18 Jan</font></td>
+      <td valign="top">Finite difference matrix approximations to the first and second derivative<br>
+                       Reading: <a href="lecture6.pdf">lecture6.pdf</a><br>
+                       MATLAB: <a href="diff1.m">diff1.m</a>: first differentiation matrix<br>
+                       MATLAB: <a href="diff1b.m">diff1b.m</a>: first differentiation matrix (inline functions)<br>
+                       MATLAB: <a href="diff2.m">diff2.m</a>: second differentiation matrix<br>
+                       MATLAB: <a href="heateq.m">heateq.m</a>: solve the steady-state heat equation<br>
+                       <a href="http://en.wikipedia.org/wiki/Richard_Courant">Richard Courant</a>,
+                       <a href="http://en.wikipedia.org/wiki/Kurt_Friedrichs">Kurt Friedrichs</a>,
+                       and
+                       <a href="http://en.wikipedia.org/wiki/Hans_Lewy">Hans Lewy</a> at Wikipedia
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td valign="top" width="12%">Lecture 5:<br> <font style="font-size: 80%;">Wed 16 Jan</font></td>
+      <td valign="top">Linear operators<br>
+                       Reading: Gockenbach, Section 3.1<br>
+      </tr></td>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 4:<br> <font style="font-size: 80%;">Mon 14 Jan</font></td>
+<td valign="top">Vector spaces and subspaces<br>
+Reading: Gockenbach, Section 3.1<br>
+</tr></td>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 3:<br> <font style="font-size: 80%;">Fri 11 Jan</font></td>
+<td valign="top">Boundary and initial conditions; The heat equation at steady state<br>
+Reading: Gockenbach, Section 2.1<br>
+MATLAB: <a href="bar_bc_ss.m">bar_bc_ss.m</a>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 2:<br> <font style="font-size: 80%;">Wed 9 Jan</font></td>
+<td valign="top">Derivation of the heat equation<br>
+Reading: Gockenbach, Section 2.1<br>
+MATLAB: <a href="bar_bc.m">bar_bc.m</a><br>
+MATLAB: <a href="funplot.m">funplot.m</a>: a simple code to plot functions in MATLAB.<br>
+MATLAB: <a href="matlabPrimer.pdf">matlabPrimer.pdf</a> <br>
+<a href="http://en.wikipedia.org/wiki/Heat_capacity">heat capacity</a>,
+<a href="http://en.wikipedia.org/wiki/Thermal_conductivity">thermal conductivity</a> at Wikipedia<br>
+<a href="http://en.wikipedia.org/wiki/Joseph_fourier">Joseph Fourier</a> (1768 - 1830) at Wikipedia
+-->
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 42:<br> <font style="font-size: 80%;">Fri 6 Dec</font></td>
+<td valign="top">Exam review<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 41:<br> <font style="font-size: 80%;">Wed 4 Dec</font></td>
+<td valign="top">Finite element methods for the wave equation<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 40:<br> <font style="font-size: 80%;">Mon 2 Dec</font></td>
+<td valign="top">Finite element methods for the wave equation<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 39:<br> <font style="font-size: 80%;">Wed 27 Nov</font></td>
+<td valign="top">Finite element methods for the heat equation<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 38:<br> <font style="font-size: 80%;">Mon 25 Nov</font></td>
+<td valign="top">Finite element methods for the heat equation<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 37:<br> <font style="font-size: 80%;">Fri 22 Nov</font></td>
+<td valign="top">Finite element methods for the heat equation<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 36:<br> <font style="font-size: 80%;">Wed 20 Nov</font></td>
+<td valign="top">The backward Euler method; inhomogeneous linear systems of ODEs<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 35:<br> <font style="font-size: 80%;">Mon 18 Nov</font></td>
+<td valign="top">The forward Euler method; The backward Euler method<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 34:<br> <font style="font-size: 80%;">Fri 15 Nov</font></td>
+<td valign="top">The behavior of solutions to linear systems of ODEs<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 33:<br> <font style="font-size: 80%;">Wed 13 Nov</font></td>
+<td valign="top">Linear systems of ODEs; The exponential of a diagonal matrix; Eigendecomposition/diagonalization<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 32:<br> <font style="font-size: 80%;">Mon 11 Nov</font></td>
+<td valign="top">The spectral method/Fourier series method for solving the wave equation<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 31:<br> <font style="font-size: 80%;">Fri 8 Nov</font></td>
+<td valign="top">The spectral method/Fourier series method for solving the heat equation with Neumann boundary conditions<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 30:<br> <font style="font-size: 80%;">Wed 6 Nov</font></td>
+<td valign="top">The spectral method/Fourier series method for solving the heat equation; Shifting the data<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 29:<br> <font style="font-size: 80%;">Mon 4 Nov</font></td>
+<td valign="top">The spectral method/Fourier series method for solving the heat equation<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 28:<br> <font style="font-size: 80%;">Fri 1 Nov</font></td>
+<td valign="top">The finite element method and inhomogeneous Dirichlet boundary conditions<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 27:<br> <font style="font-size: 80%;">Wed 30 Oct</font></td>
+<td valign="top">Bilinear forms; The finite element method and inhomogeneous Dirichlet boundary conditions<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 26:<br> <font style="font-size: 80%;">Mon 28 Oct</font></td>
+<td valign="top">Equivalent problems with mixed boundary conditions; The finite element method and mixed boundary conditions<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 25:<br> <font style="font-size: 80%;">Fri 25 Oct</font></td>
+<td valign="top">The finite element method; Equivalent problems with mixed boundary conditions<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 24:<br> <font style="font-size: 80%;">Wed 23 Oct</font></td>
+<td valign="top">The Galerkin method; The finite element method<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 23:<br> <font style="font-size: 80%;">Mon 21 Oct</font></td>
+<td valign="top">Weak derivatives; The weak form of a problem; The Galerkin method<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 22:<br> <font style="font-size: 80%;">Fri 18 Oct</font></td>
+<td valign="top">Equivalent problems; Weak derivatives<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 21:<br> <font style="font-size: 80%;">Wed 16 Oct</font></td>
+<td valign="top">Exam review<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 20:<br> <font style="font-size: 80%;">Fri 11 Oct</font></td>
+<td valign="top">Shifting the data<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 19:<br> <font style="font-size: 80%;">Wed 9 Oct</font></td>
+<td valign="top">The spectral method for solving ODEs<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 18:<br> <font style="font-size: 80%;">Mon 7 Oct</font></td>
+<td valign="top">Eigenvalues and eigenfunctions of symmetric linear operators<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 17:<br> <font style="font-size: 80%;">Fri 4 Oct</font></td>
+<td valign="top">Symmetric linear operators; Eigenvalues and eigenfunctions of symmetric linear operators<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 16:<br> <font style="font-size: 80%;">Wed 2 Oct</font></td>
+<td valign="top">The spectral method for solving Ax=b; Null space<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 15:<br> <font style="font-size: 80%;">Mon 30 Sep</font></td>
+<td valign="top">The spectral method for solving Ax=b; The Fredholm alternative for solving Ax=b<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 14:<br> <font style="font-size: 80%;">Fri 27 Sep</font></td>
+<td valign="top">Determinant; Eigenvalues and eigenvectors of matrices; Transpose; Dot product; Symmetric matrices; Eigenvalues and eigenvectors of symmetric matrices; The spectral method for solving Ax=b<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 13:<br> <font style="font-size: 80%;">Wed 25 Sep</font></td>
+<td valign="top">Best approximation from a finite dimensional subspace; Projections<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 12:<br> <font style="font-size: 80%;">Mon 23 Sep</font></td>
+<td valign="top">Best approximation from a finite dimensional subspace<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 11:<br> <font style="font-size: 80%;">Fri 20 Sep</font></td>
+<td valign="top">Best approximation from a one-dimensional subspace; Orthogonality and orthonormality<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 10:<br> <font style="font-size: 80%;">Wed 18 Sep</font></td>
+<td valign="top">Inner products; Norms; Best approximation from a one-dimensional subspace<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 9:<br> <font style="font-size: 80%;">Mon 16 Sep</font></td>
+<td valign="top">Linear independence; Basis and dimension; Inner products<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 8:<br> <font style="font-size: 80%;">Fri 13 Sep</font></td>
+<td valign="top">Domain, codomain and range; Linear operators; Linear differential equation; Span<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 7:<br> <font style="font-size: 80%;">Wed 11 Sep</font></td>
+<td valign="top">Vector spaces; Subspaces<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 6:<br> <font style="font-size: 80%;">Mon 9 Sep</font></td>
+<td valign="top">Approximation to the second derivative; The finite difference method<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 5:<br> <font style="font-size: 80%;">Fri 6 Sep</font></td>
+<td valign="top">Forward difference approximation to the first derivative; Backward difference approximation to the first derivative<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 4:<br> <font style="font-size: 80%;">Wed 4 Sep</font></td>
+<td valign="top">Derivation of the heat equation<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 3:<br> <font style="font-size: 80%;">Fri 30 Aug</font></td>
+<td valign="top">Boundary and initial conditions; Derivation of the heat equation<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 2:<br> <font style="font-size: 80%;">Wed 28 Aug</font></td>
+<td valign="top">Classification of differential equations<br>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td valign="top" width="12%">Lecture 1:<br> <font style="font-size: 80%;">Mon 26 Aug</font></td>
+<td valign="top">Syllabus<br>
+  <tr><td></td></tr>
+      </td></tr>
+</table>
+</center>
+<br><br>
+</td></tr></tbody></table>
+</center>
+</body></html>

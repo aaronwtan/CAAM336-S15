@@ -1,0 +1,38 @@
+Let $H^1_D\left(0,1\right)=\left\{w\in H^1\left(0,1\right):\,w(0)=w(1)=0\right\}$ and let the inner product $\ip{\cdot,\cdot}:L^2\left(0,1\right)\times L^2\left(0,1\right)\to\R$ be defined by
+\[
+\ip{v,w}=\int_0^1v(x)w(x)\,dx
+\]
+and the inner product $a\ip{\cdot,\cdot}:H^1_D\left(0,1\right)\times H^1_D\left(0,1\right)\to\R$ be defined by
+\[
+a\ip{v,w}=\int_0^1v'(x)w'(x)\,dx.
+\]
+Also, let $f\in L^2\left(0,1\right)$, let N be a positive integer, and let $V_N$ be a subspace of $H^1_D\left(0,1\right)$. Moreover, let $u\in H^1_D\left(0,1\right)$ be such that
+\[
+a\ip{u,v}=\ip{f,v}\mbox{ for all }v\in H^1_D\left(0,1\right)
+\]
+and let $u_N\in V_N$ be such that
+\[
+a\ip{u_N,v}=\ip{f,v}\mbox{ for all }v\in V_N.
+\]
+
+\begin{enumerate}
+\item Show that
+\[
+a\ip{u-u_N,u-u_N}=a\ip{u,u}-a\ip{u_N,u_N}.
+\]
+
+\vspace*{1em}
+\item Let $\phi_1,\ldots,\phi_N\in V_N$ and let $\BK\in\R^{N\times N}$ be the matrix with entries $K_{jk}=a(\phi_k,\phi_j)$ for $j,k=1,\ldots,N$. Also, let
+\[
+u_N=\sum_{j=1}^Nc_j\phi_j
+\]
+where $c_j\in\R$ is the $j$th entry of the vector $\Bc\in\R^N$. Show that
+\[
+\Bc^T\BK\Bc=a\ip{u_N,u_N}.
+\]
+\end{enumerate}
+
+           
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input errfem_sol}{}

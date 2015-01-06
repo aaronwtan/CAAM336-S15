@@ -1,0 +1,52 @@
+\vspace*{.5em}
+
+Let $N\ge 1$ be an integer and define $h = 1/(N + 1)$ and $x_k = kh$ for $k = 0,\ldots,N + 1$. Consider the $N+2$ hat functions, defined for $x\in[0,1]$ as
+\[
+\phi_k(x) = \left\{\begin{array}{ll}
+(x-x_{k-1})/h, & x\in[x_{k-1},x_k);\\
+(x_{k+1}-x)/h, & x\in[x_k,x_{k+1});\\
+0,& \mbox{otherwise;}
+\end{array}\right.
+\]
+for $k=1,\ldots, N$, with
+\[
+\phi_0(x) = \left\{\begin{array}{ll}
+(x_1-x)/h, & x\in[x_0,x_1);\\
+0,& \mbox{otherwise;}
+\end{array}\right.
+\]
+and
+\[
+\phi_{N+1}(x) = \left\{\begin{array}{ll}
+(x-x_N)/h, & x\in[x_N,x_{N+1}];\\
+0,& \mbox{otherwise.}
+\end{array}\right.
+\]
+Note that $\phi_k\in C[0,1]$ for $k = 0,\ldots,N + 1$. Let $V_N={\rm span}\left\{\phi_0,\phi_1,\ldots,\phi_{N+1}\right\}$ and let $\ip{\cdot,\cdot}:V_N\times V_N\to\R$ be defined by
+\[
+\ip{u,v}=\sum_{j=0}^N\int_{x_j}^{x_{j+1}}u'(x)v'(x)\,dx.
+\]
+
+\begin{enumerate}
+\item What value is taken by $\displaystyle{w(x)=\sum_{j=0}^{N+1}\phi_j(x)}$ for all $x\in[0,1]$?
+
+\item Why is $\ip{\cdot,\cdot}$ not an inner product on $V_N$?
+
+\item For the remainder of this question we shall just consider the case when $N=1$. In this case the symmetric matrix
+       \[ \BK = \left[\begin{array}{ccc}\ip{\phi_0,\phi_0} & \ip{\phi_0,\phi_1} & \ip{\phi_0,\phi_2} \\ \ip{\phi_0,\phi_1} & \ip{\phi_1,\phi_1} & \ip{\phi_1,\phi_2} \\ \ip{\phi_0,\phi_2} & \ip{\phi_1,\phi_2} & \ip{\phi_2,\phi_2}\end{array}\right]=\left[\begin{array}{ccc}2 & -2 & 0 \\ -2 & 4 & -2 \\ 0 & -2 & 2\end{array}\right].\]
+What are the eigenvalues corresponding to the eigenvectors $\left[\begin{array}{c}1 \\ 1 \\ 1\end{array}\right]$, $\left[\begin{array}{c}1 \\ 0 \\ -1\end{array}\right]$ and $\left[\begin{array}{c}1 \\ -2 \\ 1\end{array}\right]$ of $\BK$?
+
+\item For both $\Bf = \left[\begin{array}{c}2 \\ 2 \\ 2\end{array}\right]$ and $\Bf = \left[\begin{array}{c}2 \\ -3 \\ 1\end{array}\right]$, use an eigenvector of $\BK$ to determine whether or not there exist solutions $\Bc\in\R^3$ to $\BK\Bc=\Bf$ and if solutions exist, use the spectral method to obtain the solutions $\Bc\in\R^3$ to $\BK\Bc=\Bf$.
+ 
+\item Why do there exist solutions $\Bc\in\R^3$ to
+\[
+\BK\Bc=\left[\begin{array}{c}\displaystyle{\int_0^1g(x)\phi_0(x)dx} \\ \displaystyle{\int_0^1g(x)\phi_1(x)dx} \\ \displaystyle{\int_0^1g(x)\phi_2(x)dx}\end{array}\right]
+\]
+for all $g\in C[0,1]$ which are such that $\displaystyle{\int_0^1g(x)dx=0}$?
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input femeig_sol}{}
+

@@ -1,0 +1,182 @@
+Consider the following three matrices:
+\[ {\rm (i)}\quad \BA = \bmatrix{0 & 1 \cr 1 &  0} \qquad
+   {\rm (ii)}\quad \BA = \bmatrix{-50 & 49 \cr 49 & -50}\qquad
+   {\rm (iii)}\quad \BA = \bmatrix{0 & 1 \cr -1 & 0}.\]
+
+\begin{enumerate}
+\item For each of the matrices (i)--(iii), compute the matrix exponential $e^{t\BA}$.\\
+      (You may use \verb|eig| for the eigenvalues and eigenvectors, 
+      but please construct the matrix exponential `by hand' (not with \verb|expm|).
+      For diagonalizable $\BA = \BV\BLambda\BV^{-1}$, recall the formula 
+      $e^{t\BA} = \BV e^{t\BLambdas} \BV^{-1}$.)
+
+\item Use your answers in part~(a) to explain the behavior of 
+      $\Bx'(t) = \BA\Bx(t)$ as $t\to\infty$ given that $\Bx(0) = [2,\ 0]^T$ 
+      (e.g., exponential growth, exponential decay, or neither) for each
+      of the three matrices (i)--(iii).  
+
+\item For the matrix~(ii), describe how large one can choose the time step 
+      $\Delta t$ so that the forward Euler method applied to $\Bx'(t) = \BA\Bx(t)$,
+      \[ \Bx_{k+1} = \Bx_k + \Delta t\BA\Bx_k,\]
+will produce a solution that qualitatively matches the behavior
+of the true solution (i.e., the approximations $\Bx_k$ should grow, decay,
+or remain of the same size as the true solution does).
+
+Answer the same question for the backward Euler method
+\[ \Bx_{k+1} = \Bx_k + \Delta t\BA\Bx_{k+1}.\]
+
+\item For the matrix in (iii), describe how the forward Euler method 
+      behaves \emph{for all $\Delta t$} as $k\to \infty$ for $\Bx(0) = [1, 1]^T$.  
+      Now describe how the backward Euler method must behave as $k\to\infty$
+      for the same matrix and initial condition.
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+
+[GRADERS: it is acceptable for students to use MATLAB to compute eigendecompositions,
+but they should not simply use the {\tt expm} command.  In particular, only give half
+credit if students computed $e^{t \BA}$ for a fixed value of $t$.  The correct answer
+should depend on the variable $t$.]
+
+\begin{enumerate}
+\item We compute the matrix exponentials for each matrix in turn.
+\begin{enumerate}
+\item[(i)] Note that ${\rm det}(\lambda \BI-\BA) = \lambda^2-1 = (\lambda+1)(\lambda-1)$
+and hence the eigenvalues of $\BA$ are $\lambda_1 = -1$ and $\lambda_2 = 1$.
+The corresponding (normalized) orthogonal eigenvectors are
+\[ \Bu_1 = {\sqrt{2}\over 2} \bmatrix{1 \cr -1}, 
+   \qquad
+   \Bu_2 = {\sqrt{2}\over 2} \bmatrix{1 \cr 1}.\]
+As $\BA$ is symmetric,
+if we set $\BU = [\Bu_1\ \Bu_2]$ and $\BLambda = {\rm diag}(\lambda_1, \lambda_2)$,
+we have $\BA = \BU\BLambda\BU^*$ and
+\[ e^{t\BA} = \BU e^{t\BLambda} \BU^*
+            = \BU \bmatrix{e^{-t} & 0 \cr 0 & e^{t}} \BU^*.\]
+Multiplying this out gives
+\[ e^{t\BA} = {\textstyle{1\over2}} 
+              \bmatrix{e^t+e^{-t} & e^t - e^{-t} \cr e^t-e^{-t} & e^{t}+e^{-t}}.\]
+
+\item[(ii)] If we denote the matrix in part~(a) as $\BA_1$, then we find that
+      the $\BA$ in part~(b) can be written as
+      $\BA = -50\BI + 49\BA_1$,
+      from which it follows (a slight modification of problem~1 on the 
+      first exam) that $\BA$ has eigenvalues $\lambda_1 = -99$ 
+      and $\lambda_2 = -1$ with the same eigenvectors as in part~(a):
+\[ \Bu_1 = {\sqrt{2}\over 2} \bmatrix{1 \cr -1}, 
+   \qquad
+   \Bu_2 = {\sqrt{2}\over 2} \bmatrix{1 \cr 1}.\]
+      Again $\BA$ is symmetric, and we have that
+      \[ e^{tA} = \BU \eop^{t\BLambda} \BU^*
+      = {\textstyle{1\over2}} 
+              \bmatrix{e^{-t}+e^{-99t} & e^{-t} - e^{-99t} \cr e^{-t}-e^{-99t} & e^{-t}+e^{-99t}}.\]
+
+\item[(iii)] {[GRADERS: please be a bit more lenient with this problem, as 
+       this $\BA$ is nonsymmetric, a case we didn't dwell excessively on in class.]}
+
+      The characteristic polynomial is 
+      ${\rm det}(\lambda\BI-\BA) = \lambda^2+1 = (\lambda-i)(\lambda+i)$, 
+      where $i^2 = -1$.  Hence the eigenvalues are $\lambda_1 = -i$
+      and $\lambda_2 = i$.  The corresponding normalized (and orthogonal)
+      eigenvectors are 
+\[ \Bu_1 = {\sqrt{2}\over 2} \bmatrix{1 \cr -i}, 
+   \qquad
+   \Bu_2 = {\sqrt{2}\over 2} \bmatrix{1 \cr i}.\]
+      Though $\BA$ is not symmetric (it is \emph{skew-symmetric}: $\BA = -\BA^T$),
+      we can still write $\BA = \BU\BLambda\BU^T$, where 
+      $\BU = [\Bu_1\ \Bu_2]$ and $\BLambda = {\rm diag}(\lambda_1, \lambda_2)$,
+      and the matrix exponential takes the form
+      \[ e^{t\BA} = \BU e^{t\BLambdas} \overline{\BU}^T
+                  = {\textstyle{1\over2}}\bmatrix{e^{it} + e^{-it} & i (e^{-it} - e^{it})
+                                         \cr i(e^{it}-e^{-it}) & e^{it}-e^{-it}}.\]
+      Note that for real numbers $t$, 
+          \[ e^{i t} =  \cos(t) + i@\sin(t)\]
+      and
+          \[ e^{-i t} =  \cos(-t) + i@\sin(-t) = \cos(-t) - i@\sin(t),\]
+      and hence 
+      \[ e^{t\BA} = \bmatrix{ \cos(t) & \sin(t) \cr -\sin(t) & \cos(t)}.\]
+
+      Alternatively, one can note that $\BA^2 = -\BI$, $\BA^3 = -\BA$, $\BA^4 = \BI$, $\ldots$,
+      to obtain from the series expression 
+       \[ e^{t\BA} = \BI + t\BA + {\textstyle{1\over2}} t^2\BA^2 + 
+                                  {\textstyle{1\over3!}} t^3\BA^3 + \cdots\]
+      that
+       \[ e^{t\BA} = \left(\begin{array}{cc}
+                        1 - {1\over2}t^2 + {1\over 4!}t^4 - {1\over 6!}t^6 + \cdots  & 
+                        t - {1\over3!}t^3 + {1\over 5!}t^5 - {1\over 7!}t^7 + \cdots \\[0.5em]
+                        -t + {1\over3!}t^3 - {1\over 5!}t^5 + {1\over 7!}t^7 - \cdots &
+                        1 - {1\over2}t^2 + {1\over 4!}t^4 - {1\over 6!}t^6 + \cdots
+                     \end{array}\right)
+                   = \bmatrix{\cos(t) & \sin(t) \cr -\sin(t) & \cos(t)}.\]
+       Here we have spotted that the series in the matrix above 
+       are simply the Taylor series for $\sin(t)$ and $\cos(t)$.
+    
+\end{enumerate}
+
+\item The behavior of $\Bx(t) = e^{t\BA}\Bx(0)$ for $\Bx(0) = [2, 0]^T$ depends on the matrix.
+\begin{enumerate}
+\item[(i)] For the specified initial condition, we have
+           \[ \Bx(t) = e^{t\BA} \Bx(0) = \bmatrix{e^t+e^{-t} \cr e^t-e^{-t}}.\]
+Thus, as $t\to\infty$, the solution $\Bx(t)$ blows up.
+(In fact, it behaves like $e^t [1\ 1]^T$.)
+\item[(ii)] For the given $\Bx(0)$, we have
+\[ \Bx(t) = e^{t\BA} \Bx(0) = \bmatrix{e^{-t}+e^{-99t} \cr e^{-t}-e^{-99t}},\]
+     and hence $\Bx(t)\to \Bzero$ as $t\to\infty$.
+     This must be true since both eigenvalues of $\BA$ are negative.
+\item[(iii)] Notice that
+          \[  \Bx(t) = e^{t\BA}\Bx(0) = 2 \bmatrix{\cos(t) \cr -\sin(t)},\]
+       so $\Bx(t)$ neither grows nor decays.  
+       (In fact, $\norm{\Bx(t)}$ is constant!)
+\end{enumerate}
+\item The eigenvalues for the matrix given by~(ii) are 
+$\lambda_1 = -99$ and $\lambda_2 = -1$.
+Thus the solution to the equation $d\Bx/dt = \BA\Bx$ 
+will decay to zero as $t\to \infty$ for all choices 
+of initial condition $\Bx(0)$.
+
+We wish to choose the step size $\Delta t$ for the forward Euler
+method so that the iterates $\Bx_k$ decay to zero as $k\to\infty$.
+For this equation
+\[ \Bx_k = (\BI+\Delta t \BA)^k \Bx_0,\]
+and so we need all eigenvalues of the symmetric matrix 
+$\BI+\Delta t \BA$ to be less than one in magnitude.
+The eigenvalues of $\BI+\Delta t\BA$ are simply
+\[ \mu_1 = 1+\Delta t \lambda_1 = 1-99\Delta_t, \qquad
+   \mu_2 = 1+\Delta t \lambda_2 = 1-\Delta_t.\]
+For all $0<\Delta_t < 2$ we have $|\mu_2|<1$, 
+but to get $|\mu_1|<1$ we have a stricter requirement:
+\[  0 < \Delta t < 2/99.\]
+(Alternatively, one can simply look for $\Delta t$ 
+such that $\Delta t \lambda_1, \Delta t \lambda_2 \in (-2,0)$.)
+
+For the backward Euler method, we have
+\[ \Bx_k = (\BI-\Delta t \BA)^{-k} \Bx_0,\]
+and we need all eigenvalues of $(\BI-\Delta t\BA)^{-1}$
+to be less than one in magnitude.  Those eigenvalues are
+\[ \mu_1 = {1\over 1-\Delta t \lambda_1} = {1\over 1+99\Delta t}, \qquad
+   \mu_2 = {1\over 1-\Delta t \lambda_2} = {1\over 1+\Delta t}.\]
+These values are less than one in magnitude for all $\Delta t>0$,
+so there is no restriction on $\Delta t$ to obtain $\Bx_k \to 0$ as $k\to\infty$.
+
+\item The diagonalizable matrix $\BA$ given in (iii) has eigenvalues $lambda_\pm = \pm i$.
+      It follows that the forward Euler iterations, given by
+       \[ \Bx_k = (\BI + \Delta t\BA)^k \Bx(0)\]
+      will behave as $k\to\infty$ like eigenvalues of $(\BI+\Delta t\BA)^k$, i.e.,
+      like $(1 + \Delta t \lambda_\pm)^k$. 
+      Since
+      \[ |1 + \Delta t \lambda_\pm| = |1 \pm i \Delta t| = \sqrt{1+(\Delta t)^2} > 1,\]
+      we conclude that the forward Euler iterates will always blow up as $k\to\infty$
+      \emph{for any choice of $\Delta t > 0$}.
+
+      On the other hand, the backward Euler iterates,
+       \[ \Bx_k = (\BI - \Delta t\BA)^{-k} \Bx(0)\]
+      will behave as $k\to\infty$ like eigenvalues of $(\BI-\Delta t\BA)^{-k}$, i.e.,
+      like $(1 - \Delta t \lambda_\pm)^{-k}$. 
+      \[ \Big|{1\over 1 - \Delta t \lambda_\pm}\Big| 
+       = {1 \over |1 \mp i \Delta t|} = {1\over \sqrt{1+(\Delta t)^2}} < 1,\]
+      we conclude that the backward Euler iterates will always decay as $k\to\infty$
+      \emph{for any choice of $\Delta t > 0$}.
+\end{enumerate}
+
+\end{solution}}{}
+

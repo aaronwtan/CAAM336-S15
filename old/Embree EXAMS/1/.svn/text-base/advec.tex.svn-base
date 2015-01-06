@@ -1,0 +1,43 @@
+Many problems in fluid dynamics give rise to 
+\emph{advection--diffusion} equations, the 
+simplest example of which is
+\[ u''(x) + c u'(x) = f(x),\]
+for $x\in[0,1]$ with $u(0)=u(1) = 0$.
+(The constant $c$ describes the strength with which
+a fluid advects across the domain through the $cu'$ term;
+the $u''$ term describes diffusion.) 
+
+\vspace*{1em}
+Define $L: C^2_D[0,1] \to C[0,1]$ by $L u = u'' + c u'$.
+For all parts of this problem, presume that $c>0$, and use the standard
+inner product
+\[ (f,g) = \int_0^1 f(x) g(x)\,d x.\]
+
+\vspace*{1em}
+\begin{enumerate}
+\item Show that $L$ is symmetric, or provide a specific example
+      to show that $L$ is not symmetric.
+
+\vspace*{1em}
+\item For constant $c$, the eigenfunctions of $L$ have the form
+\[ \psi_n(x) = e^{-cx/2} \sin(n \pi x), \qquad n=1,2,\ldots.\]
+Verify that $L \psi_n = \lambda_n \psi_n$ for some constant $\lambda_n$.\\
+Be sure to clearly state a formula for the eigenvalue $\lambda_n$, 
+and to verify that $\psi_n$ satisfies the boundary conditions.
+
+\vspace*{1em}
+\item Draw a \emph{rough} sketch that shows the 
+      eigenfunctions $\psi_1$ and $\psi_2$ for $c=10$.
+
+\vspace*{1em}
+\item How do you expect the angle between $\psi_1$ and $\psi_2$
+      to vary with $c$\,?\\
+      (Do not make any calculations, just give a sound argument
+       based on the form of $\psi_n(x)$.)
+
+\vspace*{1em}
+\item Suppose we wish to solve $Lu = f$ in the special case that 
+      $f$ is an eigenfunction, $f = \psi_n$.\\
+      What is the solution $u$?
+ 
+\end{enumerate}

@@ -1,0 +1,58 @@
+\begin{enumerate}
+\item In class we considered the forward difference approximation
+      \[ u'(x) \approx {u(x+h) - u(x) \over h}.\]
+      For $u(x) = \exp(2x)$, compute (in MATLAB) the error
+         \[ \Big| u'(1/2) -  {u(1/2+h) - u(1/2) \over h}\Big|,\]
+      for $N = 2, 4, 8, 16, 32, \ldots, 512$ (powers of~2) with $h=1/(N+1)$. In class, we showed that, when $h$ is small enough, this error should be proportional to $h$. Present your results in a table like the one below but with the missing entries filled in.
+\begin{center}
+\begin{tabular}{r|r}
+\hline
+\multicolumn{1}{c|}{$N$} & \multicolumn{1}{c}{error} \\
+\hline
+   2 &  2.2920610 \\
+   4 &   \\
+   8 &   \\
+  16 &   \\
+  32 &   \\
+  64 &   \\
+ 128 &   \\
+ 256 &   \\
+ 512 &  
+\end{tabular}\end{center}
+      
+\vspace*{1em} 
+\item Consider the centered difference approximation
+      \[ u'(x) \approx {u(x+h) - u(x-h) \over 2 h}.\]
+      For $u(x) = \exp(2x)$, compute (in MATLAB) the error
+         \[ \Big| u'(1/2) -  {u(1/2+h) - u(1/2-h) \over 2h}\Big|\]
+      for $N = 2, 4, 8, 16, 32, \ldots, 512$ (powers of~2) with $h=1/(N+1)$. When $h$ is small enough, this error should be proportional to $h^2$. Present your results in a table like the one below but with the missing entries filled in.
+\begin{center}
+\begin{tabular}{r|r}
+\hline
+\multicolumn{1}{c|}{$N$} & \multicolumn{1}{c}{error} \\
+\hline
+   2 &  0.4117528 \\
+   4 &   \\
+   8 &   \\
+  16 &   \\
+  32 &   \\
+  64 &   \\
+ 128 &   \\
+ 256 &   \\
+ 512 &  
+\end{tabular}\end{center}
+
+\vspace*{1em} 
+\item Use MATLAB's \verb|loglog| command to produce a plot of $N$ versus the corresponding error for the approximations considered in part~(a) and part~(b). Use the \verb|hold on| command so that the plot showing the errors from part (a) is on the same figure as the plot showing the errors from part (b).
+
+\vspace*{1em} 
+\item By inspecting the plot you have created, estimate the value of $N$ that you
+      need to approximate $u'(1/2)$ to an error of $10^{-2}$ using the approximations
+      in part~(a) and part~(b).
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input findiff_sol}{}
+

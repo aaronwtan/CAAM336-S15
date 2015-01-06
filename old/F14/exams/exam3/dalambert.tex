@@ -1,0 +1,87 @@
+
+Consider the following wave equation:
+\begin{align*}
+   u_{tt} -u_{xx} &= 0, \qquad -\infty < x < \infty, \:\: t \geq 0 .
+\end{align*}  
+\begin{enumerate}    
+\item Let $u_t(x,0) = \gamma(x) = 0$.  What is the domain of dependence of the solution at $x = t = 1$?
+\item Let the wave equation have initial conditions
+\begin{align*}
+          u(x, 0) &= {\displaystyle{\psi (x) = \left\{\begin{array}{ll}
+                      	x +	1 &  \:\: \mbox{if} \:\: -1 \leq x < 0 ,\\
+       									1 - x & \:\: \mbox{if} \:\: 0 \leq x < 1 ,\\
+       									0    & \:\:  \mbox{otherwise}
+                               \end{array}\right.}}\\
+     u_t (x, 0) &= \gamma (x) = 0 ,  \qquad -\infty < x < \infty,      
+\end{align*}  
+Find the exact solution to this problem in terms of $\psi(x)$, and write the solution at $t =1/2$ and $t = 10$.
+\item What qualitative differences would you expect between the solution to the
+heat equation on $-\infty < x < \infty$ with initial condition given above and the solution to
+the wave equation? 
+%\item What consequences do these differences have on solution methods (Fourier series, finite elements) for these equations?
+
+\end{enumerate}  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+ \ifthenelse{\boolean{showsols}}{
+\begin{solution}
+\begin{enumerate}
+
+\item Recall that the general solution of the wave equation on an unbounded domain
+      takes the form
+     \[ u(x,t) = {\textstyle{1\over2}}\big(\psi(x-t) + \psi(x+t)\big) 
+                   + {\textstyle{1\over2}}\int_{x-t}^{x+t} \gamma(s)\, ds.\]
+      From this it follows that 
+     \[ u(1,1) = {\textstyle{1\over2}}\big(\psi(0) + \psi(0)\big) 
+                   + {\textstyle{1\over2}}\int_{0}^{0} \gamma(s)\, ds = \psi(0)\]
+      Since the solution at $x=1$ and $t=1$ depends on $\psi$ at $x=0$, we note that the 
+      domain of dependence is a single point which is $x=0$.
+\item D'Alembert’s general solution to the wave equation on $-\infty < x < \infty$ gives (with $c = 1$):
+\[
+u(x, t) = \frac{1}{2} \left[ \psi(x-t) + \psi(x+t) \right] + \frac{1}{2} \int_{x-t}^{x+t} \gamma(s) \: ds = \frac{1}{2} \left[ \psi(x-t) + \psi(x+t)\right] \]
+
+Therefore,
+\[
+ u(x, 1/2) = \frac{1}{2} \left[ \psi(x-1/2) + \psi(x+1/2)\right] = {\displaystyle{ \left\{\begin{array}{ll}
+                      	\frac{1}{2}(x+\frac{3}{2} ) &  \:\: \mbox{if} \:\: \frac{-3}{2}  \leq x < \frac{-1}{2}  ,\\\\
+       									\frac{1}{2}  &  \:\: \mbox{if} \:\: \frac{-1}{2}  \leq x < \frac{1}{2}  ,\\\\
+       									-\frac{1}{2}(x-\frac{3}{2} ) &  \:\: \mbox{if} \:\: \frac{1}{2}  \leq x < \frac{3}{2}  ,\\\\
+       									0    & \:\:  \mbox{otherwise}
+                               \end{array}\right.}}
+\]
+and
+\[
+ u(x, 10) = \frac{1}{2} \left[ \psi(x-10) + \psi(x+10) \right] = {\displaystyle{ \left\{\begin{array}{ll}
+                      	\frac{1}{2}(x+11 ) &  \:\: \mbox{if} \:\: -11  \leq x < -10  ,\\\\
+                      	-\frac{1}{2}(x+10 ) &  \:\: \mbox{if} \:\: -10  \leq x < -9  ,\\\\
+       									\frac{1}{2} (x -9 )  &  \:\: \mbox{if} \:\:  9 \leq x < 10  ,\\ \\
+       								  -\frac{1}{2}(x+11 ) &  \:\: \mbox{if} \:\:   10 \leq x < 11  ,\\\\
+       									0    & \:\:  \mbox{otherwise}
+                               \end{array}\right.}}
+\]
+
+
+\item As we saw in our solutions to the heat equation on a finite interval, heat
+equation solutions are smooth; the initial profile immediately becomes smooth $(C^{\infty})$,
+widens, and flattens out in time (in this case approaches $0$) as the heat spreads throughout
+the bar. The fact that the temperature profile becomes $(C^{\infty})$ immediately (i.e., for
+any $t > 0$) implies that the heat has an infinite speed of propagation (which is, of course,
+unphysical in that it violates the theory of relativity). On the other hand, the profile
+itself will not propagate left or right, but will remain centered at $x = 0$, with its maximum
+value also at $x = 0$. In contrast, as seen in part (a), the wave equation does not
+yield a smooth solution, but rather preserves any sharp corners or discontinuities in the
+initial data, and the solution is composed of left- and right-going waves that propagate
+at a finite speed $c = 1$.
+The consequences these differences have on solutions methods relate primarily to the
+difference in smoothness of the solutions. Since the wave equation preserves the singularities
+(discontinuities, corners, etc.) in the initial data, the effectiveness of the solution
+method is limited by its ability to accurately represent such singularities. As we discussed
+in class, however, Fourier series converge more slowly for singular functions than for smooth functions and piecewise-linear basis functions provide a relatively poor approximation
+to singular functions. Therefore, either more terms in the Fourier series
+representation or more basis functions in the finite element discretization are required
+to achieve a desired accuracy in solving the wave equation than in solving the heat
+equation.
+\end{enumerate}
+ \end{solution}
+}{}

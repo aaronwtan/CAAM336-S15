@@ -1,0 +1,71 @@
+
+Let the inner product $\ip{\cdot,\cdot}:\mbox{ }C[0,1]\times C[0,1]\rightarrow\R$ be defined by
+\[
+\ip{v,w}=\int_0^1v(x)w(x)\,dx
+\]
+and let the norm $\norm{\cdot}:\mbox{ }C[0,1]\rightarrow\R$ be defined by
+\[
+\norm{v}=\sqrt{\ip{v,v}}.
+\]
+Let the linear operator $L: C^2_D[0,1]\to C[0,1]$ be defined by
+\[
+L v = -v''
+\]
+where
+\[
+C^2_D[0,1] = \{ w \in C^2[0,1] : w(0) = w(1) = 0\}.
+\]
+Recall that the operator $L$ has eigenvalues
+\[
+\lambda_n = n^2 \pi^2
+\]
+with corresponding eigenfunctions
+\[
+\phi_n(x) = \sqrt{2} \sin(n \pi x)
+\]
+for $n=1,2,\ldots$. Let $N$ be a positive integer, let $f\in C[0,1]$ be defined by $f(x) = 8x^2(1-x)$ and let $u$ be the solution to
+\[
+Lu=f.
+\]
+\\
+\begin{enumerate}
+\item Compute the best approximation $f_N$ to $f$ from ${\rm span}\left\{\phi_1,\ldots,\phi_N\right\}$ with respect to the norm $\norm{\cdot}$.
+\\
+\item Write down the infinite series solution to
+\[
+Lu=f
+\]
+that is obtained using the spectral method, i.e.
+\[
+u(x) = \sum_{j = 1}^\infty \alpha_j \phi_j(x)
+\]
+where $\alpha_j$ are coefficients to be specified.  Given this above series, determine the best approximation $u_N$ to $u$ from ${\rm span}\left\{\phi_1,\ldots,\phi_N\right\}$ with respect to the norm $\norm{\cdot}$.
+\\
+%\item Produce a plot comparing $f$ to $f_N$ for $N=1,2,3,4,5,6$.
+%\\
+\item Plot the approximations $u_N$ to $u$ that you obtained using the spectral method for $N=1,2,3,4,5,6$.
+\\
+\item By shifting the data and then using an infinite series solution that you have obtained previously in this question, obtain a series solution to the problem of finding $\tilde{u}\in C^2[0,1]$ such that
+\[
+-\tilde{u}''(x)=f(x),\quad 0<x<1;
+\]
+\[
+\tilde{u}(0) = -{1\over 4}
+\]
+and
+\[
+\tilde{u}(1) = {1\over 4}.
+\]
+\\
+\item Let $\tilde{u}_N$ be the series solution that you obtained in part (d) but with $\infty$ replaced by $N$, i.e.
+\[
+\tilde{u}_N(x) = \sum_{j = 1}^N \alpha_j \phi_j(x)
+\]
+Plot $\tilde{u}_N$ for $N=1,2,3,4,5,6$.
+\end{enumerate}
+
+           
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input sineseries_sol}{}
+

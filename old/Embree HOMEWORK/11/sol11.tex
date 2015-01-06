@@ -1,0 +1,36 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+\begin{document}
+\setboolean{showsols}{true}
+%\vspace*{-3em}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+ Problem Set 11 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Thursday 18 November 2010.  Due Tuesday 23 November 2010, 5pm.
+
+\begin{center}
+This problem set counts for 75~points.\\
+{Late problem sets are due by 5pm on Wednesday 24 November 2010.}
+\end{center}
+
+
+\begin{enumerate}
+\item {[30 points: 7 points each for (a), (b), (c); 9 points for (d)]}\\  \input dalembert
+
+\vspace*{1em}
+\item {[10 points]}\\ \input wavinhom
+
+\vspace*{1em}
+\item {[35 points: 5 points each for (a) and (b); 10 points for (c); 15 points for (d)]}\\ \input heat_v_wave
+
+
+\end{enumerate}
+
+\end{document}

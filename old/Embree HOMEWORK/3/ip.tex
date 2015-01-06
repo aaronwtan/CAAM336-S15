@@ -1,0 +1,91 @@
+Determine whether each of the following functions $\ip{\cdot,\cdot}$ 
+determines an inner product on the vector space $\CV$.  
+If not, show \textbf{all the properties} 
+of the inner product that are violated.
+
+\begin{center}\begin{tabular}{ll}
+ (a)\ $\CV = C^1[0,1]$, $\displaystyle{\ip{u,v} = \int_0^1 u(x) v'(x)\, dx}$ & 
+ (b)\ $\CV = C[0,1]$: $\displaystyle{\ip{u,v} = \int_0^1 |u(x)| |v(x)|\, dx}$ \ \ \ \ \ \\[0.75em]
+ (c)\ $\CV = C[0,1]$: $\displaystyle{\ip{u,v} = \int_0^1 u(x) v(x) e^{-x}\, dx}$ & 
+ (d)\ $\CV = C[0,1]$: $\displaystyle{\ip{u,v} = \int_0^1 \big(u(x) + v(x)\big)\, dx}$ \\
+\end{tabular}\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+For each example, we shall check all three properties required for an inner product.
+\begin{enumerate}
+\item \emph{This function is not an inner product}:
+      it is not symmetric and $(u,u)$ need not be positive.\\
+      {[\textbf{GRADERS}: deduct 2~points if a student only identifies
+        one of the two failed properties.]}\\
+      The function $\ip{u,v}$ is not symmetric.
+       For example, if $u(x) = 1$ and $v(x) = x$, then
+         \[ (u,v) = \int_0^1 u(x) v'(x) \, dx = \int_0^1 1\, dx = 1,\]
+       yet
+         \[ (v,u) = \int_0^1 v(x) u'(x) \, dx = \int_0^1 0\, dx = 0.\]
+       The function also fails to satisfy the nonnegativity requirement:
+       For example, if $u(x) = 1$, then $(u,u) = 0$; if $u(x) = 1-x$,
+       then
+         \[ (u,u) = \int_0^1 (1-x)(-1)\, dx = -1/2.\]
+      {[\textbf{GRADERS}: students need only to show that $(u,u)=0$ for nonzero $u$,
+        or $(u,u)<0$ for some $u$.  They need not show both.]}
+       
+       For what it is worth, we note that $\ip{u,v}$ is linear:
+         \[ \ip{\alpha u + \beta v, w}
+                = \alpha \int_0^1 u(x) w'(x) \,dx + \beta\int_0^1 v(x) w'(x)\,dx
+                = \alpha\ip{u,w} + \beta\ip{v,w}. \]
+   
+\item \emph{This function is not an inner product}: it is not linear.\\
+     The function $(u,v)$ is symmetric, as 
+     \[ \ip{u,v} = \int_0^1 |u(x)| |v(x)|\, d x
+                 =  \int_0^1 |v(x)| |u(x)| \, d x = \ip{v,u}.\]
+     However, it is not linear:
+     \[ \ip{\alpha u,w} = \int_0^1 |\alpha u(x)| |w(x)|\, d x
+                 =  \int_0^1 |\alpha| |u(x)| |w(x)| \, d x = |\alpha| \ip{u,w}.\]  
+      If $u,w\ne 0$ and $\alpha<0$, then we have $\ip{\alpha u, w} \ne \alpha \ip{u,w}$.
+
+      The function $\ip{u,u}$ is nonnegative and positive when $u\ne 0$:  
+             \[ (u,u) = \int_0^1 |u(x)|^2\, dx\]
+      is the integral of a nonnegative function, and hence is nonnegative;
+      $(u,u)=0$ if and only if $u(x)=0$ for all $x$, i.e., $u=0$.
+     
+\item \emph{This function is an inner product.}\\
+     The function $(u,v)$ is symmetric, as 
+     \[ \ip{u,v} = \int_0^1 u(x) v(x) e^{-x}\, d x
+                 =  \int_0^1 v(x) u(x) e^{-x} \, d x = \ip{v,u}.\]
+      Similarly, the function is also linear:
+     \begin{eqnarray*}
+      \ip{\alpha u + \beta v, w} = \int_0^1 (\alpha u(x) + \beta v(x)) w(x) e^{-x}\, d x \\[0.5em]
+                 &=&  \alpha \int_0^1 u(x)w(x) e^{-x}\, dx
+                   +  \beta \int_0^1 v(x)w(x) e^{-x}\, dx \\[0.5em]
+                 &=& \alpha \ip{u,w} + \beta \ip{v,w}.
+     \end{eqnarray*}
+      Lastly, we check
+          \[ (u,u) = \int_0^1 u(x)^2 e^{-x} d x.\]
+      The function $e^{-x}$ is positive valued on $[0,1]$, so we have 
+      that $(u,u)$ is the integrand of a nonnegative function, and hence
+      is also nonnegative.  If $(u,u) = 0$, then $u(x)^2 e^{-x} = 0$ for all $x\in[0,1]$,
+      which means that $u(x)=0$ for all such $x$, i.e., $u=0$.
+     
+\item \emph{This function is not an inner product}: 
+      it is not linear in the first component, and $(u,u)$ need not be positive.\\
+      {[\textbf{GRADERS}: deduct 2~points if a student only identifies
+        one of the two failed properties.]}\\
+       To test linearity, consider 
+         \[ \ip{u + v, w} 
+                = \int_0^1 \big(u(x)+v(x)\big) + w(x) \,dx 
+                = \int_0^1 u(x) + w(x) \,dx 
+                   + \int_0^1 v(x)\,dx
+                = \ip{u,w} + \int_0^1 v(x)\,dx.\]
+        For most choices of $v$ and $w$ (for example, $v(x)=w(x)=1$), 
+        $\int_0^1 v(x) \,dx \ne \ip{v,w}$, so $(\cdot,\cdot)$ is not linear.
+      The function $\ip{\cdot,\cdot}$ also fails to satisfy the nonnegativity requirement.
+       For example, if $u(x) = -1$,  then
+         \[ (u,u) = \int_0^1 \big(u(x)+ u(x)\big) \, dx = \int_0^1 -2\, dx = -2 < 0.\]
+
+       For what it is worth, note that $\ip{u,v}$ symmetric: $\ip{u,v}=\ip{v,u}$.
+      
+\end{enumerate}
+\end{solution}}{}
+

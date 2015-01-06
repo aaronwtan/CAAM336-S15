@@ -1,0 +1,95 @@
+\begin{solution}
+\begin{enumerate}
+
+\item We will construct the finite difference equations for the steady state heat equation 
+\[
+\kappa\pd{u(x,t)}{x}{2} = f(x), \quad 0 < x < 1
+\]
+with periodic boundary conditions
+\[
+u(1) = u(0), \qquad \pd{u(1)}{x}{} = \pd{u(0)}{x}{}.
+\]
+For the second derivative $\pd{u(x,t)}{x}{2}$ we will use second order central difference 
+\[
+\pd{u(x_i,t)}{x}{2} \approx \frac{u_{i+1}- 2u_i + u_{i-1} } {h^2}
+\]
+where $h= x_{i+1}-x_i$. Then finite difference approximation to $ \displaystyle{\kappa\pd{u(x,t)}{x}{2} = f(x)}$ at the point $x_i$ can be written
+\[
+\kappa \frac{u_{i+1}- 2u_i + u_{i-1} } {h^2} = f_i \qquad i=1,2 \cdots, n
+\]
+from boundary conditions it can be written 
+\[
+u_0 = u_{N+1}
+\]
+and 
+\[
+\frac{u_{N+1} - u_N }{h}= \frac{u_{1} - u_0 }{h} \Rightarrow u_{0} - u_N =u_{1} - u_0  \Rightarrow u_0 =\frac{u_1 +u_N}{2}
+\]
+Now, we would like specify finite difference solution at $x_1, x_i$ and $x_N$. For $i=1$
+\[
+\kappa \frac{u_{2}- 2u_1 + u_{0} } {h^2} = f_1  
+\]
+from the given boundary conditions we have $u_0= \frac{u_1 + u_N}{2}$. Then
+\[
+ \kappa \frac{u_{2}- 2u_1 + \frac{u_1 +u_N}{2}}{h^2} = f_1 \Rightarrow  \kappa( u_{2}- \frac{3}{2} u_1 + \frac{u_N}{2}) = h^2f_1
+\]
+At the point $x_i$ 
+
+\[
+\kappa \frac{u_{i+1}- 2u_i + u_{i-1} } {h^2} = f_i \Rightarrow \kappa (u_{i+1}- 2u_i + u_{i-1}) = h^2 f_i
+\]
+At the point $x_N$ 
+\[
+\kappa \frac{u_{N+1}- 2u_N + u_{N-1} } {h^2} = f_N 
+\]
+
+from the given boundary conditions we have $u_0=u_{N+1}= \frac{u_1 +u_N}{2}$. Then
+\[
+\kappa \frac{\frac{u_1 +u_N}{2}- 2u_N + u_{N-1} } {h^2} = f_N \Rightarrow \kappa( \frac{u_{1}}{2}- \frac{3}{2}u_N + u_{N-1}) = h^2f_N
+\]
+
+As a result we have following linear system of equations for $i=1,2,\cdots,N$
+\begin{eqnarray*}
+ \kappa \frac{u_{2}-\frac{3}{2} u_1+ \frac{u_N}{2}}{h^2} &=&f_1\\
+\kappa \frac{u_{3}- 2u_2 + u_{1} } {h^2} &=& f_2 \\
+\vdots
+\\
+\kappa \frac{u_{N}- 2u_{N-1} + u_{N-2} } {h^2}&=& f_{N-1}\\
+\kappa \frac{\frac{u_1}{2}- \frac{3}{2} u_N+ u_{N-1} } {h^2} &=& f_N
+\end{eqnarray*}
+The matrix system is
+\begin{eqnarray*}
+ \underbrace{\frac{-\kappa}{h^2}\left[\begin{array}{rrrrr}
+              \frac{3}{2} & -1 & \cdots & &\frac{-1}{2}\\[0.25em]
+               -1 &  2 & -1 &  \\
+                 &  -1  &  2 & -1 \ddots \\
+                 & & \ddots & \ddots 2& -1 \\[0.25em]
+                 \frac{-1}{2}& \cdots & & -1 &  \frac{3}{2} 
+               \end{array}\right]}_{\bf A}
+          \underbrace{\left[\begin{array}{c} u_1\\[0.25em] u_2 \\[0.25em] \vdots \\[0.25em] u_{N-1} \\[0.25em] u_N \end{array}\right]}_{\bf x}
+ = \underbrace{\left[\begin{array}{c} f_1 \\[0.25em] f_2 \\[0.25em] \vdots \\[0.25em] f_{N-1} \\[0.25em] f_N \end{array}\right]}_{\bf f}
+\end{eqnarray*}
+
+As a result we get the matrix system $\bf{A x} = \bf f$
+
+\item Define the operator $L_P u : C_P^2[0,1] \rightarrow C[0,1]$ by 
+\[
+L_P u=\kappa\pd{u(x,t)}{x}{2} 
+\]
+where $\displaystyle{C_P^2[0,1] = \{ u \in C^2[0,1]: u(1) = u(0), \pd{u(1)}{x}{} = \pd{u(0)}{x}{}\}}$
+If $L_{P} u = 0$ then $u$ satisfy the BVP
+\begin{eqnarray*}
+\kappa\pd{u(x,t)}{x}{2} &=&0 \qquad 0<x<1\\
+                   u(1) &=& u(0)\\
+         \pd{u(1)}{x}{} &=& \pd{u(0)}{x}{}.
+         \end{eqnarray*}
+         
+The differential equation implies that $\displaystyle{u(x)= C_1 x + C_2}$ for some constant $C_1$ and $C_2$. The two boundary conditions lead to conclusion that $C_1=0$ however, the constant $C_2$ can have any value and both the differential equation and two boundary conditions will be satisfied. This shows that every constant function $u(x) = C_2$ satisfies $L_{P} u = 0$. That is , the null space of $L_P$ is the space of constant function.
+\[
+Null({L_P })= \{C_2 \quad \textrm{for all}\quad C_2 \in \R\}
+\]
+\\
+Since the null space of $L_P$ is not trivial, we know that the operator equation $L_{P} u = f$ cannot have unique solution. If there is one solution, there must be infinitely many, i.e., Since the null pace is the set of constant functions, all solutions of $L_{P} u = f$ differ by constant.
+
+\end{enumerate}
+\end{solution}

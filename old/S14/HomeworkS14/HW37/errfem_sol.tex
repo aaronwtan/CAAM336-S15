@@ -1,0 +1,130 @@
+\begin{solution}
+\begin{enumerate}
+\item {[10 points]} Since $\ip{\cdot,\cdot}$ is a symmetric bilinear form on $L^2(0,1)$,
+\[
+\ip{\alpha w_1+\beta w_2,w_3}=\alpha\ip{w_1,w_3}+\beta\ip{w_2,w_3}\mbox{ for all }w_1,w_2,w_3\in H^1(0,1)\mbox{ and all }\alpha,\beta\in\R
+\]
+because if $w_1,w_2\in H^1(0,1)$ then $w_1,w_2\in L^2(0,1)$. Also, since $a\ip{\cdot,\cdot}$ is a symmetric bilinear form on $H^1(0,1)$,
+\[
+a\ip{\alpha w_1+\beta w_2,w_3}=\alpha a\ip{w_1,w_3}+\beta a\ip{w_2,w_3}\mbox{ for all }w_1,w_2,w_3\in H^1(0,1)\mbox{ and all }\alpha,\beta\in\R.
+\]
+Hence, for all $w_1,w_2,w_3\in H^1(0,1)$ and all $\alpha,\beta\in\R$,
+\begin{eqnarray*}
+B\ip{\alpha w_1+\beta w_2,w_3}&=&a\ip{\alpha w_1+\beta w_2,w_3}+\ip{\alpha w_1+\beta w_2,w_3}
+\\
+&=&\alpha a\ip{w_1,w_3}+\beta a\ip{w_2,w_3}+\alpha \ip{w_1,w_3}+\beta \ip{w_2,w_3}
+\\
+&=&\alpha\left(a\ip{w_1,w_3}+\ip{w_1,w_3}\right)+\beta\left(a\ip{w_2,w_3}+\ip{w_2,w_3}\right)
+\\
+&=&\alpha B\ip{w_1,w_3}+\beta B\ip{w_2,w_3}.
+\end{eqnarray*}
+Therefore, $B\ip{\cdot,\cdot}$ is linear in the first argument.
+
+Moreover, since $\ip{\cdot,\cdot}$ is a symmetric bilinear form on $L^2(0,1)$,
+\[
+\ip{w_1,w_2}=\ip{w_2,w_1}\mbox{ for all }w_1,w_2\in H^1(0,1)
+\]
+because if $w_1,w_2\in H^1(0,1)$ then $w_1,w_2\in L^2(0,1)$. Furthermore, since $a\ip{\cdot,\cdot}$ is a symmetric bilinear form on $H^1(0,1)$,
+\[
+a\ip{w_1,w_2}=a\ip{w_2,w_1}\mbox{ for all }w_1,w_2\in H^1(0,1).
+\]
+Hence, for all $w_1,w_2\in H^1(0,1)$,
+\begin{eqnarray*}
+B\ip{w_1,w_2}&=&a\ip{w_1,w_2}+\ip{w_1,w_2}
+\\
+&=&a\ip{w_2,w_1}+\ip{w_2,w_1}
+\\
+&=&B\ip{w_2,w_1}.
+\end{eqnarray*}
+Therefore, $B\ip{\cdot,\cdot}$ is symmetric.
+
+It then follows that, for all $w_1,w_2,w_3\in H^1(0,1)$ and all $\alpha,\beta\in\R$,
+\begin{eqnarray*}
+B\ip{w_1,\alpha w_2+\beta w_3}&=&B\ip{\alpha w_2+\beta w_3,w_1}
+\\
+&=&\alpha B\ip{w_2,w_1}+\beta B\ip{w_3,w_1}
+\\
+&=&\alpha B\ip{w_1,w_2}+\beta B\ip{w_1,w_3}.
+\end{eqnarray*}
+Therefore, $B\ip{\cdot,\cdot}$ is linear in the second argument.
+
+Consequently, $B\ip{\cdot,\cdot}$ is a symmetric bilinear form on $H^1(0,1)$.
+\\
+\item {[5 points]} Since $V_N$ is a subspace of $H^1_D\left(0,1\right)$, the fact that
+\[
+B\ip{u,v}=\ip{f,v}+\rho v(1)\mbox{ for all }v\in H^1_D\left(0,1\right)
+\]
+means that
+\[
+B\ip{u,v}=\ip{f,v}+\rho v(1)\mbox{ for all }v\in V_N.
+\]
+Moreover,
+\[
+a\ip{u_N,v}=\ip{f,v}+\rho v(1)\mbox{ for all }v\in V_N.
+\]
+Therefore the properties satisfied by a symmetric bilinear form allow us to say that, for all $v\in V_N$,
+\begin{eqnarray*}
+B\ip{u-u_N,v}&=&B\ip{u,v}-B\ip{u_N,v}
+\\
+&=&\ip{f,v}+\rho v(1)-\left(\ip{f,v}+\rho v(1)\right)
+\\
+&=&0.
+\end{eqnarray*}
+Consequently,
+\[
+B\ip{u-u_N,v}=0\mbox{ for all }v\in V_N.
+\]
+\\
+\item {[5 points]} The properties satisfied by a symmetric bilinear form allow us to say that
+\begin{eqnarray*}
+B\ip{u-u_N,u-u_N}&=&B\ip{u,u-u_N}-B\ip{u_N,u-u_N}
+\\
+&=&B\ip{u,u}-B\ip{u,u_N}-B\ip{u_N,u}+B\ip{u_N,u_N}
+\\
+&=&B\ip{u,u}-2B\ip{u,u_N}+B\ip{u_N,u_N}.
+\end{eqnarray*}
+Now, $u_N\in V_N$ and so the fact that
+\[
+B\ip{u-u_N,v}=0\mbox{ for all }v\in V_N
+\]
+means that
+\[
+B\ip{u-u_N,u_N}=0
+\]
+and hence
+\[
+B\ip{u,u_N}=B\ip{u_N,u_N}
+\]
+since the properties satisfied by a symmetric bilinear form mean that
+\[
+B\ip{u-u_N,u_N}=B\ip{u,u_N}-B\ip{u_N,u_N}.
+\]
+Therefore
+\begin{eqnarray*}
+B\ip{u-u_N,u-u_N}&=&B\ip{u,u}-2B\ip{u_N,u_N}+B\ip{u_N,u_N}
+\\
+&=&B\ip{u,u}-B\ip{u_N,u_N}.
+\end{eqnarray*}
+The definition of the norm $\left|\left|\left|\cdot\right|\right|\right|$ then allows us to conclude that
+\[
+\left|\left|\left|u-u_N\right|\right|\right|^2=\left|\left|\left|u\right|\right|\right|^2-\left|\left|\left|u_N\right|\right|\right|^2.
+\]
+\\
+\item {[5 points]} Since $\left|\left|\left|u-u_N\right|\right|\right|\in\R$, we can say that
+\[
+\left|\left|\left|u-u_N\right|\right|\right|^2\ge0
+\]
+and so since
+\[
+\left|\left|\left|u-u_N\right|\right|\right|^2=\left|\left|\left|u\right|\right|\right|^2-\left|\left|\left|u_N\right|\right|\right|^2
+\]
+we can conclude that
+\[
+\left|\left|\left|u\right|\right|\right|^2-\left|\left|\left|u_N\right|\right|\right|^2\ge0.
+\]
+Hence,
+\[
+\left|\left|\left|u_N\right|\right|\right|^2\le\left|\left|\left|u\right|\right|\right|^2.
+\]
+\end{enumerate}
+\end{solution}

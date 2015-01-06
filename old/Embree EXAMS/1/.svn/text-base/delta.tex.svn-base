@@ -1,0 +1,29 @@
+A classical problem in quantum mechanics models a particle moving in
+an infinite square well, subject to an infinite potential at a point.
+The result is a Schr\"odinger operator posed on $C^2_D[0,1]$ of the form
+\[ L u = -u'' + \delta_{1/2} u,\]
+where $\delta_{1/2}$ is a ``delta function'' centered at the location of
+the infinite potential, $x=1/2$.  There is a beautiful theory behind these
+exotic functions (more properly called \emph{distributions}).  For this bonus problem,
+you need only know the following fact: for any function $g\in C[0,1]$,
+\[ \int_0^1 \delta_{1/2}(x) g(x) \ d x = g(1/2).\]
+
+The equation $Lu = f$ has the equivalent weak form
+\[ a(u, w) = (f,w) \qquad \mbox{for all $w\in V = C^2_D[0,1]$},\]
+where
+\[ \kern6pt a(u,w) = \int_0^1 u'(x) w'(x) + \delta_{1/2}(x) u(x) w(x)\, d x.\]
+
+\vspace*{1em}
+We wish to use the Galerkin method to approximate solutions to $Lu = f$
+from the finite dimensional subspace
+$V_N = {\rm span}\{\phi_1, \ldots, \phi_N\}$.
+Take the basis vectors to be the eigenfunctions of the problem
+without the infinite potential:
+\[ \phi_k(x) = \sqrt{2} \sin(n \pi x).\]
+
+\vspace*{1em}
+
+For 5~bonus points, write out the stiffness matrix for $N=5$ in the simplest
+possible form.
+
+

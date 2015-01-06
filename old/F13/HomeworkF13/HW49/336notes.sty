@@ -1,0 +1,155 @@
+\usepackage{mcode}
+\usepackage[T1]{fontenc}
+\usepackage{euscript,bbm}
+\usepackage{graphicx,amssymb,amsmath}
+%\usepackage[draft]{graphicx}
+\def\mydate{\number\day\ {\ifcase\month \or January\or February\or
+                   March\or April\or May\or June\or July\or August\or
+                   September\or October\or November\or December\fi} \number\year}
+
+% from fullpage.sty
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is FULLPAGE.STY by H.Partl, Version 2 as of 15 Dec 1988.
+% Document Style Option to fill the paper just like Plain TeX.
+
+\typeout{Style Option FULLPAGE Version 2 as of 15 Dec 1988}
+
+\topmargin 0pt
+\advance \topmargin by -\headheight
+\advance \topmargin by -\headsep
+\textheight 8.9in
+\oddsidemargin 0pt
+\evensidemargin \oddsidemargin
+\marginparwidth 0.5in
+\textwidth 6.5in
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% In math mode, @ becomes a small forward space.
+% This is a trick of Knuth's, recommended by Higham.
+% See page 641 of Knuth's "Digital Typography"
+\mathcode`\@="8000
+{\catcode`\@=\active \gdef@{\mkern1mu}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\mathcal{\EuScript}
+%\pagestyle{fancyplain}
+%\headrulewidth0pt
+\def\lecturenum{?}
+% \lhead[]{\small\textsf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}}
+% \rhead[\small\textsf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}]{}
+% \cfoot{\small \thepage}
+% \lfoot[\small \fancyplain{}{{\sl \mydate}}]
+%      {\small \fancyplain{\sl \mydate}{}}
+%\rfoot[\small \fancyplain{\sl \mydate}{}]
+%      {\small \fancyplain{}{{\sl \mydate}}}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}} % from http://physics.stanford.edu/cpbl/latex
+\setcounter{footnote}{1}
+\parskip0.75em
+\parindent0em
+
+\makeatletter
+\renewcommand{\eqnarray}{%
+   \stepcounter{equation}%
+   \def\@currentlabel{\p@equation\theequation}%
+   \global\@eqnswtrue
+   \m@th
+   \global\@eqcnt\z@
+   \tabskip\@centering
+   \let\\\@eqncr
+   $$\everycr{}\halign to\displaywidth\bgroup
+       \hskip\@centering$\displaystyle\tabskip\z@skip{##}$\@eqnsel
+      &\global\@eqcnt\@ne\hskip0.4em  \hfil${##}$\hfil
+      &\global\@eqcnt\tw@ \hskip0.45em
+         $\displaystyle{##}$\hfil\tabskip\@centering
+      &\global\@eqcnt\thr@@ \hb@xt@\z@\bgroup\hss##\egroup
+         \tabskip\z@skip
+      \cr
+}
+\makeatother
+
+
+\def\notetitle#1{\begin{center}\textsf{\textbf{#1}}\end{center}}
+\def\notesec#1{\textsf{\textbf{#1}}.}
+\def\notation{\textsf{\textbf{Notation.}}\ \ }
+\def\prop{\textsf{\textbf{Proposition.}}\ \ }
+\def\lemma{\textsf{\textbf{Lemma.}}\ \ }
+\def\thm{\textsf{\textbf{Theorem.}}\ \ }
+\def\thmname#1{\textsf{\textbf{Theorem (#1).}}\ \ }
+\def\defn{\textsf{\textbf{Definition.}}\ \ }
+\def\example{\textsf{\textbf{Example.}}\ \ }
+\def\examplenum#1{\textsf{\textbf{Example #1.}}\ \ }
+\def\examplename#1{\textsf{\textbf{Example (#1).}}\ \ }
+\def\proof{\textsf{\textbf{Proof.}}\ \ }
+\def\cor{\textsf{\textbf{Corollary.}}\ \ }
+\def\corname#1{\textsf{\textbf{Corollary (#1).}}\ \ }
+\def\R{{\mathbbm R}}
+\def\C{{\mathbbm C}}
+\def\Cm{\C^m}
+\def\Cn{\C^n}
+\def\Cmn{\C^{m\times n}}
+\def\Cmm{\C^{m\times m}}
+\def\Cnn{\C^{n\times n}}
+\def\Rn{\R^n}
+\def\Rm{\R^m}
+\def\Rmn{\R^{m\times n}}
+\def\Rmm{\R^{m\times m}}
+\def\Rnn{\R^{n\times n}}
+\def\F{{\rm F}}
+\def\Re{{\rm Re}}
+\def\poly{{\cal P}}
+\def\polyn{{\cal P}_{\kern-1pt n}}
+\def\spline{{\cal S}}
+\def\norm#1{\|#1\|}
+\def\fnorm#1{\|#1\|_{\rm F}}
+\def\ORDER{O}
+\def\eps{\varepsilon}
+\def\qed{\rule{1.6mm}{1.6mm}}
+\def\qedfill{\quad\qed}
+\def\eop{{\rm e}}
+\def\iop{{\rm i}}
+\def\dop{{\rm d}}
+\def\deg{{\rm det}}
+\def\ip#1{(#1)}
+\def\ran{{\rm Ran}}
+\def\ker{{\cal N}}
+\def\cspan{{\rm span}}
+\def\d{{\partial}}
+
+\def\Bzero{{\bf 0}}
+\def\BA{{\bf A}} \def\Ba{{\bf a}} \def\BAs{{\bf A}\kern-1.5pt}
+\def\BB{{\bf B}} \def\Bb{{\bf b}}
+\def\BC{{\bf C}} \def\Bc{{\bf c}}
+\def\BD{{\bf D}} \def\Bd{{\bf d}}
+\def\BE{{\bf E}} \def\Be{{\bf e}}
+\def\BF{{\bf F}} \def\Bf{{\bf f}}
+\def\BG{{\bf G}} \def\Bg{{\bf g}}
+\def\BH{{\bf H}} \def\Bh{{\bf h}}
+\def\BI{{\bf I}} \def\Bi{{\bf i}}
+\def\BJ{{\bf J}} \def\Bj{{\bf j}}
+\def\BK{{\bf K}} \def\Bk{{\bf k}}
+\def\BL{{\bf L}} \def\Bl{{\bf l}}
+\def\BM{{\bf M}} \def\Bm{{\bf m}}
+\def\BN{{\bf N}} \def\Bn{{\bf n}}
+\def\BO{{\bf O}} \def\Bo{{\bf o}}
+\def\BP{{\bf P}} \def\Bp{{\bf p}} \def\BPs{\BP\kern-1pt}
+\def\BQ{{\bf Q}} \def\Bq{{\bf q}}
+\def\BR{{\bf R}} \def\Br{{\bf r}}
+\def\BS{{\bf S}} \def\Bs{{\bf s}}
+\def\BT{{\bf T}} \def\Bt{{\bf t}}
+\def\BU{{\bf U}} \def\Bu{{\bf u}}
+\def\BV{{\bf V}} \def\Bv{{\bf v}}
+\def\BW{{\bf W}} \def\Bw{{\bf w}}
+\def\BX{{\bf X}} \def\Bx{{\bf x}}
+\def\BY{{\bf Y}} \def\By{{\bf y}}
+\def\BZ{{\bf Z}} \def\Bz{{\bf z}}
+\def\BLambda{\mbox{\boldmath$\Lambda$}}
+\def\BLambdas{\mbox{\boldmath$\scriptstyle{\Lambda}$}}
+\def\BPi{\mbox{\boldmath$\Pi$}}
+\def\BSigma{\mbox{\boldmath$\Sigma$}}
+
+\def\CP{{\cal P}}
+\def\CU{{\cal U}}
+\def\CV{{\cal V}}
+\def\CW{{\cal W}}

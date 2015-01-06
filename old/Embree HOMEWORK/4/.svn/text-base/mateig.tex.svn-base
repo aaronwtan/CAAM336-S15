@@ -1,0 +1,84 @@
+Suppose that
+  \[ \BA = \bmatrix{ 3 & 0 & 0 \cr 0 & 0 & 1 \cr 0 & 1 & 0}.\]
+\begin{enumerate} 
+\item Compute \emph{by hand} the eigenvalues and eigenvectors of this matrix.
+
+\item Verify \emph{by hand} that these eigenvectors are orthogonal.
+
+\item Solve the linear system $\BA\Bx = \Bb$ using the spectral method, where
+       \[ \Bb = \bmatrix{ 2 \cr -1 \cr 3}\]
+\end{enumerate}  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+
+\begin{enumerate}
+\item For this matrix $\BA$ we have
+\[ \lambda\BI - \BA = \bmatrix{ \lambda-3 & 0 & 0 \cr 0 & \lambda & -1 \cr 0 & -1 & \lambda},\]
+and hence the characteristic polynomial is 
+\[ \det(\lambda\BI - \BA) = (\lambda-3)(\lambda^2 + 1) = (\lambda-3)(\lambda-1)(\lambda+1).\]
+The eigenvalues of $\BA$ are the roots of the characteristic polynomial, which we label
+\[ \lambda_1 = -1, \qquad
+   \lambda_2 = 1, \qquad
+   \lambda_3 = 3.\]
+
+To compute the eigenvectors associated with each eigenvalue, we look for a 
+nonzero vector in the null space of $\lambda_j \BI - \BA$.
+\begin{itemize}
+\item[$\lambda_1=-1$:]   We seek $\Bu = (u_1, u_2, u_3)^T$ that makes the following vector zero:
+\[ (\lambda_1 \BI-\BA) \Bu = \bmatrix{-4 & 0 & 0 \cr 0 & -1 & -1 \cr 0 & -1 & -1}
+                             \bmatrix{u_1 \cr u_2\cr u_3}
+                           = \bmatrix{-4u_1 \cr -(u_2+u_3) \cr -(u_2+u_3)}.\]
+The only way to make this vector zero is to set $u_1 = 0$ and $u_2 = -u_3$.
+Thus any vector of the form
+\[ \Bu_1 = \bmatrix{ 0 \cr u_2 \cr -u_2}, \quad u_2 \ne 0\]
+is an eigenvector associated with the eigenvalues $\lambda_1=-1$.
+We select
+\[ \Bu_1 = {1\over \sqrt{2}} \bmatrix{0 \cr 1 \cr -1}\]
+so that $\norm{\Bu_1}=1$.
+\item[$\lambda_2=1$:]  We now seek $\Bu = (u_1, u_2, u_3)^T$ that makes the following vector zero:
+\[ (\lambda_2 \BI-\BA) \Bu = \bmatrix{-2& 0 & 0 \cr 0 & 1 & -1 \cr 0 & -1 & 1}
+                             \bmatrix{u_1 \cr u_2\cr u_3}
+                           = \bmatrix{-2u_1 \cr u_2-u_3 \cr u_3-u_2}.\]
+Any vector of the form
+\[ \Bu_2 = \bmatrix{ 0 \cr u_2 \cr u_2}, \quad u_2 \ne 0\]
+is an eigenvector associated with the eigenvalues $\lambda_2=1$.
+We select
+\[ \Bu_2 = {1\over \sqrt{2}} \bmatrix{0 \cr 1 \cr 1}.\]
+
+\item[$\lambda_3=3$:]  We now seek $\Bu = (u_1, u_2, u_3)^T$ that makes the following vector zero:
+\[ (\lambda_3 \BI-\BA) \Bu = \bmatrix{0& 0 & 0 \cr 0 & 3 & -1 \cr 0 & -1 & 3}
+                             \bmatrix{u_1 \cr u_2\cr u_3}
+                           = \bmatrix{0 \cr 3u_2-u_3 \cr 3u_3-u_2}.\]
+To make the second component zero we need $u_2 = u_3/3$, while to make
+the third component zero we need $u_3 = u_2/3$.  The only way to accomplish
+both is to set $u_2=u_3=0$.  Thus any vector of the form
+\[ \Bu_3 = \bmatrix{ u_1 \cr 0 \cr 0}, \quad u_1 \ne 0\]
+is an eigenvector associated with the eigenvalues $\lambda_3=3$.
+We select
+\[ \Bu_3 = \bmatrix{1 \cr 0 \cr 0}.\]
+\end{itemize}
+
+\item It is a straightforward matter to check that
+      \[ \Bu_1^T \Bu_2 = \Bu_2^T\Bu_1 = (1/\sqrt{2})(0\cdot0 + 1\cdot 1 + (-1)\cdot 1) = 0.\]
+      \[ \Bu_1^T \Bu_3 = \Bu_3^T\Bu_1 = (0\cdot1 + (1/\sqrt{2})\cdot 0 + (-1/\sqrt{2})\cdot 0) = 0.\]
+      \[ \Bu_2^T \Bu_3 = \Bu_3^T\Bu_2 = (0\cdot1 + (1/\sqrt{2})\cdot 0 + (1/\sqrt{2})\cdot 0) = 0.\]
+
+\item The spectral method gives $\Bx$ as a linear combination of the eigenvectors:
+         \[ \Bx = \sum_{j=1}^3 {\Bu_j^T\Bb \over \lambda_j}.\]
+      We compute
+      \begin{eqnarray*}
+          \Bu_1^T\Bb &=& 0\cdot 2 + (1/\sqrt{2}) \cdot (-1) + (-1/\sqrt{2}) \cdot 3 = -2\sqrt{2} \\[0.25em]
+          \Bu_2^T\Bb &=& 0\cdot 2 + (1/\sqrt{2}) \cdot (-1) + (1/\sqrt{2}) \cdot 3 = \sqrt{2}\\[0.25em]
+          \Bu_3^T\Bb &=& 1\cdot 2 + 0 \cdot (-1) + 0 \cdot 3 = 2,
+      \end{eqnarray*}
+and hence
+\[ \Bx =   {-2 \sqrt{2} \over -1} \bmatrix{ 0 \cr 1/\sqrt{2} \cr -1/\sqrt{2}}
+         + {\sqrt{2} \over 1} \bmatrix{ 0 \cr 1/\sqrt{2} \cr 1/\sqrt{2}}
+         + {2 \over 3} \bmatrix{1 \cr 0 \cr 0}
+       =   \bmatrix{2/3 \cr 3\cr -1}.\]
+We can multiply $\BA\Bx$ out to verify that the desired $\Bb$ is obtained.
+\end{enumerate} 
+\end{solution}}{}
+

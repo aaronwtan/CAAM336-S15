@@ -1,0 +1,48 @@
+For all problems below, assume $V$ is a vector space endowed with an 
+inner product, $(\cdot,\cdot)$.
+\begin{enumerate}
+\item Suppose $W = {\rm span}\{\phi_1\}$ is a one-dimensional subspace of $V$.\\
+      Write down a formula for the best approximation to $v\in V$ from the subspace $W$.
+\end{enumerate}
+
+
+In many circumstances, we are given a linearly independent 
+      basis $\phi_1, \ldots, \phi_N$ for the subspace 
+       \[  W = {\rm span}\{\phi_1, \ldots, \phi_N\},\]
+      and would like to create an orthogonal basis 
+        $\psi_1, \ldots, \psi_N$ for this same subspace $W$.\\
+      This procedure is called the \emph{Gram--Schmidt} process:\\[0.5em]
+       \hspace*{2em} Set $\psi_1 = \phi_1$.  \\[0.25em]
+       \hspace*{2em} For $k=2,\ldots, N$  \\[0.25em]
+       \hspace*{5em}  Let $\widehat{\phi}_k$ denote the best approximation to $\phi_k$
+                       from ${\rm span}\{\psi_1,\ldots, \psi_{k-1}\}$.\\[0.25em]
+       \hspace*{5em}  Set $\psi_k = \phi_k - \widehat{\phi}_k$.\\[0.25em]
+       \hspace*{2em} end
+
+\begin{enumerate}
+
+\item[(b)] Use the Gram--Schmidt process to construct orthogonal basis vectors
+      $\psi_1, \psi_2, \psi_3$ 
+      for the subspace $W = {\rm span}\{\phi_1, \phi_2, \phi_3\}$ of $\R^4$,
+      where
+      \[ \phi_1 = \bmatrix{1\cr 0\cr 0 \cr 0}, \quad
+         \phi_2 = \bmatrix{1\cr 1\cr 1 \cr 0}, \quad
+         \phi_3 = \bmatrix{1\cr 1\cr 1 \cr 1},\]
+      with the usual vector inner product $(\Bx, \By) = \sum_{k=1}^4 x_k y_k$.
+
+\item[(c)] Find the best approximation from $W$ in part~(b) to the vector
+         \[ \Bv = \bmatrix{0 \cr 1 \cr 0 \cr 0}.\]
+
+\item[(d)] Now we seek an orthogonal basis for the space of all quadratic polynomials 
+           on $C[-1,1]$ using the usual inner product 
+      \[ (f,g) = \int_{-1}^1 f(x) g(x)\, d x.\]
+      To build such a basis, start with
+      \[ \phi_1(x) = 1, \quad
+         \phi_2(x) = x, \quad
+         \phi_3(x) = x^2,\]
+      then use the Gram--Schmidt process to construct orthogonal polynomials
+      $\psi_1, \psi_2$, and $\psi_3$.
+
+\item[(e)] Find the best approximation to $v(x) = x^3$ from the set of quadratic polynomials
+      on $C[-1,1]$ using the inner product in part~(d). 
+\end{enumerate}

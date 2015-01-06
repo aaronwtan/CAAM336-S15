@@ -1,0 +1,37 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen,amsmath,subfigure}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+
+\begin{document}
+
+\newcommand{\pd}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+
+\setboolean{showsols}{true}
+\vspace*{-5em}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+Homework 3 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Wednesday 10, September 2014.  Due 5pm Wednesday 17, September 2014.
+
+\begin{center}
+\emph{Please write your name and \textbf{residential college} on your homework.}
+\end{center}
+
+\begin{enumerate}
+
+\item {[28 points: 7 points each]}  \input eig
+\newpage
+\item {[22 points: 11 points each]}  \input stability
+\newpage
+\item {[50 points: 8 points for (a), 12 points for (c), 10 points for (b), (d), (e)]}  \input CN
+
+\end{enumerate}
+
+\end{document}
+

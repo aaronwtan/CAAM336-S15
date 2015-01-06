@@ -1,0 +1,139 @@
+
+This problem deals with the advection-diffusion equation. We wish to solve the time-dependent version of this important equation in physics and engineering:
+ \begin{align*}
+u_{tt}(x, t) = u_{xx}(x, t) - cu_x(x, t)  
+ \end{align*}
+for $x \in [0, 1]$ with $u(0, t) = u(1, t) = 0$ and initial condition $u(x, 0) = u_0(x).$ (The $-u_{xx}$ term describes
+diffusion of a fluid; the constant $c$ describes the strength with which the fluid moves across the domain through the $cu_x$ term).\\
+ 
+Define the linear operator $L : C_D^2 [0, 1] \rightarrow C[0, 1]$ by $Lu = -u'' + cu'.$ The eigenvalues of L are
+\[
+\lambda_n = n^2\pi^2+ \frac{c^2}{4}, \qquad n=1,2, \cdots
+\] 
+with corresponding eigenfunctions
+\[
+\psi_n(x) = e^{cx/2} \sin(n\pi x),\qquad  n = 1, 2, \cdots
+\]
+
+\begin{enumerate}
+
+\item This $L$  is not symmetric (you do not need to show this). To construct solutions for this case, we must introduce the notion of the \textit{adjoint}, which generalizes the transpose of a matrix. An operator 
+\[
+L^*: C_D^2 [0, 1] \rightarrow C[0, 1]
+\]
+is the adjoint of 
+ \[
+ L: C_D^2 [0, 1] \rightarrow C[0, 1]
+ \]
+with  $C_D^2 [0, 1] \subset C[0, 1]$ provided $(Lu, v) = (u, L^*v)$ for all $u, v \in  C_D^2 [0, 1] $, where $(u,v) = \int_0^1 u(x)v(x)dx$. 
+Show that the adjoint $L^*$ of $L$ is given by
+\[
+L^*u = -u'' - cu'
+\]
+That is, show that this definition of $L^*$ gives $(Lu, v) = (u, L^*v)$ for all  $u, v \in  C_D^2 [0, 1] .$
+
+\item The adjoint $L^*$ has the same eigenvalues as $L$, but its eigenfunctions are instead
+\[
+\tilde{\psi}_n(x) = e^{-cx/2} \sin(n\pi x), \qquad n = 1, 2, \cdots.
+\]
+It turns out the eigenfunctions of $L$ and $L^*$ are biorthogonal:
+\[
+(\psi_n, \tilde{\psi}_m) = 0, \qquad  n \neq m.
+\]
+%In particular, 
+Show that, when expanding a function $f$ in the eigenfunctions ${\psi_n}$, the coefficients will involve
+eigenfunctions of both $L$ and $L^* :$
+\[
+f(x) = \sum_{n=1}^{\infty} \frac{\ip{f, \tilde{\psi}_n}}{\ip{\psi_n, \tilde{\psi}_n}}  \psi_n(x).
+\] 
+\item Adapt the spectral method to the advection-diffusion equation
+\[
+u_t(x, t) = u_{xx}(x, t) - c u_x(x, t), \qquad u(0, t) = u(1, t) = 0
+\]
+with the initial condition $u(x, 0) = u_0(x).$  Specifically, write down a series solution for $u(x,t)$ in terms the eigenfunctions $\psi_n(x)$, which should involve $u_0(x), c, n, \{\psi_{n}\}$ and $\{\tilde{\psi}_{n}\}$.
+%using the series solution for $u(x,t) = \sum_{j=1}^\infty \alpha_j(t)\psi_j(x)$.  
+ \end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \ifthenelse{\boolean{showsols}}{
+\begin{solution}
+\begin{enumerate}
+\item We compute the adjoint as follows: for $u, v \in  C_D^2 [0, 1] $
+\begin{align*}
+(Lu, v) &= \int_0^1 (-u''(x, t) + cu'(x, t) ) v (x) dx\\
+				&= \int_0^1 -u''(x, t) v (x) dx +  \int_0^1 cu'(x, t)  v (x) dx\\
+				&= \left[ u'(x, t)  v (x)\right]_0^1 + \int_0^1 u'(x, t) v' (x) dx + \left[cu(x, t) ) v (x)\right]_0^1 - \int_0^1 cu(x, t) v'(x) dx\\
+				&=\int_0^1 u'(x, t) v' (x) dx -\int_0^1 cu(x, t)  v'(x) dx\\
+				&=\left[ u(x, t)  v' (x)\right]_0^1 - \int_0^1 u(x, t) v'' (x) dx -\int_0^1 cu(x, t)  v'(x) dx\\
+				&=- \int_0^1 u(x, t) v'' (x) dx -\int_0^1 cu(x, t)  v'(x) dx\\
+				&= \int_0^1 u(x, t) (-v'' (x) - c  v'(x)) dx\\
+				&= (u, L^*v)
+\end{align*}
+
+Hence the adjoint is given by $L^*u = -u'' - cu'$ for $u \in C_D^2 [0, 1]. $
+
+\item  Let $f_N= \sum_{n=1}^{N} c_n \psi_n $ be a best approximation to $f$. Imposing the conditions $(f-f_N, w) = 0$ for $w = \tilde{\psi_n}$ with $n=1, 2, \cdots, N$ gives 
+\begin{align*}
+0  &= (f-f_N,  \tilde{\psi_n})\\
+				&= (f , \tilde{\psi_n})- (f_N,  \tilde{\psi_n}) \\
+				&= (f , \tilde{\psi_n})- (\sum_{m=1}^{N} c_m \psi_m,  \tilde{\psi_n}) \\
+				&=(f , \tilde{\psi_n})- \sum_{m=1}^{N} c_m ( \psi_m,  \tilde{\psi_n}) \\
+				&=(f , \tilde{\psi_n})-  c_n ( \psi_n,  \tilde{\psi_n}) 
+\end{align*}
+Rearrange this equation to give an expression for $c_n$,
+\[
+c_n= \frac{(f , \tilde{\psi_n})}{( \psi_n,  \tilde{\psi_n}) }
+\]
+Hence suggesting a nonsymmetric version of the spectral method:
+\[
+f(x) = \sum_{n=1}^{\infty} \frac{\ip{f, \tilde{\psi}_n}}{\ip{\psi_n, \tilde{\psi}_n}}  \psi_n(x).
+\] 
+
+\item We seek the solution $u(x, t)$ in the form
+\[
+u(x, t) = \sum_{n=1}^{\infty} a_n(t) \psi_n(x).
+\]
+
+Note that
+
+\[
+u_t(x, t) = \sum_{n=1}^{\infty} a'_n(t) \psi_n(x).
+\]
+and 
+
+\[
+Lu(x, t) = \sum_{n=1}^{\infty} a_n(t) \lambda_n \psi_n(x).
+\]
+
+Equate these two, and take inner products with $\psi_k$ to obtain
+\[
+a'_k(t) =  -\lambda_k a_k(t)
+\]
+
+i.e.;
+
+\[
+a_k(t) =  e^{-\lambda_k t } a_k(0).
+\]
+Now, expand the initial condition
+
+\[
+u_0(x)=  \sum_{n=1}^{\infty}  \frac{\ip{u_0, \tilde{\psi}_n}}{\ip{\psi_n, \tilde{\psi}_n}}  \psi_n(x).
+\]
+to see that 
+
+\[
+a_k(0)=\frac{\ip{u_0, \tilde{\psi}_n}}{\ip{\psi_n, \tilde{\psi}_n}} 
+\]
+
+Hence the solution is given by
+
+\[
+u(x, t) = \sum_{n=1}^{\infty} e^{-\lambda_n t } \frac{\ip{u_0, \tilde{\psi}_n}}{\ip{\psi_n, \tilde{\psi}_n}}  \psi_n(x).
+\]
+
+
+\end{enumerate}
+ \end{solution}
+}{}

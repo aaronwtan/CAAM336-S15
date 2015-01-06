@@ -1,0 +1,51 @@
+This question addresses the problem $-u''(x) = f(x)$
+for $x\in[0,1]$ with Neumann boundary conditions: $u'(0)=u'(1)=0$.  
+Let 
+\[ V = C^2_N[0,1] = \{ u \in C^2[0,1]: u'(0)=u'(1)=0\},\]
+with the inner product
+\[    (u,v) = \int_0^1 u(x) v(x)\,dx.\]
+Define the operator $L:V \to C[0,1]$ by 
+\[ Lu = -u'', \qquad u'(0)=u'(1)=0.\]
+
+\begin{enumerate}
+\item Is $L$ symmetric?
+
+\vspace*{.5em}
+\item What is the null space of $L$?  That is, describe all vectors 
+      $v\in V$ such that $L v = 0$.
+
+\vspace*{.5em}
+\item Compute all the eigenvalues and corresponding eigenfunctions of $L$.
+
+\vspace*{.5em}
+\item Now suppose we wish to solve $Lu = f$ for the unknown $u$.  
+      State the conditions on $f$ for which this problem has:
+      \begin{itemize}
+      \item no solutions;
+      \item infinitely many solutions;
+      \item a unique solution.
+      \end{itemize}
+
+\vspace*{.5em}
+\item Suppose $f$ is some function such that $Lu = f$ has infinitely many solutions.\\
+      Using the spectral method (and other terms as appropriate),
+      write down a general formula for all of them.
+
+\vspace*{.5em}
+\item Now pose the problem $-u'' = f$ with Neumman boundary
+      conditions $u'(0)=u'(1)=0$ as before, but additionally require solutions
+      to satisfy $\int_0^1 u(x)\,dx = 0$ (that is, to have an average value of zero).   
+      We call the resulting operator $\widehat{L}$, which operates on the space
+      \[ \widehat{V} = \{ u \in C^2[0,1]: \mbox{$u'(0)=u'(1)=0$ and $\int_0^1 u(x)\,d x=0$}\}.\]
+
+      How do the eigenvalues and eigenfunctions of $\widehat{L}$ differ
+      from those of $L$ that you found in problem~(b)?
+      Be precise.
+
+\vspace*{.5em}
+\item Suppose $\int_0^1 f(x)\,dx = 0$.  Write down the spectral method solution $u$ 
+      to $\widehat{L} u = f$.
+
+
+
+\end{enumerate}

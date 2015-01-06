@@ -1,0 +1,4 @@
+
+ Use the bound norm(u-u_N) <= h^2/2 norm(f)
+ to estimate the values of N needed to give a certain tolerance
+ (given some f).

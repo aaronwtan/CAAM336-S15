@@ -1,0 +1,88 @@
+\begin{solution}
+\begin{enumerate}
+\item {[6 points]} \emph{This mapping is not an inner product}:
+      it is not symmetric and it is not positive definite.\\
+
+      The mapping is not symmetric.
+       For example, if $u(x) = 1$ and $v(x) = x$, then
+         \[ (u,v) = \int_0^1 u(x) v'(x) \, dx = \int_0^1 1\, dx = 1,\]
+       yet
+         \[ (v,u) = \int_0^1 v(x) u'(x) \, dx = \int_0^1 0\, dx = 0.\]
+
+       The mapping is also not positive definite.
+       For example, if $u(x) = 1$, then $(u,u) = 0$ and if $u(x) = 1-x$,
+       then
+         \[ (u,u) = \int_0^1 (1-x)(-1)\, dx = -1/2.\]
+       
+For what it is worth, we note that the mapping is linear in the first argument since
+         \[ \ip{\alpha u + \beta v, w}
+                = \alpha \int_0^1 u(x) w'(x) \,dx + \beta\int_0^1 v(x) w'(x)\,dx
+                = \alpha\ip{u,w} + \beta\ip{v,w} \]
+for all $u,v,w\in C^1[0,1]$ and all $\alpha,\beta\in\R$. It is also linear in the second argument since
+         \[ \ip{u,\alpha v+\beta w}
+                = \alpha \int_0^1 u(x) v'(x) \,dx + \beta\int_0^1 u(x) w'(x)\,dx
+                = \alpha\ip{u,v} + \beta\ip{u,w} \]
+for all $u,v,w\in C^1[0,1]$ and all $\alpha,\beta\in\R$.
+
+\item {[6 points]} \emph{This mapping is not an inner product}: it is not linear in the first argument.\\
+
+If $u,w\in C[0,1]$ and $\alpha\in\R$ then
+     \[ \ip{\alpha u,w} = \int_0^1 |\alpha u(x)| |w(x)|\, d x
+                 =  \int_0^1 |\alpha| |u(x)| |w(x)| \, d x = |\alpha| \ip{u,w}.\]  
+Hence, if $u\ne 0$, $w\ne 0$ and $\alpha<0$, then $\ip{\alpha u, w} \ne \alpha \ip{u,w}$ and so the mapping is not linear in the first argument.
+
+The mapping is symmetric, as 
+     \[ \ip{u,v} = \int_0^1 |u(x)| |v(x)|\, d x
+                 =  \int_0^1 |v(x)| |u(x)| \, d x = \ip{v,u}\]
+for all $u,v\in C[0,1]$.
+
+Moreover, the mapping is positive definite as for $u\in C[0,1]$
+             \[ (u,u) = \int_0^1 |u(x)|^2\, dx\]
+      is the integral of a nonnegative function, and hence is nonnegative and
+      $(u,u)=0$ only if $u=0$.
+     
+\item {[7 points]} \emph{This mapping is an inner product.}\\
+
+     The mapping is symmetric, as 
+     \[ \ip{u,v} = \int_0^1 u(x) v(x) e^{-x}\, d x
+                 =  \int_0^1 v(x) u(x) e^{-x} \, d x = \ip{v,u}\]
+for all $u,v\in C[0,1]$.
+
+     The mapping is also linear in the first argument since
+     \begin{eqnarray*}
+      \ip{\alpha u + \beta v, w} &=& \int_0^1 (\alpha u(x) + \beta v(x)) w(x) e^{-x}\, d x \\[0.5em]
+                 &=&  \alpha \int_0^1 u(x)w(x) e^{-x}\, dx
+                   +  \beta \int_0^1 v(x)w(x) e^{-x}\, dx \\[0.5em]
+                 &=& \alpha \ip{u,w} + \beta \ip{v,w}.
+     \end{eqnarray*}
+for all $u,v,w\in C[0,1]$ and all $\alpha,\beta\in\R$.
+
+      Lastly, we check
+          \[ (u,u) = \int_0^1 u(x)^2 e^{-x} d x.\]
+      The function $e^{-x}$ is positive valued for all $x\in[0,1]$, so we have 
+      that $(u,u)$ is the integrand of a nonnegative function, and hence
+      is also nonnegative.  If $(u,u) = 0$, then $u(x)^2 e^{-x} = 0$ for all $x\in[0,1]$,
+      which means that $u(x)=0$ for all $x\in[0,1]$, i.e., $u=0$. Hence, the mapping is positive definite.
+     
+\item {[6 points]} \emph{This mapping is not an inner product}: 
+      it is not linear in the first argument and it is not positive definite.\\
+
+       If $u,v,w\in C[0,1]$ then
+         \[ \ip{u + v, w} 
+                = \int_0^1 u(x)+v(x) + w(x) \,dx 
+                = \int_0^1 u(x) + w(x) \,dx 
+                   + \int_0^1 v(x)\,dx
+                = \ip{u,w} + \int_0^1 v(x)\,dx.\]
+        For most choices of $v$ and $w$ (for example, $v(x)=w(x)=1$), 
+        $\int_0^1 v(x) \,dx \ne \ip{v,w}$, so $(\cdot,\cdot)$ is not linear in the first argument.
+
+      The mapping $\ip{\cdot,\cdot}$ is also not positive definite. For example, if $u(x) = -1$,  then
+         \[ (u,u) = \int_0^1 u(x)+ u(x) \, dx = \int_0^1 -2\, dx = -2 < 0.\]
+      
+     The mapping is symmetric, as 
+     \[ \ip{u,v} = \int_0^1 u(x)+v(x) \, d x
+                 =  \int_0^1 v(x)+u(x)  \, d x = \ip{v,u}\]
+for all $u,v\in C[0,1]$.
+
+\end{enumerate}
+\end{solution}

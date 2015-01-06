@@ -1,0 +1,46 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+
+\begin{document}
+\setboolean{showsols}{false}
+\vspace*{-5em}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+Problem Set 1 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Wednesday 22 August 2012.  Due Wednesday 29 August 2012, 5pm.
+
+{\small \emph{A reminder from the course syllabus:}  
+Mathematically rigorous solutions are expected; strive for clarity and elegance.
+You may collaborate on the problems, but your write-up must be your own independent work.
+Transcribed solutions and copied MATLAB code are both unacceptable.
+\emph{You may not consult solutions from previous sections of this class.}
+ Unless it is specified that a particular calculation must be performed `by hand,' you are
+encouraged to use MATLAB's Symbolic Math Toolbox (or Mathematica/Wolfram Alpha/Maple)
+to compute and simplify tedious integrals and derivatives on the problem sets.
+As always, you must document your calculations clearly.}
+
+\begin{enumerate}
+\item {[16 points]}\\  \input classify
+
+\vspace*{.5em}
+\item {[12 points]}\\  \input solve
+
+\vspace*{.5em}
+\item {[34 points]}\\  \input checksol
+
+\vspace*{2em}
+
+\item {[20 points]}\\  \input steady
+
+\vspace*{2em}
+\item {[18 points]}\\  \input codeHat
+
+\end{enumerate}
+\end{document}

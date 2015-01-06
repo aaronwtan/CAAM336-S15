@@ -1,0 +1,36 @@
+Let $\epsilon$ denote some constant, and consider the differential equation
+\[
+u_t (x, t) - u_{xx} (x, t) - \epsilon u(x, t) = f(x, t)
+\]
+for $0 \leq x \leq 1$, and $t \geq 0$, with boundary conditions
+\[
+u(0, t) = u_x(1, t) = 0
+\]
+and initial condition
+\[u(x, 0) = \psi(x)\]
+Describe how to solve this differential equation using the finite element method.
+Provide as much detail as you can about the following points.
+
+\begin{enumerate}
+
+\item What is the weak form of this differential equation?
+
+\item State the Galerkin problem based on the approximating subspace $V_N = span{\phi_1, . . . , \phi_N }$
+for linearly independent basis functions $\phi_1, . . . , \phi_N .$
+
+\item Show how this problem leads to a differential equation of the form
+\begin{align*}
+\mathbf{M} a'(t) + \mathbf{K } a(t) &= \mathbf{f}(t), \\
+										a(0) &= a_0, 
+ \end{align*}
+ 
+ where you should specify the entries of $\mathbf{M}$, $\mathbf{K}$, $\mathbf{f}$ and $a_0$.
+\item Describe how to solve this equation using the backward Euler method.
+\item Does the solution you obtain depend on the choice of the basis functions $\phi_1, . . . , \phi_N $?
+\item Describe how your method would change if the equation had inhomogeneous Dirichlet
+boundary conditions,
+\[
+u(0, t) = a, u_x(1, t) = b.
+\]
+for the constants $a$ and $b$.
+\end{enumerate}

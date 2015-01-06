@@ -1,0 +1,33 @@
+{\footnotesize \begin{verbatim}
+ A = [-1 10; 0 -2]; 
+ x0 = [1;1];
+
+ dtvec = 2.^-[1:9]';
+ tfinal = 1;
+ I = eye(2);
+ err_euler = zeros(size(dtvec));
+ err_trap  = zeros(size(dtvec));
+
+ for j = 1:length(dtvec)
+    dt = dtvec(j);
+    x_euler = x0; x_trap = x0;
+    normx = 1; 
+    for k=1:tfinal/dt
+        x_euler = (I-dt*A)\x_euler;               % backward Euler
+        x_trap  = (I-.5*dt*A)\(I+.5*dt*A)*x_trap; % trapezoid rule
+    end
+    x_true = expm(A*tfinal)*x0;
+    err_euler(j) = norm(x_euler-x_true);
+    err_trap(j)  = norm(x_trap-x_true);
+ end
+ figure(1), clf
+ loglog(dtvec, err_euler, 'r.-','linewidth',2,'markersize',20), hold on
+ loglog(dtvec, err_trap, 'b.-','linewidth',2,'markersize',20)
+ loglog(dtvec, dtvec, 'k--','linewidth',2)
+ loglog(dtvec, dtvec.^2, 'k--','linewidth',2)
+ legend('Backward Euler', 'Trapezoid Rule', 3)
+ set(gca,'fontsize',14,'xdir','reverse')
+ xlabel('{\Delta}t'), ylabel('norm of error at t=1')
+ title('Error of Backward Euler and Trapezoid Rule as a function of{ }{\Delta}t')
+ print -depsc2 traprule2.eps
+\end{verbatim}}

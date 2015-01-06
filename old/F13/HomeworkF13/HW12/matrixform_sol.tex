@@ -1,0 +1,50 @@
+\begin{solution}
+\begin{enumerate}
+\item {[10 points]} We can write any $\Bu\in\R^2$ in the form
+         \[   \Bu = \left[\begin{array}{c}u_1 \\ u_2\end{array}\right]. \]
+      Any matrix $\BA\in\R^{2\times 2}$ can be written as
+          \[ \BA = \Big[\matrix{ \Ba_1 & \Ba_2}\Big],\]
+      where $\Ba_1, \Ba_2\in\R^2$ are the columns of $\BA$.
+      Now the matrix-vector product $\BA\Bu$ is a linear combination
+      of the columns of $\BA$:
+          $$ \BA\Bu = \Big[\matrix{ \Ba_1 & \Ba_2}\Big] \left[\begin{array}{c}u_1 \\ u_2\end{array}\right] 
+                    = u_1 \Ba_1 + u_2 \Ba_2. \eqno{(*)} $$
+      We are trying to find a formula for $\BA$ such that $f(\Bu) = \BA\Bu$.
+      Since $f$ is a linear operator, we have that
+          $$ f(\Bu) = u_1 f(\Be_1) + u_2 f(\Be_2). \eqno{(**)} $$
+      Comparing $(*)$ and $(**)$, we see that
+          \[ \BA = \Big[\matrix{f(\Be_1) & f(\Be_2)}\Big]\]
+is such that $f(\Bu)=\BA\Bu$ for all $\Bu\in\R^2$. Hence, if $f: \R^2 \to \R^2$ is linear, then there exists a matrix $\BA\in\R^{2\times2}$ such that $f(\Bu)=\BA\Bu$ for all $\Bu\in\R^2$.
+
+\item {[10 points]} Follow the same tack as in part~(a). Let $\Be_j\in\R^n$ be the vector whose $j$th entry is $1$ and whose other entries are all $0$. Write $\Bu\in\Rn$ as
+           \[ \Bu = \left[\begin{array}{c} u_1 \\ \vdots \\ u_n\end{array}\right] \]
+      and $\BA\in\Rnn$ as
+          \[ \BA = \Big[\matrix{ \Ba_1 & \Ba_2 & \cdots & \Ba_n}\Big],\]
+      where $\Ba_1, \ldots, \Ba_n \in \Rn$ are the columns of $\BA$.  
+      Comparing
+          $$ \BA\Bu = \Big[\matrix{ \Ba_1 & \Ba_2 & \cdots & \Ba_n}\Big] 
+                       \left[\begin{array}{c}u_1 \\ u_2 \\ \vdots \\ u_n\end{array}\right] 
+                    = u_1 \Ba_1 + u_2 \Ba_2 + \cdots u_n \Ba_n$$
+      and
+          $$ f(\Bu) = u_1 f(\Be_1) + u_2 f(\Be_2) + \cdots u_n f(\Be_n),$$
+      we see that
+          \[ \BA = \Big[\matrix{f(\Be_1) & f(\Be_2) & \cdots & f(\Be_n)}\Big]\]
+is such that $f(\Bu)=\BA\Bu$ for all $\Bu\in\R^n$. Hence, if $f: \Rn \to \Rn$ is linear, then there exists a matrix $\BA\in\Rnn$ such that $f(\Bu)=\BA\Bu$ for all $\Bu\in\Rn$.
+
+\item {[5 points]} Let $\Be_j\in\R^n$ be the vector whose $j$th entry is $1$ and whose other entries are all $0$. Write $\Bu\in\Rn$ as
+           \[ \Bu = \left[\begin{array}{c} u_1 \\ \vdots \\ u_n\end{array}\right] \]
+      and $\BA\in\Rmn$ as
+          \[ \BA = \Big[\matrix{ \Ba_1 & \Ba_2 & \cdots & \Ba_n}\Big],\]
+      where $\Ba_1, \ldots, \Ba_n \in \Rm$ are the columns of $\BA$.  
+      Comparing
+          $$ \BA\Bu = \Big[\matrix{ \Ba_1 & \Ba_2 & \cdots & \Ba_n}\Big] 
+                       \left[\begin{array}{c}u_1 \\ u_2 \\ \vdots \\ u_n\end{array}\right] 
+                    = u_1 \Ba_1 + u_2 \Ba_2 + \cdots u_n \Ba_n$$
+      and
+          $$ f(\Bu) = u_1 f(\Be_1) + u_2 f(\Be_2) + \cdots u_n f(\Be_n),$$
+      we see that
+          \[ \BA = \Big[\matrix{f(\Be_1) & f(\Be_2) & \cdots & f(\Be_n)}\Big]\]
+is such that $f(\Bu)=\BA\Bu$ for all $\Bu\in\R^n$. Hence, if $f: \Rn \to \Rm$ is linear, then there exists a matrix $\BA\in\Rmn$ such that $f(\Bu)=\BA\Bu$ for all $\Bu\in\Rn$.
+
+\end{enumerate}
+\end{solution}

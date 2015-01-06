@@ -1,0 +1,44 @@
+Suppose $\CV$ is a vector space with an associated inner product.
+The angle $\angle(u,v)$ between $u$ and $v \in \CV$ is defined via the equation
+  \[ \ip{u,v} = \norm{u} \norm{v} \cos \angle(u,v).\]
+Let $\CV=C[0,1]$ and $\ip{u,v} = \int_0^1 u(x) v(x)\, dx$.
+      Compute $\cos \angle(x^n,x^m)$ between $u(x) = x^n$ and $v(x) = x^m$ 
+       for nonnegative integers $m$ and $n$.
+      What happens to $\angle(x^n,x^{n+1})$ as $n\to\infty$ ?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+This result is a simple calculation.  For integers $n,m\ge 0$, we have
+\[ (x^n, x^m) = \int_0^1 x^{n+m}\, dx = {1\over n+m+1}.\]
+We also have 
+\[  \norm{x^n}^2 = (x^n, x^n) = {1\over 2n+1}.\]
+Altogether, we have the following formula for the angle between $x^n$ and $x^m$:
+\[ \cos \angle(x^n,x^m) = {(x^n, x^m) \over \norm{x^n} \norm{x^m}}
+               = {\sqrt{(2n+1)(2m+1)} \over n+m+1}.\]
+As $m=n+1$ and $n\to\infty$, we see that $\cos \angle(x^n,x^{n+1}) \to 1$,
+implying that the angle between $x^n$ and $x^{n+1}$ shrinks to zero as
+$n\to\infty$.  
+This observation is all that is required for full credit, 
+but a little manipulation yields even greater insight.  
+We can equivalently write
+\[ \cos \angle(x^n,x^m) = \sqrt{ 1 - {(n-m)^2 \over (n+m+1)^2}},\]
+which for larger $m$ and $n$ gives the approximation
+\[ \cos \angle(x^n,x^m) \approx 1 - {1\over 2} {(n-m)^2 \over (n+m+1)^2}
+                         - {1\over 8} {(n-m)^4 \over (n+m+1)^4}.\]
+Note that for small $\theta$,
+\[ \hspace*{-9.25em}\cos \theta \approx 1 - {1\over 2} \theta^2 
+                         + {1\over 24} \theta^4.\]
+Comparing terms, we arrive at the first-order approximation
+\[ \angle(x^n,x^m) \approx {|n-m| \over n+m+1}\]
+suitable when $n+m$ is large and best when $|n-m|$ is small as well.
+This approximation confirms the intuition 
+we obtain from comparing graphs of $x^n$ and $x^m$ for large $m$ and $n$:
+the graphs look very similar, so we expect the `angle' between these
+function in the inner product space to be small.
+This result of this problem signals that the usual basis for polynomials, 
+$1, x, x^2, x^3, \ldots$ may introduce computational challenges.
+We prefer to use an orthogonal basis whenever possible.
+
+\end{solution}}{}
+

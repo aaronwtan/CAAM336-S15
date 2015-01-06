@@ -1,0 +1,103 @@
+\begin{solution}
+\begin{enumerate}
+\item {[6 points]} If $f\in C[-1,1]$ then
+\[
+(P_e f)(x) = {1 \over 2}\left(f(x)+f(-x)\right)
+\]
+and so
+\begin{eqnarray*}
+(P_e(P_e f))(x) &=& {1 \over 2}\left((P_ef)(x)+(P_ef)(-x)\right)
+\\
+&=& \displaystyle{{1 \over 2}\left({1\over 2}\left(f(x)+f(-x)\right)+{1 \over 2}\left(f(-x)+f(-(-x))\right)\right)}
+\\
+&=& = \displaystyle{{1 \over 2}\left({1\over 2}f(x)+{1\over 2}f(-x)+{1 \over 2}f(-x)+{1\over 2}f(x)\right)}
+\\
+&=& {1 \over 2}\left(f(x)+f(-x)\right)
+\\
+&=& (P_e f)(x).
+\end{eqnarray*}
+Thus we conclude that $P_e(P_e f) = P_e f$ for all $f\in C[-1,1]$ which means that $P_e$ is a projection. In the same way, if $f\in C[-1,1]$ then
+\[
+(P_o f)(x) = {1 \over 2}\left(f(x)-f(-x)\right)
+\]
+and so
+\begin{eqnarray*}
+(P_o(P_o f))(x) &=& {1 \over 2}\left((P_of)(x)-(P_of)(-x)\right)
+\\
+&=& \displaystyle{{1 \over 2}\left({1\over 2}\left(f(x)-f(-x)\right)-{1 \over 2}\left(f(-x)-f(-(-x))\right)\right)}
+\\
+&=& \displaystyle{{1 \over 2}\left({1\over 2}f(x)-{1\over 2}f(-x)-{1 \over 2}f(-x)+{1\over 2}f(x)\right)}
+\\
+&=& {1 \over 2}\left(f(x)-f(-x)\right)
+\\
+&=& (P_o f)(x).
+\end{eqnarray*}
+Thus we conclude that $P_o(P_o f) = P_o f$ for all $f\in C[-1,1]$, which means that $P_o$ is a also projection.
+\\
+\item {[6 points]} If $f\in C[-1,1]$ then
+\begin{eqnarray*}
+\ip{P_e f, P_o f} &=& \int_{-1}^1 (P_e f)(x) (P_o f)(x)\, d x
+\\
+&=& \int_{-1}^1 {1\over 4}\left(f(x)+f(-x)\right)\left(f(x)-f(-x)\right)\, d x
+\\
+&=& {1\over 4} \int_{-1}^1 \left(\left(f(x)\right)^2 - f(x) f(-x) + f(x) f(-x) - \left(f(-x)\right)^2\right)  \, dx
+\\
+&=& {1\over 4} \int_{-1}^1 \left(\left(f(x)\right)^2 - \left(f(-x)\right)^2\right)  \, dx
+\\
+&=& {1\over 4} \left(\int_{-1}^1 \left(f(x)\right)^2 \, dx - \int_{-1}^1 \left(f(-x)\right)^2  \, dx\right)
+\\
+&=& {1\over 4} \left(\int_{-1}^1 \left(f(x)\right)^2 \, dx + \int_{-(-1)}^{-1} \left(f(y)\right)^2  \, dy\right)
+\\
+&=& {1\over 4} \left(\int_{-1}^1 \left(f(x)\right)^2 \, dx + \int_1^{-1} \left(f(y)\right)^2  \, dy\right)
+\\
+&=& {1\over 4} \left(\int_{-1}^1 \left(f(x)\right)^2 \, dx - \int_{-1}^1 \left(f(y)\right)^2  \, dy\right)
+\\
+&=& 0
+\end{eqnarray*}
+where we let $y=-x$.
+\\
+\item {[6 points]} If $f\in C[-1,1]$ then
+\[
+((P_e+P_o)f)(x)=(P_e f)(x) +(P_o f)(x) = {1 \over 2}\left(f(x) + f(-x)\right)+{1 \over 2}\left(f(x) - f(-x)\right) = f(x),
+\]
+and so
+\[
+((P_e+P_o)((P_e+P_o)f))(x)= ((P_e+P_o)f)(x).
+\]
+Hence, $(P_e+P_o)((P_e+P_o)f)=(P_e+P_o)f$ for all $f\in C[-1,1]$ and so $P_e + P_o$ is a projection.
+\\
+\item {[7 points]} If $f\in C[a,b]$ then
+\[
+Pf={1\over b-a}B\ip{f,\phi}\phi
+\]
+and so
+\begin{eqnarray*}
+P(Pf)&=&{1\over b-a}B\ip{Pf,\phi}\phi.
+\end{eqnarray*}
+Now,
+\begin{eqnarray*}
+B\ip{Pf,\phi}&=&\int_a^b{1\over b-a}B\ip{f,\phi}\phi(x)\phi(x)\,dx
+\\
+&=&\int_a^b{1\over b-a}B\ip{f,\phi}\,dx
+\\
+&=&B\ip{f,\phi}\int_a^b{1\over b-a}\,dx
+\\
+&=&B\ip{f,\phi}\left[{x\over b-a}\right]_a^b
+\\
+&=&B\ip{f,\phi}\left({b\over b-a}-{a\over b-a}\right)
+\\
+&=&B\ip{f,\phi}{b-a\over b-a}
+\\
+&=&B\ip{f,\phi}.
+\end{eqnarray*}
+Consequently,
+\begin{eqnarray*}
+P(Pf)&=&{1\over b-a}B\ip{Pf,\phi}\phi
+\\
+&=&{1\over b-a}B\ip{f,\phi}\phi
+\\
+&=&Pf.
+\end{eqnarray*}
+Hence, $P(Pf)=Pf$ for all $f\in C[a,b]$ and so $P$ is a projection.
+\end{enumerate}
+\end{solution}

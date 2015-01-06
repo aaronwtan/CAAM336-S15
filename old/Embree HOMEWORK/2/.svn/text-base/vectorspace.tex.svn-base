@@ -1,0 +1,71 @@
+Consider the following sets of functions.
+Demonstrate whether or not each is a vector space\\
+(with addition and scalar multiplication defined in the obvious way).
+
+\begin{enumerate}
+   \item $\{\Bx \in \R^2 : x_2^{} = x_1^3\}$
+   \item $\{\Bx \in \R^3 : x_1 + 2x_2 + 3 x_3 = 0\}$
+   \item $\{f \in C[0,1]: \mbox{$f(x) \ge 0$ for all $x\in [0,1]$}\}$
+   \item $\{f \in C[0,1]: \mbox{$\max_{x\in[0,1]} f(x) \le 1$}\}$
+   \item $\{f \in C^1[0,1]: \mbox{$f'(0) = 0$}\}$
+   \item $\{f \in C^2[0,1]: \mbox{$f''(x) = 0$ for all $x\in[0,1]$}\}$
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+\begin{enumerate}
+\item This set \emph{is not} a vector space.\\
+      The vector $\displaystyle{\Bx = \bmatrix{1\cr 1}}$ 
+      is in the set, yet $\displaystyle{2\Bx = \bmatrix{2\cr 2}}$ 
+      is not, since $2 \ne 2^3 = 8$.
+      
+\item This set \emph{is} a vector space.\\
+      Suppose $\Bx$ and $\By$ are members of this set.
+      Then $x_1 + 2x_2 + 3x_3 = 0$ and  $y_1 + 2y_2 + 3y_3 = 0$.
+      Adding these two equations gives
+        \[ (x_1+y_1) + 2(x_2+y_2) + 3(x_3+y_3) = 0,\]
+      and hence $\Bx + \By$ is also in the set.
+      Multiplying $x_1 + 2x_2 + 3x_3 = 0$ by an arbitrary constant 
+      $\alpha\in\R$ gives
+        \[ (\alpha x_1) + 2(\alpha x_2) + 3(\alpha x_3) = 0,\]
+      and hence $\alpha \Bx$ is also in the set.
+
+\item This set \emph{is not} a vector space.\\
+      The function $f(x) = 1$ for all $x$ is in the set, but
+      a scalar multiple, $-1\cdot f(x) = -1$ for all $x$,
+      takes negative values and thus violates the requirement 
+      for membership in the set.
+
+\item This set \emph{is not} a vector space.\\
+      The function $f(x) = 1$ for all $x$ is in the set, but
+      a scalar multiple, $2\cdot f(x) = 2$ for all $x$,
+      takes values greater than~1 and thus violates the requirement
+      for membership in the set.
+
+\item This set \emph{is} vector space.\\
+      If $f$ and $g$ are in the set, then $f'(0)=g'(0)=0$, so 
+       \[ {d (f+g)\over dx}(0) = f'(0)+g'(0) = 0+0 = 0.\]
+      Similarly, for any scalar $\alpha$, 
+       \[ {d (\alpha f)\over dx}(0) = \alpha f'(0) = \alpha\cdot 0 = 0.\]
+
+\item This set \emph{is} a vector space.\\
+      Suppose $f$ and $g$ are both members of this set.
+      Then 
+          \[ {d^2 (f+g) \over dx^2} 
+               = {d^2 f \over d x^2} + {d^2 g\over dx^2} 
+               = 0+0 = 0,\]
+      and thus $f+g$ is in the set. 
+      For any $\alpha \in \R$ note that
+           \[ {d^2 (\alpha f) \over dx^2} = \alpha {d^2 f\over dx^2} = \alpha\cdot 0 = 0,\]
+      and hence $\alpha f$ is also in the set.  
+
+      Said another way:  any member of the set must be a function of
+      the form $f(x) = \beta + \gamma x$, i.e., a line.
+      The addition of two lines is still a line, and 
+        a scalar multiple of a line is also a line.
+       
+\end{enumerate}
+\end{solution}}{}
+
+

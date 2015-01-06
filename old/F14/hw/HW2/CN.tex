@@ -1,0 +1,42 @@
+The 1D  heat equation with constant coefficient over the interval $[0,2\pi]$ is given 
+\[
+\pd{u}{t}{}-\pd{u}{x}{2} = 0
+\]
+satisfying the initial condition \[u(x,0)=\cos x \qquad \forall x\in[0,2\pi]\]
+and the boundary conditions
+\[
+u(0,t) = u(1,t) = 0\qquad \forall t.
+\] 
+We would like to write down the finite difference equations in space and time at the point $(x_i,t^{n+ 1/2})$
+\[
+u_t(x_i,t^{n+ 1/2}) = u_{xx}(x_i,t^{n+ 1/2}),
+\]
+where we've abbreviated $\pd{u}{t}{} = u_t$ and $\pd{u}{x}{2} = u_{xx}$.  
+
+We can choose
+\[
+u_t(x_i,t^{n+ 1/2})\approx \frac{u(x_i,t^{n+ 1})-u(x_i,t^{n})}{k}
+\] 
+as a centered difference approximation for $u_t$ at $(x_i,t^{n+ 1/2})$.  
+
+To approximate the term $u_{xx}(x_i,t^{n+ 1/2} )$ we use the average of the second centered differences for $u_{xx}(x_i,t^n+1)$ and $u_{xx}(x_i,t^n)$; i.e.
+\[
+u_{xx}(x_i,t^{n+ 1/2} ) \approx \frac{1}{2}\left[\frac{u(x_{i+1},t^{n+1}) - 2u(x_i,t^{n+1}) + u(x_{i-1},t^{n+1})}{h^2} + \frac{u(x_{i+1},t^{n}) - 2u(x_i,t^{n}) + u(x_{i-1},t^{n})}{h^2}\right]
+\]
+where $k$ is time step with $k=\Delta t = t^{n+1}-t^n$ similarly $h$ is mesh size with respect to space $h=\Delta x = x_{i+1}-x_i$.
+
+For $n=0,1,\ldots$, we can define the \textit{Crank Nicolson} scheme
+\[
+\frac{u_i^{n+ 1}-u_i^{n}}{k} = \frac{1}{2}\left[\frac{u_{i+1}^{n+1} - 2u_i^{n+1} + u_{i-1}^{n+1}}{h^2} + \frac{u_{i+1}^{n} - 2u_i^{n} + u_{i-1}^{n}}{h^2}\right]
+\] for simplicity we define $u(x_i,t^n)=u_i^n$
+
+\begin{enumerate}
+\item Show that  Crank Nicolson scheme is always second order accurate in both $\Delta x $ and $\Delta t$. 
+\item Construct the linear system $Au=b$ for the given Crank Nicolson scheme.
+\item Create a Matlab script that constructs the matrix system $Au = b$. Find numerical solution $u(x_i,t^n)$ and  plot the computed solution values $u(x_i,t^n)$ for $i = 0, . . . , N + 1$ and $n=0,1,2$ where $N = 8, 16, 32$ for $3$ successive time step
+
+\item If $u(x,t)=e^{-t} \cos x$  is a exact solution for the given problem then plot  error at each point $|u_{\rm exact}(x_i,t^n) - u(x_i,t^n)|$, for $i = 0, . . . , N + 1$ and $n=0,1,2$ for $N = 8, 16, 32$ for $3$ successive time steps (use $k = h$).
+
+
+\end{enumerate}
+

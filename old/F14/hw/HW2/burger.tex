@@ -1,0 +1,12 @@
+Consider the one-dimensional viscous Burger's equation for a given velocity $u$ and viscocity coefficient $\nu$.
+\begin{eqnarray}\label{eq1}  u_t + u\: u_x &=& \nu u_{xx} \qquad  x \in R, \:\: t > 0 \\
+u(x, 0) &=& \phi(x) \qquad x \in  R \nonumber
+\end{eqnarray}
+
+(a) Consider the transformation
+\begin{equation} \label{eq2} u(x, t) = -2\nu \frac{v_x(x, t)}{v(x, t)}\end{equation}
+
+for a function $v(x, t)$. Using the transformation (\ref{eq2}), show that if $v(x, t)$ satisfies
+the heat equation $(v_t = \nu v_{xx})$ then $u(x, t)$ is a solution to the PDE in (\ref{eq1}).\\
+(b) Also, use the transformation (\ref{eq2}) to prove that for some constant C,
+\[v(x, 0) = C e^{\frac{1}{2\nu} \int_0^x \phi(s) ds}\]

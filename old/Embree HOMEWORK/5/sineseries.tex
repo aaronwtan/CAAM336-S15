@@ -1,0 +1,38 @@
+This problem concerns the same operator from Problem~2, $L: C^2_D[0,1]\to C[0,1]$ defined by
+\[ L_D u = -{d^2 u \over dx^2},\]
+with homogeneous Dirichlet boundary conditions imposed via
+\[ C^2_D[0,1] = \{ u \in C^2[0,1] : u(0) = u(1) = 0\}.\]
+The eigenvalues and (normalized) eigenfunctions remain as in Problem~2:
+$\lambda_n = n^2 \pi^2$ and $\psi_n(x) = \sqrt{2} \sin(n \pi x)$ for 
+$n=1,2,\ldots.$ Now let $f(x) = x^2(1-x)$.
+\begin{enumerate}
+   \item For this $f$, compute the coefficients 
+         \[ c_n = {(f,\psi_n)\over (\psi_n,\psi_n)} \]
+         in the expansion
+                \[ f = \sum_{n=1}^\infty c_n \psi_n.\]
+         You may determine these by hand, by consulting a table of integrals,
+         or by using a symbolic mathematics package like Mathematica
+         or the Symbolic Toolbox in MATLAB.  
+
+   \item Produce a plot (or series of plots) comparing $f(x)$ 
+         to the partial sums 
+               \[ f_N(x) = \sum_{k=1}^N c_k \psi_k(x)\]
+         for $N=1, \ldots, 10$.
+
+   \item Plot the approximations $u_N$ to the true solution $u$ 
+         that you obtain using the spectral method:
+               \[ u_N(x) = \sum_{k=1}^N {c_k \over \lambda_k} \psi_k(x)\]
+         for $N=1, \ldots, 10$.
+
+   \item Now replace the homogeneous Dirichlet boundary conditions $u(0) = u(1) = 0$ above
+         with the inhomogeneous Dirichlet conditions $u(0) = -1/100$ and $u(1) = 1/100$.
+         Describe how to adjust your solution from part~(c) to account for these
+          boundary conditions, and produce a plot of the solution with these
+          inhomogeneous boundary conditions, based on $u_{10}$ from part~(c).
+\end{enumerate}
+
+           
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input sineseries_sol}{}
+

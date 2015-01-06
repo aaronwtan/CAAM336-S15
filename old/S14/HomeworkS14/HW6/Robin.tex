@@ -1,0 +1,25 @@
+
+Consider a bar of metal alloy manufactured such that its thermal conductivity is $\kappa(x) = e^{x/\ell}$ for  $0\le x\le \ell$.
+\\
+\begin{enumerate}
+\item  Use the homogeneous steady-state heat equation
+\[
+{d \over d x} \left(\kappa(x) u'(x)\right)=0,\quad 0\le x\le \ell
+\]
+to determine a general formula for the steady-state temperature distribution $u(x)$ of this bar. The solution should include two arbitrary constants. 
+\\
+\item Determine the steady-state temperature distribution $u(x)$ satisfying the boundary conditions
+\[
+-\kappa\left(0\right)u'\left(0\right) = -K\left(u\left(0\right)-T\right)
+\]
+and
+\[
+u(\ell) = \gamma.
+\]
+The condition at the left end $x=0$ is called a Robin boundary condition. In the context of this problem it arises when the bar is in contact with air moving at constant speed.  The moving air carries heat away from the bar, and this is known as convection. The temperature of the air is $T$ and $K$ is the convection coefficient.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input Robin_sol}{}

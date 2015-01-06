@@ -1,0 +1,35 @@
+\def\uhat{\widehat{u}}
+In this problem you shall demonstrate that the solution to the
+weak problem must be \emph{unique} by completing the following 
+procedure.
+
+Let $V$ be a vector space endowed with an energy inner product 
+$a(\cdot, \cdot)$ and a second inner product $(\cdot,\cdot)$.
+For some fixed $f$, suppose that $u$ and $\uhat$ are two 
+members of $V$ that satisfy the weak problem, i.e.,
+\[ a(u, v) = (f,v) \qquad  \mbox{for all $v\in V$}\]
+and
+\[ a(\uhat, v) = (f,v) \qquad  \mbox{for all $v\in V$}.\]
+Use properties of $a(\cdot, \cdot)$ to conclude that $u=\uhat$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+
+Since $a(u,v) = (f,v)$ and $a(\uhat,v) = (f,v)$, 
+for all $v\in V$ we have
+\[ a(u,v) - a(\uhat,v) = 0,\]
+which implies that
+\[ a(u-\uhat,v) = 0\]
+for all $v\in V$.
+Both $u$ and $\uhat$ are in the vector space $V$, so $u-\uhat$ is also in $V$.
+Set $v=u-\uhat$ to find
+\[ a(u-\uhat,u-\uhat) = 0.\]
+Since $a(\cdot,\cdot)$ is an inner product, we can only have
+$a(u-\uhat,u-\uhat) = 0$ if $u-\uhat = 0$, i.e., $u=\uhat$.
+
+{[\textbf{GRADERS}: The observation that you can take $v=u-\uhat$
+(or equivalent) is worth 10~points.]}
+
+\end{solution}}{}
+

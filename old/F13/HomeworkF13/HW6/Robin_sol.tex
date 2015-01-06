@@ -1,0 +1,43 @@
+\begin{solution}
+\begin{enumerate}
+\item {[13 points]} Integrate this equation once to
+       obtain
+          \[ \kappa(x) {d \over d x} u(x) = C_1,\]
+       where the constant $C_1$ will be determined later by the
+       boundary conditions.  Divide by $\kappa(x)$ to obtain the
+       equation
+          \[ {d \over d x} u(x) = {C_1\over \kappa(x)}.\]
+       Substituting $\kappa(x) =  e^{x/\ell}$, we have
+          \[ {d \over d x} u(x) = {C_1 e^{-x/\ell}},\]
+       which we can integrate once to obtain the general form of the
+       solution
+       \begin{equation}\label{eq.1} u(x) = {-C_1\ell }  e^{-x/\ell}+ C_2,
+       \end{equation}
+       where $C_1$ and $C_2$ are constants.
+
+\item {[}12 points{]} We begin with the general formula
+      (\ref{eq.1}).  Since $\kappa(0)=1$, $u(0)=C_2-C_1\ell$, plug them into the 
+        boundary condition at $\ell = 0$ to obtain
+        \[ {d u \over dx}(0)=K(C_2-C_1\ell-T). \]
+        Since
+        \[ {d u \over d x}(x) = C_1 e^{-x/\ell},\]
+        we have
+        \[ {d u \over d x}(0) = C_1.\]
+        So 
+         \begin{equation} \label{eq:2} 
+           C_1=K(C_2-C_1\ell-T). 
+        \end{equation} 
+        The boundary condition at the right end gives 
+        \begin{equation} \label{eq:3} 
+        u(\ell) = -C_1\ell e^{-1} + C_2=\gamma. \end{equation}
+        The solution of the system of equations (\ref{eq:2})-(\ref{eq:3}) is 
+        \begin{eqnarray*}
+            C_1 &=& {K(\gamma-T)}\over{1+K\ell(1-e^{-1})} \\[0.5em]
+            C_2 &=& \gamma + \frac{\ell e^{-1}K(\gamma-T)}{1+K\ell(1-e^{-1})}.
+         \end{eqnarray*}
+        Thus
+        \[ u(x)={{\ell K(T-\gamma)}\over{1+K\ell(1-e^{-1})}}( e^{-x/\ell}-e^{-1})+
+        \gamma. \]
+
+\end{enumerate}
+\end{solution}

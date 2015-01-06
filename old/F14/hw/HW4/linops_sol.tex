@@ -1,0 +1,77 @@
+\begin{solution}
+\begin{enumerate}
+\item  Suppose $\Bu, \Bv \in \Rn$.  Then 
+\[
+f(\Bu+\Bv) = \BA(\Bu+\Bv) + \Bb  = \BA\Bu + \BA\Bv + \Bb
+\]
+but
+\[
+f(\Bu)+f(\Bv) = \BA\Bu + \Bb + \BA\Bv + \Bb = \BA\Bu + \BA\Bv + 2\Bb
+\]
+and so $f(\Bu+\Bv)$ does not equal $f(\Bu) + f(\Bv)$ when $\Bb\ne \Bzero$. Hence, $f$ \emph{is not} a linear operator.
+\\
+\item Suppose $\Bx\in \Rn$ and $\alpha\in\R$. Then 
+\[
+f(\alpha\Bx) = (\alpha \Bx)^T(\alpha \Bx) = \alpha^2 \Bx^T\Bx
+\]
+and 
+\[
+\alpha f(\Bx) = \alpha \Bx^T\Bx.
+\]
+However, if $\displaystyle{\Bx = \left[\begin{array}{c}1\\ 0\end{array}\right]}$ and $\alpha=2$ then $\Bx^T\Bx=1$ and so
+\[
+f(\alpha\Bx) = 2^2=4
+\]
+but
+\[
+\alpha f(\Bx) = 2.
+\]
+Hence, $f$ \emph{is not} a linear operator.
+\\
+\item Suppose $\BX, \BY \in \Rnn$. Then 
+\[
+f(\BX+\BY) = \BA(\BX+\BY) + (\BX+\BY)\BB = \BA\BX + \BX \BB + \BA\BY + \BY\BB = f(\BX) + f(\BY),
+\]
+and if $\alpha\in\R$, then
+\[
+f(\alpha \BX) = \BA(\alpha\BX) + (\alpha \BX) \BB = \alpha (\BA\BX + \BX\BB) = \alpha f(\BX).
+\]
+Hence, $f$ \emph{is} a linear operator.
+\\
+\item Suppose that $u \in C^1[0,1]$ and $\alpha \in \R$. Then 
+\[
+\alpha(Lu)(x) = \alpha u(x) u'(x)
+\]
+and
+\[
+(L(\alpha u))(x) = (\alpha u)(x) (\alpha u)'(x)=\alpha^2u(x) u'(x).
+\]
+However, if $u(x) = x$ and $\alpha=2$ then
+\[
+\alpha(Lu)(x) = 2x
+\]
+but
+\[
+(L(\alpha u))(x) = 2^2 x=4x.
+\]
+Hence, $L$ \emph{is not} a linear operator.
+\\
+\item Suppose that $u, v \in C^2[0,1]$. Then 
+\begin{eqnarray*}
+(L(u+v))(x) &=& (u+v)''(x) - \sin(x) (u+v)'(x) + \cos(x) (u+v)(x)
+\\
+&=& u''(x) - \sin(x) u'(x) + \cos(x) u(x) + v''(x) - \sin(x) v'(x) + \cos(x) v(x)
+\\
+&=& (Lu)(x) + (Lv)(x),
+\end{eqnarray*}
+and for all $\alpha \in \R$,
+\begin{eqnarray*}
+(L(\alpha u))(x) &=& (\alpha u)''(x) - \sin(x) (\alpha u)'(x) + \cos(x) (\alpha u)(x)
+\\
+&=& \alpha \left(u''(x) - \sin(x) u'(x) + \cos(x) u(x)\right)
+\\
+&=& \alpha (Lu)(x).
+\end{eqnarray*}
+Hence, $L$ \emph{is} a linear operator.
+\end{enumerate}
+\end{solution}

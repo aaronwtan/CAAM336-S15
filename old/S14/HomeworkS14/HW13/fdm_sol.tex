@@ -1,0 +1,204 @@
+\begin{solution}
+\begin{enumerate}
+\item {[5 points]} If $v\in C^2[0,1]$ and $w\in C^2[0,1]$ then
+\[
+L(v+w)=-(v+w)''+9(v+w)=-v''-w''+9v+9w=-v''+9v-w''+9w=Lv+Lw
+\]
+and so $L(v+w)=Lv+Lw$ for all $v,w\in C^2[0,1]$. If $v\in C^2[0,1]$ and $\gamma\in\R$ then
+\[
+L(\gamma v)=-(\gamma v)''+9(\gamma v)=-\gamma v''+9\gamma v=\gamma(-v''+9v)=\gamma Lv
+\]
+and so $L(\gamma v)=\gamma Lv$ for all $v\in C^2[0,1]$ and all $\gamma\in\R$. Consequently, $L$ is a linear operator.
+\\
+\item {[5 points]} For $j=1,2,\ldots,N$, using the approximation
+\[
+u''(x_j)\approx\frac{u(x_{j-1})-2u(x_j)+u(x_{j+1})}{h^2}
+\]
+yields that
+\begin{eqnarray*}
+(Lu)(x_j)&=&-u''(x_j)+9u(x_j)\approx-\frac{u(x_{j-1})-2u(x_j)+u(x_{j+1})}{h^2}+9u(x_j)
+\\
+&=&-\frac{1}{h^2}u(x_{j-1})+\left(\frac{2}{h^2}+9\right)u(x_j)-\frac{1}{h^2}u(x_{j+1}).
+\end{eqnarray*}
+So,
+\begin{eqnarray*}
+&&\left[\begin{array}{c} (Lu)(x_1) \\ (Lu)(x_2) \\ \vdots \\ (Lu)(x_{N-1}) \\ (Lu)(x_N) \end{array}\right]
+\\
+&\approx&\left[\begin{array}{c} -\frac{1}{h^2}u(x_0)+\left(\frac{2}{h^2}+9\right)u(x_1)-\frac{1}{h^2}u(x_2) \\ -\frac{1}{h^2}u(x_1)+\left(\frac{2}{h^2}+9\right)u(x_2)-\frac{1}{h^2}u(x_3) \\ \vdots \\ -\frac{1}{h^2}u(x_{N-2})+\left(\frac{2}{h^2}+9\right)u(x_{N-1})-\frac{1}{h^2}u(x_N) \\ -\frac{1}{h^2}u(x_{N-1})+\left(\frac{2}{h^2}+9\right)u(x_N)-\frac{1}{h^2}u(x_{N+1}) \end{array}\right]
+\\
+&=&
+\left[\begin{array}{ccccccccc} 
+-\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2} & 0 & 0 & \cdots & 0 & 0 & 0
+\\
+0 & -\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2} & 0 & \cdots & 0 & 0 & 0
+\\
+0 & 0 & -\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2} & \cdots & 0 & 0 & 0
+\\
+\vdots & \vdots & \vdots & \ddots & \ddots & \ddots & \vdots & \vdots & \vdots
+\\
+0 & 0 & 0 & \cdots & -\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2} & 0 & 0
+\\
+0 & 0  & 0 & \cdots & 0 & -\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2} & 0
+\\
+0 & 0 & 0 & \cdots & 0 & 0 & -\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2}
+ \end{array}\right]
+\left[\begin{array}{c} u(x_0) \\ u(x_1) \\u(x_2) \\ \vdots \\ u(x_{N-1}) \\ u(x_N) \\ u(x_{N+1}) \end{array}\right]
+\\
+&=&\BD\left[\begin{array}{c} u(x_0) \\ u(x_1) \\u(x_2) \\ \vdots \\ u(x_{N-1}) \\ u(x_N) \\ u(x_{N+1}) \end{array}\right]
+\end{eqnarray*}
+where $\BD\in\R^{N\times\left(N+2\right)}$ is the matrix with entries
+\[
+D_{jk}=\left\{\begin{array}{rl}
+\frac{2}{h^2}+9 & \mbox{if }k=j+1;
+\\
+-\frac{1}{h^2} & \mbox{if }k=j\mbox{ or }k=j+2;
+\\
+0 & \mbox{otherwise}.
+\end{array}\right.
+\]
+\\
+\item {[10 points]} Since
+\[
+(Lu)(x)=f(x),\quad0<x<1
+\]
+we have that
+\[
+\left[\begin{array}{c} (Lu)(x_1) \\ (Lu)(x_2) \\ \vdots \\ (Lu)(x_{N-1}) \\ (Lu)(x_N) \end{array}\right]=\left[\begin{array}{c} f(x_1) \\ f(x_2) \\ \vdots \\ f(x_{N-1}) \\ f(x_N) \end{array}\right]
+\]
+for $j=1,\ldots,N$. Using the approximation obtained in the previous part then yields that
+\[
+\BD\left[\begin{array}{c} u(x_0) \\ u(x_1) \\u(x_2) \\ \vdots \\ u(x_{N-1}) \\ u(x_N) \\ u(x_{N+1}) \end{array}\right]\approx\left[\begin{array}{c} f(x_1) \\ f(x_2) \\ \vdots \\ f(x_{N-1}) \\ f(x_N) \end{array}\right]
+\]
+Moreover,
+\begin{eqnarray*}
+\BD\left[\begin{array}{c} u(x_0) \\ u(x_1) \\u(x_2) \\ \vdots \\ u(x_{N-1}) \\ u(x_N) \\ u(x_{N+1}) \end{array}\right]&=&\BD\left(\left[\begin{array}{c} 0 \\ u(x_1) \\u(x_2) \\ \vdots \\ u(x_{N-1}) \\ u(x_N) \\ 0 \end{array}\right]+\left[\begin{array}{c} u(x_0) \\ 0 \\ 0 \\ \vdots \\ 0 \\ 0 \\ u(x_{N+1}) \end{array}\right]\right)
+\\
+&=&\BD\left(\left[\begin{array}{c} 0 \\ u(x_1) \\u(x_2) \\ \vdots \\ u(x_{N-1}) \\ u(x_N) \\ 0 \end{array}\right]+\left[\begin{array}{c} \alpha \\ 0 \\ 0 \\ \vdots \\ 0 \\ 0 \\ \beta \end{array}\right]\right)
+\\
+&=&\BD\left[\begin{array}{c} 0 \\ u(x_1) \\u(x_2) \\ \vdots \\ u(x_{N-1}) \\ u(x_N) \\ 0 \end{array}\right]+\BD\left[\begin{array}{c} \alpha \\ 0 \\ 0 \\ \vdots \\ 0 \\ 0 \\ \beta \end{array}\right]
+\end{eqnarray*}
+since $u(x_0)=u(0)=\alpha$ and $u(x_{N+1})=u(1)=\beta$. Furthermore,
+\begin{eqnarray*}
+&&\BD\left[\begin{array}{c} 0 \\ u(x_1) \\u(x_2) \\ \vdots \\ u(x_{N-1}) \\ u(x_N) \\ 0 \end{array}\right]
+\\
+&=&\left[\begin{array}{ccccccccc} 
+-\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2} & 0 & 0 & \cdots & 0 & 0 & 0
+\\
+0 & -\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2} & 0 & \cdots & 0 & 0 & 0
+\\
+0 & 0 & -\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2} & \cdots & 0 & 0 & 0
+\\
+\vdots & \vdots & \vdots & \ddots & \ddots & \ddots & \vdots & \vdots & \vdots
+\\
+0 & 0 & 0 & \cdots & -\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2} & 0 & 0
+\\
+0 & 0  & 0 & \cdots & 0 & -\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2} & 0
+\\
+0 & 0 & 0 & \cdots & 0 & 0 & -\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2}
+ \end{array}\right]
+\left[\begin{array}{c} 0 \\ u(x_1) \\u(x_2) \\ \vdots \\ u(x_{N-1}) \\ u(x_N) \\ 0 \end{array}\right]
+\\
+&=&\left[\begin{array}{ccccccccc} 
+\frac{2}{h^2}+9 & -\frac{1}{h^2} & 0 & 0 & \cdots & 0 & 0
+\\
+-\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2} & 0 & \cdots & 0 & 0
+\\
+ 0 & -\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2} & \cdots & 0 & 0
+\\
+\vdots & \vdots & \ddots & \ddots & \ddots & \vdots & \vdots
+\\
+0 & 0 & \cdots & -\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2} & 0
+\\
+0  & 0 & \cdots & 0 & -\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2}
+\\
+0 & 0 & \cdots & 0 & 0 & -\frac{1}{h^2} & \frac{2}{h^2}+9
+ \end{array}\right]
+\left[\begin{array}{c} u(x_1) \\u(x_2) \\ \vdots \\ u(x_{N-1}) \\ u(x_N) \end{array}\right]
+\end{eqnarray*}
+and so
+\[
+\BA\left[\begin{array}{c} u(x_1) \\u(x_2) \\ \vdots \\ u(x_{N-1}) \\ u(x_N) \end{array}\right]\approx\Bb
+\]
+where $\BA\in\R^{N\times N}$ is the matrix with entries
+\[
+A_{jk}=\left\{\begin{array}{rl}
+\frac{2}{h^2}+9 & \mbox{if }k=j;
+\\
+-\frac{1}{h^2} & \mbox{if }k=j-1\mbox{ or }k=j+1;
+\\
+0 & \mbox{otherwise}.
+\end{array}\right.
+\]
+and
+\[
+\Bb=\left[\begin{array}{c} f(x_1) \\ f(x_2) \\ \vdots \\ f(x_{N-1}) \\ f(x_N) \end{array}\right]-\BD\left[\begin{array}{c} \alpha \\ 0 \\ 0 \\ \vdots \\ 0 \\ 0 \\ \beta \end{array}\right].
+\]
+Now,
+\begin{eqnarray*}
+&&\BD\left[\begin{array}{c} \alpha \\ 0 \\ 0 \\ \vdots \\ 0 \\ 0 \\ \beta \end{array}\right]
+\\
+&=&\left[\begin{array}{ccccccccc} 
+-\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2} & 0 & 0 & \cdots & 0 & 0 & 0
+\\
+0 & -\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2} & 0 & \cdots & 0 & 0 & 0
+\\
+0 & 0 & -\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2} & \cdots & 0 & 0 & 0
+\\
+\vdots & \vdots & \vdots & \ddots & \ddots & \ddots & \vdots & \vdots & \vdots
+\\
+0 & 0 & 0 & \cdots & -\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2} & 0 & 0
+\\
+0 & 0  & 0 & \cdots & 0 & -\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2} & 0
+\\
+0 & 0 & 0 & \cdots & 0 & 0 & -\frac{1}{h^2} & \frac{2}{h^2}+9 & -\frac{1}{h^2}
+ \end{array}\right]\left[\begin{array}{c} \alpha \\ 0 \\ 0 \\ \vdots \\ 0 \\ 0 \\ \beta \end{array}\right]
+\\
+&=&\left[\begin{array}{c} -\frac{\alpha}{h^2} \\ 0 \\ 0 \\ \vdots \\ 0 \\ 0 \\ -\frac{\beta}{h^2} \end{array}\right]
+\end{eqnarray*}
+and so
+\[
+\Bb=\left[\begin{array}{c} f(x_1) \\ f(x_2) \\ \vdots \\ f(x_{N-1}) \\ f(x_N) \end{array}\right]-\left[\begin{array}{c} -\frac{\alpha}{h^2} \\ 0 \\ 0 \\ \vdots \\ 0 \\ 0 \\ -\frac{\beta}{h^2} \end{array}\right]=\left[\begin{array}{c} f(x_1)+\frac{\alpha}{h^2} \\ f(x_2) \\ \vdots \\ f(x_{N-1}) \\ f(x_N)+\frac{\beta}{h^2} \end{array}\right].
+\]
+Hence $\Bb\in\R^N$ is the vector with entries
+\[
+b_j=\left\{\begin{array}{rl}
+f(x_1)+\frac{\alpha}{h^2} & \mbox{if }j=1;
+\\
+f(x_N)+\frac{\beta}{h^2} & \mbox{if }j=N;
+\\
+f(x_j) & \mbox{otherwise}.
+\end{array}\right.
+\]
+\\
+\item {[5 points]} When $N=2$, $h=\frac{1}{2+1}=\frac{1}{3}$ and so $h^2=\frac{1}{3^2}=\frac{1}{9}$ and hence $\frac{1}{h^2}=9$ and $\frac{2}{h^2}=18$. Therefore,
+\[
+\BA=\left[\begin{array}{cc}  18+9 & -9 \\ -9 & 18+9 \end{array}\right]=\left[\begin{array}{cc}  27 & -9 \\ -9 & 27 \end{array}\right].
+\]
+Moreover, when $N=2$, $f(x)=18$ and $\alpha=\beta=0$,
+\[
+\Bb=\left[\begin{array}{c} 18 \\ 18 \end{array}\right].
+\]
+Consequently, we have that
+\[
+\left[\begin{array}{cc}  27 & -9 \\ -9 & 27 \end{array}\right]\left[\begin{array}{c} u_1 \\ u_2 \end{array}\right]=\left[\begin{array}{c} 18 \\ 18 \end{array}\right]
+\]
+and hence
+\[
+\left[\begin{array}{cc}  3 & -1 \\ -1 & 3 \end{array}\right]\left[\begin{array}{c} u_1 \\ u_2 \end{array}\right]=\left[\begin{array}{c} 2 \\ 2 \end{array}\right].
+\]
+Therefore,
+\begin{eqnarray*}
+\left[\begin{array}{c} u_1 \\ u_2 \end{array}\right]&=&\left[\begin{array}{cc}  3 & -1 \\ -1 & 3 \end{array}\right]^{-1}\left[\begin{array}{c} 2 \\ 2 \end{array}\right]
+\\
+&=&\frac{1}{9-1}\left[\begin{array}{cc}  3 & 1 \\ 1 & 3 \end{array}\right]\left[\begin{array}{c} 2 \\ 2 \end{array}\right]
+\\
+&=&\frac{1}{8}\left[\begin{array}{cc}  3 & 1 \\ 1 & 3 \end{array}\right]\left[\begin{array}{c} 2 \\ 2 \end{array}\right]
+\\
+&=&\frac{1}{8}\left[\begin{array}{c} 6+2 \\ 2+6 \end{array}\right]
+\\
+&=&\frac{1}{8}\left[\begin{array}{c} 8 \\ 8 \end{array}\right]
+\\
+&=&\left[\begin{array}{c} 1 \\ 1 \end{array}\right].
+\end{eqnarray*}
+\end{enumerate} 
+\end{solution}

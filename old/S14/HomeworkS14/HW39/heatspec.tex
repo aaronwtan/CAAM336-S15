@@ -1,0 +1,95 @@
+
+Let
+\[
+f(x)=\left\{\begin{array}{rl}\displaystyle{2x}&\displaystyle{\mbox{if }x\in\left[0,{1\over2}\right)};\\\displaystyle{2-2x}&\displaystyle{\mbox{if }x\in\left[{1\over2},1\right]}.\end{array}\right.
+\]
+In this question we will consider the problem of finding the solution $u(x,t)$ to the heat equation
+\[ 
+u_t(x,t)-u_{xx}(x,t) = f(x), \qquad 0\le x \le 1, \quad t\ge 0,
+\]
+with Dirichlet boundary conditions
+\[
+u(0,t)=0, \quad t\ge 0,
+\]
+and
+\[
+u(1,t)=1, \quad t\ge 0,
+\]
+and initial condition
+\[
+u(x,0) = x^3, \qquad 0\le x\le 1.
+\]
+Let
+\[
+S = \left\{ w \in C^2[0,1] : w(0) = w(1) = 0 \right\}
+\]
+and let the linear operator $L: S\to C[0,1]$ be defined by
+\[
+L v = -v''.
+\]
+The operator $L$ has eigenvalues $\lambda_n=n^2\pi^2$ with corresponding eigenfunctions
+\[
+\psi_n(x) = \sqrt{2} \sin\left(n\pi x\right)
+\]
+for $n=1,2,\ldots$. Note that, for $m,n=1,2,\ldots$,
+\[
+\int_0^1\psi_m(x)\psi_n(x)\,dx=\left\{\begin{array}{rl}1&\mbox{if }m=n;\\0&\mbox{if }m\ne n.\end{array}\right.
+\]
+\\
+\begin{enumerate}
+\item Let $w(x)$ be such that
+\[
+w''(x)=0,
+\]
+\[
+w(0)=0
+\]
+and
+\[
+w(1)=1.
+\]
+Obtain a formula for $w(x)$.
+\\
+\item Let $\hat{u}(x,t)$ be such that
+\[ 
+\hat{u}_t(x,t)-\hat{u}_{xx}(x,t) = f(x), \qquad 0\le x \le 1, \quad t\ge 0,
+\]
+\[
+\hat{u}(0,t)=\hat{u}(1,t)=0, \qquad t\ge 0,
+\]
+and
+\[
+\hat{u}(x,0) = \hat{u}_0(x), \qquad 0\le x\le 1,
+\]
+where $\hat{u}_0(x)$ is such that
+\[
+u(x,t) = w(x)+\hat{u}(x,t).
+\]
+Obtain a formula for $\hat{u}_0(x)$.
+\\
+\item We can write
+\[
+\hat{u}(x,t) = \sum_{n=1}^\infty a_n(t) \psi_n(x)
+\]
+and
+\[
+f(x) = \sum_{n=1}^\infty b_n\psi_n(x)
+\]
+where, for $n = 1,2,\ldots$,
+\[
+b_n = \int_0^1f(x) \psi_n(x)\,dx.
+\]
+What ordinary differential equation and initial condition does $a_n(t)$ satisfy for $n = 1,2,\ldots$?
+\\
+\item Obtain an expression for $a_n(t)$ for $n=1,2,\ldots$.
+\\
+\item Write out a formula for $u(x,t)$.
+\\
+\item Plot the approximations to $u(x,t)$ obtained by replacing the upper limit of the summation in your series solution with $20$ for $t=0,0.1,0.2,0.3,0.5,1,2$.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input heatspec_sol}{}
+

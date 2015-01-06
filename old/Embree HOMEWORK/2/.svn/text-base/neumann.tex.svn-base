@@ -1,0 +1,67 @@
+Suppose $u$ represents the temperature distribution in a homogeneous bar,
+and assume that both ends are \emph{perfectly insulated} 
+and there is no external source of heat.
+(As before, the sides of the bars are perfectly insulated, too.)
+
+\begin{enumerate}
+\item What will the boundary conditions be at the left and right ends of the bar?\\
+      (Is the temperature fixed at the ends, which would give Dirichlet boundary
+       conditions?  Can you say something about the heat flux at each boundary,
+       which would give Neumann conditions?)
+
+\item Because the bar is perfectly insulated over its entire surface, 
+      it is clear from a physical perspective that the total energy 
+      in the bar must remain constant.  
+      Show that the mathematical model we developed in class 
+      captures this fact; that is, write down a formula for the
+      energy in the entire bar and show that, in this perfectly 
+      insulated case, it is constant in time.
+      (Hint: Write the rate of change of the energy in the bar,
+         then use the differential equation and boundary conditions
+         to show this must be zero.)
+      
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+\begin{enumerate}
+\item Since the bar is insulated at its ends, heat does not flow through 
+      the ends, i.e., the heat flux is zero: $q(0,t)=q(\ell,t)=0$.  
+      Since the material is homogeneous ($\kappa$ is constant),
+      this heat flux is proportional to $\d u/\d t$ by
+      Fourier's law of heat conduction.  Thus, the insulated bar should
+      have homogeneous Neumann conditions:
+          \[ {\d u\over \d x}(0,t) = {\d u \over \d x}(1,t) = 0.\]
+
+\item We assume that the temperature in the bar varies slightly from the
+      nominal temperature $T_0$, so that we relationship between energy
+      and heat capacity is essentially linear.  
+      If $E_0$ represents the energy in the bar if the bar had constant
+      temperature $T_0$ everywhere,
+      then we can express the total energy in the bar as
+          \[ E(t) = E_0 + \int_0^\ell \rho c (u(s,t) - T_0)\, ds.\]
+      We wish to show that energy is constant in time, i.e., 
+      we want to show that the time derivative of $E(t)$ is zero.
+      First we note that
+          \begin{eqnarray*}
+            {d \over dt} E(t) 
+                &=& {d \over dt} \big( E_0 - \rho c T_0 \ell\big) +
+                       {d \over dt} \int_0^\ell \rho c u(s,t)\, ds \\[0.5em]
+                &=& \int_0^\ell \rho c {\d u \over \d t} (s,t)\, ds.
+          \end{eqnarray*}
+      Since the temperature in the bar obeys the heat equation, we have
+             \[ \rho c {\d u \over \d t}(x,t) = \kappa {\d^2 u \over \d x^2} (x,t),\]
+      and we can substitute the right hand side in the left hand side of our
+      expression for $dE/dt$:
+         \[ {d \over dt} E(t) = \int_0^\ell \kappa {\d^2 u \over \d x^2} (s,t)\,ds.\]
+      We can integrate the right hand side and use the 
+      Fundamental Theorem of Calculus to obtain
+         \[ {d \over dt} E(t) =  \kappa \Big({\d u \over \d x} (\ell,t) - {\d u\over \d x}(0,t)\Big).\]
+      However, since the bar is insulated we have the Neumann boundary conditions from part~(a), which give
+         \[ {d \over dt} E(t) =  \kappa (0 - 0) = 0.\]
+      Thus we have verified that our mathematical expression for the total energy 
+       agrees with our physical intuition: no energy should escape an insulated bar.
+\end{enumerate}
+\end{solution}}{}
+

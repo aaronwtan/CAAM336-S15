@@ -1,0 +1,91 @@
+Let $k(x)$ and $p(x)$ be two positive-valued continuous functions on $[0,1]$,
+and let 
+\[ V = \Big\{ u\in C^2[0,1]: u(0) = {du\over dx}(1) = 0 \Big\}.\]
+\begin{enumerate}
+\item Derive the weak form of the differential equation
+\[ -{d\over dx} \Big(k(x) {du \over dx}\Big) + p(x) u = f(x), 
+    \quad 0 < x< 1,\]
+subject to the boundary conditions
+\[  u(0) = {du\over dx}(1) = 0;\]
+that is, transform this differential equation into a problem of the form:
+\[\mbox{Find $u \in V$ such that $a(u,v) = (f,v)$ for all $v\in V$},\]
+where $(\cdot,\cdot)$ denotes the usual inner product
+$(f, g) = \int_0^1 f(x) g(x)\, dx$,
+and $a(\cdot, \cdot)$ is some bilinear form that you should specify.
+
+\item Show that the form $a(u,v)$ from part~(a) is an inner product
+      for $u, v \in V$.
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+\begin{enumerate}
+\item Multiply the differential equation with some function $v$
+      from the space $V$ and integrate from $x=0$ to $x=1$ to obtain
+     \[ \int_0^1 \bigg(-{d\over dx} \Big(k(x) {du \over dx}(x)\Big) v(x)
+                      + p(x) u(x) v(x) \bigg)\,dx   
+          = \int_0^1 f(x)v(x)\,dx.\]
+      Break the integral on the left into pieces to obtain
+     \[  \int_0^1 \bigg(-{d\over dx} \Big(k(x) {du \over dx}(x)\Big)\bigg) v(x)\,dx
+       + \int_0^1 \bigg( p(x) u(x)\bigg) v(x)\,dx 
+       = \int_0^1 f(x)v(x)\, dx.\]
+     Integrate the first integral by parts to obtain
+     \[ -\Big[ \kappa(x) {du \over dx}(x) v(x) \Big]_0^1 
+        + \int_0^1 k(x) {du \over dx}(x) {dv\over dx}(x)\,dx
+       + \int_0^1 \Big( p(x) u(x)\Big) v(x)\,dx 
+       = \int_0^1 f(x)v(x)\, dx.\]
+     The first term disappears because of the boundary conditions
+     $v(0)=0$ and ${du(1)/dx} = 0$.  We consolidate the integrals
+     on the left to arrive at the weak problem:
+      \[ \mbox{Find $u\in V$ such that}\quad
+          a(u,v) = (f,v) \quad \mbox{for all $v\in V$},\]
+     where 
+     \[ a(u,v) = 
+         \int_0^1 \Big( k(x) {du \over dx}(x) {dv\over dx}(x)
+                       + p(x) u(x) v(x)\Big)\,dx.\]
+       
+\item To show that the form $a(u,v)$ in part~(a) is an inner product, 
+      we must verify the three basic properties:
+      \begin{itemize}
+      \item \textbf{Symmetry} is apparent by inspection:
+            \begin{eqnarray*}
+               a(u,v) 
+               &=& \int_0^1 \Big( k(x) {du \over dx}(x) {dv\over dx}(x)
+                              + p(x) u(x) v(x)\Big)\,dx \\[0.5em]
+               &=& \int_0^1 \Big( k(x) {dv \over dx}(x) {du\over dx}(x)
+                              + p(x) u(x) v(x)\Big)\,dx
+               \,=\, a(v,u).
+           \end{eqnarray*}
+
+      \item \textbf{Linearity} follows from the
+            linearity of differentiation and integration:
+            \begin{eqnarray*}
+              a(\alpha u + \beta v, w)
+               &=& \int_0^1 \Big( k(x) {d(\alpha u(x) + \beta v(x))\over dx}(x) {dw\over dx}(x)
+                              + p(x) (\alpha u(x) + \beta v(x)) w(x)\Big)\,dx \\[0.5em]
+               &=& \int_0^1 \Big( k(x) \Big(\alpha {du(x)\over dx} + \beta{dv(x)\over dx}\Big) {dw\over dx}(x)
+                              + p(x) (\alpha u(x) + \beta v(x)) w(x)\Big)\,dx \\[0.5em]
+               &=& \alpha \int_0^1 \Big( k(x) {du(x)\over dx} {dw\over dx}(x) + 
+                                            p(x) u(x) w(x)\Big)\,dx \\[0.25em]
+               && \ \ \ 
+                   +\beta \int_0^1 \Big( k(x) {dv(x)\over dx} {dw\over dx}(x) + 
+                                            p(x) v(x) w(x)\Big)\,dx  \\[0.5em]
+               &=& \alpha @ a(u,w) + \beta @ a(v,w).
+               \end{eqnarray*}
+      \item \textbf{Positivity} requires that $a(u,u) \ge 0$ and $a(u,u) = 0$ only when $u=0$.
+            Note that
+               \begin{eqnarray*}
+               a(u,u) &=& \int_0^1 \Big( k(x) {du \over dx}(x) {du\over dx}(x)
+                              + p(x) u(x) u(x)\Big)\,dx \\[0.5em]
+                      &=& \int_0^1 \Big( k(x) \Big({du \over dx}(x)\Big)^2 
+                              + p(x) \big(u(x)\big)^2 \Big)\,dx.
+               \end{eqnarray*}
+            Since $k(x)$ and $p(x)$ are both positive for all $x\in[0,1]$, 
+            each integrand is non-negative, and hence $a(u,u)\ge 0$.
+            To have $a(u,u)=0$, we must have $u(x) = 0$ for all $x\in[0,1]$,
+            and $du(x)/dx = 0$ for all $x\in[0,1]$, which is only possible
+            if $u(x)=0$ for all $x\in[0,1]$, i.e., $u=0$.
+      \end{itemize}
+\end{enumerate}
+\end{solution}}{}
+

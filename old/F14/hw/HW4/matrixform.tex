@@ -1,0 +1,17 @@
+
+\begin{enumerate}
+\item Suppose that $f: \R^2 \to \R^2$ is a linear operator. Prove there exists a matrix $\BA\in\R^{2\times 2}$ such that $f$ is given by $f(\Bu) = \BA\Bu$. Hint: Each $\Bu  = \left[\!\!\begin{array}{c} u_1 \\ u_2\end{array}\!\!\right] \in \R^2$ can be written as $\Bu = u_1 \Be_1 + u_2 \Be_2$, where
+\[
+\Be_1 = \left[\!\begin{array}{c} 1 \\ 0\end{array}\!\right], \qquad \Be_2 = \left[\!\begin{array}{c} 0 \\ 1\end{array}\!\right].
+\] 
+Since $f$ is a linear operator, we have $f(\Bu) =  u_1 f(\Be_1) + u_2 f(\Be_2)$. Your formula for the matrix $\BA$ may include the vectors $f(\Be_1)$ and $f(\Be_2)$.
+\\
+\item Now we want to generalize the result in part~(a): Show that if $f: \R^n \to \R^n$ is a linear operator, then there exists a matrix $\BA\in\Rnn$ such that $f(\Bu) = \BA\Bu$ for all $\Bu\in\Rn$.
+%\\
+%\item Now we want to generalize further: Show that if $f: \R^n \to \R^m$ is a linear operator, then there exists a matrix $\BA\in\Rmn$ such that $f(\Bu) = \BA\Bu$ for all $\Bu\in\Rn$.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input matrixform_sol}{}

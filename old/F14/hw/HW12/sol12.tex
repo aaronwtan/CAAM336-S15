@@ -1,0 +1,32 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+\begin{document}
+\setboolean{showsols}{true}
+%\vspace*{-3em}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+ Problem Set 12 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Friday 26 November 2010.  Due Friday 3 December 2010, 5pm.
+
+\begin{center}
+This problem set counts for 100~points, plus a 20~point bonus.\\
+\end{center}
+
+
+\begin{enumerate}
+\item {[50 points: 15 points for (a); 10 points for (b); 5 points for (c); 20 points for (d)]}\\ \input wave2d
+
+\item {[50 points: 10 points per part]}\\ \input damp
+\newpage
+
+\item[bonus] {[20 points: 4 points per part]}\\ \input optdamp
+\end{enumerate}
+
+\end{document}

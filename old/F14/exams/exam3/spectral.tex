@@ -1,0 +1,110 @@
+
+Consider the wave equation with initial conditions
+\begin{align*}
+\pd{u}{t}{2} - c^2\pd{u}{x}{2} &= f(x,t), \quad 0 < x < 1, \quad t \geq 0\\
+u(x,0) &= \psi(x)\\
+\pd{u}{t}{}(x,0) &= 0
+\end{align*}
+with boundary conditions
+\begin{align*}
+\pd{u}{x}{}(0,t) &= 0\\
+u(1,t) &= 0.
+\end{align*}
+The operator $Lu = -u_{xx}$ with the above boundary conditions has normalized eigenfunctions $\phi_j(x)$ and eigenvalues $\lambda_j$
+\[
+\lambda_j = \left(\frac{2j-1}{2}\pi\right)^2, \quad \phi_j(x) = \sqrt{2}\cos\left(\frac{2j-1}{2}\pi x\right).
+\]
+Note that $(\phi_j,\phi_k) = 0$ and $(\phi_j,\phi_j) = 1$, where $(u,v) = \int_0^1 u(x)v(x) dx$.  
+
+We will use the spectral method for this problem, such that 
+\[
+u(x,t) = \sum_{j=1}^\infty \alpha_j(t)\phi_j(x).
+\]
+\begin{enumerate}
+\item Show that
+\[
+\alpha_j(0) = \int_0^1 \psi(x)\phi_j(x) dx.
+\]
+\item Let 
+\[
+f(x,t) = \sum_{j=1}^\infty \beta_j(t) \phi_j(x).
+\]
+Explain why, if $u(x,t)$ satisfies the wave equation, the coefficients $\alpha_j(t)$ obey
+\[
+\pd{\alpha_j}{t}{2} + c^2\lambda_j \alpha_j(t) = \beta_j(t).
+\]
+with the given initial condition $\alpha_j(0)$.  
+\vspace{1em}
+\item Assume $f(x,t) = 0$.  Derive an exact formula for $\alpha_j(t)$ in terms of $c, j$ and $\alpha_j(0)$.  
+\vspace{1em}
+\item Suppose $f(x,t) = 0$, and let $c=2$ and $\psi(x) = \cos(\pi x/2)$.  Give an explicit expression for $u(x,t)$ in terms of $j$.  What is the smallest time $t$ at which $u(x,t) = 0$?
+
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{
+\begin{solution}
+\begin{enumerate}
+\item Initial condition for heat equation  given as $\psi(x)$ by problem. Then 
+\[
+u(x,0) = \sum_{j=1}^\infty \alpha_j(0)\phi_j(x) = \psi(x).
+\]  
+Take the inner product with $\phi_k$ (orthonormal eigenfunctions), then 
+\[
+ \alpha_j(0) = \ip{\psi, \phi_j} = \int_0^1  \psi(x) \phi_j(x) dx \qquad j=1,2 \cdots 
+\]
+
+\item By plug in $u(x,t) = \sum_{j=1}^\infty \alpha_j(t)\phi_j(x)$ into the PDE, we can express the left hand side as a cosine series:
+\[
+\pd{u}{t}{2} - c^2\pd{u}{x}{2} = \sum_{j=1}^\infty \left(\pd{\alpha_j}{t}{2} + c^2\lambda_j \alpha_j(t)\right) \phi_j(x)
+\]
+Setting this equal to the series for $f(x,t)$, we obtain
+\[
+\sum_{j=1}^\infty \left(\pd{\alpha_j}{t}{2} + c^2\lambda_j \alpha_j(t)\right) \phi_j(x) = \sum_{j=1}^\infty \beta_j(t) \phi_j(x)
+\]
+
+Taking the inner product with $\phi_k$ (orthonormal eigenfunctions), then we get following ODEs
+\[
+\pd{\alpha_j}{t}{2} + c^2\lambda_j \alpha_j(t) = \beta_j(t) \qquad j=1,2 \cdots  
+\] 
+
+with the given initial conditions in part (a)
+
+\item If $f(x,t)=0$, then we obtain the following homogeneous ODE for $j=1,2 \cdots$ 
+
+\begin{align*}
+\pd{\alpha_j}{t}{2} + c^2\lambda_j \alpha_j(t) &= 0 \\
+                                    \alpha_j(0)&=  \int_0^1  \psi(x) \phi_j dx \\
+                                  \alpha_j^{'}(0)&= 0  \:\: (\mbox{because of initial velocity is zero}) 
+                                    \end{align*}
+
+ Then, solution to that system is
+ 
+\[
+\alpha_j(t) = \alpha_j(0) \cos (\sqrt{\lambda_j} t) \qquad j=1,2 \cdots  
+\]
+
+\item Since $u(x,t) = \sum_{j=1}^\infty \alpha_j(t)\phi_j(x)$, 
+\[
+u(x,0) = \psi(x) = \cos(\pi x/2) = \sum_{j=1}^\infty \alpha_j(0)\phi_j(x).
+\]
+However, since $\phi_1(x) = \sqrt{2}\cos(\pi x/2)$, we know that $\alpha_1(0) = 1/\sqrt{2}$ and $\alpha_j(0) = 0$ for $j > 0$.  The exact solution can then be written
+\[
+u(x,t) = \cos(\pi t/2)\cos(\pi x/2).
+\]
+This will be zero when $\cos(\pi t) = 0$, or when $t=1/2$.  
+%\item From part (c) we know $\alpha_j(t)$. The explicit expression for the solution 
+%
+%\begin{align*}
+%u(x,t) & = \sum_{j=1}^\infty \alpha_j(t)\phi_j(x)\\
+%       & = \sum_{j=1}^\infty \alpha_j(0) \cos (\sqrt{\lambda_j} t)  \phi_j(x) \\
+%			 & =\sum_{j=1}^\infty \left(\int_0^1  \psi(x) \phi_j dx \right) \cos (\sqrt{\lambda_j} t)  \phi_j(x) \\
+%			 & =\sum_{j=1}^\infty \left(\int_0^1 cos(\pi x/2) \sqrt{2}\cos\left(\frac{2j-1}{2}\pi x\right)  dx \right) \cos(\sqrt{\lambda_j} t)  \sqrt{2}\cos\left(\frac{2j-1}{2}\pi x\right)
+%\end{align*}
+%
+%Note that when $t=1 $, the term $\cos(\sqrt{\lambda_j} t) = \cos(\sqrt{\lambda_j})=0$,  where $\lambda_j = \frac{2j-1}{2} \pi$, then the solution $u(x,t)= 0$ for $j=1,2, \cdots$ at $t=1$.  
+\end{enumerate}
+ \end{solution}
+}{}

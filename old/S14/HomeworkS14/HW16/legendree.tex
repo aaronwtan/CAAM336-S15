@@ -1,0 +1,40 @@
+
+Let $\phi_1\in C[-1,1]$, $\phi_2\in C[-1,1]$, $\phi_3\in C[-1,1]$, and $f\in C[-1,1]$ be defined by
+\[
+\phi_1(x) = 1,
+\]
+\[
+\phi_2(x) = x,
+\]
+\[
+\phi_3(x) = 3x^2-1,
+\]
+and
+\[
+f(x) = e^x,
+\]
+for all $x\in[-1,1]$. Let the inner product $\ip{\cdot,\cdot}:\mbox{ }C[-1,1]\times C[-1,1]\rightarrow\R$ be defined by
+\[
+\ip{u,v} = \int_{-1}^1 u(x)v(x)\, dx.
+\]
+Let the norm $\norm{\cdot}:\mbox{ }C[-1,1]\rightarrow\R$ be defined by
+\[
+\norm{u} = \sqrt{\ip{u,u}}.
+\]
+Note that $\{\phi_1,\phi_2,\phi_3\}$ is orthogonal with respect to the inner product $\ip{\cdot,\cdot}$.
+\\
+\begin{enumerate}
+\item By hand, construct the best approximation $f_1$ to $f$ from ${\rm span}\{\phi_1\}$ with respect to the norm $\norm{\cdot}$.
+\\
+\item By hand, construct the best approximation $f_2$ to $f$ from ${\rm span}\{\phi_1,\phi_2\}$ with respect to the norm $\norm{\cdot}$.
+\\
+\item By hand, construct the best approximation $f_3$ to $f$ from ${\rm span}\{\phi_1,\phi_2,\phi_3\}$ with respect to the norm $\norm{\cdot}$.
+\\
+\item  Produce a plot that superimposes your best approximations from parts~(a), (b), and (c) on top of a plot of $f(x)$.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input legendree_sols}{}
+

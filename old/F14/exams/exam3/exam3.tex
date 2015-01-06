@@ -1,0 +1,93 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{336notes,ifthen,color}
+
+\lfoot[\small \fancyplain{}{}]
+      {\small \fancyplain{}{}}
+\rfoot[\small \fancyplain{}{}]
+      {\small \fancyplain{}{}}
+\cfoot{\small \thepage}
+
+\newboolean{showsols}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+
+\def\pd#1#2#3{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+
+\begin{document}
+\setboolean{showsols}{true}
+\thispagestyle{empty}
+
+ \ifthenelse{\boolean{showsols}}{
+ }{
+\vspace*{0em}
+   \begin{center}
+      \textsf{\textbf{CAAM 336\ $\cdot$\ DIFFERENTIAL EQUATIONS}}\\[0.5em]
+       \textsf{Examination~3}
+   \end{center}
+   
+\vspace*{3em}
+Instructions:
+\begin{enumerate}
+\item Time limit: \textbf{3 uninterrupted hours}.
+\item There are four questions worth a total of 100 points, plus a 3 point bonus.\\
+      Please do not look at the questions until you begin the exam.
+\item You are allowed one cheat sheet to refer to during the exam. \\
+You \emph{may not} use any outside resources, such as books, notes, problem sets, friends,\\
+      calculators, or MATLAB. 
+\item Please answer the questions thoroughly and justify all your answers.\\
+      \emph{Show all your work to maximize partial credit.}
+
+\item Print your name on the line below:
+
+\vspace*{1em}\rule{6in}{0.5pt}
+
+\item Indicate that this is your own individual effort in compliance with 
+      the instructions above and the honor system by writing out in full 
+      and signing the traditional pledge on the lines below.
+
+\vspace*{1em}\rule{6in}{0.5pt}
+
+\vspace*{1em}\rule{6in}{0.5pt}
+
+\vspace*{1em}\rule{6in}{0.5pt}
+
+\item Staple this page to the front of your exam.
+
+\end{enumerate}
+}
+\newpage
+\setcounter{page}{1}
+\begin{enumerate}
+
+\item {[25 points: (a)-(c) = 6, (d)=7]}
+\vspace*{.5em}
+\input spectral
+
+\newpage
+\item {[28 points: (a)-(d) = 7]}
+\vspace*{.5em}
+\input wavefem
+
+%\newpage
+%\item {[25 points: (a) = 3, (b) = 3, (c) = 8, (d)=4, (e)=4, (f)=3 ]}
+%\vspace*{.5em}
+%\input heatfem
+
+\newpage
+\item {[19 points: (a)-(b) = 8, (c) = 3]}
+\vspace*{.5em}
+\input dalambert
+
+\newpage
+\item {[28 points: (a) = 6, (b)-(c) = 7, (d) = 8]}
+\vspace*{.5em}
+\input periodic
+
+\newpage
+\item {[Bonus: 3 points: 1 point each]}
+\vspace*{.5em}
+\input adjoint
+
+\end{enumerate}
+\end{document}

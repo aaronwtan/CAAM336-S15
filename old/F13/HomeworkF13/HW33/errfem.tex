@@ -1,0 +1,101 @@
+Let $H^1_D\left(0,1\right)=\left\{w\in H^1\left(0,1\right):\,w(0)=w(1)=0\right\}$ and let the inner product $\ip{\cdot,\cdot}:\,L^2\left(0,1\right)\times L^2\left(0,1\right)\to\R$ be defined by
+\[
+\ip{v,w}=\int_0^1v(x)w(x)\,dx
+\]
+and the inner product $a\ip{\cdot,\cdot}:\,H^1_D\left(0,1\right)\times H^1_D\left(0,1\right)\to\R$ be defined by
+\[
+a\ip{v,w}=\int_0^1v'(x)w'(x)\,dx.
+\]
+Let the norm $\left|\left|\left|\cdot\right|\right|\right|:\,H^1_D\left(0,1\right)\to\R$ be defined by
+\[
+\left|\left|\left|v\right|\right|\right|=\sqrt{a\ip{v,v}}.
+\]
+Let $m$ be a positive integer and let $f_m\in L^2\left(0,1\right)$ be defined by $f_m(x)=\sqrt{2}m^2\pi^2\sin(m\pi x)$. Note that, for $j=1,\ldots,N$,
+\[
+\ip{f_m,\phi_j} = {2\sqrt{2}\sin(m\pi x_j) \over h} (1 - \cos(m\pi h)).
+\]
+Let $N$ be a positive integer, let $\displaystyle{h={1 \over N+1}}$, let $x_j=jh$ for $j=0,1,\ldots,N+1$, and let $\phi_k\in H^1_D\left(0,1\right)$ be defined by
+\[
+\phi_k(x) = \left\{\begin{array}{ll}
+\displaystyle{{(x-x_{k-1}) \over h}} & \displaystyle{\mbox{if }x\in[x_{k-1},x_k)};
+\\[10pt]
+\displaystyle{{(x_{k+1}-x) \over h}} & \displaystyle{\mbox{if }x\in[x_k,x_{k+1})};
+\\[10pt]
+0 & \mbox{otherwise};
+\end{array}\right.
+\]
+for $k=1,\ldots,N$. Let $V_N={\rm span}\{\phi_1,...,\phi_N\}$. Let $u_m\in H^1_D\left(0,1\right)$ be such that
+\[
+a\ip{u_m,v}=\ip{f_m,v}\mbox{ for all }v\in H^1_D\left(0,1\right).
+\]
+
+
+
+\begin{enumerate}
+\item The true solution to the problem of finding $u_m\in H^1_D\left(0,1\right)$ such that
+\[
+a\ip{u_m,v}=\ip{f_m,v}\mbox{ for all }v\in H^1_D\left(0,1\right)
+\]
+is $u_m(x)=\sqrt{2}\sin(m\pi x)$. Use integration by parts and the fact that $\ip{u_m,u_m}=1$ to obtain a formula for $a\ip{u_m,u_m}$.
+\\
+\item We can obtain finite element approximations to $u_m$ by finding $u_{m,N}\in V_N$ such that
+\[
+a\ip{u_{m,N},v}=\ip{f_m,v}\mbox{ for all }v\in V_N.
+\]
+Write a code which can compute the energy norm of the error
+\[
+\left|\left|\left|u_m-u_{m,N}\right|\right|\right|.
+\]
+Use your code to produce a \verb|loglog| plot of the energy norm of the error
+\[
+\left|\left|\left|u_m-u_{m,N}\right|\right|\right|
+\]
+when
+\[
+m=1,2,4,8,16,32,64,128,256,512,1024,2048
+\]
+for
+\[
+N=1,3,7,15,31,63,127,255,511,1023,2047,4095,8191
+\]
+on the same figure with a separate line for each value of $m$.
+\\
+\item Produce a \verb|loglog| plot of the percentage error
+\[
+100{\left|\left|\left|u_m-u_{m,N}\right|\right|\right| \over \left|\left|\left|u_m\right|\right|\right|}
+\]
+when
+\[
+m=1,2,4,8,16,32,64,128,256,512,1024,2048
+\]
+for
+\[
+N=1,3,7,15,31,63,127,255,511,1023,2047,4095,8191
+\]
+on the same figure with a separate line for each value of $m$.
+\\
+\item Let $f\in L^2\left(0,1\right)$. The problem of finding $u\in H^1_D\left(0,1\right)$ such that
+\[
+a\ip{u,v}=\ip{f,v}\mbox{ for all }v\in H^1_D\left(0,1\right)
+\]
+is the weak form of the problem of finding $u$ such that
+\[
+-u''(x)=f(x),\quad0<x<1;\quad u(0)=u(1)=0,
+\]
+or equivalently,
+\[
+f(x)+u''(x)=0,\quad0<x<1;\quad u(0)=u(1)=0.
+\]
+If $\tilde{u}_N\in V_N$ then how does the quantity
+\[
+\sum_{j=0}^N\int_{x_j}^{x_{j+1}}(f(x)+\tilde{u}_N''(x))^2\,dx
+\]
+behave as N increases?
+
+
+\end{enumerate}
+
+           
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input errfem_sol}{}

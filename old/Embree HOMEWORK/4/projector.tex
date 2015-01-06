@@ -1,0 +1,66 @@
+Recall that a linear operator $P$ is a projection from the vector space $V$
+to the vector space $V$ provided $P^2=P$, that is, $P(Pf) = Pf$ for all 
+$f\in V$.  Consider $V=C[-1,1]$ with the usual inner product
+\[ (u,v) = \int_{-1}^1 u(x) v(x)\,dx,\]
+and the two linear operators $P_e$ and $P_o$ the project
+a function onto their even and odd parts.  That is,
+
+\[ (P_e f)(x) = {f(x) + f(-x) \over 2}, \qquad
+   (P_o f)(x) = {f(x) - f(-x) \over 2}.\]
+
+\begin{enumerate}
+\item Show that $P_e$ and $P_o$ are projections.
+\item Verify that $P_e f$ and $P_o f$ are orthogonal for any $f\in C[-1,1]$.
+\item Is $P_e+P_o$ a projection?  Explain.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+\begin{enumerate}
+\item To check that $P_e$ is a projection, we will apply $P_e$ to some function 
+     $f\in V=C[-1,1]$, then apply $P_e$ to the result, i.e., we will check if
+     $P_e f = P_e (P_e f)$ for any $f\in C[-1,1]$.  Note that
+     \[ P_e f = {f(x)+f(-x) \over 2},\]
+     so
+     \[ P_e(P_e f) = {\Big(\displaystyle{f(x)+f(-x)\over 2}\Big) + \Big({f(-x)+f(x)\over 2}\Big) \over 2}
+                   = {f(x)+f(-x) \over 2} = P_e f.\]
+     Thus we conclude that $P_e^2 f = P_e f$ for all $f$, which means that $P_e^2 = P_2$, 
+     i.e., $P_e$ is a projection.  (We have just proved that ``the even part of an even function
+     is itself''.)  In the same way, we have 
+     \[ P_o f = {f(x)-f(-x) \over 2},\]
+     and 
+     \[ P_o(P_o f) = {\Big(\displaystyle{f(x)-f(-x)\over 2}\Big) - \Big({f(-x)-f(x)\over 2}\Big) \over 2}
+                   = {f(x)-f(-x) \over 2} = P_o f,\]
+     so $P_o$ is also a projector.
+
+\item Notice that for any $f\in C[-1,1]$, $P_e f$ is even and $P_o f$ is odd.
+     Consider the integrand in the inner product
+     \[ (P_e f, P_o f) = \int_{-1}^1 (P_e f)(x) (P_o f)(x)\, d x.\]
+     Since $P_e f$ is even and $P_o f$ is odd, the integrand is the product
+     of even and odd functions, which must be odd.  But the integral of an
+     odd function from $-1$ to 1 is zero.  Hence, $P_e f$ and $P_o f$ are 
+     orthogonal.
+
+     The above is an entirely acceptable mathematical argument, and is sufficient
+     for full credit.  One could have equivalently proceeded more algebraically:
+     \begin{eqnarray*}
+       (P_e f, P_o f) = \int_{-1}^1 (P_e f)(x) (P_o f)(x)\, d x
+                       &=& {1\over 4} \int_{-1}^1 f(x)^2 - f(x) f(-x) + f(x) f(-x) - f(-x)^2  \, dx \\[.5em]
+                       &=& {1\over 4} \int_{-1}^1 f(x)^2 - f(-x)^2  \, dx \\[.5em]
+                       &=& {1\over 4} \Big(\int_{-1}^1 f(x)^2 \, dx - \int_{-1}^1 f(-x)^2  \, dx \\[.5em]
+                       &=& {1\over 4} \Big(\int_{-1}^1 f(x)^2 \, dx + \int_1^{-1} f(x)^2  \, dx\Big) \\[.5em]
+                       &=& {1\over 4} \Big(\int_{-1}^1 f(x)^2 \, dx - \int_{-1}^{1} f(x)^2  \, dx\Big) \\[.5em]
+                       &=& 0. 
+     \end{eqnarray*}
+
+\item Yes, $P_e + P_o$ is a projection; there are several ways to see this.
+
+      Notice that $P_e (P_o f) = P_o (P_e f) = 0$ 
+      for all $f \in C[-1,1]$,  which implies that $P_e P_o = P_o P_e = 0$, hence
+  \[ (P_e + P_o)^2 = P_e^2 + P_e P_o + P_o P_e + P_o^2 = P_e^2 + P_o^2 = P_e + P_o.\]
+      
+      More simply, notice that $(P_e + P_o)f = P_e f + P_o f = f$, so $P_e + P_o = I$, the
+      identity operator, which is trivially a projection.
+\end{enumerate}
+\end{solution}}{}

@@ -1,0 +1,51 @@
+All parts of this question should be done by hand.
+
+Let $\displaystyle{v_1(x)={\sqrt{3} \over \sqrt{2}}x}$, $\displaystyle{v_2(x)={\sqrt{3} \over \sqrt{2}}(3x^2-x-1)}$ and $\displaystyle{f(x)={\sqrt{2} \over \sqrt{3}}\cos(\pi x)}$ and let
+\[
+C_z^1[-1,1]=\left\{v\in C^1[-1,1]:\int_{-1}^1v(x)\,dx=0\right\}.
+\]
+Note that $v_1\in C_z^1[-1,1]$, $v_2\in C_z^1[-1,1]$ and $f\in C_z^1[-1,1]$. Let the inner product $\ip{\cdot,\cdot}:C_z^1[-1,1]\times C_z^1[-1,1]\to\R$ be defined by
+\[
+\ip{u,v}=\int_{-1}^1u(x)v(x)\,dx
+\]
+and let the norm $\norm{\cdot}:C_z^1[-1,1]\to\R$ be defined by
+\[
+\norm{u}=\sqrt{\ip{u,u}}.
+\]
+Also, let the inner product $a\ip{\cdot,\cdot}:C_z^1[-1,1]\times C_z^1[-1,1]\to\R$ be defined by
+\[
+a\ip{u,v}=\int_{-1}^1(2+x)u'(x)v'(x)\,dx
+\]
+and let the norm $\norm{\cdot}_a:C_z^1[-1,1]\to\R$ be defined by
+\[
+\norm{u}_a=\sqrt{a\ip{u,u}}.
+\]
+Moreover, let the inner product $B\ip{\cdot,\cdot}:C_z^1[-1,1]\times C_z^1[-1,1]\to\R$ be defined by
+\[
+B\ip{u,v}=a\ip{u,v}+\ip{u,v}
+\]
+and the norm $\norm{\cdot}_B:C_z^1[-1,1]\to\R$ be defined by
+\[
+\norm{u}_B=\sqrt{B\ip{u,u}}.
+\]
+Note that $\ip{v_1,v_1}=1$; $\ip{v_2,v_2}=\displaystyle{{17 \over 5}}$; $\ip{f,v_1}=0$; $\displaystyle{\ip{f,v_2}=-{12 \over \pi^2}}$; $a\ip{v_1,v_1}=6$; $a\ip{v_2,v_2}=66$; $a\ip{f,v_1}=-2$ and $a\ip{f,v_2}=-22$.
+\begin{enumerate}
+\item Use the fact that $\ip{\cdot,\cdot}$ and $a\ip{\cdot,\cdot}$ are inner products on $C_z^1[-1,1]$ to verify that $B\ip{\cdot,\cdot}$ is an inner product on $C_z^1[-1,1]$.
+\\
+\item What is the best approximation to $f$ from ${\rm span}\{v_1\}$ with respect to the norm $\norm{\cdot}$?
+\\
+\item What is the best approximation to $f$ from ${\rm span}\{v_1\}$ with respect to the norm $\norm{\cdot}_a$?
+\\
+\item What is the best approximation to $f$ from ${\rm span}\{v_1\}$ with respect to the norm $\norm{\cdot}_B$?
+\\
+\item What is the best approximation to $f$ from ${\rm span}\{v_1,v_2\}$ with respect to the norm $\norm{\cdot}_a$?
+\\
+\item What is the best approximation to $f$ from ${\rm span}\{v_1,v_2\}$ with respect to the norm $\norm{\cdot}$?
+\end{enumerate}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\boolean{showsols}}{\input best_sol}{}

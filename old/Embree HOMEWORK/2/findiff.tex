@@ -1,0 +1,53 @@
+\begin{enumerate}
+\item In class we considered the `forward difference' approximation
+      \[ u'(x) \approx {u(x+h) - u(x) \over h}.\]
+      Let $u(x) = \exp(2x)$.  For each value 
+      $N = 2, 4, 8, 16, \ldots, 512$ (powers of~2), compute (in MATLAB) the error
+         \[ \Big| u'(1/2) -  {u(1/2+h) - u(1/2) \over h}\Big|,\]
+      where $h = 1/(N+1)$.
+      Print out these errors (in a table), and use MATLAB's \verb|loglog| command to 
+      produce a plot of $N$ versus the corresponding error.
+      (In class, we showed that this error should be proportional to $h$
+       as $h\to 0$.)
+      
+\vspace*{1em} 
+\item Consider the `centered difference' approximation
+      \[ u'(x) \approx {u(x+h) - u(x-h) \over 2 h}.\]
+      Repeat part~(a) with this approximation:
+      That is, for $u(x) = \exp(2x)$, compute the error
+         \[ \Big| u'(1/2) -  {u(1/2+h) - u(1/2-h) \over 2h}\Big|\]
+      for $N = 2, 4, 8, 16, 32, \ldots, 512$ (powers of~2) with $h=1/(N+1)$.  
+      Print out these errors (in a table), and use MATLAB's \verb|loglog| command to 
+      produce a plot of $N$ versus the corresponding error.
+      (In class, we showed that this error should be proportional to $h^2$
+       as $h\to 0$.)
+
+      \emph{Use the {\tt hold on} command to superimpose the plot for~(b)
+      on your plot for part~(a):  you should only turn in one plot for
+      this problem.}      
+
+\item By inspecting the plot you have created, estimate the value of $N$ that you
+      need to approximate $u'(1/2)$ to an error of $10^{-2}$ using the methods
+      in part~(a) and part~(b).
+\end{enumerate}
+
+\vspace*{2em}
+Challenge problem (4 bonus points):  Given an integer $N\ge 1$, 
+define $h = 1/(N+1)$ and consider the grid of points $x_j = jh$
+for $j=0, \ldots, N+1$.
+It is often desirable to construct an
+approximation to $u'(x_0)$ whose accuracy is proportional to $h^2$
+as $h\to0$.  
+The centered difference in part~(b)
+above is unsuitable, as it would require a value $u(x_{-1}) = u(-h)$, and
+$-h$ is outside the domain $[0,1]$.
+Show an alternative way to approximate
+$u'(x_0)$ using only the values $u(x_0)$, $u(x_1)$, and $u(x_2)$, i.e.,
+find coefficients $\alpha$, $\beta$, and $\gamma$ such that
+\[ u'(x_0) = \alpha u(x_0) + \beta u(x_1) + \gamma u(x_2) + O(h^2).\]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input findiff_sol}{}
+

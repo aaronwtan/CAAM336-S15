@@ -1,0 +1,33 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen}
+\usepackage{commath}
+\usepackage{epstopdf}
+\usepackage{subfigure}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+
+\begin{document}
+
+\setboolean{showsols}{true}
+\vspace*{-5em}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+Homework 2 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Wednesday 10 September 2014. Due 5pm Wednesday 17 September 2014.
+
+\begin{enumerate}\addtocounter{enumi}{0}
+
+
+%\item {[28 points: 7 points each]}  \input eig
+
+%\item {[22 points: 11 points each]}  \input stability
+
+\item {[50 points: 8 points for (a), 12 points for (c), 10 points for (b), (d), (e)]}  \input CN
+\end{enumerate}
+
+\end{document}

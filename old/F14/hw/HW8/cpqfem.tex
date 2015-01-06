@@ -1,0 +1,62 @@
+
+Let N be a positive integer, let $\displaystyle{h={1 \over N+1}}$ and let $x_k=kh$ for $k=0,1,\ldots,N+1$. Let the continuous piecewise linear hat functions $\widehat{\phi}_j\in C[0,1]$ be such that
+\[
+\widehat{\phi}_j(x) = \left\{\begin{array}{ll}
+\displaystyle{{(x-x_{j-1}) \over h}} & \displaystyle{\mbox{if }x\in[x_{j-1},x_j)},
+\\[10pt]
+\displaystyle{{(x_{j+1}-x) \over h}} & \displaystyle{\mbox{if }x\in[x_j,x_{j+1})},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\]
+for $j=1,\ldots,N$. Also, let the continuous piecewise quadratic functions $\phi_j\in C[0,1]$ be such that
+\[
+\phi_j(x)=\left\{\begin{array}{ll}
+\displaystyle{{(x-x_{j-1})(2x-x_{j-1}-x_j) \over h^2}} & \displaystyle{\mbox{if }x\in[x_{j-1},x_j)},
+\\[10pt]
+\displaystyle{{(x_j+x_{j+1}-2x)(x_{j+1}-x) \over h^2}} & \displaystyle{\mbox{if }x\in[x_j,x_{j+1})},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\]
+for $j=1,\ldots,N$ and let the continuous piecewise quadratic bubble functions $\psi_j\in C[0,1]$ be such that
+\[
+\psi_j(x)=\left\{\begin{array}{ll}
+\displaystyle{{4(x-x_{j-1})(x_j-x) \over h^2}} & \displaystyle{\mbox{if }x\in[x_{j-1},x_j)},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\]
+for $j=1,\ldots,N+1$.
+\\
+\begin{enumerate}
+\item What is
+\\
+\begin{enumerate}
+\item $\displaystyle{\phi_j\left(x_k\right)}$ for $j=1,\ldots,N$ and $k=0,\ldots,N+1$;
+\\
+\item $\displaystyle{\phi_j\left({x_{k-1}+x_k \over 2}\right)}$ for $j=1,\ldots,N$ and $k=1,\ldots,N+1$;
+\\
+\item $\displaystyle{\psi_j\left(x_k\right)}$ for $j=1,\ldots,N+1$ and $k=0,\ldots,N+1$;
+\\
+\item $\displaystyle{\psi_j\left({x_{k-1}+x_k \over 2}\right)}$ for $j,k=1,\ldots,N+1$.
+\\
+\end{enumerate}
+\item Show that $\{\phi_1,\ldots,\phi_N,\psi_1,\ldots,\psi_{N+1}\}$ is linearly independent by showing that if $\alpha_j,\beta_j\in\R$ and $\displaystyle{\sum_{j=1}^N\alpha_j\phi_j(x)+\sum_{j=1}^{N+1}\beta_j\psi_j(x)=0}$ for all $x\in[0,1]$ then $\alpha_k=0$ for $k=1,\ldots,N$ and $\beta_k=0$ for $k=1,\ldots,N+1$.
+\\
+\item Obtain an expression for
+\[
+\phi_j+{1 \over 2}\left(\psi_j+\psi_{j+1}\right)
+\]
+for $j=1,\ldots,N$.
+\\
+\item For $j=1,\ldots,N$, is $\widehat{\phi}_j\in{\rm span}\{\phi_1,\ldots,\phi_N,\psi_1,\ldots,\psi_{N+1}\}$?
+\\
+\item Is $\{\phi_1,\ldots,\phi_N,\psi_1,\ldots,\psi_{N+1},\widehat{\phi}_1,\ldots,\widehat{\phi}_N\}$ linearly independent?
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input cpqfem_sol}{}
+

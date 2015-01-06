@@ -1,0 +1,19 @@
+% Fourier demo of a plucked string (Dirichlet boundary conditions)
+
+x = linspace(0,1,500);
+N = 10;
+% psi = @(x) exp(-100*(x-.25).^2);
+% plot(x,psi(x))
+% pause
+for t = 0:.025:5
+    u = 0;       
+    for j = 1:N
+        sqrtlambdaj = (2*j-1)/2*pi;
+        %aj = exp(-j);
+        u = u + cos(sqrtlambdaj*t)*aj*sqrt(2)*sin(sqrtlambdaj*x);
+    end    
+    plot(x,u);
+    axis([0 1 -1 1])
+    title('Solution u(x,t)')
+    drawnow
+end

@@ -1,0 +1,52 @@
+
+Let $H^1_D\left(0,1\right)=\{v\in H^1\left(0,1\right):\,v(0)=0\}$. Let N be a positive integer, let $\displaystyle{h={1 \over N+1}}$ and let $x_k=kh$ for $k=0,1,\ldots,N+1$. Let the continuous piecewise linear hat functions $\phi_j\in H^1_D(0,1)$ be such that
+\[
+\phi_j(x) = \left\{\begin{array}{ll}
+\displaystyle{{x-x_{j-1} \over h}} & \displaystyle{\mbox{if }x\in[x_{j-1},x_j)},
+\\[10pt]
+\displaystyle{{x_{j+1}-x \over h}} & \displaystyle{\mbox{if }x\in[x_j,x_{j+1})},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\]
+for $j=1,\ldots,N$ and
+\[
+\phi_{N+1}(x) = \left\{\begin{array}{ll}
+\displaystyle{x-x_N \over h} & \mbox{if }x\in[x_N,x_{N+1}],\\
+0& \mbox{otherwise.}
+\end{array}\right.
+\]
+Let $V_N={\rm span}\left\{\phi_1,\ldots\phi_{N+1}\right\}$, let $u_0\in H^1_D(0,1)$ be such that
+\[
+u_0(x)=\left\{\begin{array}{ll}
+0 & \mbox{if }x\in[0,1/4],\\
+4x-1 & \mbox{if }x\in(1/4,1/2],\\
+3-4x & \mbox{if }x\in(1/2,3/4],\\
+0 & \mbox{if }x\in(3/4,1],
+\end{array}\right.
+\]
+and let
+\[
+u_{0,N}(x)=\sum_{j=1}^{N+1}u_0(x_j)\phi_j(x).
+\]
+Note that $u_0=u_{0,N}$ if and only if $u_0\in V_N$.
+\\
+\begin{enumerate}
+\item Write a MATLAB function for $u_0(x)$.  It should take in as input $x$.  It should return the value $u_0(x)$.  It should also be able to take in a vector for $\Bx=(\hat{x}_1,\ldots,\hat{x}_m)$ and return the vector $u_0(\Bx)=(u_0(\hat{x}_1),\ldots,u_0(\hat{x}_m))$. Use your function to produce a plot of $u_0$. For this figure and the ones that you have to produce in part (b), use the command \verb|set(gca,'XTick',[0 0.25 0.5 0.75 1])| to change the location of the tick marks on the $x$-axis.
+\\
+\item Write a MATLAB function for $u_{0,N}(x)$.  It should take in as input $x$ and $N$.  It should return the value $u_{0,N}(x)$.  It should also be able to take in a vector for $\Bx=(\hat{x}_1,\ldots,\hat{x}_m)$ and return the vector $u_{0,N}(\Bx)=(u_{0,N}(\hat{x}_1),\ldots,u_{0,N}(\hat{x}_m))$. On the same figure, plot $u_0$ as well as $u_{0,N}$ for $N=3,4,5,6$. On another figure, plot $u_0$ as well as $u_{0,N}$ for $N=47,48,49,50$.
+\\
+\item For which 2 of the 8 values of $N$ that you plotted for in part (b) is $\displaystyle{\max_{x\in[0,1]}|u_0(x)-u_{0,N}(x)|}$ the smallest? Use the fact that
+\begin{eqnarray*}
+&&{\rm span}\left\{\phi_1,\ldots\phi_{N+1}\right\}
+\\
+&=&\left\{v\in C[0,1]:\,v(0)=0,\,v(x)=a_jx+b_j,\mbox{ where }a_j,b_j\in\mathbb{R},\mbox{ if }x\in[x_{j-1},x_j],\mbox{ for }j=1,\ldots,N+1\right\},
+\end{eqnarray*}
+as well as information given previously in the question, to explain your answer.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input heatFEM_sol}{}
+

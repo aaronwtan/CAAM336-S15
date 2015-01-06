@@ -1,0 +1,52 @@
+%Using Backward Euler method we can approximate second derivative as follows
+%\begin{eqnarray*}
+%\frac{\partial^2 u}{\partial x^2}= \frac{\partial }{\partial x} \left(\frac{\partial u}{\partial x}\right)&\approx& \frac{\partial }{\partial x} \left(\frac{ u(x)-u(x-\Delta x)}{\Delta x}\right)\\
+%&\approx& \frac{\frac{ u(x)-u(x-\Delta x)}{\Delta x}-\frac{ u(x-\Delta x)-u(x-2 \Delta x)}{\Delta x}}{\Delta x}\\
+%&=& \frac{ u(x)-2 u(x-\Delta x) + u(x-2 \Delta x)}{\Delta x^2}
+%\end{eqnarray*} 
+%Then 
+%\[ \frac{\partial^2 u}{\partial x^2} \approx \frac{ u(x)-2 u(x-\Delta x) + u(x-2 \Delta x)}{\Delta x^2}
+%\]
+%where the term $\Delta x = x_{i+1}-x_{i}= x_{i}-x_{i-1}$ represents a constant spatial interval.
+%\begin{enumerate}
+
+In this problem, we will investigate the order of accuracy for an alternative finite difference approximation for the second derivative.  Let $u(x)$ be a smooth function with the Taylor series expansion around the point $x$
+\[
+u(x+\Delta x) = u(x) + u'(x)\Delta x + \frac{u''(x)}{2}\Delta x^2 + \frac{u'''(x)}{3!}\Delta x^3 + \ldots 
+\]
+\begin{enumerate}
+\item Derive the finite difference approximation to $u''(x)$
+\[
+u''(x) \approx \frac{u(x)-2u(x-\Delta x) + u(x-2\Delta x)}{\Delta x^2}
+\]
+with backwards difference formulas.  In other words, approximate $u''(x) = (u'(x))'$ using a backwards difference formula involving the terms
+\[
+u'(x), \quad u'(x-\Delta x),
+\]
+and then approximate $u'(x)$ and $u'(x-\Delta x)$ using backwards difference formulas involving 
+\[
+u(x),\quad u(x-\Delta x), \quad u(x-2\Delta x).
+\]
+\item Show that the second order backward finite difference approximation
+\[
+u''(x) \approx \frac{u(x)-2u(x-\Delta x) + u(x-2\Delta x)}{\Delta x^2}
+\]
+has accuracy $O(\Delta x)$.  In other words, if $u''(x)$ is the exact second derivative, show that 
+$$\left| u''(x) - \frac{u(x)-2u(x-\Delta x) + u(x-2\Delta x)}{\Delta x^2}\right| = O(\Delta x).$$
+
+\item Show that the 3-point forward difference formula for $u'(x)$
+\[
+u'(x) \approx \frac{-3u(x) + 4u(x+\Delta x) - u(x+ 2\Delta x)}{2\Delta x}
+\]
+has accuracy $O(\Delta x^2)$.  (In general, the more points a finite difference formula involves, the higher the order of accuracy, which is why the 3 point forward difference is more accurate than the $O(\Delta x)$ two-point forward difference formula.)
+%\item Another finite difference formula is the four point backward finite difference formula for the second derivative, given as 
+%\[
+%u''(x) \approx \frac{2u(x)-5u(x-\Delta x) + 4 u(x-2\Delta x)-u(x-3\Delta x)}{\Delta x^2}.
+%\]
+%Show that this approximation has accuracy $O(\Delta x^2)$.
+
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input accuracydb_sol}{}
+

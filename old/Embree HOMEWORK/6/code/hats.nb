@@ -1,0 +1,324 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.1'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5972,        223]*)
+(*NotebookOutlinePosition[      6609,        245]*)
+(*  CellTagsIndexPosition[      6565,        241]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[TextData[{
+  "The following commands cause ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " to simplify Sin and Cos when the arguments are integer multiples of Pi.  \
+For details see:\n\
+http://support.wolfram.com/mathematica/mathematics/algebra/globaldeclarations.\
+html"
+}], "Text"],
+
+Cell[BoxData[{
+    \(Unprotect[Sin]; \ Unprotect[Cos];\), "\[IndentingNewLine]", 
+    \(\(Sin[var_?IntegerQ\ Pi]\  := \ 0;\)\), "\[IndentingNewLine]", 
+    \(\(Cos[
+          var_?IntegerQ\ Pi]\  := \ \((\(-1\))\)^\((var)\);\)\), "\
+\[IndentingNewLine]", 
+    \(\(Cos[\((var_ - Pi/2)\)?IntegerQ\ Pi]\  := \ 
+        0;\)\), "\[IndentingNewLine]", 
+    \(\)}], "Input"],
+
+Cell[TextData[{
+  "The following commands tell ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " that n and m are meant to denote integer-value variables."
+}], "Text"],
+
+Cell[BoxData[{
+    \(\(n\  /: \ IntegerQ[n]\  = \ True;\)\), "\[IndentingNewLine]", 
+    \(\(m\  /: \ IntegerQ[m]\  = \ True;\)\)}], "Input"],
+
+Cell["\<\
+Define the inner product of two functions:  f and g must be \
+functions of the variable x.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(IP[f_, \ g_]\  := \ Integrate[f*g, {x, 0, 1}]\)], "Input"],
+
+Cell["\<\
+Now we can compute some inner products in a clean fashion.\
+\>", \
+"Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(IP[x, \ Sin[n*Pi*x]]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-\(\((\(-1\))\)\^n\/\(n\ \[Pi]\)\)\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(IP[x \((1 - x)\), \ Sin[n*Pi*x]]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-\(\(2\ \((\(-1\) + \((\(-1\))\)\^n)\)\)\/\(n\^3\ \[Pi]\^3\)\)\)\)], \
+"Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "Compare this to the output we obtain if n is replaced by something that ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " does not know to treat as an integer:"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(IP[x, \ Sin[p*Pi*x]]\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(-p\)\ \[Pi]\ Cos[p\ \[Pi]] + Sin[p\ \[Pi]]\)\/\(p\^2\ \
+\[Pi]\^2\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(IP[x \((1 - x)\), \ Sin[p*Pi*x]]\)], "Input"],
+
+Cell[BoxData[
+    \(\(2 - 2\ Cos[p\ \[Pi]] - p\ \[Pi]\ Sin[p\ \[Pi]]\)\/\(p\^3\ \
+\[Pi]\^3\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(IP[\((x - x^3)\)/6, Sin[n*Pi*x]]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-\(\((\(-1\))\)\^n\/\(n\^3\ \[Pi]\^3\)\)\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(D[Cos[\((n + 1/2)\)*Pi*x], {x}]\  /. \ 
+      x \[Rule] 0\)\)\)], "Input"],
+
+Cell[BoxData[
+    \(0\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Cos[\((n + 1/2)\)*Pi*x]\  /. x \[Rule] 1\)], "Input"],
+
+Cell[BoxData[
+    \(Cos[\((1\/2 + n)\)\ \[Pi]]\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(-D[Cos[\((n + 1/2)\)*Pi*x], {x, 2}]\)\)], "Input"],
+
+Cell[BoxData[
+    \(\((1\/2 + n)\)\^2\ \[Pi]\^2\ Cos[\((1\/2 + n)\)\ \[Pi]\ x]\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Simplify[
+      Integrate[\((x - \((k - 1)\)*h)\)/h\ *\ Sin[Pi*x], \ {x, \((k - 1)\)*h, 
+            k*h}]\  + \ 
+        Integrate[\((\((k + 1)\)*h - x)\)/h\ *\ Sin[Pi*x], \ {x, 
+            k*h, \((k + 1)\)*h}]\ ]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-\(\(2\ \((\(-1\) + Cos[h\ \[Pi]])\)\ Sin[
+              h\ k\ \[Pi]]\)\/\(h\ \[Pi]\^2\)\)\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(Integrate[\((\((x - \((k - 1)\)*h)\)/h\ )\)^2, \ {x, \((k - 1)\)*h, 
+          k*h}]\)\(\ \)\(+\)\(\ \)\(Integrate[\((\((\((k + 1)\)*h - x)\)/
+              h\ )\)^2, \ {x, k*h, \((k + 1)\)*h}]\)\(\ \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(2\ h\)\/3\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(Integrate[\((\((x - \((k - 1)\)*h)\)/h\ )\)*\((k*h - x)\)/
+          h, \ {x, \((k - 1)\)*h, k*h}]\)\(\ \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(h\/6\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(Integrate\ [\((\((\((k + 1)\)*h - x)\)/h\ )\)*\((\((x - k*h)\)/
+            h)\), {x, k*h, \ \((k + 1)\)*h}]\)\(\ \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(h\/6\)], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"5.1 for Macintosh",
+ScreenRectangle->{{0, 1280}, {0, 828}},
+WindowSize->{520, 706},
+WindowMargins->{{Automatic, 93}, {Automatic, 17}}
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 299, 8, 64, "Text"],
+Cell[2056, 61, 368, 8, 91, "Input"],
+Cell[2427, 71, 176, 5, 48, "Text"],
+Cell[2606, 78, 141, 2, 43, "Input"],
+Cell[2750, 82, 114, 3, 30, "Text"],
+Cell[2867, 87, 78, 1, 27, "Input"],
+Cell[2948, 90, 84, 3, 30, "Text"],
+
+Cell[CellGroupData[{
+Cell[3057, 97, 53, 1, 27, "Input"],
+Cell[3113, 100, 72, 1, 43, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3222, 106, 65, 1, 27, "Input"],
+Cell[3290, 109, 102, 2, 43, "Output"]
+}, Open  ]],
+Cell[3407, 114, 200, 5, 48, "Text"],
+
+Cell[CellGroupData[{
+Cell[3632, 123, 53, 1, 27, "Input"],
+Cell[3688, 126, 104, 2, 44, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3829, 133, 65, 1, 27, "Input"],
+Cell[3897, 136, 106, 2, 44, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4040, 143, 65, 1, 27, "Input"],
+Cell[4108, 146, 78, 1, 43, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4223, 152, 121, 2, 43, "Input"],
+Cell[4347, 156, 35, 1, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4419, 162, 73, 1, 27, "Input"],
+Cell[4495, 165, 60, 1, 42, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4592, 171, 72, 1, 27, "Input"],
+Cell[4667, 174, 92, 1, 43, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4796, 180, 248, 5, 91, "Input"],
+Cell[5047, 187, 128, 2, 42, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5212, 194, 240, 3, 59, "Input"],
+Cell[5455, 199, 45, 1, 42, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5537, 205, 145, 2, 43, "Input"],
+Cell[5685, 209, 38, 1, 42, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5760, 215, 155, 2, 43, "Input"],
+Cell[5918, 219, 38, 1, 42, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

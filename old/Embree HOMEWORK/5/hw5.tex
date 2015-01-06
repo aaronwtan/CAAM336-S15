@@ -1,0 +1,43 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen,color}
+\def\hot#1{\color{red}{#1}}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+
+\begin{document}
+\setboolean{showsols}{false}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+ Problem Set 5 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Wednesday 19 September 2012.  Due Wednesday 26 September 2012, 5pm.
+ 
+\ifthenelse{\boolean{showsols}}{}{\begin{center}\textbf{\emph{Please write the name of your college on your paper.}}\end{center}}
+
+%\vspace*{1em}
+All of the problems on this set use the inner product
+\[ (u,v) = \int_0^1 u(x) v(x)\,dx.\]
+\begin{enumerate}
+\item {[30 points]}\\  \input mixed
+
+\vspace*{1em}
+\item {[35 points]}\\  \input fourerr
+
+%\vfill
+%\hfill \emph{please turn over}
+
+\item {[35 points]}\\  \input sineseries
+\end{enumerate}
+
+\vspace*{2em}
+Challenge problem [5 bonus points]
+
+\begin{itemize}
+\item[]
+\input advec
+\end{itemize}
+\end{document}

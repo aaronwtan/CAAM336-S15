@@ -1,0 +1,121 @@
+\begin{solution}
+\begin{enumerate}
+\item {[10 points]} Since,
+\[
+\lambda\BI-\BA=\left[\begin{array}{cc}\lambda+50 & -49\\-49 & \lambda+50\end{array}\right]
+\]
+we have that
+\begin{eqnarray*}
+\det\left(\lambda\BI-\BA\right)&=&\left(\lambda+50\right)^2-49^2
+\\
+&=&\lambda^2+100\lambda+50^2-49^2
+\\
+&=&\lambda^2+100\lambda+\left(49+1\right)^2-49^2
+\\
+&=&\lambda^2+100\lambda+49^2+98+1-49^2
+\\
+&=&\lambda^2+100\lambda+99
+\\
+&=&\left(\lambda+1\right)\left(\lambda+99\right)
+\end{eqnarray*}
+and so
+\[
+\det\left(\lambda\BI-\BA\right)=0
+\]
+when $\lambda=-99$ or $\lambda=-1$. Hence, the eigenvalues of $\BA$ are
+\[
+\lambda_1=-99
+\]
+and
+\[
+\lambda_2=-1.
+\]
+
+Moreover,
+\[
+\left(\lambda_1\BI-\BA\right)\left[\begin{array}{c}c_1 \\ c_2\end{array}\right]=\left[\begin{array}{cc}-49 & -49\\-49 & -49\end{array}\right]\left[\begin{array}{c}c_1 \\ c_2\end{array}\right]=\left[\begin{array}{c}-49c_1-49c_2 \\ -49c_1-49c_2\end{array}\right]
+\]
+and so to make this vector zero we need to set $c_2=-c_1$. Hence, any vector of the form
+\[
+\left[\begin{array}{c}c_1 \\ -c_1\end{array}\right]
+\]
+where $c_1$ is a nonzero constant is an eigenvector of $\BA$ corresponding to the eigenvalue $\lambda_1$. Let us choose
+\[
+\Bv_1=\left[\begin{array}{c}{1\over\sqrt{2}} \\ -{1\over\sqrt{2}}\end{array}\right].
+\]
+
+Furthermore,
+\[
+\left(\lambda_2\BI-\BA\right)\left[\begin{array}{c}d_1 \\ d_2\end{array}\right]=\left[\begin{array}{cc}49 & -49\\-49 & 49\end{array}\right]\left[\begin{array}{c}d_1 \\ d_2\end{array}\right]=\left[\begin{array}{c}49d_1-49d_2 \\ -49d_1+49d_2\end{array}\right]
+\]
+and so to make this vector zero we need to set $d_2=d_1$. Hence, any vector of the form
+\[
+\left[\begin{array}{c}d_1 \\ d_1\end{array}\right]
+\]
+where $d_1$ is a nonzero constant is an eigenvector of $\BA$ corresponding to the eigenvalue $\lambda_2$. Let us choose
+\[
+\Bv_2=\left[\begin{array}{c}{1\over\sqrt{2}} \\ {1\over\sqrt{2}}\end{array}\right].
+\]
+
+The matrix $\BA$ has eigenvalues $\lambda_1 = -99$ and $\lambda_2 = -1$ and eigenvectors
+\[
+\Bv_1 = \left[\begin{array}{c}{1\over\sqrt{2}} \\ -{1\over\sqrt{2}}\end{array}\right]
+\]
+and
+\[
+\Bv_2 = \left[\begin{array}{c}{1\over\sqrt{2}} \\ {1\over\sqrt{2}}\end{array}\right]
+\]
+which are such that $\BA\Bv_1=\lambda_1\Bv_1$, $\BA\Bv_2=\lambda_2\Bv_2$, $\Bv_1\cdot\Bv_1=\Bv_2\cdot\Bv_2=1$,  and $\Bv_1\cdot\Bv_2=\Bv_2\cdot\Bv_1=0$. Since $\BA=\BA^T$, if we set
+\[
+\BV = [\Bv_1\ \Bv_2]=\left[\begin{array}{cc}{1\over\sqrt{2}} & {1\over\sqrt{2}} \\ -{1\over\sqrt{2}} & {1\over\sqrt{2}}\end{array}\right]
+\]
+and
+\[
+\BLambda = \left[\begin{array}{cc}\lambda_1 & 0 \\ 0 & \lambda_2\end{array}\right]=\left[\begin{array}{cc}-99 & 0 \\ 0 & -1\end{array}\right]
+\]
+then we have that
+\[
+\BA = \BV\BLambda\BV^T
+\]
+and
+\begin{eqnarray*}
+e^{t\BA}&=&\BV e^{t\BLambda} \BV^T
+\\
+&=&\left[\begin{array}{cc}{1\over\sqrt{2}} & {1\over\sqrt{2}} \\ -{1\over\sqrt{2}} & {1\over\sqrt{2}}\end{array}\right] \left[\begin{array}{cc}e^{-99t} & 0 \\ 0 & e^{-t}\end{array}\right] \left[\begin{array}{cc}{1\over\sqrt{2}} & -{1\over\sqrt{2}} \\ {1\over\sqrt{2}} & {1\over\sqrt{2}}\end{array}\right]
+\\
+&=&\left[\begin{array}{cc}{1\over\sqrt{2}}e^{-99t} & {1\over\sqrt{2}}e^{-t} \\ -{1\over\sqrt{2}}e^{-99t} & {1\over\sqrt{2}}e^{-t}\end{array}\right] \left[\begin{array}{cc}{1\over\sqrt{2}} & -{1\over\sqrt{2}} \\ {1\over\sqrt{2}} & {1\over\sqrt{2}}\end{array}\right]
+\\
+&=&\left[\begin{array}{cc}{1\over2}\left(e^{-t}+e^{-99t}\right) & {1\over2}\left(e^{-t} - e^{-99t}\right) \\ {1\over2}\left(e^{-t}-e^{-99t}\right) & {1\over2}\left(e^{-t}+e^{-99t}\right)\end{array}\right].
+\end{eqnarray*}
+Hence,
+\[
+\Bx(t) = e^{t\BA} \Bx_0 = \left[\begin{array}{cc}{1\over2}\left(e^{-t}+e^{-99t}\right) & {1\over2}\left(e^{-t} - e^{-99t}\right) \\ {1\over2}\left(e^{-t}-e^{-99t}\right) & {1\over2}\left(e^{-t}+e^{-99t}\right)\end{array}\right]\left[\begin{array}{c}2 \\ 0\end{array}\right] = \left[\begin{array}{c}e^{-t}+e^{-99t} \\ e^{-t}-e^{-99t}\end{array}\right].
+\]
+\\
+\item {[5 points]} Since all of the eigenvalues of $\BA$ are negative, $\norm{\Bx(t)}\rightarrow0$ as $t\rightarrow\infty$.
+\\
+\item {[5 points]} Now,
+\[
+\Bx_k = (\BI+\Delta t \BA)^k \Bx_0.
+\]
+Moreover, the eigenvalues of $\BI+\Delta t \BA$ are $1+\Delta t \lambda_1 = 1-99\Delta t$ and $1+\Delta t \lambda_2 = 1-\Delta t$ and
+\[
+\BI+\Delta t \BA=\BV \left[\begin{array}{cc}1-99\Delta t & 0 \\ 0 & 1-\Delta t\end{array}\right] \BV^{-1}.
+\]
+Hence, since all of the eigenvalues of $\BA$ are negative, and $-99<-1$ we can conclude that if
+\[
+\Delta t<{2\over 99}
+\]
+then $\norm{\Bx_k}\rightarrow0$ as $k\to\infty$.
+\\
+\item {[5 points]} Now,
+\[
+\Bx_k = ((\BI-\Delta t \BA)^{-1})^k \Bx_0.
+\]
+Moreover, the eigenvalues of $(\BI-\Delta t\BA)^{-1}$ are ${1\over 1-\Delta t \lambda_1} = {1\over 1+99\Delta t}$ and ${1\over 1-\Delta t \lambda_2} = {1\over 1+\Delta t}$ and
+\[
+(\BI-\Delta t\BA)^{-1}=\BV \left[\begin{array}{cc}{1\over 1+99\Delta t} & 0 \\ 0 & {1\over 1+\Delta t}\end{array}\right] \BV^{-1}.
+\]
+Hence, since all of the eigenvalues of $\BA$ are negative, we can conclude that there is no restriction on $\Delta t$ to obtain $\norm{\Bx_k}\rightarrow0$ as $k\to\infty$.
+\end{enumerate}
+\end{solution}

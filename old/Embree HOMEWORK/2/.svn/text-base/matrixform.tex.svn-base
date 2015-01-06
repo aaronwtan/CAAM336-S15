@@ -1,0 +1,57 @@
+\begin{enumerate}
+\item Suppose that $f: \R^2 \to \R^2$ is linear.  
+      Prove there exists a matrix $\BA\in\R^{2\times 2}$ such that
+      $f$ is given by $f(\Bu) = \BA\Bu$.  
+      Hint: Each $\Bu  = \left[\!\!\begin{array}{c} u_1 \\ u_2\end{array}\!\!\right] \in \R^2$
+            can be written as $\Bu = u_1 \Be_1 + u_2 \Be_2$, where
+                 \[ \Be_1 = \left[\!\begin{array}{c} 1 \\ 0\end{array}\!\right], \qquad
+                    \Be_2 = \left[\!\begin{array}{c} 0 \\ 1\end{array}\!\right]. \] 
+      Since $f$ is linear, we have $f(\Bu) =  u_1 f(\Be_1) + u_2 f(\Be_2)$.
+      Your formula for the matrix $\BA$ may include the vectors $f(\Be_1)$ and $f(\Be_2)$.
+
+\item Now we want to generalize the result in part~(a): Show that if 
+      $f: \R^n \to \R^m$ is linear, then there exists a matrix $\BA\in\Rmn$
+      such that $f(\Bu) = \BA\Bu$ for all $\Bu\in\Rn$.\\[0.5em]
+      (Thus any linear function that maps $\R^n$ to $\R^m$ can be written 
+        as a matrix-vector product.)
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+\begin{enumerate}
+\item Write $\Bu\in\R^2$ in the form
+         \[   \Bu = \bmatrix{u_1 \cr u_2}. \]
+      Any matrix $\BA\in\R^{2\times 2}$ can be written as
+          \[ \BA = \Big[\matrix{ \Ba_1 & \Ba_2}\Big],\]
+      where $\Ba_1, \Ba_2\in\R^2$ are the columns of $\BA$.
+      Now the matrix-vector product $\BA\Bu$ is a linear combination
+      of the columns of $\BA$:
+          $$ \BA\Bu = \Big[\matrix{ \Ba_1 & \Ba_2}\Big] \bmatrix{u_1\cr u_2} 
+                    = u_1 \Ba_1 + u_2 \Ba_2. \eqno{(*)} $$
+      We are trying to find a formula for $\BA$ (or, equivalently, for
+      $\Ba_1$ and $\Ba_2$) such that $f(\Bu) = \BA\Bu$.
+      Using the hint, we have
+          $$ f(\Bu) = u_1 f(\Be_1) + u_2 f(\Be_2). \eqno{(**)} $$
+      Comparing $(*)$ and $(**)$  and equating like terms, we see that
+          \[ \Ba_1 = f(\Be_1), \qquad \Ba_2 = f(\Be_2),\]
+      and hence
+          \[ \BA = \Big[\matrix{f(\Be_1) & f(\Be_2)}\Big].\]
+
+\item Follow the same tack as in part~(a). Write $\Bu\in\Rn$ as
+           \[ \Bu = \bmatrix{ u_1 \cr \vdots \cr u_n}\]
+      and $\BA\in\Rmn$ by column,
+          \[ \BA = \Big[\matrix{ \Ba_1 & \Ba_2 & \cdots & \Ba_n}\Big],\]
+      where $\Ba_1, \ldots, \Ba_n \in \Rm$.  
+      Equating like terms in
+          $$ \BA\Bu = \Big[\matrix{ \Ba_1 & \Ba_2 & \cdots & \Ba_n}\Big] 
+                       \bmatrix{u_1\cr u_2\cr \vdots \cr u_n} 
+                    = u_1 \Ba_1 + u_2 \Ba_2 + \cdots u_n \Ba_n$$
+      and
+          $$ f(\Bu) = u_1 f(\Be_1) + u_2 f(\Be_2) + \cdots u_n f(\Be_n),$$
+      we arrive at
+          \[ \BA = \Big[\matrix{f(\Be_1) & f(\Be_2) & \cdots & f(\Be_n)}\Big].\]
+
+      
+\end{enumerate}
+\end{solution}}{}

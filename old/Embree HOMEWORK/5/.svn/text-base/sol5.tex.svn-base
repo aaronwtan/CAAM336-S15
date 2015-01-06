@@ -1,0 +1,36 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen,color}
+\def\hot#1{\color{red}{#1}}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+
+\begin{document}
+\setboolean{showsols}{true}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+ Problem Set 5 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Thursday 23 September 2010. Due Wednesday 29 September 2010, 5pm.\\
+
+\vspace*{1em}
+All of the problems on this set use the inner product
+\[ (u,v) = \int_0^1 u(x) v(x)\,dx.\]
+\begin{enumerate}
+\item {[30 points: 6 points each for (a) and (b); 9 points each for (c) and (d)]}\\  \input mixed
+
+\vspace*{1em}
+\item {[35 points: 12 points for (a); 7 points for (b); 9 points for (c); 7 points for (d)]}\\  \input fourerr
+
+%\vfill
+%\hfill \emph{please turn over}
+
+\item {[35 points: 15 points for (a); 6 points each for (b) and (c); 8 points for (d)]}\\  \input sineseries
+
+
+\end{enumerate}
+
+\end{document}

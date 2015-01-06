@@ -1,0 +1,60 @@
+Our model of the vibrating string predicts that motion induced by an 
+initial pluck will propagate forever with no loss of energy.
+In practice we know this is not the case: a string 
+eventually slows down due to various types of \emph{damping}.
+For example, \emph{viscous damping}, a model of air resistance,
+acts in proportion to the velocity of the string.
+The partial differential equation becomes
+\[ u_{tt}(x,t) = u_{xx}(x,t) - 2@d @u_t(x,t),\]
+where $d> 0$ controls the strength of the damping.
+Impose homogeneous Dirichlet boundary conditions,
+\[ u(0,t) = u(1,t) = 0\]
+and suppose we know the initial position and velocity of the pluck:
+\[ u(x,0) = u_0(x), \qquad u_t(x,0) = v_0(x).\]
+In our previous language, we write this PDE in the form 
+\[ u_{tt} = -L u - 2@d@u_t,\]
+where the operator $L$ is defined as $Lu = -u_{xx}$ with
+boundary conditions $u(0)=u(1)=0$; as you know well by now,
+this operator has eigenvalues $\lambda_k = k^2\pi^2$
+and eigenfunctions $\psi_k(x) = \sqrt{2} \sin(k \pi x)$.
+We will look for solutions to the PDE of the form
+\[ u(x,t) = \sum_{k=1}^\infty a_k(t) \psi_k(x).\]
+For simplicity, assume that $d\in(0,\pi)$.
+
+\begin{enumerate}
+\item From the differential equation and this form for $u(x,t)$,
+      show that the coefficients $a_k(t)$ must satisfy the
+      ordinary differential equation
+\[ a_k''(t) = -\lambda_k a_k(t) - 2 d a_k'(t).\]
+
+\item Show that the following function satisfies the differential equation in part~(a):
+\[ a_k(t) = C_1 \exp\!\big(\big(-\!d+\sqrt{d^2-k^2\pi^2}\big)t\big)
+            + C_2 \exp\!\big(\big(-\!d-\sqrt{d^2-k^2\pi^2}\big)t\big)\]
+      for arbitrary constants $C_1$ and $C_2$.  (Don't fret about the fact that we
+      have square roots of negative numbers; proceed in the same way you 
+      would for an exponential with real argument.)
+
+\item Now assume that the string starts with zero displacement
+      ($u_0(x) = 0$) but some velocity 
+     \[ v_0(x) = \sum_{k=1}^\infty b_k(0)  \psi(x).\]
+      Determine the values of the constants $C_1$ and $C_2$ in part~(b)
+      for these initial conditions. 
+
+\item Suppose we have $u_0(x)=0$ and initial velocity 
+      $v_0(x) = x \sin(3\pi x)$, for which
+      \[ b_k(0) = {-6@k@\sqrt{2} (1+(-1)^k) \over (k^2 -9)^2 \pi^2} \mbox{\ \ for $k\ne 3$}, 
+    \qquad b_3(0) = {\sqrt{2}\over 4}.\]
+
+      Take damping parameter $d=1$, and plot the solution $u(x,t)$ 
+      (using 20 terms in the series) at times $t = 0.15, 0.3, 0.6, 1.2, 2.4$.  
+      (You may superimpose these on one well-labeled plot; for clarity,
+      set the vertical scale to $[-0.1,0.1]$.)
+
+\item Take the same values of $u_0$ and $v_0$ used in part~(d).
+      Plot the solution at time $t=2.5$ for $d = 0, .5, 1, 3$
+      on one well-labeled plot, again using vertical scale $[-0.1,0.1]$.
+      How does the solution depend on the damping parameter $d$?
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\boolean{showsols}}{\input damp_sol}{}

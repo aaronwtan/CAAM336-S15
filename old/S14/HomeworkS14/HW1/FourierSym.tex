@@ -1,0 +1,36 @@
+
+Let $f(x)=1$ for $x\in[0,1]$. Also, let
+\[
+\phi_n(x)=\sin(n\pi x)
+\]
+and let
+\[
+a_n=\frac{\displaystyle{\int_0^1 f(x)\phi_n(x) dx}}{\displaystyle{\int_0^1 (\phi_n(x))^2 dx}}
+\]
+for $n=1,2,3,\ldots$. We can approximate $f$ as a linear combination of the periodic functions $\phi_n$ for $n=1,2,3,\ldots,N$.  We call the approximation $f_N$ which is defined as
+\[
+f_N(x)=\sum_{n=1}^N a_n \phi_n(x)
+\]
+ for $x\in[0,1]$. In this course, you will learn in what sense $a_n$ are the correct coefficients to best approximate $f$ as a linear combination of the $\phi_n$ for $n=1,2,3,\ldots,N$.
+\\
+\begin{enumerate}
+\item Compute the coefficients $a_n$ symbolically using the MATLAB functions {\bf syms}, {\bf int}, and {\bf simplify} as needed.
+\\
+\item Use the fact that $n$ is an integer to simplify the formula that you obtained for $a_n$.
+\\
+\item Simplify your formula for $a_n$ further by considering the cases when $n$ is odd and $n$ is even separately.
+\\
+\item On the same figure plot $f_N(x)$ for $N=4,16,64,256$. Make sure to:
+\begin{itemize}
+\item Use a different color for each value of $N$;
+\item label the axes and provide a title;
+\item create an accurate legend for the figure;
+\item adjust the text sizes if necessary to make everything easily legible;
+\item use the LATEX interpreter to make your labels, titles, and legend look stylish.
+\end{itemize}
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input FourierSym_sol}{}

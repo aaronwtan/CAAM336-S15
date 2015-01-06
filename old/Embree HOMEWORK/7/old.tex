@@ -1,0 +1,29 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+\begin{document}
+\setboolean{showsols}{false}
+%\vspace*{-3em}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+ Problem Set 7 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Friday 24 October 2008.  Due Friday 31 October 2008, 5pm.
+
+\begin{enumerate}
+\item {[38 points: 20 points for (a); 9 points each for (b) and (c)]}\\  \input fem
+
+\vspace*{1em}
+\item {[34 points: 16 points for (a); 9 points each for (b) and (c)]}\\  \input beam
+
+\vspace*{1em}
+\item {[28 points: 7 points per part]} \\  \input expmex
+
+\end{enumerate}
+
+\end{document}

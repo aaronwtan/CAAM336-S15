@@ -1,0 +1,37 @@
+Consider the operator $L$ defined on the space of $n$th degree polynomials $P_n[0,1]$ where the notation $P_n$ represent all polynomials
+of degree less than or equal to $n$. 
+\[
+Lu =  - \frac{d}{dx} \left( x(1-x) \frac{d}{dx} u(x) \right) ,
+\]
+\begin{enumerate}
+\item Show that $L$ takes polynomials of $P_n$ to polynomials
+of the same degree. In other words check that 
+\[
+L: P_n [0,1] \rightarrow P_n [0,1]
+\]
+\emph{Hint: You can define $n$th degree polynomial $p_n(x)= \sum_{i=0}^n c_i x^i$}
+
+\item Case $n=2$ given $p_2(x)= a x^2 +b x + c$ denote $Q= LP$, such that $Q(x)= u x^2 + v x + w$.
+Express $ u, v, w$ in terms of $a, b, c$. Write the relationship in matrix notation 
+\[
+M \left[\begin{array}{c} a \\ b \\ c \end{array}\right] =\left[\begin{array}{c} u \\ v \\ w \end{array}\right].
+\]
+Express the matrix $M$ explicitly.
+
+\item The eigenvalues of the matrix M is given $\lambda_0 = 0$, $\lambda_1 = 2$ and $\lambda_2 = 6$. Coming
+back to polynomial notation, we will denote $p_0$, $p_1$ and $p_3$ eigenvectors associated
+respectively to the eigenvalues $\lambda_0 = 0$, $\lambda_1 = 2$ and $\lambda_2 = 6$. Normalized by taking the leading coefficient equal to $1$.\\
+
+Show that $p_0(x)=1$, $p_1(x)= x+\alpha$ and $p_2(x)= x^2+ \beta x +\gamma$ with appropriate values for $\alpha, \beta$ and $\gamma$.
+
+\item Now consider the general case. Assuming that $L$ has, for some $n$, a polynomial of degree $n$ (with
+the leading coefficient normalized to $1$	) as an eigenvector, show that the corresponding
+eigenvalue should be
+\[
+\lambda_n = n (1+n)
+\]
+\emph{Hint: in order to determine $\lambda_n$ you just have to look at the terms of degree $n$ in the
+formula $LP=\lambda P$}\\
+Coming back to the case $n=2$ show that the above formula holds for the eigenvalues which have been found in that case.
+
+\end{enumerate}

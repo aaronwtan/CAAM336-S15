@@ -1,0 +1,18 @@
+Consider the linear operator $L:C_D^2[0,\ell] \to C[0,\ell]$, where
+\[ L u = -{d^2 \over dx^2} u + 7u\]
+and 
+
+\begin{enumerate}
+   \item Prove that this operator is symmetric.
+   \item Using question~1 or otherwise, determine the
+         eigenvalues and eigenfunctions of $L$.
+   \item Use the spectral method to determine the solution to the
+         differential equation
+           \[ -{d^2 \over dx^2} u + 7 u = \cos(x), \qquad u(0)=u(1)=0.\]
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+\end{solution}}{}
+

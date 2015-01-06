@@ -1,0 +1,30 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+\begin{document}
+\setboolean{showsols}{true}
+%\vspace*{-3em}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+ Problem Set 11 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Saturday 29 November 2008.  (Typos fixed 2 December.) Due Friday 5 December 2008, 5pm.\\
+This problem set is worth 100 points, plus a 20 point bonus.\\
+Your lowest homework score for the semester will be dropped when 
+computing your final mark.
+\begin{enumerate}
+
+\item {[50 points]}\\ \input wave2d
+
+\item {[50 points]}\\ \input damp
+
+\item[bonus] {[20 points]}\\ \input optdamp
+
+\end{enumerate}
+
+\end{document}

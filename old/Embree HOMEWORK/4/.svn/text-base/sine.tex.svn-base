@@ -1,0 +1,50 @@
+Suppose $\CV = C[0,1]$ and $\ip{u,v} = \displaystyle{\int_0^1 u(x) v(x)\,d x}$,
+and let $u_k(x) = \sin(k\pi x)$ for $k=1, 2, \ldots$.
+\begin{enumerate}
+\item Compute (by hand) $\norm{u_k} = \sqrt{\ip{u_k,u_k}}$.
+\item Compute (by hand) $\ip{u_j, u_k}$ for positive integers $j$ and $k$, $j\ne k$.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+
+First we recall the trigonometric identity
+\[ \sin \theta\,\sin \phi = {\textstyle{1\over 2}} 
+                            \big(\cos(\theta-\phi) - \cos(\theta+\phi)\big).\] 
+Thus we have 
+\[ \sin(j \pi x) \sin(k \pi x) = 
+  {\textstyle{1\over2}}\big(\cos((j-k)\pi x) - \cos((j+k)\pi x)\big).\]
+
+\begin{enumerate}
+\item The formula above implies that
+ \begin{eqnarray*}
+   \norm{u_k}^2 = (u_k,u_k) 
+      &=& {\textstyle{1\over 2}} 
+          \int_0^1 \big(\cos(0) - \cos(2k\pi x)\big)\,dx \\[0.5em]
+      &=& {\textstyle{1\over 2}} 
+          \Big( 1 - \int_0^1 \cos(2k\pi x) \,dx\Big) \\[0.5em]
+      &=& {\textstyle{1\over 2}} 
+          \Big( 1 - \Big[ {\sin (2k\pi x) \over 2k\pi}\Big]_0^1@@\Big) \\[0.5em]
+      &=& {\textstyle{1\over 2}} 
+          \big( 1 - 0\big) \\[0.5em]
+      &=& 1/2.
+\end{eqnarray*}
+Hence $\norm{u_k} = 1/\sqrt{2} = \sqrt{2}/2$.
+
+\item For positive integers $j, k$ with $j\ne k$, we have 
+\begin{eqnarray*} 
+     (u_j, u_k) &=& 
+          {\textstyle{1\over2}} 
+           \int_0^1 \big((\cos((j-k)\pi x) - \cos((j+k)\pi x)\big) \\[0.5em]
+     &=&  {\textstyle{1\over2}} 
+           \int_0^1 \Big[{\sin((j-k)\pi x) \over (j-k)\pi} 
+                       - {\sin((j+k)\pi x) \over (j+k)\pi}\Big]_0^1 \\[0.5em]
+     &=&  {\textstyle{1\over2}} \big(0 - 0) \\[0.5em]
+     &=& 0.
+\end{eqnarray*}
+Thus, the functions $u_j$ and $u_k$ are orthogonal.
+\end{enumerate}
+
+\end{solution}}{}
+

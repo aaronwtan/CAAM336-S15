@@ -1,0 +1,6 @@
+ psi_fun  = @(x,n,c) (exp(-c*x/2).*sin(n*pi*x));      
+
+ for n=1:20
+    disp([quad(@(x) (psi_fun(x,n,c)).^2,0,1,1e-12) 4*n^2*pi^2*(1-exp(-c))/(8*n^2*pi^2*c+2*c^3)])
+ end
+

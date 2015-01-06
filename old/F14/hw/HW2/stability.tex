@@ -1,0 +1,49 @@
+Consider the time-dependent heat equation with no source
+\begin{align*}
+\pd{u}{t}{}-\kappa\pd{u}{x}{2} &= 0, \quad x\in (0,1)\\
+u(0,t) &= u_0\\
+u(1,t) &= u_1\\
+u(x,0) &= \psi(x).
+\end{align*}
+Before we even try to solve this equation over time, it would be good to verify that this equation is \textit{stable} in time --- in other words, that $u(x,t)$ doesn't blow up as $t\rightarrow \infty$.  This can be done by deriving an ``energy estimate''.
+\begin{enumerate}
+\item Multiply the time-dependent heat equation by the solution $u(x,t)$ and integrate over $x$ in the domain $(0,1)$ to get
+\[
+\int_0^1 \left(\pd{u}{t}{}u - \kappa\pd{u}{x}{2}u\right) dx= 0
+\]
+Using the fact that for a function $f(t)$, 
+\[
+\pd{f}{t}{}f = \frac{1}{2}\pd{f^2}{t}{}
+\]
+as well as integration by parts, derive the energy estimate
+\[
+\pd{}{t}{} \int_0^1 u^2 + \kappa \int_0^1 \pd{u}{x}{}^2 = 0.
+\]
+\item Consider the zero-flux boundary conditions
+\begin{align*}
+\pd{u}{t}{}-\kappa\pd{u}{x}{2} &= 0, \quad x\in (0,1)\\
+u'(0,t) &= 0\\
+u'(1,t) &= 0\\
+u(x,0) &= \psi(x).
+\end{align*}
+
+\item 
+%\item We noted in the previous homework that, under boundary conditions
+%\[
+%u'(0) = u'(1) = 0
+%\]
+%that the steady state heat equation does not have a unique solution, and that for any $u(x)$ satisfying the steady heat equation, that $u + C$ for any constant $C$ was also a solution to the same steady state heat equation.  We may use the above time-stability 
+%
+%This implies an important fact: that 
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input solve_sol}{
+%Rewrite the finite difference approximation at point $x_N$ as
+%\[
+%\frac{u(x_{N-1}) - 2u(x_N) + u(x_{N+1})}{h^2} = \frac{u(x_{N-1}) - u(x_N)}{h^2} + \frac{u(x_{N+1})-u(x_N)}{h^2}.
+%\]
+}
+

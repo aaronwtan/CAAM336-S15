@@ -1,0 +1,51 @@
+% demo of the finite element method for the problem d2u/dt2 - d2u/d2x = f
+% with zero Dirichlet boundary conditions
+
+N = 64; % num interior points
+h = 1/(N+1);
+x = [1:N]*h;
+
+% construct the stiffness matrix (integrals done by hand)
+maindiag = 2/h*ones(N,1);
+offdiag  = -1/h*ones(N-1,1);
+K = diag(maindiag) + diag(offdiag,1) + diag(offdiag,-1);
+
+% construct mass matrix
+maindiag = 2*h/3*ones(N,1);
+offdiag  = h/6*ones(N-1,1);
+M = diag(maindiag) + diag(offdiag,1) + diag(offdiag,-1);
+
+% u = 5*(1-x).^3.*x;
+u = exp(-(x(:)-.5).^2*100);
+u = u(:);
+
+plot([0;x(:);1],[0;u;0],'.-'); hold on;
+% xp = linspace(0,1,100);
+% plot(xp,sin(pi*xp),'r');
+title('initial condition')
+pause
+hold off
+
+% solve using matrix exponential
+U0 = [zeros(N,1);u];
+O = zeros(N);
+A = [O -eye(N);
+    M\K O];
+
+% % using Matlab's ODE solver (similar to Forward Euler)
+% dUdt = @(t,U) A*U;
+% [tVec,Umat]=ode45(dUdt,[0 2],U0);
+% for i = 1:length(tVec)
+%     u = Umat(i,N+1:end);
+%     plot([0;x(:);1],[0;u(:);0],'.-');
+%     drawnow
+% end
+
+% using forward Euler
+dt = .5*h;
+tVec = 0:dt:2
+U = U0;
+for t = tVec
+    U = U + dt*f - dt*A*U;
+    plot([0;x(:);1],[0;u(:)
+end

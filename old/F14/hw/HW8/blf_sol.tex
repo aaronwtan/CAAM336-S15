@@ -1,0 +1,95 @@
+\begin{solution}
+\begin{enumerate}
+\item {[5 points]} \emph{This mapping is a bilinear form}:\\
+
+The mapping is linear in the first argument since
+\begin{eqnarray*}
+B\ip{\alpha u + \beta v, w}&=& \int_0^1 \left(\alpha u(x) + \beta v(x)\right) w'(x)\,dx
+\\
+&=&  \int_0^1\alpha u(x) w'(x) \,dx + \int_0^1\beta v(x) w'(x)\,dx
+\\
+&=& \alpha \int_0^1 u(x) w'(x) \,dx + \beta\int_0^1 v(x) w'(x)\,dx
+\\
+&=& \alpha B\ip{u,w} + \beta B\ip{v,w}
+\end{eqnarray*}
+for all $u,v,w\in C^1[0,1]$ and all $\alpha,\beta\in\R$. It is also linear in the second argument since
+\begin{eqnarray*}
+B\ip{u,\alpha v+\beta w}&=& \int_0^1 u(x) \left(\alpha v + \beta w\right)'(x)\,dx
+\\
+&=& \int_0^1 u(x) \left(\alpha v'(x) + \beta w'(x)\right)\,dx
+\\
+&=&  \int_0^1\alpha u(x) v'(x) \,dx + \int_0^1\beta u(x) w'(x)\,dx
+\\
+&=& \alpha \int_0^1 u(x) v'(x) \,dx + \beta\int_0^1 u(x) w'(x)\,dx
+\\
+&=& \alpha B\ip{u,v} + \beta B\ip{u,w}
+\end{eqnarray*}
+for all $u,v,w\in C^1[0,1]$ and all $\alpha,\beta\in\R$.
+
+\item {[5 points]} \emph{This mapping is not a bilinear form}:\\
+
+Let $u,v,w\in C[0,1]$ and $\alpha,\beta\in\R$. Then
+\[ B\ip{\alpha u+\beta v,w} = \int_0^1 |\alpha u(x)+\beta v(x)| |w(x)|\, d x\]
+and
+\[ \alpha B\ip{u,w} + \beta B\ip{v,w} = \alpha\int_0^1 |u(x)| |w(x)|\, d x+\beta\int_0^1 |v(x)| |w(x)|\, d x.\]
+However, if $u(x)=v(x)=w(x)=1$, $\alpha=-1$ and $\beta=0$, then
+\[ B\ip{\alpha u+\beta v,w} = \int_0^1 |-1| |1|\, d x=\int_0^1 1\, d x=1\]
+but
+\[ \alpha B\ip{u,w} + \beta B\ip{v,w} = -\int_0^1 |1| |1|\, d x -\int_0^1 1\, d x=-1.\]
+Hence, the mapping is not linear in the first argument.
+
+Alternatively, we could have shown that the mapping is not linear in the second argument.
+
+\item {[5 points]} \emph{This mapping is not a bilinear form}:\\
+
+Let $u,v,w\in C[0,1]$ and $\alpha,\beta\in\R$. Then
+\[ B\ip{u,\alpha v + \beta w} = \int_0^1 u(x)|\alpha v(x)+\beta w(x)| \, d x\]
+and
+\[ \alpha B\ip{u,v} + \beta B\ip{u,w} = \alpha\int_0^1 u(x) |v(x)|\, d x+\beta\int_0^1 u(x) |w(x)|\, d x.\]
+However, if $u(x)=v(x)=w(x)=1$, $\alpha=-1$ and $\beta=0$, then
+\[ B\ip{u,\alpha v + \beta w} = \int_0^1 |-1| \, d x = \int_0^1 1 \, d x=1\]
+but
+\[ \alpha B\ip{u,v} + \beta B\ip{u,w} = -\int_0^1 |1|\, d x=-\int_0^1 1\, d x=-1.\]
+Hence, the mapping is not linear in the second argument.
+
+\item {[5 points]} \emph{This mapping is not a bilinear form}: 
+
+Let $u,v,w\in C[0,1]$ and $\alpha,\beta\in\R$. Then
+\[ B\ip{\alpha u + \beta v, w} = \int_0^1\alpha u(x)+\beta v(x) + w(x) \,dx\]
+and
+\[ \alpha B\ip{u,w} + \beta B\ip{v,w} = \alpha\int_0^1 u(x)+ w(x) \,dx+\beta\int_0^1 v(x) + w(x) \,dx.\]
+However, if $u(x)=v(x)=w(x)=1$ and $\alpha=\beta=1$, then
+\[ B\ip{\alpha u+\beta v,w} = \int_0^1 1+1+1 \, d x = \int_0^1 3 \, d x=3\]
+but
+\[ \alpha B\ip{u,w} + \beta B\ip{v,w} = \int_0^1 1+1\, d x + \int_0^1 1+1\, d x=\int_0^1 2\, d x + \int_0^1 2\, d x=2+2=4.\]
+Hence, the mapping is not linear in the first argument.
+
+Alternatively, we could have shown that the mapping is not linear in the second argument.
+\\
+\item {[5 points]} \emph{This mapping is a bilinear form}:
+
+The mapping is linear in the first argument since
+\begin{eqnarray*}
+B\ip{\alpha u + \beta v, w} &=& \int_{-1}^1 x(\alpha u(x) + \beta v(x)) w(x) \, d x
+\\
+&=&  \int_{-1}^1 (\alpha xu(x)w(x) + \beta xv(x)w(x))  \, d x
+\\
+&=&  \alpha \int_{-1}^1 xu(x)w(x) \, dx +  \beta \int_{-1}^1 xv(x)w(x) \, dx
+\\
+&=& \alpha B\ip{u,w} + \beta B\ip{v,w}
+\end{eqnarray*}
+for all $u,v,w\in C[-1,1]$ and all $\alpha,\beta\in\R$.
+
+The mapping is also linear in the second argument since
+\begin{eqnarray*}
+B\ip{u, \alpha v+\beta w} &=& \int_{-1}^1 xu(x)(\alpha v(x) + \beta w(x)) \, d x
+\\
+&=&  \int_{-1}^1 (\alpha xu(x)v(x) + \beta xu(x)w(x))  \, d x
+\\
+&=&  \alpha \int_{-1}^1 xu(x)v(x) \, dx +  \beta \int_{-1}^1 xu(x)w(x) \, dx
+\\
+&=& \alpha B\ip{u,v} + \beta B\ip{u,w}
+\end{eqnarray*}
+for all $u,v,w\in C[-1,1]$ and all $\alpha,\beta\in\R$.
+\end{enumerate}
+\end{solution}

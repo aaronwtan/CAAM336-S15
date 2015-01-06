@@ -1,0 +1,66 @@
+
+Let
+\[
+\Omega=\left\{(x,y):\,0\le x\le 1,\,0\le y\le 1\right\}
+\]
+and let $u_0(x,y) = 200xy (1-x) (1-y)(x-{1 \over 4})(y-{1 \over 4})$. Note that, for $m,n=1,2,3,\ldots$,
+\[
+\int_0^1 \int_0^1 2 u_0(x,y) \sin(m \pi x) \sin(n \pi y)\,dx\,dy= {100 (5+7(-1)^j)(5+7(-1)^k)\over j^3 k^3 \pi^6}.
+\]
+In this question we will consider the problem of finding the solution $u(x,y,t)$ to the wave equation
+\[ 
+u_{tt}(x,y,t)=u_{xx}(x,y,t) +u_{yy}(x,y,t), \qquad 0\le x \le 1, \quad 0\le y\le 1, \quad t\ge 0,
+\]
+with homogeneous Dirichlet boundary conditions
+\[
+u(x,0,t)=u(x,1,t)=u(0,y,t)=u(1,y,t)=0, \qquad 0\le x \le 1, \quad 0\le y\le 1, \quad t\ge 0,
+\]
+and initial conditions
+\[
+u(x,y,0) = u_0(x,y), \qquad 0\le x\le 1, \quad 0\le y\le 1,
+\]
+and
+\[
+u_t(x,y,0) = 0, \qquad 0\le x\le 1, \quad 0\le y\le 1.
+\]
+Let
+\[
+C^2_D(\Omega)=\left\{v\in C^2(\Omega):\,v(x,0)=v(x,1)=v(0,y)=v(1,y)=0,\,0\le x\le 1,\,0\le y\le 1\right\}.
+\]
+Let the linear operator $L:\,C^2_D(\Omega)\rightarrow C(\Omega)$ be defined by
+\[
+\left(L v\right)(x,y) = -\left(v_{xx}(x,y) + v_{yy}(x,y)\right).
+\]
+The operator $L$ has eigenvalues $\lambda_{j,k}\in\R$ and eigenfunctions
+\[
+\psi_{j,k}(x,y) = 2 \sin(j \pi x) \sin(k \pi y)
+\]
+for $j,k = 1,2,\ldots$, which are such that
+\[
+L\psi_{j,k}=\lambda_{j,k}\psi_{j,k}
+\]
+for $j,k = 1,2,\ldots$. Recall that in Homework 42 you obtained a formula for $\lambda_{j,k}$ for $j,k = 1,2,\ldots$.
+\\
+\begin{enumerate}
+\item We can write
+\[
+u(x,y,t)=\sum_{j=1}^\infty \sum_{k=1}^\infty a_{j,k}(t) \psi_{j,k}(x,y).
+\]
+What ordinary differential equation and initial conditions does $a_{j,k}(t)$ satisfy for $j,k = 1,2,\ldots$?
+\\
+\item Obtain an expression for $a_{j,k}(t)$ for $j,k=1,2,\ldots$.
+\\
+\item Use you answer to part~(b) to write out a formula for $u(x,y,t)$.
+\\
+\item Plot
+\[
+u_{10}(x,y,t)=\sum_{j=1}^{10} \sum_{k=1}^{10} a_{j,k}(t) \psi_{j,k}(x,y)
+\]
+at times $t=0, 0.5, 1.0, 1.5, 2.5, 3$. Use the command \verb|zlim([-2 2])| so that the axes on all of your plots are the same.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input wave2d_sol}{}
+

@@ -1,0 +1,89 @@
+Consider a bar of metal alloy manufactured such that its thermal conductivity
+is $\kappa(x) = 1+\alpha x$ for constant $\alpha$ and $0\le x\le \ell$.
+You may assume the heat equation for a non-uniform bar:
+\[ c(x) \rho(x) u_t(x,t) = {\partial \over \partial x} \Big(\kappa(x) u_x(x,t)\Big).\]
+\begin{enumerate}
+\item Determine a general formula for the steady-state temperature distribution 
+      of this bar, which should include two free constants.  
+      (Assume no additional source term $f(x)$ is present.) 
+\item Find formulas for these free constants in the case that the ends of the bar are
+      submerged in ice baths of $\gamma$~deg on the left and $\delta$~deg on the right.
+\item Now find formulas for the free constants in the case that the left end has a fixed 
+      \emph{heat flux} equal to $\gamma$ (measured in ${\rm J}/({\rm m}^2\cdot {\rm sec})$)
+      and the right end is submerged in an ice bath of $\delta$~deg.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+\begin{enumerate}
+\item  Because the bar is at steady state, we have
+         \[ {\d u \over \d t}(x) = 0,\]
+       where we have dropped the $t$ argument from $u(x,t)$, 
+      since $u$ is independent of $t$ in this context.
+       The heat equation becomes
+          \[ 0 = {d \over d x} \Big(\kappa(x) {d \over d x} u(x)\Big).\]
+        In other words, the quantity on the right under the first derivative must be a constant.
+       Integrate this equation once to obtain
+          \[ \kappa(x) {d \over d x} u(x) = C_1,\]
+       where the constant $C_1$ will be determined later by the boundary conditions.
+       Divide by $\kappa(x)$ to obtain the equation
+          \[ {d \over d x} u(x) = {C_1\over \kappa(x)}.\]
+       Substituting in the particular equation for this bar, $\kappa(x) = 1+\alpha x$, we have
+          \[ {d \over d x} u(x) = {C_1\over 1+\alpha x},\]
+       which we can integrate once to obtain the general form of the solution
+          \[ u(x) = {C_1 \over \alpha} \log(1+\alpha x) + C_2,\]
+       where $C_1$ and $C_2$ are constants.
+       (As is common in higher mathematics, 
+         we use $\log$ to denote the natural logarithm rather than $\ln$.)
+  
+\item  If the ends are submerged in ice baths of $\gamma$ and $\delta$ degrees, we have
+       the Dirichlet boundary conditions
+          \[ u(0) = \gamma, \qquad u(\ell) = \delta.\]
+        We must find $C_1$ and $C_2$ to satisfy these conditions.
+        This gives two equations in two unknowns:
+        \begin{eqnarray*}
+             \gamma &=& {C_1\over \alpha} \log(1+\alpha \cdot 0) + C_2 \\[0.5em]
+             \delta &=& {C_1\over \alpha} \log(1+\alpha \ell) + C_2.
+         \end{eqnarray*}
+        Since $\log(1+\alpha\cdot 0) = \log(1) = 0$, the first equation reduces to
+           \[ \gamma = C_2.\]
+        Substituting this formula into the second equation and solving for $C_1$ yields
+           \[ C_1 = {\alpha(\delta - \gamma) \over \log (1+\alpha \ell)}.\]
+        Thus, the steady state solution with desired Dirichlet boundary conditions is 
+           \[ u(x) = (\delta-\gamma) {\log (1+\alpha x) \over \log(1+\alpha \ell)} + \gamma.\]
+
+\item  If the heat flux is fixed at $\gamma\ {\rm J}/({\rm m}^2\cdot {\rm sec})$  on the left end of the bar,
+        we have  \[ q(0) = \gamma.\]
+        Fourier's law of heat conduction gives
+           \[ q(0) = -\kappa(0) {\d u \over \d x}(x,t),\]
+        and hence we have the Neumann boundary condition on the left end:
+           \[ {\d u \over \d x}(0) = -{\gamma \over \kappa(0)} = -{\gamma \over 1} = -\gamma.\]
+        [\textbf{GRADERS}: 
+        If students directly assumed that $\d u(0)/\d t = \gamma$ without appeal to 
+         Fourier's Law, please deduct 5~points.]
+
+        The ice bath on the right hand side gives the Dirichlet condition
+           \[ u(\ell) = \delta.\]
+        To impose the Neumann condition, we must take a derivative of the general solution
+          \[ u(x) = {C_1 \over \alpha} \log(1+\alpha x) + C_2,\]
+        or just go back to the intermediate step in part~(a), to obtain
+          \[ {\d u \over \d x}(x) = {C_1 \over 1+\alpha x},\]
+        and so
+          \[ {\d u \over \d x}(0) = {C_1}.\]
+        Thus our boundary conditions again impose two equations in two unknowns:
+        \begin{eqnarray*}
+            -\gamma &=& C_1 \\[0.5em]
+             \delta &=& {C_1\over \alpha} \log(1+\alpha \ell) + C_2.
+         \end{eqnarray*}
+         Substituting $C_1 = -\gamma$ into the second equation and solving for $C_2$ gives
+           \[ C_2 = \delta + {\gamma \over \alpha} \log(1+\alpha \ell).\]
+         With these constants, the solution becomes
+           \begin{eqnarray*}
+               u(x) &=& {\gamma \over \alpha} \big(\log(1+\alpha \ell) - \log (1+\alpha x)\big) + \delta \\[0.5em]
+                    &=& {\gamma \over \alpha} \log\Big({1+\alpha \ell \over 1+\alpha x}\Big) + \delta  
+           \end{eqnarray*} 
+\end{enumerate}
+\end{solution}}{}
+

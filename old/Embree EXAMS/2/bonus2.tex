@@ -1,0 +1,56 @@
+Consider the linear operator $L:C^2_P[-1,1] \to C[-1,1]$
+given by $Lu = -u_{xx}$,
+where $C^2_P[-1,1]$ denotes the space of functions $v\in C^2[-1,1]$
+that satisfy the \emph{periodic} boundary conditions $v(-1)=v(1)$ and $v'(-1)=v'(1)$.
+We use the inner product
+\[ (f,g) = \int_{-1}^1 f(x) g(x)\,\dop x.\]
+
+\vspace*{1em}
+\begin{enumerate}
+\item Verify that the following are eigenfunctions of $L$:
+\begin{eqnarray*}
+    \psi_{-k}(x) &=& \cos(k \pi x), \qquad {k=1,2,\ldots, }\\[.5em]
+    \psi_{0}(x) &=& 1/2 \\[.5em]
+    \psi_{k}(x) &=& \sin(k \pi x), \qquad {k=1,2,\ldots. }
+\end{eqnarray*}
+What are the corresponding eigenvalues?  
+
+\vspace*{1em} 
+\item Show how to expand a function $u \in C^2_P[-1,1]$ 
+      in the basis of
+      eigenfunctions, that is, specify formulas for coefficients $c_j$
+      in the sum
+      \[ u(x) = \sum_{j=-\infty}^\infty c_j \psi_j(x).\]
+   
+\vspace*{1em} 
+\item Show that if $u$ is an \emph{odd function}, that is, 
+      $u(-x) = -u(x)$,
+      then $c_j = 0$ for $j\le 0$.\\
+      Show that if $u$ is an \emph{even function}, that is,
+      $u(-x) = u(x)$, then $c_j = 0$ for $j>0$.\\[.25em]
+
+\item Any function $u$ can be written as the sum of an odd function
+      and an even function:
+      \[ u(x) = v(x) + w(x), \qquad
+         v(x) = {u(x) - u(-x)\over 2}, \quad
+         w(x) = {u(x) + u(-x)\over 2},\]
+      where $v\in C^2_P[-1,1]$ is odd 
+      and $w\in C^2_P[-1,1]$ is even.
+
+      Show that $v(0)=v(1)=0$ (i.e., $v$ satisfies homogeneous Dirichlet conditions), \\
+      while $w'(0) = w'(1) = 0$ (i.e., $w$ satisfies homogeneous Neumann conditions). 
+
+\vspace*{2em}
+
+You have just showed that any function $u\in C^2_P[-1,1]$ that satisfies
+$-u'' = f$ can be decomposed into two pieces, each of which satisfies 
+the same differential equation on $[0,1]$: one with
+with homogeneous Dirichlet boundary conditions, the other with
+homogeneous Neumann boundary conditions.
+
+\vspace*{1em}
+The full series you wrote down in part~(b) is generally referred to
+as the ``Fourier series'' for the periodic function $u$.
+
+\end{enumerate}
+

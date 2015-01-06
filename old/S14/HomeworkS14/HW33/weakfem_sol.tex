@@ -1,0 +1,59 @@
+\begin{solution}
+\begin{enumerate}
+\item {[12 points]} If $v\in C^2_D[0,1]$, then
+\[
+-\int_0^1p''(x)v(x)\,dx=\int_0^1f(x)v(x)\,dx.
+\]
+Integration by parts then yields that
+\[
+-[p'(x)v(x)]_0^1+\int_0^1p'(x)v'(x)\,dx=\int_0^1f(x)v(x)\,dx
+\]
+from which we can conclude that
+\[
+p'(0)v(0)+\int_0^1p'(x)v'(x)\,dx=\int_0^1f(x)v(x)\,dx
+\]
+since $v(1)=0$. Hence,
+\[
+-\alpha v(0)+\int_0^1p'(x)v'(x)\,dx=\int_0^1f(x)v(x)\,dx
+\]
+since $-p'(0)=\alpha$. Therefore,
+\[
+\int_0^1p'(x)v'(x)\,dx=q(f,\alpha,v)\mbox{ for all }v\in C^2_D[0,1]
+\]
+where
+\[
+q(f,\alpha,v)=\int_0^1f(x)v(x)\,dx+\alpha v(0).
+\]
+\\
+\item {[13 points]} If $v\in C^2[0,1]$, then
+\[
+\int_0^1\left(-4u''(x)+9u(x)\right)v(x)\,dx=\int_0^1f(x)v(x)\,dx
+\]
+since
+\[
+-4u''(x)+9u(x)=f(x),\quad 0<x<1.
+\]
+Integration by parts then yields that
+\begin{eqnarray*}
+&&\int_0^1\left(-4u''(x)+9u(x)\right)v(x)\,dx
+\\
+&=&-4\int_0^1u''(x)v(x)\,dx+9\int_0^1u(x)v(x)\,dx
+\\
+&=&-4\left[u'(x)v(x)\right]_0^1+4\int_0^1u'(x)v'(x)\,dx+9\int_0^1u(x)v(x)\,dx
+\\
+&=&-4u'(1)v(1)-\left(-4u'(0)v(0)\right)+\int_0^1\left(4u'(x)v'(x)+9u(x)v(x)\right)\,dx
+\end{eqnarray*}
+from which we can conclude that
+\[
+-\beta v(1)-\alpha v(0)+\int_0^1\left(4u'(x)v'(x)+9u(x)v(x)\right)\,dx=\int_0^1f(x)v(x)\,dx
+\]
+since $-4u'(0)=\alpha$ and $4u'(1)=\beta$. Therefore,
+\[
+\int_0^1\left(4u'(x)v'(x)+9u(x)v(x)\right)\,dx=g(f,\alpha,\beta,v)\mbox{ for all }v\in C^2[0,1]
+\]
+where
+\[
+g(f,\alpha,\rho,v)=\int_0^1f(x)v(x)\,dx+\alpha v(0)+\beta v(1).
+\]
+\end{enumerate}
+\end{solution}

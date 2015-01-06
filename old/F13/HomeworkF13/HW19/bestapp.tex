@@ -1,0 +1,43 @@
+All parts of this question should be done by hand.
+
+Let the inner product $\ip{\cdot,\cdot}:\R^{2\times 2}\times\R^{2\times 2}\to\R$ be defined by
+      \[ (\BA,\BB) = \sum_{j=1}^2 \sum_{k=1}^2 a_{jk} b_{jk},\]
+       where
+      \[ \BA = \left[\begin{array}{cc}a_{11} & a_{12} \\ a_{21} & a_{22}\end{array}\right]
+\mbox{ and }
+         \BB = \left[\begin{array}{cc}b_{11} & b_{12} \\ b_{21} & b_{22}\end{array}\right].\]
+      With this inner product we associate the norm $\norm{\cdot}:\R^{2\times 2}\to\R$ defined by $\|\BA\| = \sqrt{(\BA,\BA)}$. In the parts below best approximation is defined to be best approximation with respect to this norm.
+
+\begin{enumerate}
+\item Verify that $(\cdot, \cdot)$ is an inner product on $\R^{2\times 2}$.
+
+\item Consider the subspace of $\R^{2\times 2}$ consisting of symmetric matrices:
+      \[  V_3 =\left\{\BA\in \R^{2\times2}:\BA=\BA^T\right\}= {\rm span}\left\{ 
+       \left[\begin{array}{cc}1 & 0 \\ 0 & 0\end{array}\right], 
+       \left[\begin{array}{cc}0 & 0 \\ 0 & 1\end{array}\right], 
+       \left[\begin{array}{cc}0 & 1 \\ 1 & 0\end{array}\right]\right\}.\]
+      
+      Compute the best approximation $\BM_3$ to the matrix
+      \[ \BM = \left[\begin{array}{cc}1 & 3 \\ 7 & 9\end{array}\right]\]
+      from the subspace $V_3$.
+
+\item Now let $\BM\in\R^{2\times2}$ be any $2\times 2$ matrix, and let
+           $\BM_3$ be its best approximation from $V_3$.
+           Explain why the error $\BM-\BM_3$ must \emph{always} have zero 
+           diagonal entries.
+
+\item Carefully consider the subspace
+      \[  \widehat{V}_3 =\left\{\BA\in \R^{2\times2}:\BA=\BA^T\right\}= {\rm span}\left\{ 
+       \left[\begin{array}{cc}\displaystyle{{1\over\sqrt{2}}}  & 0 \\ 0 & \displaystyle{{1\over \sqrt{2}}}\end{array}\right], 
+       \left[\begin{array}{cc}\displaystyle{{1\over\sqrt{10}}} & \displaystyle{{2\over\sqrt{10}}} \\ \displaystyle{{2\over\sqrt{10}}} & \displaystyle{{1\over \sqrt{10}}}\end{array}\right], 
+       \left[\begin{array}{cc}\displaystyle{{1\over\sqrt{2}}} & 0 \\ 0 & \displaystyle{-{1\over\sqrt{2}}}\end{array}\right]\right\}.\]
+       What is the best approximation $\widehat{\BM}_3$  to the matrix
+      \[ \BM = \left[\begin{array}{cc}1 & 3 \\ 7 & 9\end{array}\right]\]
+      from the subspace $\widehat{V}_3$?
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input bestapp_sol}{}
+

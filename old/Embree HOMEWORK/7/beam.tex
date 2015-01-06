@@ -1,0 +1,123 @@
+Consider the \emph{Euler--Bernoulli beam equation},
+\[  (\kappa(x) u''(x))'' = f(x), \qquad 0<x<1,\]
+with boundary conditions describing a beam that is \emph{clamped} at both ends:
+\[ u(0) = u(1) = 0, \qquad u'(0) = u'(1) = 0.\]
+Here $\kappa(x)$ is a positive-valued function that describes the 
+material properties of the beam.  
+
+With these boundary conditions, the eigenvalues and eigenvectors of this operator
+are difficult to compute -- even if $\kappa(x)\equiv 1$.  We will consider finite
+element solutions of this problem.
+
+\vspace*{1em}
+\begin{enumerate}
+\item Derive the weak form of the beam equation with the above boundary conditions,
+      i.e., derive the weak problem
+        \[ a(u,v) = (f,v), \quad \mbox{for all $v \in V = C^4_D[0,1]$},\]
+     where
+     \[C^4_D[0,1] = \{u \in C^4[0,1]: u(0)=u(1)= u'(0) = u'(1) = 0\}.\]
+      Specify the bilinear form $a(u,v)$, and show that it is an inner product
+      on $C^4_D[0,1]$.  \\[.25em]
+    (Note: for the problem $-(u'\kappa)' = f$, we do not explicitly impose Neumann boundary
+     conditions -- they follow `naturally'.  For the beam equation, we must impose all four
+     boundary conditions on the space of test functions, $V = C^4_D[0,1]$.) 
+     
+
+\vspace*{1em}
+\item Suppose that $V_n = {\rm span}\{\phi_1, \ldots, \phi_n\}$ 
+      is an $n$-dimensional subspace of $C^4_D[0,1]$.\\
+      (Do not assume a particular form for the functions
+       $\phi_1, \ldots, \phi_n$ at this point.)\\
+      Show how the Galerkin problem
+        \[ a(u_n,v) = (f,v), \quad \mbox{for all $v \in V_n$}\]
+      leads to the linear system $\BK\Bu = \Bf$.  
+      Be sure to specify the entries of $\BK$, $\Bu$, and $\Bf$.
+
+\vspace*{1em}
+\item Now suppose we take for $\phi_1, \ldots, \phi_n$ the standard piecewise 
+      linear `hat' functions used, for example, in Problem~1.
+      Are these functions suitable for this problem?
+      If so, describe the location of the nonzero entries of the matrix $\BK$.
+      If not, \emph{roughly} describe a better choice for the functions $\phi_1, \ldots, \phi_n$
+      and the explain which entries of $\BK$ are nonzero for that choice.
+\end{enumerate}
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+\begin{enumerate}
+\item Multiply both sides of the differential equation $(\kappa u'')'' = f$ 
+      by a a test function $v\in V$ and integrate over the length of the beam
+      to obtain
+      \[ \int_0^1 ((\kappa(x) u''(x))'')v(x)\, dx = \int_0^1 v(x) f(x)\, dx.\]
+     Integrate the left hand side by parts once to transform it into
+      \[ [(\kappa(x)u''(x))' v(x)]_0^1 - \int_0^1 ((\kappa(x) u''(x))')v'(x)\, dx.\]
+     The boundary term is zero since $v\in V$ satisfies $v(0)=v(1)=0$, giving
+      \[  -\int_0^1 ((\kappa(x) u''(x))')v'(x)\, dx = \int_0^1 v(x) f(x)\, dx.\]
+     Integrate this new left hand side by parts to transform it into
+      \[ -[\kappa(x)u''(x) v'(x)]_0^1 + \int_0^1 (\kappa(x) u''(x))v''(x)\, dx.\]
+     Again, the boundary term is zero since $v\in V$ implies that $v'(0)=v'(1)=0$.
+     We arrive at the weak form
+      \[  \int_0^1 (\kappa(x) u''(x)) v''(x)\, dx = \int_0^1 v(x) f(x)\, dx,\]
+     which we write as
+      \[ a(u, v) = (f,v),\]
+     where the bilinear form $a(u,v)$ is defined as
+      \[  a(u,v) = \int_0^1 (\kappa(x) u''(x)) v''(x)\, dx.\]
+
+     We must not show that $a(\cdot,\cdot)$ defines an inner product on 
+     the space of test functions.  Recall that an inner product must
+     satisfy the properties:
+\begin{itemize}
+\item $a(u,v) = a(v,u)$ (symmetry);
+\item $a(\xi u + v, w) = \xi a(u,w) + a(v,w)$ (linearity);
+\item $a(u,u) > 0$ for all nonzero $u\in V$.
+\end{itemize}
+The first two of these properties follow immediately from properties of
+the integral.  It is the third condition the requires scrutiny.
+Suppose that $u\in V$, so that
+\[ a(u,u) = \int_0^1 \kappa(x) (u''(x))^2\, dx.\]
+Since $\kappa(x)$ is positive-valued, the integrand is always non-negative,
+so immediately we see that $a(u,u) \ge 0$, and the only way for $a(u,u)$
+to be zero is for the integrand to be zero everywhere.  This would imply
+that $u''(x) = 0$ for all $x\in[0,1]$, i.e., $u(x)$ must be the equation
+of a straight line.  Since $u\in V$ satisfies the boundary conditions
+$u(0)=0$ and $u'(0)=0$, the only possible line in $V$ is the function 
+$u(x)=0$.  Hence, for all nonzero $u\in V$, we have $a(u,u)>0$.
+Thus, $a(\cdot,\cdot)$ defines an inner product.
+
+\item This answer proceeds identically to the usual Galerkin method
+for the second-order equation we analyzed in class.  In particular,
+since $u_n\in V_n$, we have
+\[ u_n(x) = \sum_{j=1}^n c_j \phi_j(x).\]
+The approximation $u_n$ will satisfy the Galerkin problem if and
+only if
+\[ a(u_n, \phi_k) = (f,\phi_k), \qquad k=1,\ldots, n.\]
+Substituing the expansion for $u_n$ into this equation, we have
+\[ \sum_{j=1}^n c_j a(\phi_j, \phi_k) = (f,\phi_k), \qquad k=1,\ldots, n.\]
+For each value of $k=1,\ldots, n$ this equation contributes a row
+to the matrix equation 
+\[ \pmatrix{a(\phi_1,\phi_1) & \cdots & a(\phi_n,\phi_1) \cr
+              \vdots & \ddots & \vdots \cr
+            a(\phi_1,\phi_n) & \cdots & a(\phi_n,\phi_n)}
+   \pmatrix{c_1 \cr \vdots \cr c_n}  
+   = \pmatrix{(f,\phi_1) \cr \vdots \cr (f,\phi_n)},\]
+which we label $\BK \Bu = \Bf$.  
+    
+\item Our usual piecewise linear hat functions are unsuitable for this
+problem, as $a(\phi_j, \phi_k) = 0$ for all $j,k$.  In other words, 
+the stiffness matrix $\BK$ would be singular.  Moreover, these functions
+do not satisfy the boundary conditions required of the space $V$.
+
+One could select numerous alternatives, and a variety of answers could
+obtain full credit here.  Generally speaking, one requires basis functions
+for which $a(\phi_j, \phi_k) \ne 0$, certainly when $j=k$, but probably when
+$|j-k| \le 1$ or $|j-k| \le 3$.  The matrix $\BK$ will be zero execpt for
+several diagonals about the main diagonal, \emph{depending on the support
+of the basis functions}, that is, depending on the number of subintervals
+$[x_j, x_{j+1}]$ on which the functions are nonzero.
+\emph{Piecewise cubic splines} form one appealing class of basis functions;
+these functions made up of cubic polynomials on each subinterval, with 
+parameters chosen so that the overall basis function is in $C^2[0,1]$
+and nonzero on four adjacent subintervals.  As a result of this support,
+the stiffness matrix $\BK$ is \emph{pentadiagonal}, i.e., there are 
+five nonzero diagonals, so the $(j,k)$ entry of $\BK$ is nonzero if $|j-k|>2$.
+\end{enumerate}
+\end{solution}}{}

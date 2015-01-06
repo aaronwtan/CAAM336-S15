@@ -1,0 +1,22 @@
+Consider the polynomials $\phi_1(x) = 1$, $\phi_2(x) = x$, 
+and $\phi_3(x) = 3x^2-1$, which form a basis for the set
+of all quadratic polynomials.  These polynomials are 
+orthogonal with respect to the inner product $\ip{\cdot,\cdot}:\mbox{ }C[-1,1]\times C[-1,1]\rightarrow\R$ defined by
+\[ \ip{u,v} = \int_{-1}^1 u(x)v(x)\, dx.\]
+Let the norm $\norm{\cdot}:\mbox{ }C[-1,1]\rightarrow\R$ be defined by
+\[ \norm{u} = \sqrt{\ip{u,u}}.\]
+Let $f(x) = e^x$.
+\begin{enumerate}
+\item By hand, construct the best approximation $f_1$ to $f$ from ${\rm span}\{\phi_1\}$ with respect to the norm $\norm{\cdot}$.
+\\
+\item By hand, construct the best approximation $f_2$ to $f$ from ${\rm span}\{\phi_1,\phi_2\}$ with respect to the norm $\norm{\cdot}$.
+\\
+\item By hand, construct the best approximation $f_3$ to $f$ from ${\rm span}\{\phi_1,\phi_2,\phi_3\}$ with respect to the norm $\norm{\cdot}$.
+\\
+\item  Produce a plot that superimposes your best approximations from parts~(a), (b), and (c) on top of a plot of $f(x)$.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input legendree_sols}{}
+

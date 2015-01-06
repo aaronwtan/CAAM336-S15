@@ -1,0 +1,120 @@
+\begin{solution}
+\begin{enumerate}
+\item {[10 points]} The matrix $\BA$ has eigenvalues $\lambda_1 = -i$ and $\lambda_2 = i$ and eigenvectors
+\[
+\Bv_1 = \left[\begin{array}{c}{1\over\sqrt{2}} \\ -{i\over\sqrt{2}}\end{array}\right]
+\]
+and
+\[
+\Bv_2 = \left[\begin{array}{c}{1\over\sqrt{2}} \\ {i\over\sqrt{2}}\end{array}\right]
+\]
+which are such that $\BA\Bv_1=\lambda_1\Bv_1$ and $\BA\Bv_2=\lambda_2\Bv_2$. If we set
+\[
+\BV = [\Bv_1\ \Bv_2]=\left[\begin{array}{cc}{1\over\sqrt{2}} & {1\over\sqrt{2}} \\ -{i\over\sqrt{2}} & {i\over\sqrt{2}}\end{array}\right]
+\]
+and
+\[
+\BLambda = \left[\begin{array}{cc}\lambda_1 & 0 \\ 0 & \lambda_2\end{array}\right]=\left[\begin{array}{cc}-i & 0 \\ 0 & i\end{array}\right]
+\]
+then we have that
+\[
+\BA = \BV\BLambda\BV^{-1}
+\]
+and
+\begin{eqnarray*}
+e^{t\BA}&=&\BV e^{t\BLambda} \BV^{-1}
+\\
+&=&\left[\begin{array}{cc}{1\over\sqrt{2}} & {1\over\sqrt{2}} \\ -{i\over\sqrt{2}} & {i\over\sqrt{2}}\end{array}\right] \left[\begin{array}{cc}e^{-it} & 0 \\ 0 & e^{it}\end{array}\right] \left[\begin{array}{cc}{1\over\sqrt{2}} & {i\over\sqrt{2}} \\ {1\over\sqrt{2}} & -{i\over\sqrt{2}}\end{array}\right]
+\\
+&=&\left[\begin{array}{cc}{1\over2}\left(e^{it} + e^{-it}\right) & {i\over2}\left(e^{-it} - e^{it}\right) \\ {i\over2}\left(e^{it}-e^{-it}\right) & {1\over2}\left(e^{it}+e^{-it}\right)\end{array}\right].
+\end{eqnarray*}
+Now,
+\[
+e^{it} + e^{-it}=\cos(t)+i\sin(t)+\cos(t)-i\sin(t)=2\cos(t),
+\]
+\begin{eqnarray*}
+i\left(e^{it} - e^{-it}\right)&=&i\left(\cos(t)+i\sin(t)-\left(\cos(t)-i\sin(t)\right)\right)
+\\
+&=&i\left(\cos(t)+i\sin(t)-\cos(t)+i\sin(t)\right)
+\\
+&=&2i^2\sin(t)
+\\
+&=&-2\sin(t)
+\end{eqnarray*}
+and
+\[
+i\left(e^{-it} - e^{it}\right)=-i\left(e^{it} - e^{-it}\right)=2\sin(t).
+\]
+Therefore,
+\[
+e^{t\BA} = \left[\begin{array}{cc}\cos(t) & \sin(t) \\ -\sin(t) & \cos(t)\end{array}\right].
+\]
+Hence,
+\[
+\Bx(t) = e^{t\BA} \Bx_0 = \left[\begin{array}{cc}\cos(t) & \sin(t) \\ -\sin(t) & \cos(t)\end{array}\right]\left[\begin{array}{c}1 \\ 1\end{array}\right] = \left[\begin{array}{c}\cos(t)+\sin(t) \\ \cos(t)-\sin(t)\end{array}\right].
+\]
+
+\item {[5 points]} We can compute that, for each $t\in\R$,
+\begin{eqnarray*}
+\norm{\Bx(t)}^2&=&\left(\cos(t)+\sin(t)\right)^2+\left(\cos(t)-\sin(t)\right)^2
+\\
+&=&\left(\cos(t)\right)^2+2\cos(t)\sin(t)+\left(\sin(t)\right)^2+\left(\cos(t)\right)^2-2\cos(t)\sin(t)+\left(\sin(t)\right)^2
+\\
+&=&2\left(\left(\cos(t)\right)^2+\left(\sin(t)\right)^2\right)
+\\
+&=&2.
+\end{eqnarray*}
+Hence, for all  $t\ge0$,
+\[
+\norm{\Bx(t)}=\sqrt{2}
+\]
+and so $\norm{\Bx(t)}$ does not change as $t$ increases.
+
+\item {[5 points]} Now,
+\[
+\Bx_k = (\BI+\Delta t \BA)^k \Bx_0.
+\]
+Moreover, the eigenvalues of $\BI+\Delta t \BA$ are $1+\Delta t \lambda_1 = 1-\Delta t i$ and $1+\Delta t \lambda_2 = 1+\Delta ti$ and
+\[
+\BI+\Delta t \BA=\BV \left[\begin{array}{cc}1-\Delta ti & 0 \\ 0 & 1+\Delta ti\end{array}\right] \BV^{-1}.
+\]
+Furthermore, for all choices of the timestep $\Delta t>0$,
+\[
+\left|1-\Delta t i\right|=\sqrt{1+\left(\Delta t\right)^2}>1
+\]
+and
+\[
+\left|1+\Delta t i\right|=\sqrt{1+\left(\Delta t\right)^2}>1.
+\]
+Hence, for all choices of the timestep $\Delta t>0$, $\norm{\Bx_k}\rightarrow\infty$ as $k\to\infty$.
+
+\item {[5 points]} Now,
+\[
+\Bx_k = ((\BI-\Delta t \BA)^{-1})^k \Bx_0.
+\]
+Moreover, the eigenvalues of $(\BI-\Delta t \BA)^{-1}$ are ${1\over1-\Delta t \lambda_1} = {1\over1+\Delta t i}$ and ${1\over1-\Delta t \lambda_2} = {1\over1-\Delta ti}$ and
+\[
+(\BI-\Delta t \BA)^{-1}=\BV \left[\begin{array}{cc}{1\over1+\Delta t i} & 0 \\ 0 & {1\over1-\Delta ti}\end{array}\right] \BV^{-1}.
+\]
+Furthermore, for all choices of the timestep $\Delta t>0$,
+\[
+\left|{1\over1+\Delta t i}\right|={\left|1\right|\over\left|1+\Delta t i\right|}={1\over\sqrt{1+\left(\Delta t\right)^2}}<1
+\]
+and
+\[
+\left|{1\over1-\Delta t i}\right|={\left|1\right|\over\left|1-\Delta t i\right|}={1\over\sqrt{1+\left(\Delta t\right)^2}}<1
+\]
+since
+\[
+\sqrt{1+\left(\Delta t\right)^2}>1.
+\]
+Hence, for all choices of the timestep $\Delta t>0$, $\norm{\Bx_k}\rightarrow0$ as $k\to\infty$.
+\end{enumerate}
+\end{solution}
+
+
+
+
+
+
+

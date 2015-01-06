@@ -1,0 +1,213 @@
+% time dependent problem
+
+Let $L$ be a linear operator on a vector space $V$ and suppose that $L\psi=\lambda \psi$ with $\psi \neq 0$ so that $\lambda$ is an eigenvalue of $L$ with corresponding eigenfunction $\psi$.
+\begin{enumerate}
+\item Show that the operator $\tilde{L}$ defined by
+\[
+\tilde{L}u = Lu + \mu u \qquad u \in W, \qquad \mu \:\: \mbox{a scalar}
+\]
+is a linear operator on $W$ and that $\psi$ is an eigenfunction for $\tilde{L}$ corresponding to the eigenvalue $\tilde{\lambda}= \lambda + \mu$. 
+\item Now consider the operator $\tilde{L}$
+\[
+\tilde{L} : C^2_M [0; 1] \rightarrow C[0; 1]\]
+where
+\[
+ C^2_M [0; 1] = \{u \in C^2[0; 1] : u'(0) = u(1) = 0\}.
+ \]
+ with
+\[
+\tilde{L}u(x) = \frac{-d^2u(x)}{dx^2}+ u(x)
+\]
+Show that $\tilde{L}$ is symmetric and positive definite, and calculate the eigenvalues $\tilde{\lambda}_n$ and corresponding eigenfunctions $\psi_n$ of $\tilde{L}$ using part (a).  Show that the eigenfunctions are orthogonal; i.e. that 
+\[
+(\psi_j,\psi_k) = \int_0^1 \psi_j(x) \psi_k(x) dx = 0, \quad j \neq k.
+\]
+\emph{Hint: you may wish to use the trigonometric formula $2\cos(x)\cos(y) = \cos(x+ y) + \cos(x-y)$ }
+%\\
+%\emph{For this part you may use any relevant facts that the eigenvalues and eigenfunctions for $Lu = -\frac{d^2 u}{dx^2}$ were
+%\begin{eqnarray*}
+%\lambda_n &=& \left(\frac{2n-1}{2}\right)^2 \pi^2\\
+%\phi_n &=& \sin (\frac{2n-1}{2}) \pi x
+%\end{eqnarray*}}
+
+\item  Let $f(x)$ be a general function and $V_N= {\rm span}\{\psi_1, \psi_2, \cdots, \psi_N\}$, where $\psi_i$ were the eigenfunctions above.  Explain how to compute the best approximation $f_N \in V_N$ to $f$. Explicitly give the integral formulas for the coeffcients needed for the best approximation. DO NOT evaluate those integrals, just give the formulas.
+
+\item Give the spectral method. solution $u(x)$ to the equation 
+\begin{eqnarray*}
+\frac{-d^2u(x)}{dx^2}+ u(x) &=& f(x) \\
+                        u'(0) &=& 0\\
+                        u(1) &=& 0
+\end{eqnarray*}
+
+
+\item Explain (as specifically as possible) how to modify the solution $u(x)$ given in part (d) so in order to solve the problem with inhomogeneous boundary conditions.  
+\begin{eqnarray*}
+\frac{-d^2u(x)}{dx^2}+ u(x)  &=& f(x) \\
+                        u'(0) &=& 5\\
+                        u(1)&=& 1
+\end{eqnarray*}
+
+\end{enumerate}
+
+
+\ifthenelse{\boolean{showsols}}{
+\begin{solution}
+\begin{enumerate}
+\item Suppose $u, v \in W$. We would like to show following equality is hold  for any scalars $\alpha$ and  $\beta$
+\[
+\tilde{L}(\alpha u+ \beta v)= \alpha \tilde{L}u + \beta \tilde{L}v 
+\]
+
+Given $L$ is linear operator 
+
+\begin{eqnarray*}
+\tilde{L}(\alpha u+ \beta v)&=& L(\alpha u+ \beta v)+ \mu (\alpha u+ \beta v) \\
+&=& \alpha Lu + \beta L v + \mu \alpha u + \mu \beta v \\
+&=& \alpha Lu+ \mu \alpha u + \beta L v + \mu \beta v \\
+&=& \alpha( Lu+ \mu u) + \beta (L v + \mu v)\\
+&=& \alpha \tilde{L}u + \beta \tilde{L}v
+\end{eqnarray*}
+
+as desired. 
+
+Now, let $\lambda$ is an eigenvalue of $L$ with an corresponding eigenfunction $v \in W$. Then $Lv=\lambda v$ with $v\neq0$. For a scalar $\mu$
+\[
+\tilde{L}v = L v + \mu v = \lambda v + \mu v = (\lambda  + \mu) v \qquad \mbox{for} \:\:  v \neq 0
+\]
+
+That implies $\lambda  + \mu$ is an eigenvalue of $\tilde{L}$ with corresponding eigenfunction $v$.
+
+\item Symmetry is apparent by integration by parts twice: 
+
+
+\begin{eqnarray*}
+\ip{\tilde{L}u, v} &=&  \int_0^1 (-u'' + u) v  \, dx \\
+								 &=& \int_0^1 - u'' v + u v \, dx  \\
+								 &=& \left[ -u' v\right]_0^1 + \int_0^1  u' v' + u v \, dx   \qquad \mbox{integration by parts}\\
+								 &=&\int_0^1  u' v' + u v \, dx   \qquad \mbox{by boundary condition $u'(0)=0$ and $v(1)=0$}\\
+								 &=& \left[ -u v'\right]_0^1 + \int_0^1  u v'' + u v \, dx   \qquad \mbox{integration by parts}\\
+								 &=&\int_0^1  u v'' + u v \, dx   \qquad \mbox{by boundary condition $u(1)=0$ and $v'(0)=0$}\\
+								 &=& \int_0^1  (v'' + v) u \, dx \\
+								 &=& \ip{u,  \tilde{L}v}
+\end{eqnarray*}
+
+Positive definiteness requires $\ip{\tilde{L}u, u} \geq 0$ and $\ip{\tilde{L}u, u} = 0$ if and only if $u=0$. Then
+
+\begin{eqnarray*}
+\ip{\tilde{L}u, u} &=&  \int_0^1 (-u'' + u) u  \, dx \\
+								 &=& \int_0^1 - u'' u + u^2 \, dx  \\
+								 &=& \left[ -u' u\right]_0^1 + \int_0^1  u' u' + u^2 \, dx   \qquad \mbox{by integration by parts}\\
+								 &=&\int_0^1  (u')^2 + u^2 \, dx   \qquad \mbox{by boundary condition $u'(0)=0$ and $u(1)=0$}.\\
+\end{eqnarray*}
+
+Since each integrand is non-negative, it follows 
+$\ip{\tilde{L}u, u} \geq 0 $. To have $\ip{\tilde{L}u, u} = 0$, we must have $u(x) = 0$ for all $x \in [0, 1]$, and
+$ u'(x)= 0 $ for all $x \in [0, 1]$, which is only possible if $u(x) = 0$ for all $x \in [0, 1]$, i.e., $u = 0$.\\
+
+From part (a) we can conclude that if $\lambda$ is an eigenvalue for $Lu = -u''$ then $\lambda + 1 $ is an eigenvalue of $\tilde{L}$. Note that in that case $\mu = 1$. Moreover if $v$ is an eigenfunction for $L$ then it is also for $\tilde{L}$.\\
+
+Therefore, let first  find the eigenvalue of $Lu = - u''$. 
+
+\begin{eqnarray*}
+ Lu = \lambda u  &\rightarrow& -u'' = \lambda u \\
+ 							 	 &\rightarrow& u''+ \lambda u = 0 \\
+\end{eqnarray*}
+
+Characteristic roots of that ODE are $ \pm i \sqrt{\lambda} $. Then characteristic solution of the problem is 
+
+\[
+u(x)= c_1 \cos(\sqrt{\lambda} x) + c_2  \sin(\sqrt{\lambda} x)
+\]
+
+Using the given boundary conditions we conclude that $ c_2 = 0$ and $ \cos(\sqrt{\lambda}) = 0$. Second equality implies 
+
+\[
+ \lambda = \frac{(2n-1)^2}{4} \pi^2 \qquad \mbox{for}\:\:\:  n=1,2,\cdots
+\]
+
+Then eigenvalue and corresponding eigenfunction of $\tilde{L}$ is 
+
+
+\begin{eqnarray*}
+ 								\tilde{\lambda} &=&	\lambda + 1 = \frac{(2n-1)^2}{4} \pi^2 + 1 \\
+ 								       \psi(x) &=& \cos(\frac{2n-1}{2}\pi x ) \:\:\: \mbox{for} \:\:\: n=1, 2, \cdots							 	  
+\end{eqnarray*} 
+
+Finally we can show that the eigenfunctions of $\tilde{L}$  form a orthogonal set by showing 
+
+\begin{eqnarray*}
+\ip{\psi_j,\psi_k}&=& \int_0^1 \psi_j(x) \psi_k(x) \, dx , \quad j \neq k \\
+\\
+ 								&=&	\int_0^1 \cos(\frac{2j-1}{2}\pi x)  \:  \cos(\frac{2k-1}{2}\pi x )  \, dx\\
+ 								\\
+ 								&=&	\frac{1}{2}\int_0^1 \cos((j+k-1)\pi x) +  \cos(( j-k) \pi x ) \, dx\\	
+ 								\\
+            		&=&\frac{1}{2}\left[\frac{1}{(j+k-1)\pi} \sin((j+k-1)\pi x )+ \frac{1}{(j-k)\pi} \sin(( j-k) \pi x) \right]_0^1 \\
+            		\\
+ 								&=&0 	\qquad \mbox{for} \:\:  i,j=1,2 \cdots 														
+\end{eqnarray*}  
+
+There is also another elegant way to show eigenfunctions are orthogonal to each other. Let $\tilde{\lambda_1}$ and $\tilde{\lambda_2} $  two distinct eigenvalues of corresponding eigenfunction $u$ and $v$.
+
+\[
+ 							\ip{\tilde{L}u,v} = \ip{\lambda_1 u , v} = \lambda_1 \ip{u,v} 
+\]
+ Moreover 
+ 
+ \[
+ 							\ip{u, \tilde{L}v} = \ip{ u , \lambda_2 v } = \lambda_2 \ip{u,v} 
+\]
+
+By symmetry we know $	\ip{\tilde{L}u,v} = 	\ip{u, \tilde{L}v} $. This is possible if and only if $\ip{u,v} = 0$.
+
+
+\item Best approximation $f_N$ to $f$ for a given eigenfunction $\psi_n = \cos(\frac{2n-1}{2} \pi x) $ for $n=1,2, ...$ can be computed as follow 
+
+\[
+f_N(x) = \sum_{n=1}^{N} c_n \psi_n = \sum_{n=1}^{\infty} \frac{\ip{f, \psi_n}}{\ip{\psi_n, \psi_n}} \psi_n
+\]
+
+where
+
+\[
+\ip{f, \psi_n} = \int_0^1 f(x) \cos(\frac{2n-1}{2} \pi x) \, dx
+\]
+and 
+
+\[
+\ip{\psi_n, \psi_n} = \int_0^1  \cos^2 (\frac{2n-1}{2} \pi x) \, dx
+\]
+
+\item Let $\tilde{u}$ be the spectral solution of the given BVP then 
+
+
+\[
+\tilde{u}(x) = \sum_{n=1}^{\infty} \frac{c_n}{\tilde{\lambda_n}} \psi_n
+\]
+
+where $c_n$ is given in part (c) and $\tilde{\lambda_n}$ in part (b).
+
+\item A function that satisfies the BC $u'(0) = 5 $ and $ u(1) = 1$  does not belong to $C^2_M [0; 1]$ . To deal
+with it, we find a function $g(x)$ that does satisfy the BC's. Let  $g(x) = 5x-4$ satisfies this.
+Let $w(x)= u(x)-p(x)$. We then note that  $w(x)= u(x)-p(x)$ belongs to $C^2_M [0; 1]$ and solves the following original differential equation with the right hand side modified:
+\begin{align*}
+\tilde{L}w &= \tilde{L}u- \tilde{L}g = f-\tilde{L}g = f-g\\
+w'(0) &= u'(0) - g'(0) = 0\\
+w(1) &= u(1)-g(1) = 0\\
+\end{align*}
+
+or
+
+\begin{eqnarray*}
+\frac{-d^2w(x)}{dx^2}+ w(x)  &=& f(x)-g(x) \\
+                        w'(0) &=& 0\\
+                        w(1)&=& 0
+\end{eqnarray*}
+
+Then, we solve for $w$ as above, with $f(x)$ replaced by $f(x)-g(x) = f(x)-(5x-4)$
+Our final solution will be $u(x) = w(x) + g(x)$.
+
+
+\end{enumerate}
+\end{solution}
+}{}

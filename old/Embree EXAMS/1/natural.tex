@@ -1,0 +1,72 @@
+\vspace*{.5em}
+This problem addresses the finite element solution of the problem
+$-u''(x) = f(x)$ for $x\in[0,1]$ with Neumann boundary conditions 
+$u'(0)=u'(1)=0$ considered in the last problem.
+
+Let
+\[ a(u,v) = \int_0^1 u'(x) v'(x)\, dx, 
+\qquad 
+    (u,v) = \int_0^1 u(x) v(x)\,dx.\]
+
+\begin{enumerate}
+\item Suppose $-u''(x) = f(x)$ with $u'(0)=u'(1)=0$.
+      Show that $a(u,v) = (f,v)$ for all $v \in V = C^2[0,1]$
+      (i.e., do not assume that $v$ satisfies any particular boundary conditions).
+\end{enumerate}
+
+     Let $N$ be a positive integer, and define $h = 1/(N+1)$.  
+      Define the hat functions, for $k=1,\ldots, N$,
+\[
+\phi_k(x) = \left\{\begin{array}{ll}
+(x-x_{k-1})/h, & x\in[x_{k-1},x_k);\\
+(x_{k+1}-x)/h, & x\in[x_k,x_{k+1});\\
+0,& \mbox{otherwise;}
+\end{array}\right.
+\]
+      with the ``half-hat'' functions supported on the far ends of the domain:
+\[ 
+\phi_0(x) = \left\{\begin{array}{ll}
+(x_1-x)/h, & x\in[x_{0},x_1);\\
+0,& \mbox{otherwise;}
+\end{array}\right. \qquad
+\phi_{N+1}(x) = \left\{\begin{array}{ll}
+(x-x_N)/h, & x\in[x_{N},x_{N+1}];\\
+0,& \mbox{otherwise.}
+\end{array}\right. \qquad
+\]
+
+\begin{enumerate}
+\item[(b)] 
+       We seek the approximate solution $u_N = \sum_{j=0}^{N+1} c_j \phi_j$ 
+       such that $a(u_N, \phi_k) = (f,\phi_k)$ for $k=0,\ldots, N+1$.
+       Write down the general form of the stiffness matrix $\BK$ and load vector $\Bf$,
+       such that the coefficients $\Bc$ should satisfy the linear system $\BK\Bc=\Bf$.\\
+       (That is, specify the entires of $\BK$ and $\Bf$.)
+
+\vspace*{0.5em}
+\item[(c)]
+       Why did we include $\phi_0$ and $\phi_{N+1}$ in part~(b)?\\
+       How would our solution differ had we only used $\phi_1, \ldots, \phi_N$?
+
+\vspace*{.5em}
+\item[(d)]
+       For $N=1$, the stiffness matrix is:
+       \[ \BK = \bmatrix{2 & -2 & 0 \cr -2 & 4 & -2 \cr 0 & -2 & 2}.\]
+       Zero is an eigenvalue of $\BK$.  Find a corresponding eigenvector $\Bv$
+       such that $\BK\Bv = \Bzero$.
+
+\vspace*{.5em}
+\item[(e)] Write your answer $\Bv$ to part~(d) in the form
+       \[ \Bv = \bmatrix{\alpha\cr \beta\cr \gamma}.\]
+       Draw a plot of the corresponding function 
+          $v(x) = \alpha \phi_0(x) + \beta \phi_1(x) + \gamma \phi_2(x)$ 
+       for $x\in[0,1]$. 
+       How does this relate to question 3(b)?
+  
+\vspace*{.5em} 
+\item[(f)] For which of the following load vectors will $\BK\Bc = \Bf$
+       have a solution? Explain.
+        \[ \Bf = \bmatrix{1\cr1\cr1} \qquad       
+           \Bf = \bmatrix{2\cr -3\cr1}\]
+ 
+\end{enumerate}

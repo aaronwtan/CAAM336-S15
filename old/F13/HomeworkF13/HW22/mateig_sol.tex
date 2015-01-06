@@ -1,0 +1,66 @@
+\begin{solution}
+\begin{enumerate}
+\item {[12 points]} For this matrix $\BA$ we have
+\[ \lambda\BI - \BA = \left[\begin{array}{ccc}\lambda-3 & 0 & 0 \\ 0 & \lambda & 1 \\ 0 & 1 & \lambda\end{array}\right],\]
+and hence the characteristic polynomial is 
+\[ \det(\lambda\BI - \BA) = (\lambda-3)(\lambda^2 - 1) = (\lambda-3)(\lambda-1)(\lambda+1).\]
+The eigenvalues of $\BA$ are the roots of the characteristic polynomial, which we label
+\[ \lambda_1 = -1, \qquad
+   \lambda_2 = 1, \qquad
+   \lambda_3 = 3.\]
+
+To compute the eigenvectors associated with the eigenvalue $\lambda_1=-1$, we seek $\Bu = (u_1, u_2, u_3)^T$ that makes the following vector zero:
+\[ (\lambda_1 \BI-\BA) \Bu = \left[\begin{array}{ccc}-4 & 0 & 0 \\ 0 & -1 & 1 \\ 0 & 1 & -1\end{array}\right]
+                             \left[\begin{array}{c}u_1 \\ u_2\\ u_3\end{array}\right]
+                           = \left[\begin{array}{c}-4u_1 \\ -u_2+u_3 \\ u_2-u_3\end{array}\right].\]
+To make this vector zero we need to set $u_1 = 0$ and $u_3 = u_2$.
+Thus any vector of the form
+\[ \left[\begin{array}{c}0 \\ u_2 \\ u_2\end{array}\right], \quad u_2 \ne 0\]
+is an eigenvector associated with the eigenvalue $\lambda_1=-1$.
+
+To compute the eigenvectors associated with the eigenvalue $\lambda_2=1$ we now seek $\Bu = (u_1, u_2, u_3)^T$ that makes the following vector zero:
+\[ (\lambda_2 \BI-\BA) \Bu = \left[\begin{array}{ccc}-2& 0 & 0 \\ 0 & 1 & 1 \\ 0 & 1 & 1\end{array}\right]
+                             \left[\begin{array}{c}u_1 \\ u_2\\ u_3\end{array}\right]
+                           = \left[\begin{array}{c}-2u_1 \\ u_2+u_3 \\ u_3+u_2\end{array}\right].\]
+To make this vector zero we need to set $u_1 = 0$ and $u_3 = -u_2$.
+Thus any vector of the form
+\[ \left[\begin{array}{c}0 \\ u_2 \\ -u_2\end{array}\right], \quad u_2 \ne 0\]
+is an eigenvector associated with the eigenvalue $\lambda_2=1$.
+
+To compute the eigenvectors associated with the eigenvalue $\lambda_3=3$ we now seek $\Bu = (u_1, u_2, u_3)^T$ that makes the following vector zero:
+\[ (\lambda_3 \BI-\BA) \Bu = \left[\begin{array}{ccc}0& 0 & 0 \\ 0 & 3 & 1 \\ 0 & 1 & 3\end{array}\right]
+                             \left[\begin{array}{c}u_1 \\ u_2\\ u_3\end{array}\right]
+                           = \left[\begin{array}{c}0 \\ 3u_2+u_3 \\ u_2+3u_3\end{array}\right].\]
+To make the second component zero we need $u_2 = -u_3/3$, while to make
+the third component zero we need $u_3 = -u_2/3$.  The only way to accomplish
+both is to set $u_2=u_3=0$.  Thus any vector of the form
+\[ \left[\begin{array}{c}u_1 \\ 0 \\ 0\end{array}\right], \quad u_1 \ne 0\]
+is an eigenvector associated with the eigenvalue $\lambda_3=3$.
+
+\item {[3 points]} We choose the eigenvectors
+\[ \Bu_1 = {1\over \sqrt{2}} \left[\begin{array}{c}0 \\ 1 \\ 1\end{array}\right],\]
+\[ \Bu_2 = {1\over \sqrt{2}} \left[\begin{array}{c}0 \\ 1 \\ -1\end{array}\right],\]
+and
+\[ \Bu_3 = \left[\begin{array}{c}1 \\ 0 \\ 0\end{array}\right].\]
+We can compute that
+
+      \[ \Bu_1^T \Bu_2 = \Bu_2^T\Bu_1 = 0\cdot0 + (1/\sqrt{2})\cdot (1/\sqrt{2}) + (1/\sqrt{2})\cdot (-1/\sqrt{2}) = 0,\]
+      \[ \Bu_1^T \Bu_3 = \Bu_3^T\Bu_1 = 0\cdot1 + (1/\sqrt{2})\cdot 0 + (1/\sqrt{2})\cdot 0 = 0,\]
+and
+      \[ \Bu_2^T \Bu_3 = \Bu_3^T\Bu_2 = 0\cdot1 + (1/\sqrt{2})\cdot 0 + (-1/\sqrt{2})\cdot 0 = 0.\]
+
+\item {[10 points]} We first note that, for $j=1,2,3$, $\BA\Bu_j=\lambda_j\Bu_j$ and $\Bu_j^T \Bu_j=1$. Since $\BA=\BA^T$, the spectral method then yields that
+         \[ \Bx = \sum_{j=1}^3 {1 \over \lambda_j} {\Bu_j^T\Bb \over \Bu_j^T \Bu_j} \Bu_j = \sum_{j=1}^3 {\Bu_j^T\Bb \over \lambda_j} \Bu_j.\]
+      We can compute that
+          \[ \Bu_1^T\Bb = 0\cdot 2 + (1/\sqrt{2}) \cdot (-1) + (1/\sqrt{2}) \cdot 3 = \sqrt{2}, \]
+          \[ \Bu_2^T\Bb = 0\cdot 2 + (1/\sqrt{2}) \cdot (-1) + (-1/\sqrt{2}) \cdot 3 = -2\sqrt{2}, \]
+and
+          \[ \Bu_3^T\Bb = 1\cdot 2 + 0 \cdot (-1) + 0 \cdot 3 = 2, \]
+and hence
+\[ \Bx =   {\sqrt{2} \over -1} \left[\begin{array}{c} 0 \\ 1/\sqrt{2} \\ 1/\sqrt{2}\end{array}\right]
+         + {-2\sqrt{2} \over 1} \left[\begin{array}{c}0 \\ 1/\sqrt{2} \\ -1/\sqrt{2}\end{array}\right]
+         + {2 \over 3} \left[\begin{array}{c}1 \\ 0 \\ 0\end{array}\right]
+       =   \left[\begin{array}{c}2/3 \\ -3\\ 1\end{array}\right].\]
+We can multiply $\BA\Bx$ out to verify that the desired $\Bb$ is obtained.
+\end{enumerate} 
+\end{solution}

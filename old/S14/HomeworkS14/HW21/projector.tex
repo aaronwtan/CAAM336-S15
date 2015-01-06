@@ -1,0 +1,40 @@
+
+Let the inner product $\ip{\cdot,\cdot}:\mbox{ }C[-1,1]\times C[-1,1]\rightarrow\R$ be defined by
+\[
+(u,v) = \int_{-1}^1 u(x) v(x)\,dx.
+\]
+Let the linear operator $P_e:\mbox{ }C[-1,1]\rightarrow C[-1,1]$ be defined by
+\[
+(P_e f)(x) = {1 \over 2}\left(f(x)+f(-x)\right)
+\]
+and let the linear operator $P_o:\mbox{ }C[-1,1]\rightarrow C[-1,1]$ be defined by
+\[
+(P_o f)(x) = {1 \over 2}\left(f(x)-f(-x)\right).
+\]
+Note that $P_e$ and $P_o$ project functions onto their even and odd parts, respectively.
+\\
+\begin{enumerate}
+\item Verify that $P_e$ and $P_o$ are projections.
+\\
+\item For all $f\in C[-1,1]$, verify that $P_e f$ and $P_o f$ are orthogonal with respect to the inner product $\ip{\cdot,\cdot}$.
+\\
+\item Is $P_e+P_o$ a projection? Note that $P_e+P_o:\mbox{ }C[-1,1]\rightarrow C[-1,1]$ is defined by
+\[
+(P_e+P_o)f=P_ef+P_of.
+\]
+\\
+\item Let $a,b\in\R$ be such that $a<b$. Let $\phi\in C[a,b]$ be defined by $\phi(x)=1$ and let the inner product $B\ip{\cdot,\cdot}:C[a,b]\times C[a,b]\to\R$ be defined by
+\[
+B\ip{u,v}=\int_a^bu(x)v(x)\,dx.
+\]
+Let the linear operator $P: C[a,b]\rightarrow C[a,b]$ be defined by
+\[
+Pf=\frac{1}{b-a}B\ip{f,\phi}\phi.
+\]
+Determine whether or not $P$ is a projection.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input projector_sol}{}

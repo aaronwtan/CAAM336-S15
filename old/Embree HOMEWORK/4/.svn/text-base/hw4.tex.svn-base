@@ -1,0 +1,33 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,ifthen,color}
+\usepackage{336notes}
+\def\hot#1{\color{red}{#1}}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+
+\begin{document}
+\setboolean{showsols}{false}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+ Problem Set 4 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Wednesday 15 September 2010.  Due Wednesday 22 September 2010, 5pm.
+
+\begin{enumerate}
+\item {[20 points]}\\  \input best3d
+
+\vspace*{2em}
+\item {[25 points]}\\  \input projector
+
+\vspace*{2em}
+\item {[25 points]}\\  \input mateig
+
+\vspace*{2em}
+\item {[30 points]}\\  \input firstderiv
+\end{enumerate}
+
+\end{document}

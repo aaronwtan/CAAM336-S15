@@ -1,0 +1,39 @@
+
+Let the norm $\norm{\cdot}:\mbox{ }\R^2\rightarrow\R$ be defined by
+\[
+\norm{\By} = \sqrt{\By\cdot \By}.
+\]
+Let the timestep $\Delta t\in\R$ be such that $\Delta t>0$ and let $t_k=k\Delta t$ for $k=0,1,2,\ldots$. Let
+\[
+\BA = \left[\begin{array}{cc}0 & 1 \cr -1 & 0\end{array}\right]
+\]
+and consider the problem of finding $\Bx(t)$ such that
+\[
+\Bx'(t) = \BA\Bx(t),\quad t\ge 0
+\]
+and
+\[
+\Bx(0) = \left[\begin{array}{c}1 \\ 1\end{array}\right].
+\]
+\\
+\begin{enumerate}
+\item Compute $\Bx(t)$. Note that for real numbers $t$, 
+\[
+e^{i t} = \cos(t) + i\sin(t)
+\]
+and
+\[
+e^{-i t} = \cos(t) - i\sin(t).
+\]
+\\
+\item How does $\norm{\Bx(t)}$ behave as $t$ increases?
+\\
+\item For $k=0,1,2,\ldots$, let $\Bx_k$ be the approximation to $\Bx(t_k)$ obtained using the forward Euler method. For all choices of the timestep $\Delta t>0$, how will $\norm{\Bx_k}$ behave as $k\rightarrow\infty$?
+\\
+\item For $k=0,1,2,\ldots$, let $\Bx_k$ be the approximation to $\Bx(t_k)$ obtained using the backward Euler method. For all choices of the timestep $\Delta t>0$, how will $\norm{\Bx_k}$ behave as $k\rightarrow\infty$?
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input euler_sol}{}

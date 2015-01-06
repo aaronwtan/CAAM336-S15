@@ -1,0 +1,65 @@
+For each of the following equations, specify whether each is
+(a)~an ODE or a PDE; 
+(b)~determine its order; 
+(c)~specify whether it is linear or nonlinear.
+For those that are linear, specify whether they are 
+(d)~homogeneous or inhomogeneous,
+and (e)~whether they have constant or variable coefficients.
+\begin{center} \begin{tabular}{lcl}
+(1.1)\ \  $\displaystyle {d v \over d x} + {2 \over x} v = 0$ 
+& &
+(1.2)\ \ $\displaystyle {\partial v \over \partial t} 
+                     - 3 {\partial v \over \partial x}  = x-t $\\[2em]
+(1.3)\ \  $\displaystyle {\partial u \over \partial t} 
+                      - {\partial \over \partial x} 
+                         \left[ 2 u {\partial u \over \partial x}\right] = 0 $
+& &
+(1.4)\ \  $\displaystyle {\partial u \over \partial t} 
+                   + u {\partial u \over \partial x} 
+                   + {\partial^3 u \over \partial x^3} = 0$ \\[2em]  % KDV
+(1.5)\ \  $\displaystyle {d^2 y \over dx^2 } 
+                   - \mu (1-y^2) {d y \over d x} + y 
+                   = 0$   % Van der Pol
+& &
+(1.6)\ \  $\displaystyle {d^2 \over dx^2} \left[ \rho(x) {d^2 u \over d x^2}\right] 
+                    = \sin(x)$  % beam equation
+\end{tabular}\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+
+\begin{enumerate}
+\item[(1.1)] ODE, first order, linear, homogeneous, variable coefficient\\
+      The $2/x$ factor in front of the $v$ is the variable coefficient.
+\item[(1.2)] PDE, first order, linear, inhomogeneous, constant coefficient\\
+      The $x-t$ term on the right, which does not involve $v$, makes the
+      equation inhomogeneous.
+\item[(1.3)] PDE, second order, nonlinear\\
+      Using the product rule for partial derivatives, we can write this
+      equation in the equivalent form
+        \[ {\partial u \over \partial t} 
+            - 2 \left({\partial u \over \partial x}\right)^{\!\!2}
+            - 2 u \left({\partial^2 u \over \partial x^2}\right) = 0.\]
+      The second and third terms on the left hand side 
+      make this equation nonlinear.
+\item[(1.4)] PDE, third order, nonlinear\\
+      The $u(\partial u / \partial x)$ term makes this equation nonlinear.
+      This a version of the famous Korteweg-de Vries (KdV) equation that 
+      describes shallow water waves.
+\item[(1.5)] ODE, second order, nonlinear\\
+      The $(1-y^2) (dy/dt)$ term makes this ODE nonlinear.
+\item[(1.6)] ODE, fourth order, linear, inhomogeneous, variable coefficient\\
+      Using the product rule for partial derivatives, we can write this
+      equation in the equivalent form
+      \[{d^2 \rho\over dx^2} {d^2u \over dx^2} 
+              + 2 {d\rho \over dx} {d^3 u \over dx^3}
+              + \rho(x) {d^4 u\over dx^4} = \sin(x),\]
+      hence we can see that it is fourth order.
+      This equation, attributed to Euler, describes the deflection 
+      of a one-dimensional beam with a static load of $\sin(x)$;
+      $\rho(x)$ describes the elasticity of the material that 
+      constitutes the beam.
+   
+\end{enumerate}
+\end{solution}}{}
+

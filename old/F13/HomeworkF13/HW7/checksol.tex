@@ -1,0 +1,39 @@
+Consider the temperature function
+\[ u(x,t) = e^{-\kappa \theta^2 t/(\rho c)} \sin(\theta x) \]
+for constant $\kappa$, $\rho$, $c$, and $\theta$.
+\begin{enumerate}
+\item Show that this function $u(x,t)$ is a solution of the homogeneous heat equation
+ \[  \rho c {\d u \over \d t} = \kappa {\d^2 u\over \d x^2}, 
+       \quad \mbox{for $0<x<\ell$ and all $t$.}\]
+
+\item For which values of $\theta$ will $u$ satisfy 
+      homogeneous Dirichlet boundary conditions at $x=0$ and~$x=\ell$?
+
+\item Suppose $\kappa = 2.37\;\mbox{W/(cm K)}$,
+      $\rho = 2.70\;\mbox{g/cm}^3$, and $c = 0.897\; \mbox{J/(g K)}$
+      (approximate values for aluminum found on Wikipedia),
+      and that the bar has length $\ell = 10\;\mbox{cm}$.
+      Let $\theta$ be such that $u(x,t)$ satisfies
+      homogeneous Dirichlet boundary conditions as in part~(b)
+      and $u(x,t)\ge 0$ for $0\le x\le \ell$ and all $t$.
+ 
+\vspace*{.25em} 
+      Use MATLAB to plot the solution $u(x,t)$ for $0\le x\le \ell$
+      and time $0\le t\le 20~{\rm sec}.$\\
+      You may choose to do this in one of the following ways:
+        (1) Plot the solution for $0\le x\le \ell$ at times
+         $t = 0, 4, 8, \ldots, 20$ sec., superimposing all
+         six plots on the same axis (helpful commands:
+         \verb|linspace|, \verb|plot|, \verb|hold on|);
+        (2) Create a three-dimensional plot of the data 
+         using \verb|surf|, \verb|mesh|, or \verb|waterfall|.
+        In either case, be sure to produce an attractive,
+        well-labeled plot.
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\ifthenelse{\boolean{showsols}}{\input checksol_sol}{}
+

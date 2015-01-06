@@ -1,0 +1,27 @@
+ npts = 40;
+ x = linspace(0,1,npts); y = linspace(0,1,npts);
+ [X,Y] = meshgrid(x,y);
+ tvec = linspace(0,1,80).^2;
+ for m=1:length(tvec)
+    t = tvec(m);
+    figure(1), clf
+    U = zeros(npts,npts);
+    for n=1:15
+       for j=1:n
+          for k=1:n
+             cjk = (1+(-1)^j)*(1+(-1)^k)*(k^2*pi^2-24)/(8*j*k^3*pi^4); %  (x-1/2)^3 (y-1/2)
+             lamjk = pi^2*(j^2+k^2);
+             psijk = 2*sin(j*pi*X).*sin(k*pi*Y);
+             U = U + (exp(-t)-exp(-lamjk*t))/(lamjk-1)*cjk*psijk;
+          end
+       end
+    end
+    surf(X,Y,U)
+    set(gca,'fontsize',16)
+    xlabel('x')
+    ylabel('y')
+    zlabel('u(x,y)')
+    title(sprintf(' t = %g', t))
+    zlim([-.002 .002])
+    pause(.1)
+ end

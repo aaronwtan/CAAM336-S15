@@ -1,0 +1,221 @@
+\documentclass[11pt,twoside,reqno,a4paper]{amsart}
+\usepackage{amsfonts,amsmath,amscd,amsthm}
+\usepackage{graphics}
+\usepackage{a4}
+\usepackage{showlabels}
+\usepackage{citesort}
+
+\begin{document}
+
+
+
+1.
+Let us consider the problem of finding $\boldsymbol{x}\left(t\right)$ such that
+\[
+\boldsymbol{x}'\left(t\right)=\boldsymbol{A}\boldsymbol{x}\left(t\right)
+\]
+and
+\[
+\boldsymbol{x}\left(0\right)=\boldsymbol{x}_0
+\]
+where the vector $\boldsymbol{x}_0\in\mathbb{R}^N$ and the symmetric matrix $\boldsymbol{A}\in\mathbb{R}^{N\times N}$. Let $\Delta t>0$ and let $t_k=k\Delta t$ for non-negative integers $k$. We can obtain approximations $\boldsymbol{x}_k$ to $\boldsymbol{x}\left(t_k\right)$ by using the formula
+\[
+\boldsymbol{x}_{k+1}=\boldsymbol{x}_k+\Delta t\left(1-\theta\right)\boldsymbol{A}\boldsymbol{x}_k+\Delta t\theta\boldsymbol{A}\boldsymbol{x}_{k+1}
+\]
+for some choice of $\theta\in[0,1]$.
+
+(a) What linear system of equations has to be solved to compute $\boldsymbol{x}_{k+1}$? Your answer should not feature the inverse of any matrices.
+
+(b) In order to analyze the behavior of this method it will be convenient to first write
+\[
+\boldsymbol{x}_k=\boldsymbol{B}^k\boldsymbol{x}_0
+\]
+where $\boldsymbol{B}\in\mathbb{R}^{N\times N}$. What matrix is $\boldsymbol{B}$?
+
+(c) Let the matrix $\boldsymbol{A}$ have eigenvalues $\lambda_1,\ldots,\lambda_N$ with corresponding orthonormal eigenvectors $\boldsymbol{v}_1,\ldots,\boldsymbol{v}_N$. The matrix $\boldsymbol{B}$ has the same eigenvectors as $\boldsymbol{A}$. What are the eigenvalues of $\boldsymbol{B}$?
+
+(d) We can write
+\[
+\boldsymbol{x}_0=\sum_{j=1}^N\left(\boldsymbol{x}_0,\boldsymbol{v}_j\right)\boldsymbol{v}_j
+\]
+where $\left(\boldsymbol{x}_0,\boldsymbol{v}_j\right)=\boldsymbol{v}_j^T\boldsymbol{x}_0$. We can also write
+\[
+\boldsymbol{x}_k=\sum_{j=1}^N c_j\boldsymbol{v}_j
+\]
+where the coefficients $c_j\in\mathbb{R}$. Use the fact that $\boldsymbol{x}_k=\boldsymbol{B}^k\boldsymbol{x}_0$ to obtain a formula for the coefficients $c_j$.
+
+(e) If all of the eigenvalues of $\boldsymbol{A}$ are positive and $\theta>0$, why should the choice of $\Delta t=\frac{1}{\theta\lambda_j}$ be avoided for all $j=1,\ldots,N$?
+
+(f) If all of the eigenvalues of $\boldsymbol{A}$ are negative and $0\le\theta<\frac{1}{2}$, what restriction should be placed on $\Delta t$ so that $\left\|\boldsymbol{x}_k\right\|\rightarrow0$ as $k\rightarrow\infty$ for all $\boldsymbol{x}_0$?
+
+(g) If all of the eigenvalues of $\boldsymbol{A}$ are negative and $\frac{1}{2}<\theta<1$, how will $\left\|\boldsymbol{x}_k\right\|$ behave as $k\rightarrow\infty$?
+
+(h) For certain choices of $\theta$ the method in this problem is actually a method that we have looked at previously in this course. Which methods that we have looked at previously do the choices of $\theta=0$, $\theta=\frac{1}{2}$ and $\theta=1$ correspond to?
+
+
+
+\bigskip
+
+
+
+2. Let $N$ be a positive integer and let $h=\frac{1}{N+1}$ and $x_k=kh$. Let
+\[
+V_N=\mbox{span}\left\{\phi_0,\phi_1,...,\phi_{N+1}\right\}
+\]
+where the $\phi_j$ are the usual piecewise linear hat functions which are such that
+\[
+\phi_j\left(x_i\right)=\left\{\begin{array}{c}1\mbox{ if }i=j \\ 0\mbox{ if } i\ne j\end{array}\right.
+\]
+for $i,j=0,1,\ldots,N+1$.
+
+Consider the problem of finding $u\left(x,t\right)$ such that
+\[
+u_t\left(x,t\right)=u_{xx}\left(x,t\right),\mbox{ }0<x<1,\mbox{ }t>0
+\]
+with Neumann boundary conditions
+\[
+u_x\left(0,t\right)=u_x\left(1,t\right)=0,\mbox{ }t>0
+\]
+and initial condition
+\[
+u\left(x,0\right)=u_0\left(x\right)\mbox{ }0\le x\le1.
+\]
+
+We can obtain a finite element approximation
+\[
+u_N\left(x,t\right)=\sum_{j=0}^{N+1}\alpha_j\left(t\right)\phi_j\left(x\right)
+\]
+to $u$ by finding $\boldsymbol{\alpha}\left(t\right)$ such that
+\[
+\boldsymbol{M}\boldsymbol{\alpha}'\left(t\right)=-\boldsymbol{K}\boldsymbol{\alpha}\left(t\right)
+\]
+for matrices $\boldsymbol{M}$ and $\boldsymbol{K}$.
+
+(a) Write down the general forms of $\boldsymbol{M}$ and $\boldsymbol{K}$.
+
+(b) What should we take $\boldsymbol{\alpha}\left(0\right)$ to be in order for
+\[
+u_N\left(x_i,0\right)=u_0\left(x_i\right)
+\]
+for $i=0,1,\ldots,N+1$.
+
+(c) When $N=1$, the matrix $\boldsymbol{M}^{-1}\boldsymbol{K}$ is such that
+\[
+\boldsymbol{M}^{-1}\boldsymbol{K}\left[\begin{array}{c}1 \\ 1 \\ 1\end{array}\right]=\left[\begin{array}{c}0 \\ 0 \\ 0\end{array}\right],\mbox{ }\boldsymbol{M}^{-1}\boldsymbol{K}\left[\begin{array}{c}-1 \\ 0 \\ 1\end{array}\right]=\left[\begin{array}{c}-12 \\ 0 \\ 12\end{array}\right],\mbox{ and }\boldsymbol{M}^{-1}\boldsymbol{K}\left[\begin{array}{c}1 \\ -1 \\ 1\end{array}\right]=\left[\begin{array}{c}48 \\ -48 \\ 48\end{array}\right]\mbox{ }.
+\]
+We can write
+\[
+-\boldsymbol{M}^{-1}\boldsymbol{K}\boldsymbol{W}=\boldsymbol{W}\boldsymbol{D}
+\]
+where the matrix
+\[
+\boldsymbol{W}=\left[\begin{array}{ccc}1 & -1 & 1 \\ -1 & 0 & 1 \\ 1 & 1 & 1\end{array}\right].
+\]
+Write down the diagonal matrix $\boldsymbol{D}$.
+
+(d) The eigenvectors of $-\boldsymbol{M}^{-1}\boldsymbol{K}$ are not orthonormal and so $\boldsymbol{W}^{-1}\ne\boldsymbol{W}^T$. However, since the matrix $\boldsymbol{W}$ is symmetric there exist matrices $\boldsymbol{V}$ and $\boldsymbol{\Lambda}$ which are such that $\boldsymbol{W}=\boldsymbol{V}\boldsymbol{\Lambda}\boldsymbol{V}^{-1}$ and $\boldsymbol{V}^{-1}=\boldsymbol{V}^T$. The matrix $\boldsymbol{W}$ has eigenvalues $-\sqrt{2},\sqrt{2},2$ with corresponding eigenvectors $\left[\begin{array}{c} -1 \\ -\sqrt{2} \\ 1\end{array}\right],\left[\begin{array}{c} -1 \\ \sqrt{2} \\ 1\end{array}\right],\left[\begin{array}{c} 1 \\ 0 \\ 1\end{array}\right]$. Construct the matrices $\boldsymbol{V}$ and $\boldsymbol{\Lambda}$.
+
+(e) Compute $\boldsymbol{W}^{-1}$. You may use the fact that $\left(\boldsymbol{V}\boldsymbol{\Lambda}\boldsymbol{V}^{-1}\right)^{-1}=\boldsymbol{V}\boldsymbol{\Lambda}^{-1}\boldsymbol{V}^{-1}$.
+
+(f) By writing $-\boldsymbol{M}^{-1}\boldsymbol{K}$ in an appropriate form, compute the exact solution to
+\[
+\boldsymbol{M}\boldsymbol{\alpha}'\left(t\right)=-\boldsymbol{K}\boldsymbol{\alpha}\left(t\right)
+\]
+with initial condition
+\[
+\boldsymbol{\alpha}\left(0\right)=\left[\begin{array}{c}\alpha_0\left(0\right) \\ \alpha_1\left(0\right) \\ \alpha_2\left(0\right)\end{array}\right].
+\]
+
+(g) How does $\boldsymbol{\alpha}\left(t\right)$ behave as $t\rightarrow\infty$ when $\alpha_0\left(0\right)=\alpha_1\left(0\right)=\alpha_2\left(0\right)=1$?
+
+(h) When $u_0\left(x\right)=1$ the true solution is $u\left(x,t\right)=1$. What is the error $u-u_N$ when $u_0\left(x\right)=1$?
+
+
+
+\bigskip
+
+
+
+3. Let us consider the problem of finding $u\left(x,y\right)$ such that
+\[
+-u_{xx}\left(x,y\right)-u_{yy}\left(x,y\right)=f\left(x,y\right),\mbox{ }-1<x<1,\mbox{ }-1<y<1,
+\]
+with Neumann boundary conditions
+\[
+u_x\left(-1,y\right)=u_x\left(1,y\right)=0,\mbox{ }-1\le y\le1
+\]
+and 
+\[
+u_y\left(x,-1\right)=0,\mbox{ }u_y\left(x,1\right)=g\left(x\right)\mbox{ }-1\le x\le1.
+\]
+
+(a) Show that if $u\in C^2\left[-1,1\right]^2$ is the solution to the above problem then
+\[
+a\left(u,v\right)=l\left(v\right)\mbox{ for all }v\in C^2\left[-1,1\right]^2
+\]
+where
+\[
+a\left(w,v\right)=\int_{-1}^1\int_{-1}^1w_x\left(x,y\right)v_x\left(x,y\right)+w_y\left(x,y\right)v_y\left(x,y\right)\mbox{ }dxdy
+\]
+and
+\[
+l\left(v\right)=\int_{-1}^1\int_{-1}^1f\left(x,y\right)v\left(x,y\right)dxdy+\int_{-1}^1g\left(x\right)v\left(x,1\right)\mbox{ }dx.
+\]
+
+(b) Let $V_N=\mbox{span}\left\{\phi_1,\ldots,\phi_N\right\}$. Suppose that we want to find
+\[
+u_N\left(x,y\right)=\sum_{j=1}^N\alpha_j\phi_j\left(x,y\right)
+\]
+such that
+\[
+a\left(u_N,v\right)=l\left(v\right)\mbox{ for all }v\in V_N.
+\]
+We can obtain the coefficients $\alpha_j$ by solving the linear system of equations
+\[
+\boldsymbol{K}\boldsymbol{\alpha}=\boldsymbol{b}.
+\]
+where the matrix $\boldsymbol{K}\in\mathbb{R}^{N\times N}$ has entries
+\[
+K_{ij}=a\left(\phi_j,\phi_i\right)
+\]
+for $i,j=1,\ldots,N$. What are the entries of the vector $\boldsymbol{b}$?
+
+(c) Compute $\displaystyle{\int_{-1}^1\left(1-s\right)^2ds}$,  $\displaystyle{\int_{-1}^1\left(1+s\right)^2ds}$ and $\displaystyle{\int_{-1}^1\left(1-s\right)\left(1+s\right)ds}$.
+
+(d) Construct the matrix $\boldsymbol{K}$ when $N=4$ and
+\[
+\phi_1=\frac{1}{4}\left(1-x\right)\left(1-y\right)
+\]
+\[
+\phi_2=\frac{1}{4}\left(1+x\right)\left(1-y\right)
+\]
+\[
+\phi_3=\frac{1}{4}\left(1-x\right)\left(1+y\right)
+\]
+\[
+\phi_4=\frac{1}{4}\left(1+x\right)\left(1+y\right)
+\]
+for $-1\le x\le1$ and $-1\le y\le1$.
+
+(e) Simplify
+\[
+\sum_{j=1}^4\phi_j\left(x,y\right).
+\]
+
+(f) The matrix $\boldsymbol{K}$ is such that
+\[
+\boldsymbol{K}\boldsymbol{v}_0=\boldsymbol{0}
+\]
+where
+\[
+\boldsymbol{v}_0=\left[\begin{array}{c}1 \\ 1 \\ 1 \\ 1\end{array}\right].
+\]
+Consequently,
+\[
+\boldsymbol{K}\boldsymbol{\alpha}=\boldsymbol{b}
+\]
+will have no solutions if $\boldsymbol{v}_0^T\boldsymbol{b}\ne0$. Show that if $l\left(1\right)\ne0$ then $\boldsymbol{v}_0^T\boldsymbol{b}\ne0$.
+
+
+
+\end{document}

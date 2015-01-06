@@ -1,0 +1,102 @@
+\begin{enumerate}
+
+Consider the linear regression problem: given 4 data points, find the line of best fit.  In other words, given the assumption that $y = ax + b$, the linear regression problem is to find the coefficients $a$ and $b$ such that they minimize the misfit between the line and each data point
+\[
+%\sum_{j=1}^4 (ax_i + b - y_i)^2 = 
+\min_{a,b} \sum_{j=1}^4 e_i^2 = \min_{a,b} \sum_{j=1}^4 (ax_i + b - y_i)^2,
+\]
+where $e_i = ax_i + b - y_i$ is the error at each data point.
+
+This can be cast into a least squares problem: given
+\[
+A = \bmatrix{ x_1 & 1 \cr x_2 & 1  \cr x_3 & 1 \cr x_4 & 1 }, \quad z =  \bmatrix{a\cr b}, \quad y = \bmatrix{y_1 \cr y_2 \cr y_3 \cr y_4}
+\]
+solve $A^TAz = A^Ty$.
+\item For the points
+\[
+\bmatrix{x_1, & x_2, & x_3, & x_4}^T = \bmatrix{0,&1,&2,&2}^T, \quad \bmatrix{y_1,& y_2, & y_3, & y_4}^T = \bmatrix{1&2&2&4}^T
+\]
+solve the least squares problem for $a$ and $b$.  
+\item The so-called \emph{augmented system} is given as
+\[
+\bmatrix{ I & A\cr A^T & 0}\bmatrix{e\cr z} = \bmatrix{y \cr 0}.
+\]
+where $I$ is the $m \times m$ identity matrix, and $0$ represents the $n\times n$ matrix of zeros (for the vector $\bmatrix{y \cr 0}$, $0$ represents a vector of $n$ zeros underneath the vector $y$).  The augmented system solves simultaneously for the solution $u$ and the error $e$.  Derive the normal equations $A^TAz = A^Ty$ from the augmented system.% by expressing $e$ in terms of $A$, $b$, and $x$.  
+
+\item Suppose that the data points come from measured data, and that one data point is known to be less ``trustworthy'' than the other points.  It is possible to \emph{de-emphasize} the impact of this point on the least squares regression by minimizing a weighted combination of the misfits and solving
+\[
+\min_{a,b} \sum_{j=1}^4 w_i(ax_i + b - y_i)^2.
+\]
+This is referred to as ``weighted least squares'', which equivalently solves the problem
+\[
+\bmatrix{ D & A\cr A^T & 0}\bmatrix{e\cr z} = \bmatrix{y \cr 0}.
+\]
+where $D$ is a diagonal matrix with $D_{ii} = 1/w_i$.  Derive the normal equations for weighted least squares (i.e. a system of equations only involving $z$).  
+\item Set up (you do not need to solve) the weighted least squares normal equations for $w_1 = w_2 = w_3 = 1$ and $w_4 = 1/4$.  
+\end{enumerate}
+
+%\emph{Note: this test problem is inspired by an actual conversation overheard between two senior design students, where one said to the other (paraphrased): }
+%\begin{center}
+%``We have three data points; look, if we throw this one out, it's a linear relation.''
+%\end{center}
+
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+\begin{enumerate}
+\item For the points given, our overdetermined system is given as
+\[
+A = \bmatrix{0 &1\cr 1 &1\cr 2 &1\cr 2 &1 \cr}\bmatrix{a \cr b} = \bmatrix{1\cr 2 \cr 2 \cr 4}.
+\]
+The normal equations $A^TAz = y$ give
+\[
+\bmatrix{9& 5\cr 5 & 4}\bmatrix{a\cr b} = \bmatrix{14\cr 9}.
+\]
+We can either solve this directly or notice that $y$ is the sum of the two columns to get 
+\[
+a = 1, \quad b = 1.
+\]
+\item If we multiply out the block matrix equation, we get
+\begin{eqnarray*}
+e + Az &=y \\
+A^Te &= 0.
+\end{eqnarray*}
+Noting that $e = y - Az$, we can substitute this into the second equation (i.e. the orthogonality of error condition!) to get 
+\[
+A^T(y-Az) = 0.
+\]
+Expanding out gives the normal equations $A^Ty-A^TAz = 0$.
+\item The augmented system for weighted least squares gives only a slightly different set of equations when expanded out
+\begin{eqnarray*}
+De + Az &=y \\
+A^Te &= 0.
+\end{eqnarray*}
+Assuming $w_i>0$, since $D$ is a diagonal matrix with $D_{ii} = 1/w_i$, we can invert it to get $e = D^{-1}(y-Az)$.  Then, substituting this into the second equation gives
+\[
+A^TD^{-1}(y-Az) = 0,
+\]
+which leads to the weighted least squares equations
+\[
+A^TD^{-1}Az = A^TD^{-1}y.
+\]
+\item With the given weights, the matrix $D$ is
+\[
+D = {\rm diag}([1,1,1,4])
+\]
+and $D^{-1}$ is 
+\[
+D^{-1} = {\rm diag}([1,1,1,1/4]).
+\]
+Noting that $D^{-1}A$ scales the rows of $A$, we get 
+\[
+D^{-1}A = \bmatrix{0 &1\cr 1 &1\cr 2 &1\cr 1/2 &1/4 \cr}, \quad D^{-1}y= \bmatrix{1\cr 2 \cr 2 \cr 1}.
+\]
+Multiplying these by $A^T$ gives
+\[
+A^TD^{-1}A = \bmatrix{0 &1 &2 &2\cr 1 & 1& 1& 1}\bmatrix{0 &1\cr 1 &1\cr 2 &1\cr 1/2 &1/4 \cr} = \bmatrix{6 & 3.5 \cr 3.5 & 3.25}
+\]
+\[
+A^TD^{-1}b = \bmatrix{0 &1 &2 &2\cr 1 & 1& 1& 1}\bmatrix{1\cr 2 \cr 2 \cr 1} = \bmatrix{8\cr 6}.
+\]
+
+\end{enumerate}
+\end{solution}}{}

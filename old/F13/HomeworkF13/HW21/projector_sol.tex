@@ -1,0 +1,40 @@
+\begin{solution}
+\begin{enumerate}
+\item {[8 points]} If $f\in C[-1,1]$ then
+     \[ (P_e f)(x) = {f(x)+f(-x) \over 2},\]
+     and so
+     \[ (P_e(P_e f))(x) = {\Big(\displaystyle{f(x)+f(-x)\over 2}\Big) + \Big({f(-x)+f(x)\over 2}\Big) \over 2}
+                   = {f(x)+f(-x) \over 2} = (P_e) f(x).\]
+     Thus we conclude that $P_e(P_e f) = P_e f$ for all $f\in C[-1,1]$, which means that $P_e$ is a projection. In the same way, if $f\in C[-1,1]$ then
+     \[ (P_o f)(x) = {f(x)-f(-x) \over 2},\]
+     and so
+     \[ (P_o(P_o f))(x) = {\Big(\displaystyle{f(x)-f(-x)\over 2}\Big) - \Big({f(-x)-f(x)\over 2}\Big) \over 2}
+                   = {f(x)-f(-x) \over 2} = (P_o f)(x).\]
+     Thus we conclude that $P_o(P_o f) = P_o f$ for all $f\in C[-1,1]$, which means that $P_o$ is a also projection.
+
+\item {[9 points]} If $f\in C[-1,1]$ then
+     \begin{eqnarray*}
+   (P_e f, P_o f) &=& \int_{-1}^1 (P_e f)(x) (P_o f)(x)\, d x \\[.5em]
+                       &=& \int_{-1}^1 {\left(f(x)+f(-x)\right)\left(f(x)-f(-x)\right) \over 4}\, d x \\[.5em]
+                       &=& {1\over 4} \int_{-1}^1 \left(f(x)\right)^2 - f(x) f(-x) + f(x) f(-x) - \left(f(-x)\right)^2  \, dx \\[.5em]
+                       &=& {1\over 4} \int_{-1}^1 \left(f(x)\right)^2 - \left(f(-x)\right)^2  \, dx \\[.5em]
+                       &=& {1\over 4} \left(\int_{-1}^1 \left(f(x)\right)^2 \, dx - \int_{-1}^1 \left(f(-x)\right)^2  \, dx\right) \\[.5em]
+                       &=& {1\over 4} \left(\int_{-1}^1 \left(f(x)\right)^2 \, dx + \int_{-(-1)}^{-1} \left(f(y)\right)^2  \, dy\right) \\[.5em]
+                       &=& {1\over 4} \left(\int_{-1}^1 \left(f(x)\right)^2 \, dx + \int_1^{-1} \left(f(y)\right)^2  \, dy\right) \\[.5em]
+                       &=& {1\over 4} \left(\int_{-1}^1 \left(f(x)\right)^2 \, dx - \int_{-1}^1 \left(f(y)\right)^2  \, dy\right) \\[.5em]
+                       &=& 0
+     \end{eqnarray*}
+where $y=-x$.
+
+\item {[8 points]} If $f\in C[-1,1]$ then
+\[
+((P_e+P_o)f)(x)=(P_e f)(x) +(P_o f)(x) = {f(x) + f(-x) \over 2}+{f(x) - f(-x) \over 2} = f(x),
+\]
+and so
+\[
+((P_e+P_o)((P_e+P_o)f))(x)= ((P_e+P_o)f)(x).
+\]
+Hence, $(P_e+P_o)((P_e+P_o)f)=(P_e+P_o)f$ for all $f\in C[-1,1]$ and so $P_e + P_o$ is a projection.
+
+\end{enumerate}
+\end{solution}

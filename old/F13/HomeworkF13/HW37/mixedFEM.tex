@@ -1,0 +1,90 @@
+Let N be a positive integer, let $\displaystyle{h={1 \over N+1}}$ and let $x_k=kh$ for $k=0,1,\ldots,N+1$. Let the continuous piecewise linear hat functions $\phi_j\in C[0,1]$ be such that
+\[
+\phi_0(x) = \left\{\begin{array}{ll}
+\displaystyle{x_1-x \over h} & \mbox{if }x\in[x_0,x_1),\\
+0& \mbox{otherwise},
+\end{array}\right.
+\]
+and
+\[
+\phi_j(x) = \left\{\begin{array}{ll}
+\displaystyle{{(x-x_{j-1}) \over h}} & \displaystyle{\mbox{if }x\in[x_{j-1},x_j)},
+\\[10pt]
+\displaystyle{{(x_{j+1}-x) \over h}} & \displaystyle{\mbox{if }x\in[x_j,x_{j+1})},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\]
+for $j=1,\ldots,N$ and
+\[
+\phi_{N+1}(x) = \left\{\begin{array}{ll}
+\displaystyle{x-x_N \over h} & \mbox{if }x\in[x_N,x_{N+1}],\\
+0& \mbox{otherwise.}
+\end{array}\right.
+\]
+Let $H^1_D\left(0,1\right)=\{v\in H^1\left(0,1\right):\,v(1)=0\}$. Let the inner product $\ip{\cdot,\cdot}:L^2\left(0,1\right)\times L^2\left(0,1\right)\to\R$ be defined by
+\[
+\ip{v,w}=\int_0^1v(x)w(x)\,dx
+\]
+and let the symmetric bilinear form $a\ip{\cdot,\cdot}:H^1\left(0,1\right)\times H^1\left(0,1\right)\to\R$ be defined by
+\[
+a\ip{v,w}=\int_0^1v'(x)w'(x)\,dx.
+\]
+Also, let the norm $\left|\left|\left|\cdot\right|\right|\right|:H^1_D\left(0,1\right)\to\R$ be defined by
+\[
+\left|\left|\left|v\right|\right|\right|=\sqrt{a\ip{v,v}}.
+\]
+Let $u\in C^2[0,1]$ be the solution of
+\begin{eqnarray*}
+ -u''(x) &=& f(x),\quad 0<x<1;
+\\
+ u'(0) &=& \alpha;
+\\
+u(1) &=& \beta;
+\end{eqnarray*}
+where $f\in C[0,1]$ and $\alpha,\beta\in\R$. 
+\begin{enumerate}
+\item It can be shown that
+\[
+a\ip{u,v}=g(f,\alpha,v)\mbox{ for all }v\in\{w\in C^2[0,1]:w(1)=0\}
+\]
+where $g(f,\alpha,v)$ is a function of $f$, $\alpha$ and $v$. Obtain a formula for $g(f,\alpha,v)$.
+
+\vspace*{1em}
+\item For the remainder of this question we shall just consider the case when
+\[
+f(x)=12x^2-24x+4.
+\]
+Note that in this case you obtained a formula for $u$ in a previous homework. For this part we will just consider the case when $\alpha=\beta=0$. In this case, we can obtain finite element approximations $u_N$ to $u$ by finding $u_N\in\rm{span}\{\phi_0,\ldots,\phi_N\}$ such that
+\[
+a\ip{u_N,v}=g(f,0,v)\mbox{ for all }v\in\rm{span}\{\phi_0,\ldots,\phi_N\}.
+\]
+Write a code which can obtain $u_N$ and $u_N^*$ where $u_N^*\in\rm{span}\{\phi_1,\ldots,\phi_N\}$ is such that
+\[
+a\ip{u_N^*,v}=g(f,0,v)\mbox{ for all }v\in\rm{span}\{\phi_1,\ldots,\phi_N\}.
+\]
+On the same figure, plot $u$ as well as $u_N$ and $u^*_N$ for $N=3$ and $N=7$.
+
+\vspace*{1em}
+\item For the case when $\alpha=\beta=0$, plot
+\[
+\left|\left|\left|u-u_N\right|\right|\right|
+\]
+and
+\[
+\left|\left|\left|u-u^*_N\right|\right|\right|
+\]
+for $N=1,3,7,15,31,63,127,255,511,1023,2047,4095,8191,16383,32767$.
+
+\vspace*{1em}
+\item Modify your code so that it can obtain finite element approximations $u_N$ to $u$ by finding $u_N\in\rm{span}\{\phi_0,\ldots,\phi_{N+1}\}$ such that $u_N(1)=\beta$ and
+\[
+a\ip{u_N,v}=g(f,\alpha,v)\mbox{ for all }v\in\rm{span}\{\phi_0,\ldots,\phi_N\}
+\]
+for any $\alpha\in\R$ and $\beta\in\R$. For the particular case of $\alpha = -1$ and $\beta = 1$, use your code to obtain $u_N$ for $N=3,7,15,31$ and on the same figure plot $u$ and $u_N$ for $N=3,7,15,31$.
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\boolean{showsols}}{\input mixedFEM_sol}{}
+

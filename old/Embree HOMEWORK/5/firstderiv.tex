@@ -1,0 +1,55 @@
+Consider the operator $L:C_\ell^1[0,1] \to C[0,1]$ defined by
+\[ Lu = {du\over dx},\]
+where 
+\[ C_\ell^1[0,1] = \{ u \in C^1[0,1], u(0) = 0\}.\]
+
+\begin{enumerate}
+\item Show that $L$ is a linear operator.
+\item Is $L$ symmetric?
+\item Show that $L$ has \emph{no} eigenvalues, that is, 
+      demonstrate that there exist no nonzero $u \in C_\ell^1[0,1]$ 
+      and $\lambda\in\C$ for which $Lu = \lambda u$.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+
+\begin{enumerate}
+\item Suppose that $u, v \in C_\ell^1[0,1]$ and $\alpha, \beta\in \R$.
+      Then 
+         \[ L(\alpha u + \beta v) 
+            = {d \over dx} (\alpha u + \beta v) 
+            = \alpha {du\over dx} + \beta {dv\over dx}
+            = \alpha Lu + \beta Lv.\]
+       Hence $L$ is a linear operator.
+ 
+\item No, $L$ is \emph{not symmetric}.  To show this, we need only
+      exhibit two functions $u, v \in C_\ell^1[0,1]$ such that 
+      $(Lu,v) \ne (u,Lv)$.
+      For example, take $u(x) = x$ and $v(x) = x^2$.
+      Then
+         \begin{eqnarray*}
+               (Lu, v) &=& \int_0^1 {du \over dx}(x) v(x)\, dx
+                           = \int_0^1 x^2 \, dx = \Big[{x^3 \over 3}\Big]_0^1 = 1/3;\\[0.5em]
+               (u, Lv) &=& \int_0^1 u(x) {dv \over dx}(x) \, dx
+                           = \int_0^1 x (2x) \, dx = \Big[{2x^3 \over 3}\Big]_0^1 = 2/3.
+         \end{eqnarray*}
+       Hence $(Lu,v) \ne (u,Lv)$, and so $L$ is not symmetric.
+    
+       {[\textbf{GRADERS:} Please deduct 2~points if either (or both) functions 
+         $u$ and $v$ are not in $C_\ell^1[0,1]$.]}
+
+\item Suppose that there exists some function $u \in C_\ell^1[0,1]$ such that
+      $L u = \lambda u$ for some $\lambda\in\C$.
+      This means that $du/dx = \lambda u$, which can only be satisfied if
+               \[ u(x) = c e^{\lambda x}\]
+      for some constant $c$.
+      Unfortunately, in order to have $u\in C_\ell^1[0,1]$, we must have
+				  $u(0)=0$, which can only occur if $c=0$ since $e^{\lambda\cdot 0} = 1 \ne 0$
+      for all $\lambda\in \C$.  If $c=0$ then $u(x) = 0$ for all $x\in[0,1]$, 
+      which violates the requirement that $u$ be nonzero.
+      Hence $L$ is an example of a linear operator with no eigenvalues.
+\end{enumerate}
+\end{solution}}{}
+

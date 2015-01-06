@@ -1,0 +1,85 @@
+\begin{solution}
+\begin{enumerate}
+\item {[6 points]} If $\BA\in\R^{2\times2}$ and $\BB\in\R^{2\times2}$ then
+\[
+\ip{\BA,\BB}=\sum_{j=1}^2 \sum_{k=1}^2 a_{jk} b_{jk}=\sum_{j=1}^2 \sum_{k=1}^2 b_{jk} a_{jk}=\ip{\BB,\BA}
+\]
+and so $\ip{\BA,\BB}=\ip{\BB,\BA}$ for all $\BA,\BB\in\R^{2\times2}$.
+
+Also, if $\BA,\BB,\BC\in\R^{2\times2}$ and $\alpha,\beta\in\R$ then
+\begin{eqnarray*}
+\ip{\alpha\BA+\beta\BB,\BC}&&=\sum_{j=1}^2 \sum_{k=1}^2 \left(\alpha a_{jk}+\beta b_{jk}\right)c_{jk}
+\\
+&&=\sum_{j=1}^2 \sum_{k=1}^2 \left(\alpha a_{jk}c_{jk}+\beta b_{jk}c_{jk}\right)
+\\
+&&=\sum_{j=1}^2 \sum_{k=1}^2 \alpha a_{jk}c_{jk}+\sum_{j=1}^2 \sum_{k=1}^2\beta b_{jk}c_{jk}
+\\
+&&=\alpha \sum_{j=1}^2 \sum_{k=1}^2 a_{jk}c_{jk}+\sum_{j=1}^2 \beta \sum_{k=1}^2b_{jk}c_{jk}
+\\
+&&=\alpha\ip{\BA,\BC}+\beta\ip{\BB,\BC}
+\end{eqnarray*}
+and so $\ip{\alpha\BA+\beta\BB,\BC}=\alpha\ip{\BA,\BC}+\beta\ip{\BB,\BC}$ for all $\BA,\BB,\BC\in\R^{2\times2}$ and all $\alpha,\beta\in\R$.
+
+Moreover, if $\BA\in\R^{2\times2}$ then
+\[
+\ip{\BA,\BA}=\sum_{j=1}^2 \sum_{k=1}^2 a_{jk}^2\ge 0
+\]
+and if $\ip{\BA,\BA}=0$ then since $a_{jk}\in\R$, $a_{11}^2=a_{12}^2=a_{21}^2=a_{22}^2=0$ from which it follows that $a_{11}=a_{12}=a_{21}=a_{22}=0$. So, $\ip{\BA,\BA}\ge0$ for all $\BA\in\R^{2\times2}$ with $\ip{\BA,\BA}=0$ only if $\BA=\Bzero$.
+
+Consequently, $\ip{\cdot,\cdot}$ is an inner product on $\R^{2\times2}$.
+\\
+\item {[7 points]} Let $\Bw_1=\left[\begin{array}{cc}1 & 0 \\ 0 & 0\end{array}\right]$, $\Bw_2=\left[\begin{array}{cc}0 & 0 \\ 0 & 1\end{array}\right]$, $\Bw_3=\left[\begin{array}{cc}0 & 1 \\ 1 & 0\end{array}\right]$. Since, $\ip{\Bw_1,\Bw_2}=\ip{\Bw_1,\Bw_3}=\ip{\Bw_2,\Bw_3}=0$, the best approximation to $\BM$ from $V_3$ is
+\[
+\BM_3=\sum_{j=1}^3{\ip{\BM,\Bw_j} \over \ip{\Bw_j,\Bw_j}}\Bw_j.
+\]
+Now, $\ip{\BM,\Bw_1}=1$, $\ip{\BM,\Bw_2}=9$ and $\ip{\BM,\Bw_3}=10$. Also, $\ip{\Bw_1,\Bw_1}=1$, $\ip{\Bw_2,\Bw_2}=1$ and $\ip{\Bw_3,\Bw_3}=2$. Therefore,
+\[
+\BM_3={1 \over 1}\left[\begin{array}{cc}1 & 0 \\ 0 & 0\end{array}\right]+{9 \over 1}\left[\begin{array}{cc}0 & 0 \\ 0 & 1\end{array}\right]+{10 \over 2}\left[\begin{array}{cc}0 & 1 \\ 1 & 0\end{array}\right]=\left[\begin{array}{cc}1 & 5 \\ 5 & 9\end{array}\right].
+\]
+\\
+\item {[6 points]} If $\BM_3$ is the best approximation to $\BM$ from $V_3$ with respect to the norm $\norm{\cdot}$ then the error $\BM-\BM_3$ will be such that
+\[
+\ip{\BM-\BM_3,\Bv}=0\mbox{ for all }\Bv\in V_3.
+\]
+So, $\ip{\BM-\BM_3,\Bw_1}=0$ and $\ip{\BM-\BM_3,\Bw_2}=0$. Hence, since $\ip{\BM-\BM_3,\Bw_1}=(\BM-\BM_3)_{11}$ and $\ip{\BM-\BM_3,\Bw_2}=(\BM-\BM_3)_{22}$, the diagonal entries of $\BM-\BM_3$ will always be zero.
+
+The above is all that is required for full credit. However, alternatively, we could have computed that
+\begin{eqnarray*}
+M_3&=&\displaystyle{\sum_{j=1}^3{\ip{\BM,\Bw_j} \over \ip{\Bw_j,\Bw_j}}\Bw_j}
+\\
+&=&\displaystyle{{m_{11} \over 1}\left[\begin{array}{cc}1 & 0 \\ 0 & 0\end{array}\right]+{m_{22} \over 1}\left[\begin{array}{cc}0 & 0 \\ 0 & 1\end{array}\right]+{m_{12}+m_{21} \over 2}\left[\begin{array}{cc}0 & 1 \\ 1 & 0\end{array}\right]}
+\\
+&=&\left[\begin{array}{cc} \displaystyle{m_{11}} & \displaystyle{\frac{m_{12}+m_{21}}{2}} \\ \displaystyle{\frac{m_{12}+m_{21}}{2}} & \displaystyle{m_{22}}\end{array}\right]
+\end{eqnarray*}
+ where
+\[
+M=\left[\begin{array}{cc} m_{11} & m_{12} \\ m_{21} & m_{22}\end{array}\right]
+\]
+and hence concluded that the error
+\[
+\BM-\BM_3=\left[\begin{array}{cc} \displaystyle{0} & \displaystyle{\frac{m_{12}-m_{21}}{2}} \\ \displaystyle{\frac{m_{21}-m_{12}}{2}} & \displaystyle{0}\end{array}\right].
+\]
+\\
+\item {[6 points]} First observe that $V_3=\widehat{V}_3$. Hence, since the best approximation to $\BM$ from $V_3$ with respect to the norm $\norm{\cdot}$ is the same regardless of which basis for $\widehat{V}_3$ is used to compute it,
+\[
+\widehat{\BM}_3=\left[\begin{array}{cc}1 & 5 \\ 5 & 9\end{array}\right].
+\]
+
+The above is all that is required for full credit. However, alternatively, we could have computed that
+\[
+\widehat{\BM}_3=\sum_{j=1}^3c_j\widehat{\Bw}_j=\left[\begin{array}{cc}1 & 5 \\ 5 & 9\end{array}\right]
+\]
+by assembling and solving
+\[
+\left[\begin{array}{ccc} \left(\widehat{\Bw}_1,\widehat{\Bw}_1\right) & \left(\widehat{\Bw}_2,\widehat{\Bw}_1\right) & \left(\widehat{\Bw}_3,\widehat{\Bw}_1\right)
+\\
+\left(\widehat{\Bw}_1,\widehat{\Bw}_2\right) & \left(\widehat{\Bw}_2,\widehat{\Bw}_2\right) & \left(\widehat{\Bw}_3,\widehat{\Bw}_2\right)
+\\
+\left(\widehat{\Bw}_1,\widehat{\Bw}_3\right) & \left(\widehat{\Bw}_2,\widehat{\Bw}_3\right) & \left(\widehat{\Bw}_3,\widehat{\Bw}_3\right)\end{array}\right]\left[\begin{array}{c}c_1 \\ c_2 \\ c_3\end{array}\right]=\left[\begin{array}{c}\left(\BM,\widehat{\Bw}_1\right) \\ \left(\BM,\widehat{\Bw}_2\right) \\ \left(\BM,\widehat{\Bw}_3\right)\end{array}\right]
+\]
+where
+\[
+\widehat{\Bw}_1=\left[\begin{array}{cc}\displaystyle{{1\over\sqrt{2}}}  & 0 \\ 0 & \displaystyle{{1\over \sqrt{2}}}\end{array}\right]\mbox{, }\widehat{\Bw}_2=\left[\begin{array}{cc}\displaystyle{{1\over\sqrt{10}}} & \displaystyle{{2\over\sqrt{10}}} \\ \displaystyle{{2\over\sqrt{10}}} & \displaystyle{{1\over \sqrt{10}}}\end{array}\right]\mbox{, and }\widehat{\Bw}_3=\left[\begin{array}{cc}\displaystyle{{1\over\sqrt{2}}} & 0 \\ 0 & \displaystyle{-{1\over\sqrt{2}}}\end{array}\right].
+\]
+\end{enumerate} 
+\end{solution}

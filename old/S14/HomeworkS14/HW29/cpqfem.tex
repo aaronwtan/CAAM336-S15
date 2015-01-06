@@ -1,0 +1,34 @@
+
+Let N be a positive integer, let $\displaystyle{h={1 \over N+1}}$ and let $x_k=kh$ for $k=0,1,\ldots,N+1$. Let the continuous piecewise quadratic functions $\phi_j\in C[0,1]$ be such that
+\[
+\phi_j(x)=\left\{\begin{array}{ll}
+\displaystyle{{(x-x_{j-1})(2x-x_{j-1}-x_j) \over h^2}} & \displaystyle{\mbox{if }x\in[x_{j-1},x_j)},
+\\[10pt]
+\displaystyle{{(x_j+x_{j+1}-2x)(x_{j+1}-x) \over h^2}} & \displaystyle{\mbox{if }x\in[x_j,x_{j+1})},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\]
+for $j=1,\ldots,N$ and let the continuous piecewise quadratic bubble functions $\psi_j\in C[0,1]$ be such that
+\[
+\psi_j(x)=\left\{\begin{array}{ll}
+\displaystyle{{4(x-x_{j-1})(x_j-x) \over h^2}} & \displaystyle{\mbox{if }x\in[x_{j-1},x_j)},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\]
+for $j=1,\ldots,N+1$.
+\\
+\begin{enumerate}
+\item Write a MATLAB function for $\phi_j(x)$.  It should take in as input $x$, $j$, and $N$.  It should return the value $\phi_j(x)$.  It should also be able to take in a vector for $\Bx=(\hat{x}_1,\ldots,\hat{x}_m)$ and return the vector $\phi_j(\Bx)=(\phi_j(\hat{x}_1),\ldots,\phi_j(\hat{x}_m))$.
+\\
+\item Write a MATLAB function for $\psi_j(x)$.  It should take in as input $x$, $j$, and $N$.  It should return the value $\psi_j(x)$.  It should also be able to take in a vector for $\Bx=(\hat{x}_1,\ldots,\hat{x}_m)$ and return the vector $\psi_j(\Bx)=(\psi_j(\hat{x}_1),\ldots,\psi_j(\hat{x}_m))$.
+\\
+\item For $N=3$, plot $\phi_1(x),\phi_2(x), \phi_3(x),\psi_1(x),\psi_2(x), \psi_3(x),\psi_4(x)$ on the same figure. If you experience problems with displaying $\psi$ using the latex interpreter then you may use the command \verb|legend('\phi_1(x)','\phi_2(x)','\phi_3(x)','\psi_1(x)','\psi_2(x)','\psi_3(x)','\psi_4(x)')| to produce the legend.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input cpqfem_sol}{}
+

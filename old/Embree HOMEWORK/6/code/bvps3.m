@@ -1,0 +1,33 @@
+ xx = linspace(0,1,1000)';    % fine grid between x=0 and x=1
+ f  = (xx<.5);                % define the right hand side function
+ fN = zeros(size(xx));        
+ uN = zeros(size(xx));        
+ for k=1:20
+    ck =  (sqrt(2)*sin((2*k-1)*pi/4))/((k-.5)*pi);
+    lamk = ((k-1/2)^2)*(pi^2);
+    fN = fN + ck*(sqrt(2)*cos(sqrt(lamk)*xx));      % construct the approximation to the RHS
+    uN = uN + ck/lamk*(sqrt(2)*cos(sqrt(lamk)*xx)); % spectral method for u
+
+    figure(1), clf
+      plot(xx, f, 'b-','linewidth',2), hold on
+      plot(xx, fN, 'r--','linewidth',2)
+      legend('true f(x)', 'approximation',1)
+      set(gca,'fontsize',16)
+      xlabel('x')
+      title(sprintf('approximation from first %d terms in the series for f(x)', k))
+      axis([0 1 -.1 1.25])
+      if ismember(k,[1 2 3 20]), 
+          eval(sprintf('print -depsc2 bvps3_%db',k))
+      end
+    figure(2), clf
+      plot(xx, uN, 'r--','linewidth',2)
+      set(gca,'fontsize',16)
+      xlabel('x')
+      xlabel('u_N(x)')
+      title(sprintf('approximation from first %d terms in the series for u(x)', k))
+      axis([0 1 0 0.5])
+      if ismember(k,[1 2 3 20]), 
+          eval(sprintf('print -depsc2 bvps3_%da',k))
+      end
+    pause
+ end

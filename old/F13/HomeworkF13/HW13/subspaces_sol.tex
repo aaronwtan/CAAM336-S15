@@ -1,0 +1,39 @@
+\begin{solution}
+\begin{enumerate}
+\item {[12 points]} There are no vectors $\Bu,\Bv\in\R^2$ which are such that $\{\Bu,\Bv\}$ is linearly independent and the set $\mathcal{P}_{\Bu,\Bv}$ is a subspace of $\R^2$. Let $\Bu,\Bv\in\R^2$ be such that $\{\Bu,\Bv\}$ is linearly independent. The set $\mathcal{P}_{\Bu,\Bv}$ is not a subspace of $\R^2$, because even though it is closed under addition, it is not closed under scalar multiplication. If $\Bx\in\mathcal{P}_{\Bu,\Bv}$, then $\Bx=a\Bu+b\Bv$, where $a,b\in\R$ are such that $a\ge0$ and $b\ge0$. The choice
+\[
+a=1,b=1
+\]
+satisfies these conditions, but then
+\[
+-\Bx=-a\Bu-b\Bv=-\Bu-\Bv\notin\mathcal{P}_{\Bu,\Bv}
+\]
+since the fact that $\Bu$ and $\Bv$ are linearly independent means that the only $\tilde{a},\tilde{b}\in\R$ for which
+\[
+-\Bu-\Bv=\tilde{a}\Bu+\tilde{b}\Bv
+\]
+are $\tilde{a}=\tilde{b}=-1$ which are such that $\tilde{\alpha}<0$ and $\tilde{\beta}<0$.
+
+\item {[13 points]} There are no vectors $\Bu,\Bv\in\R^2$ which are such that $\{\Bu,\Bv\}$ is linearly independent and the set $\mathcal{Q}_{\Bu,\Bv}$ is a subspace of $\R^2$. Let $\Bu,\Bv\in\R^2$ be such that $\{\Bu,\Bv\}$ is linearly independent. The set $\mathcal{Q}_{\Bu,\Bv}$ is not a subspace of $\R^2$, because even though it is closed under scalar multiplication, it is not closed under addition. If $\Bx,\By\in\mathcal{Q}_{\Bu,\Bv}$, then 
+\[
+\Bx=a_1\Bu+b_1\Bv,\; \By=a_2\Bu+b_2\Bv,
+\]
+where $a_1,b_1,a_2,b_2\in\R$ are such that $a_1b_1\ge0$, and $a_2b_2\ge0$. The choice
+\[
+a_1=2,b_1=1,a_2=-1,b_2=-2
+\]
+satisfies these conditions, but then
+\[
+\Bx+\By=(a_1+a_2)\Bu+(b_1+b_2)\Bv=\Bu-\Bv\notin\mathcal{Q}_{\Bu,\Bv}
+\]
+since the fact that $\Bu$ and $\Bv$ are linearly independent means that the only $\tilde{a},\tilde{b}\in\R$ for which
+\[
+\Bu-\Bv=\tilde{a}\Bu+\tilde{b}\Bv
+\]
+are $\tilde{a}=1$ and $\tilde{b}=-1$ which are such that $\tilde{a}\tilde{b}<0$.
+
+
+
+
+\end{enumerate}
+\end{solution}

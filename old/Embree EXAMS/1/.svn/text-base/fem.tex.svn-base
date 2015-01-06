@@ -1,0 +1,42 @@
+We wish to use the finite element method to solve the equation
+\[ -u''(x) + 6 u(x) = f(x),\]
+for $x\in[0,1]$ and $u(0)=u(1)=0$.
+
+Let $V = C^2_D[0,1]$ and use the standard inner product
+\[ (f,g) = \int_0^1 f(x) g(x)\,d x.\]
+
+\begin{enumerate}
+\item Suppose $u$ is a solution to $-u''(x) + 6 u(x) = f(x)$,
+      with $u(0)=u(1)=0$.\\
+      Show that $u$ then satisfies the weak form
+\[ a(u,w) = (f,w) \qquad \mbox{for all $w\in V$},\]
+where 
+\[ a(u,w) = \int_0^1 u'(x) w'(x) 
+           + 6@ u(x) w(x)\, d x.\]
+
+\vspace*{1em}
+\item Does $a(\cdot,\cdot)$ define an inner product on $V=C^2_D[0,1]$?  
+      Explain.
+\end{enumerate}
+
+\vspace*{1em}
+We wish to use Galerkin's method to find an approximate solution
+to the differential equation
+from $V_N = {\rm span}\{\phi_1, \ldots, \phi_N\}$, using the
+standard hat functions
+\[ \phi_k(x) = \left\{ \begin{array}{ll}
+           (x-x_{k-1})/h, & x\in [x_{k-1}, x_k);\\
+           (x_{k+1}-x)/h, & x\in [x_k, x_{k+1});\\
+            0,             & \mbox{otherwise}.
+          \end{array}\right. \]
+where  $h=1/{N+1}$ and $x_k = k@h$ for $k=0,\ldots, N+1$.
+
+\vspace*{1em}
+\begin{enumerate}
+\item[(c)] Build the stiffness matrix $\BK$ for $N=3$. Work out numerical values for all the entries.\\
+      (You may use your result from Problem Set 6: $(\phi_j,\phi_j) = 2h/3$ and $(\phi_j,\phi_{j+1}) = h/6$.)
+
+\vspace*{1em}
+\item[(d)] Build the load vector for $\Bf$ for $N=3$ and $f(x) = 1$.
+           Work out numerical values for all the entries.
+\end{enumerate}

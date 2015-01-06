@@ -1,0 +1,38 @@
+Using Backward Euler method we can approximate second derivative as follows
+\begin{eqnarray*}
+\frac{\partial^2 u}{x^2}= \frac{\partail }{\partial x} \left(\frac{\partail u}{\partial x}\right)&\approx& \frac{\partail }{\partial x} \left(\frac{ u(x)-u(x-\Delta x)}{\Delta x}\right}\\
+&=& \frac{\frac{ u(x)-u(x-\Delta x)}{\Delta x}-\frac{ u(x)-u(x-\Delta x)}{\Delta x}}{\Delta x}
+\end{eqnarray*} 
+and 
+$$u(x-\Delta x) = u(x) - u'(x)\Delta x + \frac{u''(x)}{2}\Delta x^2 - \frac{u'''(x)}{3!}\Delta x^3 + \ldots$$ 
+show that the second order finite difference approximation
+\[
+u''(x) \approx \frac{u(x+\Delta x)-2u(x) + u(x-\Delta x)}{\Delta x^2}
+\]
+has accuracy $O(\Delta x^2)$.  In other words, if $u''(x)$ is the exact second derivative, show that 
+$$\left| u''(x) - \frac{u(x+\Delta x)-2u(x) + u(x-\Delta x)}{\Delta x^2}\right| = O(\Delta x^2).$$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{
+
+\begin{solution}
+
+Adding together the Taylor expansions 
+\begin{align*}
+u(x+\Delta x) &= u(x) + u'(x)\Delta x + \frac{u''(x)}{2}\Delta x^2 + \frac{u'''(x)}{3!}\Delta x^3 + \ldots\\
+u(x-\Delta x) &= u(x) - u'(x)\Delta x + \frac{u''(x)}{2}\Delta x^2 - \frac{u'''(x)}{3!}\Delta x^3 + \ldots
+\end{align*}
+gives 
+\[
+u(x+\Delta x) + u(x-\Delta x) = 2u(x) + u''(x)\Delta x^2 + 2\frac{u''''(x)}{4!}\Delta x^4 + \ldots.
+\]
+Subtracting $2u(x)$ from both sides and dividing by $\Delta x^2$ gives
+\[
+\frac{u(x+\Delta x) -2u(x) + u(x-\Delta x)}{\Delta x^2} = u''(x) + 2\frac{u''''(x)}{4!}\Delta x^2 + \ldots,
+\]
+implying that the truncation error decreases at the same rate that $\Delta x^2$ decreases (if $\Delta x$ is small enough).  This implies the 2nd order central finite difference formula is $O(\Delta x^2)$ accurate.  
+
+\end{solution}
+}
+

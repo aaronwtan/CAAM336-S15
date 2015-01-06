@@ -1,0 +1,33 @@
+
+Differential equation involving the second derivative operator are sometimes paired with mixed boundary conditions. Define the set 
+\[ 
+C_m^2[a,b]=\left\{ u \in C^2[a,b]: u(a)= \frac{du}{dx}(b)=0\right\}
+\]
+
+and define $L_m : C_m^2[a,b] \rightarrow C[a,b]$ by
+
+\[
+L_m u = -\frac{\partial^2 u}{\partial x^2}. 
+\]
+\begin{enumerate}
+\item Show that $C_m^2[a,b]$ is a subspace of $C^2[a,b]$ 
+\item Determine the null space of $L_m$
+\item Explain how to solve $L_m u = f$ for $u$, when $f$ is a given function in $C[a,b]$. (Hint:Integrate twice.) Is this differential equation is solvable for every $f\in C[a,b]$ ?
+\item Explain what happens if question was given by following way.
+\[ 
+C_{\tilde{m}}^2[a,b]=\left\{ u \in C^2[a,b]: \frac{du}{dx}(a)=u(b)=0\right\}
+\]
+and $L_{\tilde{m}} : C_{\tilde{m}}^2[a,b] \rightarrow C[a,b]$ by
+
+\[
+L_{\tilde{m}} u = -\frac{\partial^2 u}{\partial x^2}. 
+\]
+
+\end{enumerate}
+
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input uniqueness_sol}{}
+

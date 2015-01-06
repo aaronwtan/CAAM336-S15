@@ -1,0 +1,33 @@
+% periodic heat equation problem
+The periodic heat equation, namely
+\begin{eqnarray*}
+\frac{\partial u}{\partial t}&=& \frac{\partial^2 u}{\partial x^2 } \qquad x\in[-1,1], 0\leq t \leq \infty\\
+										   u(-1,t)&=& u(1,t) \qquad 0\leq t \leq \infty\\
+										   \frac{\partial u}{\partial x}(-1,t)&=&\frac{\partial u}{\partial x}(1,t)\qquad 0\leq t \leq \infty\\
+										   u(x,0)&=& \cos(\pi x) \qquad x\in[-1,1], t=0
+\end{eqnarray*}
+Since we cannot solve the equation exactly, we want to approximate exact solution to a finite number of points $(x_i, t_j)$, such that
+\[
+\frac{\partial u(x_i, t_j)}{\partial t} = \frac{ \partial^2 u(x_i, t_j)}{\partial x^2}, \quad -1 \leq x_i \leq 1, \qquad 0 \leq t_j < \infty
+\]
+To do so, we will approximate time and space derivative using finite difference(FD) method for $u(x_i, t_j)$ at the 5 points 
+\[
+x_0 = -1, \quad x_1 = \frac{-1}{2}, \quad x_2 = 0, \quad x_3 = \frac{1}{2}, \quad x_4 = 1 \quad \textrm{and} \quad t_0 =0
+\]
+
+\begin{enumerate}
+\item Using forward difference in time and central difference in space around the point $(x_i, t_j)$ write down the FD formula for the heat equation at $-1 \leq x_0, x_1, x_2, x_3, x_4 \leq 1$.
+\item  Using the fact 
+\begin{eqnarray*}
+                      u(-1,t)&=& u(1,t) \qquad 0\leq t < \infty\\
+										   \frac{\partial u}{\partial x}(-1,t)&=&\frac{\partial u}{\partial x}(1,t)\qquad 0\leq t < \infty\\
+										   \end{eqnarray*}
+
+Show that $u(x_{-1}, t_j)=u(x_3, t_j)$ and $u(x_{5}, t_j)=u(x_1, t_j)$. Note that $x_{-1}$ and $x_5$ is not in our region. However using the given information we can find the values of those points. This technique is called \emph{ghost point} or \emph{fictitious point} idea.
+
+\item Using the information from (a) and (b) construct explicitly the linear system ${\bf U^{j+1}}=  {\bf A}{\bf U^j} $ resulting from the finite difference approximation of $\displaystyle{\frac{\partial u}{\partial t} = \frac{\partial^2 u}{\partial x^2 }}$, where
+\[
+{\bf U^j} = \left[\begin{array}{c}u(x_0, t_j)\\u(x_1, t_j)\\u(x_2, t_j)\\u(x_3, t_j)\\u(x_4, t_j)\end{array}\right].
+\]
+Write down the matrix $\bf{A}$ and vector $\bf{U^0}$ explicitly.
+\end{enumerate}

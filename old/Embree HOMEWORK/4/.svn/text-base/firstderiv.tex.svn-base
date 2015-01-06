@@ -1,0 +1,104 @@
+Consider the operator $L:C_\ell^1[0,1] \to C[0,1]$ defined by
+\[ Lu = {du\over dx},\]
+where the space $C_\ell^1[0,1]$ imposes a Dirichlet boundary condition
+on the left-hand side of the domain,
+\[ C_\ell^1[0,1] = \{ u \in C^1[0,1], u(0) = 0\},\]
+with the usual inner product
+\[ (u,v) = \int_0^1 u(x) v(x)\,dx.\]
+
+
+\begin{enumerate}
+\item Show that $L$ is a linear operator.
+\item Is $L$ symmetric?
+\item Show that $L$ has \emph{no} eigenvalues, that is, 
+      demonstrate that there exist no nonzero $u \in C_\ell^1[0,1]$ 
+      and $\lambda\in\C$ for which $Lu = \lambda u$.
+\item How would your answer to part~(c) change if we removed the 
+      boundary condition by replacing the space $C_\ell^1[0,1]$ with 
+      $C^1[0,1]$ ?
+\end{enumerate}
+
+\vspace*{2em}
+Optional.  Suppose you want to create a discretization of this
+operator using the first-order finite difference approximation
+\[ u'(x_j) \approx {u(x_j+h) - u(x_j) \over h} = {u_{j+1} - u_j \over h},\]
+where $u_j = u(x_j)$ on a grid $x_j = j h$ for $h=1/(N+1)$.
+Imposing the equation $u'(x) = \lambda u(x)$ at grid points 
+$x_0, \ldots, x_N$ and using the left-boundary condition $u(x_0)=u_0=0$
+gives a matrix eigenvalue problem $\BA\Bu = \lambda \Bu$ of the form
+\[ {1\over h} \bmatrix{1  \cr -1 & 1 \cr &  \ddots & \ddots \cr & & -1 & 1}
+     \bmatrix{u_1 \cr u_2 \cr \vdots \cr u_{N+1}}
+  = \lambda
+     \bmatrix{u_1 \cr u_2 \cr \vdots \cr u_{N+1}}.\]
+
+What are the eigenvalues of the matrix $\BA$?   \\
+How many linearly independent eigenvectors does $\BA$ have? \\
+How do you interpret this in light of your answer to problem 4(c)?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+
+\begin{enumerate}
+\item Suppose that $u, v \in C_\ell^1[0,1]$ and $\alpha, \beta\in \R$.
+      Then 
+         \[ L(\alpha u + \beta v) 
+            = {d \over dx} (\alpha u + \beta v) 
+            = \alpha {du\over dx} + \beta {dv\over dx}
+            = \alpha Lu + \beta Lv.\]
+       Hence $L$ is a linear operator.
+ 
+\item No, $L$ is \emph{not symmetric}.  To show this, we need only
+      exhibit two functions $u, v \in C_\ell^1[0,1]$ such that 
+      $(Lu,v) \ne (u,Lv)$.
+      For example, take $u(x) = x$ and $v(x) = x^2$.
+      Then
+         \begin{eqnarray*}
+               (Lu, v) &=& \int_0^1 {du \over dx}(x) v(x)\, dx
+                           = \int_0^1 x^2 \, dx = \Big[{x^3 \over 3}\Big]_0^1 = 1/3;\\[0.5em]
+               (u, Lv) &=& \int_0^1 u(x) {dv \over dx}(x) \, dx
+                           = \int_0^1 x (2x) \, dx = \Big[{2x^3 \over 3}\Big]_0^1 = 2/3.
+         \end{eqnarray*}
+       Hence $(Lu,v) \ne (u,Lv)$, and so $L$ is not symmetric.
+    
+       {[\textbf{GRADERS:} Please deduct 2~points if either (or both) functions 
+         $u$ and $v$ are not in $C_\ell^1[0,1]$.]}
+
+\item Suppose that there exists some function $u \in C_\ell^1[0,1]$ such that
+      $L u = \lambda u$ for some $\lambda\in\C$.
+      This means that $du/dx = \lambda u$, which can only be satisfied if
+               \[ u(x) = c e^{\lambda x}\]
+      for some constant $c$.
+      However, to have $u\in C_\ell^1[0,1]$, we must have
+				  $u(0)=0$, which can only occur if $c=0$ since $e^{\lambda\cdot 0} = 1 \ne 0$
+      for all $\lambda\in \C$.  If $c=0$ then $u(x) = 0$ for all $x\in[0,1]$, 
+      which violates the requirement that $u$ be nonzero.
+      Hence $L$ is an example of a linear operator with no eigenvalues.
+
+\item Now remove the boundary condition, so we consider $Lu = du/dx'$ but on
+      the domain $C^1[0,1]$.  As in part~(c), $Lu = \lambda u$ impies that
+               \[ u(x) = c e^{\lambda x}.\]
+      As this solution $u \in C^1[0,1]$, it is a suitable eigenfunction for
+      all nonzero $c$, \emph{regardless of the value of $\lambda$}.
+      Hence, all $\lambda \in \C$ are eigenvalues of this operator.
+
+      To answer the question precisely as stated, the answer to part~(c) 
+      changes in that we go from having no eigenvalues in part~(c), 
+      to having all $\lambda\in\C$ as eigenvalues in part~(d).
+      Clearly, the domain on which the operator is posed plays a major
+      role in determining the eigenvalues.
+      
+      [\textbf{GRADERS}: Do not take any points off in the student did not
+       mention that $\lambda$ could be complex.] 
+\end{enumerate}
+
+Optional part:  the matrix $\BA$ has only one eigenvalue, $\lambda = 1/h$, with
+only one linearly independent eigenvector, $\Bv = [0, \ldots, 0, 1]^T$.  
+This is consistent with the answer to part~(c), as when $h\to 0$, the eigenvalue
+$\lambda = 1/h$ \emph{diverges} to $\infty$:  It does not \emph{converge} to
+a finite eigenvalue in the complex plane.  Similarly, the corresponding 
+eigenvector does not \emph{converge} to any $C^1[0,1]$ function: it becomes
+a better and better approximation to the zero function, with a jump to one
+at the right boundary.
+\end{solution}}{}
+

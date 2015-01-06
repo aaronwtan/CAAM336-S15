@@ -1,0 +1,254 @@
+
+Consider the wave equation 
+\[
+\pd{u}{t}{2} - \pd{u}{x}{2} = f(x,t), \qquad x\in (0,1), \:\: t \geq 0 
+\]
+with boundary conditions and initial conditions:
+\begin{align*}
+u(0, t) &= \pd{u}{x}{}(1, t) = 0,\\
+	   u(x, 0) &= u_0(x), \\
+	  u_t(x, 0)& = v_0(x).
+ \end{align*}
+
+%Recall that the linear operator $L$ defined by $Lu = -u_{xx}$ on $C^2_N [0, 1] = \{u \in C^2 [0, 1]: u_x(0) = u_x(1) = 0\}$
+
+\begin{enumerate}
+\item Derive the weak form of the equation with test function $v(x)$.  
+%\item State the Galerkin problem based on the approximating subspace of piecewise linear hat
+%functions on a uniform grid with points $x_i = ih$, for $i = 1, . . . , N, N+1$ and spacing $h=\frac{1}{N+1}$
+We discretize/apply the finite element method by assuming that $v(x) = \phi_i(x)$ and
+\[
+u(x,t) = \sum_{j=1}^{N+1}\alpha_j(t)\phi_j(x),\qquad
+ \phi_j(x) = \begin{cases}
+\frac{x-x_{j-1}}{h} & x_{j-1} \leq x < x_j\\
+\frac{x_{j+1}-x}{h} & x_{j} \leq x < x_{j+1}\\
+0 & {\rm otherwise}
+\end{cases}.
+\]
+Show how this process leads to a system of ordinary differential equations of the form
+\begin{align*}
+\mathbf{M} \alpha''(t) + \mathbf{K } \alpha(t) &= \mathbf{F}(t), \\
+										\alpha(0) &= \alpha_0, \\
+										\alpha'(0)&= b_0
+\end{align*}
+where $\alpha(t)$ is a vector of $\alpha_j(t)$.  Specify the entries of $\mathbf{M}$, $\mathbf{K}$, $\mathbf{F}(t)$, $\alpha_0$ and $b_0$.  You may leave these expressions in either inner product/integral form, or in terms of $h$.  
+
+\item Write the above matrix equation as a system of first order equations (with only single derivatives in time) with vector variables $\alpha$ and $z$.  For this first order system of equations, use forward Euler approximations 
+\begin{align*}
+\pd{\alpha}{t}{} &\approx \frac{\alpha^{i+1} - \alpha^i}{dt}, \quad \alpha(t) \approx \alpha^i\\
+\pd{z}{t}{} &\approx \frac{z^{i+1} - z^i}{dt}, \quad z(t) \approx z^i
+\end{align*}
+and write an update equation for $z^{i+1}$ and $\alpha^{i+1}$, given $z^i, \alpha^i$.  
+
+%time stepping (integration) and the Backward Euler time stepping (integration) scheme.
+
+%\item Explain how to solve the system of ordinary differential equations with Euler’s method and write down the exact solution of this system using matrix exponential.
+
+\item Consider now the damped wave equation with constant density $\rho$ and damping $\epsilon$.
+\[
+\rho \pd{u}{t}{2} + \epsilon \pd{u}{t}{} - \pd{u}{x}{2} = 0, \qquad x\in [0,1], \:\: t \geq 0 
+\]
+Give the weak form of this equation.  Specify how the matrix equation changes from the matrix equation in part (a).
+%Show that applying finite elements to the above equation gives the following second order in time equation
+%\begin{align*}
+%\rho \mathbf{M} \alpha''(t) + \epsilon\mathbf{M}\alpha'(t) + \mathbf{K } \alpha(t) &= \mathbf{F}(t), \\
+%										\alpha(0) &= \alpha_0, \\
+%										\alpha'(0)&= b_0
+% \end{align*}
+\item Write the second order matrix equation for the above damped wave equation as a system of first order equations. Derive the Forward Euler update formulas for $\alpha^{i+1}$ and $z^{i+1}$ for these new equations.
+%\item What modifications are needed to solve the problem with inhomogeneous boundary
+%conditions
+%\[
+%u(0, t) = \alpha, \qquad u_t(0, t)= \beta.
+%\]
+% where $\alpha, \beta \in R $
+ \end{enumerate}
+ 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ 
+ \ifthenelse{\boolean{showsols}}{
+\begin{solution}
+\begin{enumerate}
+\item Multiply both side with the test function $v \in V= C_M^2 [0,1] = \{ u \in C^2[0,1]: u(0)=0\}$ and integrate from $0$ to $1$
+\[
+\int_0^1 \pd{u}{t}{2} v\: dx - \int_0^1 \pd{u}{x}{2} v \:dx  = \int_0^1 f(x,t) v \:dx , \qquad \forall v \in V
+\]
+
+Now, integrate by parts we get following weak form 
+\[
+\int_0^1 \pd{u}{t}{2} v\: dx + \int_0^1 \pd{u}{x}{} \pd{v}{x}{}\ dx  = \int_0^1 f(x,t) v dx , \qquad \forall v \in V
+\]
+Note that, boundary integral is zero because of the zero boundary conditions.\\
+Now we would like to write Galerkin problem with the finite element space $V_N = span\{ \phi_1, \phi_2, \cdots \phi_N\}$. We plug  the finite element solution $u(x,t)= \sum_{j=1}^{N} \alpha_j(t) \phi_j (x)$ into the weak form and choose $v \in V_N $
+
+\begin{align*}
+\int_0^1 \pd{\left(\sum_{j=1}^{N} \alpha_j(t) \phi_j (x)\right)}{t}{2} \phi_i(x) dx + \int_0^1 \pd{\left(\sum_{j=1}^{N} \alpha_j(t) \phi_j (x)\right)}{x}{} \pd{\phi_i(x)}{x}{} dx  &= \int_0^1 f(x,t) \phi_i(x) dx \\
+\sum_{j=1}^{N} \left( \pd{\alpha_j(t)}{t}{2} \int_0^1 \phi_j (x) \phi_i (x) dx +  \alpha_j(t) \int_0^1 \pd{ \phi_j (x)}{x}{} \pd{\phi_i(x)}{x}{} dx  \right)&= \int_0^1 f(x,t) \phi_i(x) dx
+\end{align*}
+ 
+ This is the $N$ equations $N$ unknown 2nd order linear system with 
+ 
+ \begin{align*}
+\mathbf{M} \alpha''(t) + \mathbf{K } \alpha(t) &= \mathbf{F}(t), \\
+										\alpha(0) &= \alpha_0  \\
+										\alpha'(0)&= b_0
+\end{align*}
+where  $\BM$  \emph{mass} matrix with the entries
+whose $(j,k)$ entries
+\[ \BM_{i,j} = (\phi_i,\phi_j)=\int_0^1 \phi_j (x) \phi_i (x) dx  
+           = \left\{ \begin{array}{ll}
+                   2h/3 & \mbox{if $i=j$;} \\
+                   h/6  & \mbox{if $|i-j|=1$;} \\
+                   h/3  & \mbox{if $i=j=N$;} \\
+                    0   & \mbox{otherwise.}
+             \end{array}\right.,\]
+and $\BK$ is \emph{stiffness} matrix  with the entries
+\[ \BK_{i,j} = a(\phi_j,\phi_k)=\int_0^1 \pd{ \phi_j (x)}{x}{} \pd{\phi_i(x)}{x}{} dx 
+           = \left\{ \begin{array}{ll}
+                   2/h & \mbox{if $i=j$;} \\
+                   -1/h  & \mbox{if $|i-j|=1$;} \\
+                    1/h  & \mbox{if $i=j=N$;} \\
+                    0   & \mbox{otherwise.}
+             \end{array}\right.,\]
+as computed in class. Moreover 
+
+\[
+\mathbf{F}(t) = (f, \phi_i)= \int_0^1 f(x,t) \phi_i(x) dx
+\]
+
+We have $$ u(x,0)= u_0(x)$$ and $u_0(x)$ can be approximated by its linear interpolant
+\[
+u_0(x) = \sum_{j=1}^{N} u_0(x_j) \phi_j(x)
+\] 
+We therefore require that $$\alpha_j(0)= u_0(x_j) .$$ Similarly we require 
+\[
+\alpha'_j(0)= v_0(x_j)
+\]
+These lead to initial conditions 
+\[
+\alpha(0) = \alpha_0 = \left[\begin{array}{c}{u_0(x_1)} \\ {u_0(x_2)} \\ \vdots \\ u_0(x_N)\end{array}\right], \:\: 
+\alpha{'}(0) = b_0 = \left[\begin{array}{c}{v_0(x_1)} \\ {v_0(x_2)} \\ \vdots \\ v_0(x_N)\end{array}\right] .\\
+\]	
+ \item To apply one of the numerical method for ODEs , we must first convert to a 1st order system. We will define 
+ \begin{align*}
+ \alpha(t) &= \alpha(t),\\
+       z(t) & = \frac{d \alpha(t)}{dt}
+  \end{align*}
+where $\alpha, z \in {R}^N$. Then
+   \begin{align*}
+ \frac{d \alpha(t)}{dt}&= z ,\\
+     \frac{d z(t)}{dt} & = \alpha''(t) = -\BM^{-1} \BK \alpha + \BM^{-1} \mathbf{F}
+  \end{align*}
+we have also have initial conditions   
+  \begin{align*}
+ \alpha(0) &= \alpha_0,\\
+       z(0) & = \alpha'(0)= b_0.
+  \end{align*}    
+    We have thus obtained the $2N \times 2N$ system of IVPs
+  
+    \begin{align*}
+\frac{d \alpha(t)}{dt}&= z, \qquad   \alpha(0) = \alpha_0 \\
+     \frac{d z(t)}{dt} & = -\BM^{-1} \BK \alpha + \BM^{-1} \mathbf{F}, \qquad   z(0)  = b_0.
+       \end{align*}
+       
+ Alternatively
+\[
+\underbrace{ \left[\begin{array}{c}\alpha'(t)  \\[0.25em]  z'(t)\end{array}\right]}_{\BU'}= \underbrace{\left[\begin{array}{cc} 0 & \BI\\ [0.25em] -\BM^{-1} \BK & 0\end{array}\right] }_{\BA} \underbrace{\left[\begin{array}{c} \alpha \\ [0.25em]  z\end{array}\right]}_{\BU} + \underbrace{\left[\begin{array}{c} 0 \\[0.25em]  \BM^{-1} \mathbf{F} \end{array}\right]}_{\BG}
+\]
+So system can be written as 
+\[
+\BU'= \BA \BU + \BG.
+\]
+The forward Euler method for this problem is
+
+\[
+\frac{\BU^{i+1} - \BU^{i}}{dt} = \BA \BU^{i} + \BG^{i}
+\]
+or
+\[
+ \BU^{i+1} = ( I + dt\BA) \BU^{i} + dt\BG^{i} 
+\]
+where $\BU^{0} =  [\alpha_0 , \:\:  b_0]^T.$
+
+\item Similar to part (a) the weak from of damped wave equation with constant density $\rho$ and damping $\epsilon$ is 
+\[
+\int_0^1 \rho \pd{u}{t}{2} v\: dx + \int_0^1 \epsilon \pd{u}{t}{} v\: dx + \int_0^1 \pd{u}{x}{} \pd{v}{x}{}\ dx  = 0 , \qquad \forall v \in V
+\]
+Similarly the Galerkin problem turns out
+
+\begin{align*}
+\sum_{j=1}^{N} \left( \pd{\alpha_j(t)}{t}{2} \int_0^1 \rho \phi_j (x) \phi_i (x)\: dx + \pd{\alpha_j(t)}{t}{} \int_0^1 \epsilon \phi_j (x) \phi_i (x)\: dx +  \alpha_j(t) \int_0^1 \pd{ \phi_j (x)}{x}{} \pd{\phi_i(x)}{x}{} \: dx  \right)&= 0 
+\end{align*}
+This lead to 2nd order ODE
+\begin{align*}
+\rho\mathbf{M} \alpha''(t) + \epsilon\mathbf{M} \alpha'(t) + \mathbf{K } \alpha(t) &= 0, \\
+										\alpha(0) &= \alpha_0  \\
+										\alpha'(0)&= b_0
+\end{align*}
+where  $\BM$ is the mass matrix and $\BK$ is the stiffness matrix.  The entires are the same as before.  
+% and $\BL$  \emph{mass} matrices with the entries
+%whose $(j,k)$ entries
+%\[ \BM_{i,j} = (\phi_i,\phi_j)=\int_0^1 \rho \phi_j (x) \phi_i (x) dx  
+%           = \left\{ \begin{array}{ll}
+%                   2h/3 \rho  & \mbox{if $i=j$;} \\
+%                    h/6 \rho  & \mbox{if $|i-j|=1$;} \\
+%                    h/3\rho  & \mbox{if $i=j=N$;} \\
+%                    0   & \mbox{otherwise.}
+%             \end{array}\right.,\]
+% and
+%  \[ \BL_{i,j} = (\phi_i,\phi_j)_{\epsilon}=\int_0^1 \epsilon \phi_j (x) \phi_i (x) dx  
+%           = \left\{ \begin{array}{ll}
+%                   2h/3 \epsilon  & \mbox{if $i=j$;} \\
+%                    h/6 \epsilon  & \mbox{if $|i-j|=1$;} \\
+%                    h/3 \epsilon  & \mbox{if $i=j=N$;} \\
+%                    0   & \mbox{otherwise.}
+%             \end{array}\right.,\]            
+%and $\BK$ is \emph{stiffness} matrix  with the entries
+%\[ \BK_{i,j} = a(\phi_j,\phi_k)=\int_0^1 \pd{ \phi_j (x)}{x}{} \pd{\phi_i(x)}{x}{} dx 
+%           = \left\{ \begin{array}{ll}
+%                   2/h  & \mbox{if $i=j$;} \\
+%                   -1/h  & \mbox{if $|i-j|=1$;} \\
+%                    1/h  & \mbox{if $i=j=N$;} \\
+%                    0   & \mbox{otherwise.}
+%             \end{array}\right.,\]
+\item Similar to part (b), let 
+
+ \begin{align*}
+ \alpha(t) &= \alpha(t),\\
+       z(t) & = \frac{d \alpha(t)}{dt}
+  \end{align*}
+where $\alpha, z \in {R}^N$. Then
+   \begin{align*}
+ \frac{d \alpha(t)}{dt}&= z ,\\
+     \frac{d z(t)}{dt} & = \alpha''(t) = -\frac{1}{\rho}\BM^{-1} \BK \alpha - \frac{\epsilon}{\rho}\BM^{-1} \BM \alpha' =  -\BM^{-1} \BK \alpha  - \frac{\epsilon}{\rho}z 
+  \end{align*} 
+Together with  initial conditions, we have thus obtained the $2N \times 2N$ system of IVPs
+  %    \begin{align*}
+%\frac{d \alpha(t)}{dt}&= z, \qquad   \alpha(0) = \alpha_0 \\
+%     \frac{d z(t)}{dt} & =  -\BM^{-1} \BK \alpha -\BM^{-1} \BL z  , \qquad   z(0)  = b_0.
+%       \end{align*}
+%       
+% Alternatively
+\[
+\underbrace{ \left[\begin{array}{c}\alpha'(t)  \\[0.25em]  z'(t)\end{array}\right]}_{\BU'}= \underbrace{\left[\begin{array}{cc} 0 & \BI\\ [0.25em] -\frac{1}{\rho}\BM^{-1} \BK & -\frac{\epsilon}{\rho}\BI \end{array}\right] }_{\BA} \underbrace{\left[\begin{array}{c} \alpha \\ [0.25em]  z\end{array}\right]}_{\BU}
+\]
+So system can be written as 
+\[
+\BU'= \BA \BU .
+\]
+The forward Euler method for this problem is
+
+\[
+\frac{\BU^{i+1} - \BU^{i}}{dt} = \BA \BU^{i}
+\] 
+or 
+\[
+ \BU^{i+1} = ( I + dt\BA) \BU^{i}
+\]
+where $\BU^{0} =  [\alpha_0 , \:\:  b_0]^T.$
+  
+\end{enumerate}
+ \end{solution}
+}{}
+ 

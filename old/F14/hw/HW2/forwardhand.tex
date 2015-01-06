@@ -1,0 +1,48 @@
+Consider the time-dependent homogeneous heat equation 
+\[
+\frac{\partial u}{\partial t } = \frac{\partial^2 u}{\partial x^2 }
+\] 
+with boundary conditions
+\[
+u(0,t)= 0, \qquad t>0,
+\] 
+\[
+u(1,t)= 0, \qquad t>0
+\] 
+and initial condition $u(x,0) = \psi(x)$.  We wish to approximate the solution $u(x,t)$ at spatial points $x_0, x_1, \ldots, x_{N}, x_{N+1}$, and at times $t_0, t_1, t_2, \ldots$.  To do so, we will approximate $\pd{u}{t}{}$ at points $x_i$ and time $t_j$ with a forward difference in time
+\[
+\pd{u}{t}{}(x_i,t_j) \approx \frac{u(x_i,t_{j+1}) - u(x_i,t_j)}{dt}
+\]
+where $dt = t_{j+1}-t_j$.  Similarly, we will approximate $\pd{u}{x}{2}$ with a 2nd order central difference at time $t_j$
+\[
+\pd{u}{x}{2}(x_i,t_j) \approx \frac{u(x_{i+1},t_j) - 2u(x_i,t_j) + u(x_{i-1},t_j)}{h^2}
+\]
+where $h = x_{i+1}-x_i$.  
+
+If we denote $u(x_i, t_j) = u_i^j$, this finite difference scheme in $x$ and $t$ can be written as
+\[
+\frac{u^{j+1}_i - u^j_i}{dt} = \frac{u_{i+1}^j - 2u_i^j + u_{i-1}^j}{h^2}.
+\]
+
+\begin{enumerate}
+\item Write a \textsc{Matlab} code that, given $u(x_i,t_j) = u^j_i$, uses the above finite difference scheme to compute $u(x_i,t_{j+1})= u^{j+1}_i$ at the next timestep.  For the initial condition $u_i^0 = u(x_i,t_0) =u(x_i,0)= \psi(x_i)$, use the discontinuous function 
+\[  
+\psi(x) = \left\{
+\begin{array}{ll}
+      2x & 0\leq x\leq 1/2 \\
+      2(1-x) & 1/2 \leq x\leq 1 \\
+\end{array} 
+\right.
+\]
+Take $N = 32$ and $dt = 1/10000$.  Plot the solution at $t = 0$, and after 10, 50, and 100 timesteps.  What happens (qualitatively) to the solution as $t$ increases?  Specifically, what happens to the parts of $\psi(x)$ that have sharp corners as $t$ increases?  
+%What happens if you take $dt = 1/100$ instead?  
+%\item Consider the case when $N = 1$, and we have only spatial points $x_0, x_1, x_2$.  Write down the 
+%\[
+%\frac{u^{j+1}_i - u^j_i}{dt} = \frac{u_{i+1}^j - 2u_i^j + u_{i-1}^j}{h}.
+%\]
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input forwardhand_sol}{}

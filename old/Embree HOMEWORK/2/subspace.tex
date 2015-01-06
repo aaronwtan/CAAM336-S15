@@ -1,0 +1,37 @@
+Let $\CV$ and $\CW$ be vector spaces, and suppose 
+$f:\CV\to\CW$ is a linear operator.
+
+The \emph{range} of $f$ is the set of all vectors in $\CW$ 
+that can be written in the form $f(v)$ for some $v\in \CV$:
+\[ {\cal R}(f) = \{ f(v): v\in \CV\}.\]
+Show that ${\cal R}(f)$ is a subspace of $\CW$.
+
+\vspace*{1em} 
+(The \emph{range} generalizes the notion of \emph{column space} from matrix theory.)
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+To show that ${\cal R}(f)$ is a subspace of $\CW$, 
+we must check that (1) If $w_1, w_2 \in {\cal R}(f)$, then
+$w_1+w_2 \in {\cal R}(f)$ and (2) If $w \in {\cal R}(f)$ and 
+$\alpha \in \R$, then $\alpha w \in {\cal R}(f)$.
+
+\begin{enumerate}
+\item Suppose $w_1, w_2 \in {\cal R}(f)$.  To be in ${\cal R}(f)$, we must find som
+      $v\in V$ such that $f(v) = w_1+w_2$.  Since $w_1$ and $w_2$ are in ${\cal R}(f)$,
+      there exist $v_1, v_2 \in V$ such that $f(v_1) = w_1$ and $f(v_2) = w_2$.
+      Define $v = v_1+v_2$.  Since $f$ is a linear operator,
+      $f(v) = f(v_1+v_2) = f(v_1)+f(v_2) = w_1 + w_2$.  Hence, $w_1+w_2\in{\cal R}(f)$.
+
+\item Suppose $w_1\in {\cal R}(f)$ and $\alpha\in\R$.  Since $w_1\in{\cal R}(f)$,
+      there exists some $v_1\in V$ such that $f(v_1) = w_1$.  Define $v = \alpha v_1$.
+      Since $f$ is a linear operator, we have $f(\alpha v_1) = \alpha f(v_1) = \alpha w_1$,
+      so $\alpha w_1 \in {\cal R}(f)$.
+\end{enumerate}
+[\textbf{GRADERS:}
+The book also stipulates that a subspace must contain the zero vector.
+Some students will verify that linearity of $f$ implies that $f(0) = 0$,
+and hence $0 \in {\cal R}(f)$.  
+This point was not emphasized in the lectures, so please do mark off points 
+if students omitted it.]
+
+\end{solution}}{}

@@ -1,0 +1,37 @@
+\documentclass[10pt]{article}
+\usepackage{amsmath}
+\usepackage{fullpage,336notes,ifthen}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+                         
+                         \def\pd#1#2#3{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\begin{document}
+\setboolean{showsols}{true}
+%\vspace*{-3em}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+ Problem Set 12 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Monday December 1, 2014.  Due Friday 5 December 2014, 5pm.  Accepted without penalty until Monday, December 8, 5pm.  
+
+\begin{center}
+This problem set counts for 50~points, plus a 25 point bonus problem.\\
+\end{center}
+
+
+\begin{enumerate}
+\item {[50 points]}\\ \input wave2d
+
+\newpage
+\item {[Bonus: 25 points]} \input wavefem
+%\item {[50 points]}\\ \input damp
+%\newpage
+
+%\item[bonus] {[20 points]}\\ \input optdamp
+\end{enumerate}
+
+\end{document}

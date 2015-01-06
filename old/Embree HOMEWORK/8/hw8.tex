@@ -1,0 +1,27 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen,color}
+\def\hot#1{\color{red}{#1}}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+
+\begin{document}
+\setboolean{showsols}{false}
+
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+ Problem Set 8 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Monday 22 October 2012.  Due Monday 29 October 2012, 5pm.
+Corrected 25 October 2012.
+
+\begin{enumerate}
+\item {[50 points]}\\  \input expmex
+
+\item {[50 points]}\\  \input traprule
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,9 @@
+\begin{solution}
+We know that a differential equation is linear if the unknown function and its derivatives appear to the power $1$ (products of the unknown function and its derivatives are not allowed) and nonlinear otherwise. Using the definition it can be seen that if $n=0$ and $n=1$ Bernoulli differential equation becomes \[ \frac{dy}{dx} + P(x) y = Q(x) \] and \[ \frac{dy}{dx} + (P(x)-Q(x)) y = 0, \] respectively. We can easily conclude they are linear and For other values of $n$ is nonlinear.
+
+Now,Setting $u = y^{1-n}$,
+\[\frac{du}{dx} = (1 - n) y^{-n}\frac{dy}{dx}\] or \[\frac{dy}{dx} = \frac{y^n}{1 - n} \frac{du}{dx}=\frac{u^n/(1-n)}{1-n} \frac{du}{dx}.\] 
+the Bernoulli differential equation becomes \[\frac{u^{n/(1-n)}}{1 - n}
+\frac{du}{dx} + P(x)u^{1/(1-n)} = Q(x)u^{n/(1-n)}\] or \[\frac{du}{dx} + (1 - n)P(x)u = Q(x)(1 - n).\]
+
+\end{solution}

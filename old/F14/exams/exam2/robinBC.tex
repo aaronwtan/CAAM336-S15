@@ -1,0 +1,296 @@
+
+For this problem, we will consider the behavior of the finite element method with various boundary conditions.  
+\begin{enumerate}
+\item Consider the boundary value problem
+\begin{align*}
+-\pd{u}{x}{2} &= f(x), \quad 0 < x < 1\\
+u'(0) &= \alpha\\
+u(1)  &= \beta.  
+\end{align*}
+We set $u(x) = w(x) + g(x)$, where $w(1) = 0$, and $g(1) = \beta$.  Let $C^2_R([0,1]) = \{v\in C^2[0,1], v(1) = 0\}$; derive the weak form of the above equation
+\[
+a(w,v) = (f,v) + (???), \quad \forall v\in C^2_R([0,1]) 
+\]
+where $(???)$ depends explicitly on $v, \alpha, \beta, a(\cdot,\cdot)$ and $g(x)$.  
+\item Given some spacing $h$ and points $x_j = jh$, we will use hat functions
+\[
+\phi_j(x) = \begin{cases}
+\frac{x-x_{j-1}}{h} & x_{j-1} \leq x < x_j\\
+\frac{x_{j+1}-x}{h} & x_{j} \leq x < x_{j+1}\\
+0 & {\rm otherwise}
+\end{cases}
+\]
+and define $V_N = {\rm span}\{\phi_0,\ldots,\phi_{N}\}$.  Note that 
+\[
+\phi_0(x) = \begin{cases}
+\frac{h-x}{h} & 0\leq 0 < h\\
+0 & {\rm otherwise}.
+\end{cases}
+\]
+The finite element method replaces $C^2_R([0,1])$ with $V_N$ and solves for $w_N\in V_N$ such that
+\[
+a(w_N,\phi_i) = (f,\phi_i) + (???), \quad i = 0,\ldots, N.
+\]
+Specify what $g(x)$ you chose, and write out explicitly the $(N+1)\times (N+1)$ matrix system $K\alpha = b$ resulting from the above equations, where
+ \[
+K_{ij} = a(\phi_{j-1},\phi_{i-1}), \quad b_i = (f,\phi_{i-1}) + (???), \qquad 1 \leq i, j \leq N
+\]
+Notice we have $K_{ij} = a(\phi_{j-1},\phi_{i-1})$ because $K_{11} = a(\phi_0,\phi_0)$ (we've started counting basis functions $\phi_j(x)$ from $j=0$ instead of $j=1$).  Specify the values of $K_{ij}$ and $b_i$ explicitly in terms of problem parameters $h,f(x)$ and $\alpha,\beta$.  
+\vspace{2cm}
+ \begin{center}
+ \emph{Turn to next page for the rest of the problem.}
+ \end{center}
+
+\newpage
+\item Consider now the boundary value problem 
+\begin{align*}
+-\pd{u}{x}{2} &= f(x), \quad 0 < x < 1\\
+\alpha u(0) - u'(0) &= 0\\
+u'(1) &= 0.
+\end{align*}
+Derive the weak form $a(u,v) = (f,v)$ of the above equation by multiplying by a function $v(x) \in C^2[0,1]$ and integrating by parts.  
+\item Let $V_N = {\rm span}\{\phi_0,\ldots,\phi_{N+1}\}$, where $\phi_{N+1}$ is 
+\[
+\phi_{N+1}(x) = \begin{cases}
+\frac{x - (1-h)}{h} & 1-h \leq x \leq 1\\
+0 & {\rm otherwise}.
+\end{cases}
+\]
+Write down explicitly the $(N+2)\times (N+2)$ finite element stiffness matrix equation $K\alpha = b$, where 
+ \[
+K_{ij} = a(\phi_{j-1},\phi_{i-1}), \quad b_i = (f,\phi_{i-1}) + (???), \qquad 1 \leq i, j \leq N+2
+\]
+Specify the values of $K_{ij}$ and $b_i$ explicitly in terms of $h,f(x),\alpha$.  
+\item For what values of $\alpha$ is the matrix $K$ guaranteed to be positive definite?  \emph{Hint: use the relationship between the matrix $K$ and the weak form.}
+\end{enumerate}
+
+
+\ifthenelse{\boolean{showsols}}{
+\begin{solution}
+\begin{enumerate}
+
+\item  Multiply the differential equation with some function $v \in C^2_R([0,1])$ and integrate from $x = 0$
+to $x = 1$ to obtain
+
+\begin{align*}
+\int_0^1 -\pd{u}{x}{2} v(x) \, dx  &= \int_0^1 f(x) v(x) \, dx, \quad 0 < x < 1\\
+\end{align*}
+
+Integrate the left hand side by parts to obtain
+
+\begin{align*}
+\left[ -\pd{u}{x}{} v(x)\right]_0^1 + \int_0^1 \pd{u}{x}{} \pd{v}{x}{} \, dx  &= \int_0^1 f(x) v(x) \, dx\\
+\\
+ \pd{u(0)}{x}{} v(0) + \int_0^1 \pd{u}{x}{} \pd{v}{x}{} \, dx  &= \int_0^1 f(x) v(x) \, dx  \qquad \mbox{use BC $\pd{u(0)}{x}{} = \alpha$}\\
+ \\
+ \int_0^1 \pd{u}{x}{} \pd{v}{x}{} \, dx  &= \int_0^1 f(x) v(x) \, dx  -   \alpha v(0) 
+\end{align*} 
+
+The first boundary integral at the point $1$ disappears because of the boundary conditions $v(1)=0$. The weak problem:
+
+\[
+\mbox{Find} \:\:\: u\in C^2_R([0,1]) \:\:\:\mbox{such that}\:\:\: a(u,v) = (f,v)- \alpha v(0)  \qquad \mbox{for all} \:\: v\in C^2_R([0,1])
+\]
+
+With the given setting  we are looking for a solution $u(x) = w(x) + g(x)$, where $w(1) = 0$, and $g(1) = \beta$. Then problem becomes 
+
+\[
+\mbox{Find} \:\:\: w\in C^2_R([0,1]) \:\:\:\mbox{such that}\:\:\: a(w+g,v) = (f,v) - \alpha v(0)  \qquad \mbox{for all} \:\: v\in C^2_R([0,1])
+\]
+
+or equivalently 
+
+\[
+\mbox{Find} \:\:\: w\in C^2_R([0,1]) \:\:\:\mbox{such that}\:\:\: a(w,v) = (f,v)-a(g,v)-\alpha v(0)  \qquad \mbox{for all} \:\: v\in C^2_R([0,1])
+\]
+
+
+\item The Galerkin problem is
+
+\[
+\mbox{Find} \:\:\: w_N\in V_N \:\:\:\mbox{such that}\:\:\: a(w_N,v) = (f,v)-a(g_N,v)-\alpha v(0)  \qquad \mbox{for all} \:\: v\in V_N
+\]
+
+We chose $g_n$ satisfy $g_N(1) = \beta$. The simplest such function is $g_N(x)= \beta \phi_{N+1}$. Substituting $w_N(x)= \sum_{i=0}^{N} w_i \phi_i$,  choosing $v \in V_N= span\{\phi_0, \phi_1, \cdots \phi_N\}$ we obtain
+
+\[
+\sum_{j=0}^{N} a(\phi_i,\phi_j) w_i = (f,\phi_i)-a(g_N, \phi_i)-\alpha \phi_i (0) \quad \mbox{for} \:\:\: i=0,1, 2,\cdots N
+\]
+Then right hand side becomes
+
+\[
+\sum_{j=0}^{N} a(\phi_i,\phi_j) w_i = (f,\phi_i)- \beta a(\phi_{N+1}, \phi_i)-\alpha \phi_i (0)  \quad \mbox{for} \:\:\: i=0,1, 2,\cdots N
+\]
+
+where 
+
+\[
+K_{ij} = a(\phi_{j-1},\phi_{i-1}), \quad b_i = (f,\phi_{i-1}) -\beta a(\phi_{N+1}, \phi_{i-1})-\alpha \phi_{i-1} (0), \qquad 1 \leq i, j \leq N+1
+\]
+
+More specific
+
+\[
+b_i = \begin{cases}
+(f,\phi_{i-1})  & \mbox{if} \:\: i= 2,\cdots, N\\
+(f,\phi_{0}) - \alpha \phi_{0} (0)& \mbox{if} \:\: i= 1,\\
+(f,\phi_{N}) -\beta a(\phi_{N+1}, \phi_{N}) & \mbox{if} \:\: i= N+1
+\end{cases}
+\]
+
+Now, specify the values of $K_{ij}$ and $b_i$
+
+
+When the hat functions $\phi_i$ and $\phi_j$ are not neighbors, i.e., $|i-j|>1$, 
+
+\[ \int_0^1 \phi_i(x) \phi_j (x) \, dx  = 0 \:\: \mbox{and }  \int_0^1 \pd{\phi_{i}}{x}{} \pd{\phi_{j}}{x}{} = 0 \]
+Thus we only need to consider the following cases:
+
+\begin{align*}
+K_{ii}= a(\phi_{i-1},\phi_{i-1}) &= \int_0^1 \pd{\phi_{i-1}}{x}{} \pd{\phi_{i-1}}{x}{} \, dx\\
+																 &= \int_{x_{i-2}}^{x_{i}} \pd{\phi_{i-1}}{x}{} \pd{\phi_{i-1}}{x}{} \, dx\\
+																 &= \int_{x_{i-2}}^{x_{i-1}} \pd{\phi_{i-1}}{x}{} \pd{\phi_{i-1}}{x}{} \,dx +  \int_{x_{i-1}}^{x_{i}} \pd{\phi_{i-1}}{x}{} \pd{\phi_{i-1}}{x}{}\, dx\\
+																 &=\int_{x_{i-2}}^{x_{i-1}} (\frac{1}{h})^2 \, dx +  \int_{x_{i-1}}^{x_{i}} (\frac{-1}{h})^2 \, dx\\
+																 &=\frac{2}{h} \qquad \mbox{for}\:\: i=2,\cdots N+1
+\end{align*}
+
+Since $[x_{i-1}, x_{i}]$ is the only interval where $\phi_{i-1}$ and $\phi_{i}$ and their derivative  are not $0$ we have 
+
+\begin{eqnarray*}
+K_{i(i+1)} = a(\phi_{i-1}, \phi_{i}) &=& \int_0^1 \pd{\phi_{i-1}}{x}{} \pd{\phi_{i}}{x}{} \, dx\\
+												&=& \int_{x_{i-1}}^{x_{i}}  \pd{\phi_{i-1}}{x}{} \pd{\phi_{i}}{x}{} \, dx\\
+												&=&\int_{x_{i}}^{x_{i+1}} (-\frac{1}{h}) (\frac{1}{h}) \,dx\\
+												&=& -\frac{1}{h}  \qquad \mbox{for}\:\: i=1,\cdots N+1
+\end{eqnarray*}
+
+By symmetry $K_{i(i+1)}= K_{(i+1)i}$ for $i=1,\cdots N+1$.
+
+Finally,
+
+\begin{eqnarray*}
+K_{11} = a(\phi_{0}, \phi_{0}) &=& \int_0^1 \pd{\phi_{0}}{x}{} \pd{\phi_{0}}{x}{} \, dx\\
+												&=& \int_{x_{0}}^{x_{1}}  \pd{\phi_{0}}{x}{} \pd{\phi_{0}}{x}{} \, dx\\
+												&=&\int_{0}^{h} (-\frac{1}{h}) (-\frac{1}{h}) \,dx\\
+												&=& \frac{1}{h}  \qquad \mbox{for} \:\:  i=1 
+\end{eqnarray*}
+
+Therefore $(N+1)\times (N+1)$ matrix $K$ 
+
+\[
+K= \frac{1}{h}\left[\begin{array}{rrrrrrr}
+              1 & -1 & 0 & 0 &  \cdots & 0 \\[0.25em]
+               -1 & 2 & -1 &0 & \cdots & 0 \\
+                0& -1 & 2 & -1 & \cdots & 0\\
+                 \vdots & & &\ddots &  & \vdots \\[0.25em]
+                 0 & \cdots &  & -1& 2 & -1 \\ 
+                 0 & &\cdots &  & -1 & 2 
+                   \end{array}\right]
+                   \]
+
+So $b_i$ take form 
+
+\[
+b_i = \begin{cases}
+(f,\phi_{i-1})= \int_{0}^{1} f(x) \phi_{i-1} (x) \, dx  & \mbox{if} \:\: i= 2,\cdots, N\\
+\\
+(f,\phi_{0}) - \alpha  = \int_{0}^{1} f(x) \phi_{0} (x) \, dx  -\alpha & \mbox{if} \:\: i= 1,\\
+\\
+(f,\phi_{N}) - \beta a(\phi_{N+1}, \phi_{N})  = \int_{0}^{1} f(x) \phi_{N} (x) \, dx + \frac{1}{h}\beta  & \mbox{if} \:\: i= N+1
+\end{cases}
+\]
+
+\item  Multiply the differential equation with some function $v \in C^2([0,1])$ and integrate from $x = 0$
+to $x = 1$ to obtain
+
+\begin{align*}
+\int_0^1 -\pd{u}{x}{2} v(x) \, dx  &= \int_0^1 f(x) v(x) \, dx, \quad 0 < x < 1\\
+\end{align*}
+
+Integrate the left hand side by parts to obtain
+
+\begin{align*}
+\left[ -\pd{u}{x}{} v(x)\right]_0^1 + \int_0^1 \pd{u}{x}{} \pd{v}{x}{} \, dx  &= \int_0^1 f(x) v(x) \, dx\\
+\\
+- \pd{u(1)}{x}{} v(1) + \pd{u(0)}{x}{} v(0) + \int_0^1 \pd{u}{x}{} \pd{v}{x}{} \, dx  &= \int_0^1 f(x) v(x) \, dx \\
+\end{align*} 
+ 
+Given boundary conditions yields $u'(0) = \alpha u(0)$ and $u'(1) = 0$. Then 
+
+\begin{align*}
+- \pd{u(1)}{x}{} v(1) + \pd{u(0)}{x}{} v(0) + \int_0^1 \pd{u}{x}{} \pd{v}{x}{} \, dx  &= \int_0^1 f(x) v(x) \, dx \\
+ \alpha u(0) v(0) + \int_0^1 \pd{u}{x}{} \pd{v}{x}{} \, dx  &= \int_0^1 f(x) v(x) \, dx \quad \mbox{for all} \:\: v\in C^2[0,1]\\
+\end{align*} 
+
+Then 
+\[
+a(u,v) = \alpha u(0) v(0) + \int_0^1 \pd{u}{x}{} \pd{v}{x}{} \, dx,   \quad (f,v)= \int_0^1 f(x) v(x) \, dx, \quad \mbox{for all} \:\: v\in C^2[0,1]
+\]
+
+\item The Galerkin problem is
+
+\[
+\mbox{Find} \:\:\: u_N\in V_N \:\:\:\mbox{such that}\:\:\: a(u_N, v) = (f,v) \qquad \mbox{for all} \:\: v\in V_N 
+\] 
+
+Let $u_N$ be finite element solution of given BVP in part (c). Then $u_N(x)= \sum_{i=0}^{N+1} c_i \phi_i(x)$. Moreover,  $v \in V_N= span\{\phi_0, \phi_1, \cdots \phi_{N+1}\}$. Therefore
+\[
+a(u_N, v)= \alpha c_0 \phi_0(0) \phi_0(0) +  \sum_{j=0}^{N+1} a(\phi_i, \phi_j) c_j , \quad (f, \phi_i)= \int_0^1 f(x) \phi_i(x) \, dx, \quad \mbox{for} \:\:\: i=0, 1, \cdots, N+1
+\]
+
+Note that $\phi_0(0)=1$. Last equation becomes
+
+\[
+a(u_N, v)= \alpha c_0 +  \sum_{j=0}^{N+1} a(\phi_i, \phi_j) c_j , \quad (f, \phi_i)= \int_0^1 f(x) \phi_i(x) \, dx, \quad \mbox{for} \:\:\: i=0, 1, \cdots N+1
+\]
+
+Where $K_{ij}= a(\phi_i, \phi_j) $. However we should be careful at this point. Because of new boundary conditions bilinear form includes the term $\alpha c_0 $. When we construct our stiffness matrix $K$ because of the coefficient $c_0$, the matrix entry $K_{11}$ will be
+\[
+K_{11}= \alpha + a(\phi_{0}, \phi_{0})= \alpha + \int_0^1 \pd{\phi_{0}}{x}{} \pd{\phi_{0}}{x}{} \, dx = \alpha + \frac{1}{h}
+\]
+
+By part (b) we know that $K_{ii} = \frac{2}{h}$ and $K_{i{(i+1)}}= K_{{(i+1)}i} = \frac{-1}{h} $ for $i= 2,\cdots N+1$. Also for $i=N+2$
+\[
+K_{{(N+2)}{(N+2)}} = a(\phi_{N+1}, \phi_{N+1}) = \int_0^1 \pd{\phi_{N+1}}{x}{} \pd{\phi_{N+1}}{x}{} \, dx = \frac{1}{h}
+\]
+
+Therefore
+
+\[
+K= \frac{1}{h}\left[\begin{array}{rrrrrrr}
+              \alpha h + 1 & -1 & 0 & 0 &  \cdots & 0 \\[0.25em]
+               -1 & 2 & -1 &0 & \cdots & 0 \\
+                0& -1 & 2 & -1 & \cdots & 0\\
+                 \vdots & & &\ddots &  & \vdots \\[0.25em]
+                 0 & \cdots &  & -1& 2 & -1 \\ 
+                 0 & &\cdots &  & -1 & 1 
+                   \end{array}\right]
+                   \]
+
+Finally, the right hand side vector $b_i$ 
+\[
+b_i = (f,\phi_{i-1})= \int_{0}^{1} f(x) \phi_{i-1} (x) \, dx  \:\:\: \mbox{if} \:\: i= 1,\cdots, N+2\\
+\]
+
+
+\item Let $0 \neq x \in R^{n+2}$ 
+
+\begin{eqnarray*}
+x^T K x&=& \sum_{i=1}^{n+2} \sum_{j=1}^{n+2} x_i K_{ij}  x_j\\
+			 &=& x_1 ( \alpha + a( \phi_0, \phi_0)) x_1 + \sum_{i=2}^{n+2} \sum_{j=2}^{n+2}  x_i a( \phi_{i-1}, \phi_{j-1}) x_j \\
+			 &=&  (x_1^2 \alpha + a(x_1 \phi_0, x_1\phi_0))+  a( \sum_{i=2}^{n+2} x_i\phi_{i-1}, \sum_{j=2}^{n+2} x_{j} \phi_{j-1})
+\end{eqnarray*}
+Since $x\neq 0 $ and $\phi_i$ is linearly independent 
+\[
+\sum_{i=2}^{n+2} x_i \phi_{i-1} \neq 0
+\] 
+Thus
+ \[
+ a( \sum_{i=2}^{n+2} x_i\phi_{i-1}, \sum_{j=2}^{n+2} x_j\phi_{j-1}) > 0 \:\: \mbox{and} \:\:a(x_1 \phi_0, x_1\phi_0) > 0 
+ \]
+ 
+ Only term is left $ x_1^2 \alpha$. If $\alpha>0$, therefore $ x^T K x >0 $ for any $x\neq 0 $. Thus $K$  is positive definite.
+
+
+\end{enumerate}
+\end{solution}
+}{}

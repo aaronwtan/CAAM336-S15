@@ -1,0 +1,35 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen}
+\usepackage{commath}
+\usepackage{epstopdf}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+
+\begin{document}
+
+\setboolean{showsols}{true}
+\vspace*{-5em}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+Homework 1 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Wednesday 27 August 2014. Due 5pm Wednesday 03 September 2014.
+
+\begin{enumerate}\addtocounter{enumi}{0}
+
+\item {[24 points]}  \input classify
+
+\item {[21 points]}  \input solve
+
+\item {[15 points]}  \input linear
+
+\item {[40 points]}  \input FD
+
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,119 @@
+\begin{enumerate}
+\item Consider the boundary value problem
+\begin{align*}
+-\pd{u}{x}{2} &= f(x)\\
+u'(0) &= 0\\
+u'(1) &= 0.
+\end{align*}
+%\[
+%u'(0) = u(1) = 0.
+%\]
+%We can write this as an operator equation $Lu = f$ if 
+%\[
+%Lu = -\pd{u}{x}{2}, \quad L:C^2_M[0,1] \rightarrow C[0,1].
+%\]
+%where
+%\[
+%C^2_M[0,1] = \{u\in C^2[0,1], u'(0) = 0, u(1) = 0\},
+%\]
+%Derive eigenfunctions $\phi_j(x)$ and eigenvalues $\lambda_j$ of the operator $L$.  
+%\item For $f(x) = 1$, derive the spectral method solution
+%\[
+%u(x) = \sum_{j = 1}^\infty \alpha_j \phi_j(x).
+%\]
+%Give explicit expressions for $\alpha_j$.  
+%%You may wish to use the trigonometric identity
+%%\[
+%%2\sin(\theta)\cos(\phi) = \sin(\theta + \phi) + \sin(\theta - \phi).  
+%%\]
+%\item Consider the above problem, but now with boundary conditions
+
+If we define $Lu = -\pd{u}{x}{2}$ and the space $C^2_N[0,1]$
+\[
+C^2_{ N}[0,1] = \{u\in C^2[0,1], u'(0) = u'(1) = 0\},
+\]
+this can be written as an operator equation
+\[
+Lu = f, \quad L:C^2_{ N}[0,1] \rightarrow C[0,1].
+\]
+Explain why $L$ is not positive-definite.  
+\item Derive (do not just show) that the eigenfunctions $\phi_j(x)$ and corresponding eigenvalues $\lambda_j$ of the above operator equation are
+\[
+\phi_j(x) = \cos(j\pi x), \quad \lambda_j = (j\pi)^2.
+\]
+Specify the values of $j$ for which these formulas hold.  Describe what problems arise with the use of the spectral method for the above problem.  %\emph{Hint: what does $Lu = 0$ for $u \neq 0$ imply about the eigenvalues of $L$?}
+\item Earlier in the semester, we showed that a solution only exists to the above problem if $\int_0^1 f(x)dx = 0.$  Let $u(x)$ be a spectral method solution to $Lu = f$ for some source function $f(x)$.  Assume that
+\[
+\int_0^1 L\phi_j(x) = 0
+\]
+for any eigenfunction $\phi_j(x)$, and explain why this implies that $\int_0^1 f(x) dx =0$.
+\item The above problem is also non-unique: for any solution $u(x)$, $u(x) + C$ is also a solution for constant $C$.  One way to make the solution unique is to add a condition where the average of $u(x)$ is zero: 
+\begin{align*}
+\int_0^1 u(x)dx &= 0.
+\end{align*}
+To this end, we can redefine our operator equation 
+\[
+L_Au = -\pd{u}{x}{2}, \quad L_Au = f, \quad L_A:C^2_{A}[0,1] \rightarrow C[0,1].
+\]
+where $C^2_A[0,1]$ contains functions in $C^2_N[0,1]$  with zero average
+\[
+C^2_{A}[0,1] = \left\{u\in C^2[0,1], u'(0) = u'(1) = 0, \int_0^1 u(x) dx = 0\right\}.
+\]
+Show that $L_A$ is positive definite.
+\item Determine eigenfunctions and eigenvalues for the operator $L_A$, and give an expression for the spectral method solution for the above operator equation.  
+\end{enumerate}
+
+\ifthenelse{\boolean{showsols}}{
+\begin{solution}
+\begin{enumerate}
+\item Note that for any constant $C \neq 0$, $\pd{C}{x}{2} = 0$.  Additionally, $C \in C^2_N([0,1])$.  Thus, we can conclude that $LC = 0$.  As a result, 
+\[
+\left(LC,C\right) = \left(0,C\right) = 0.
+\]
+This shows $L$ is not positive definite, because otherwise $(Lu,u) = 0$ would imply $u = 0$.  
+\item If $L\phi_j = \lambda\phi_j$, then $-\phi_j'' = \lambda\phi_j$, which implies that $\phi_j(x)$ should have the form
+\[
+\phi_j(x) = A\sin(\sqrt{\lambda_j}x) + B\cos(\sqrt{\lambda_j}x)
+\]
+Then, 
+\[
+\phi_j'(x) = A\sqrt{\lambda_j}\cos(\sqrt{\lambda_j}x) - B\sqrt{\lambda_j}\sin(\sqrt{\lambda_j}x).
+\]
+The boundary condition $\phi_j'(0) = 0$ then implies that $A = 0$.  Likewise, the boundary condition $\phi_j'(1) = 0$ implies that 
+\[
+\phi_j'(1) = B\sqrt{\lambda_j}\sin(\sqrt{\lambda_j}x) = 0
+\]
+so that $\sqrt{\lambda_j} = j\pi$, and 
+\[
+\phi_j(x) = \cos(j\pi x), \qquad \lambda_j = j\pi^2.
+\]
+The above formula holds for $j = 0, 1, 2, \ldots$, since for $j = 0$, $\phi_j = 1$, which is an eigenfunction of $L$ with eigenvalue $\lambda_0 = 0$.  This causes problems with the spectral method --- the spectral method gives the solution
+\[
+u(x) = \sum_{j = 0}^\infty \frac{(f,\phi_j)}{\lambda_j(\phi_j,\phi_j)} \phi_j(x).
+\]
+When $j = 0$, $\lambda_j = 0$, and we end up dividing by zero.  
+
+\item You can show that 
+\[
+\int_0^1 L\phi_j(x) = \int_0^1 (j\pi)^2 \cos(j\pi x) = (j\pi)^2 \left[ \frac{\sin(j\pi x)}{j\pi}\right]_0^1 = 0, \quad j \neq 0.  
+\]
+If $j= 0$, then $L\phi_0 = 0$, since $\phi_0(x) = 1$.  Thus, $\int_0^1 L\phi_j(x) = 0$ for all $j$.  Then, if you assume that there is a solution $u(x)$ to the equation $Lu = f$,
+\[
+\int_0^1 f(x) = \int_0^1 Lu = \int_0^1 \sum_{j=0}^\infty \alpha_j L\phi_j(x) = \sum_{j=0}^\infty \alpha_j \int_0^1 L\phi_j(x)  = 0.
+\]
+\item If we redefine $L_A: C^2_A[0,1] \rightarrow C[0,1]$, then we can show it is positive definite.  First note that, by integration by parts, we get
+\[
+(L_A u,u) = \int_0^1 L_A u u = \int_0^1 -u''(x) u(x) = [-u'(x) u(x)]_0^1 + \int_0^1 u'(x)^2 = \int_0^1 u'(x)^2 \geq 0.
+\]
+Thus, we only have to show now that $(L_Au,u) = 0$ implies $u = 0$.  
+\[
+(L_Au,u) = 0 \rightarrow \int_0^1 u'(x)^2 = 0
+\]
+which implies $u'(x) = 0$, so that $u(x) = C$ for some constant $C$.  However, since we require $u \in C^2_A[0,1]$, $\int_0^1 u = \int_0^1 C = C = 0$, implying that for $(L_Au,u) = 0$, $u = 0$.  
+\item The eigenfunctions and eigenvalues of $L_A$ are identical to those derived in part (b); the only difference is that $j = 1, 2, \ldots$ instead of $j = 0,1,\ldots$.  
+\[
+\phi_j(x) = \cos(j\pi x), \quad \lambda_j = (j\pi)^2, \qquad j = 1,2,\ldots.
+\]
+\end{enumerate}
+\end{solution}
+}{}

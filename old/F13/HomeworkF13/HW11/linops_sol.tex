@@ -1,0 +1,52 @@
+\begin{solution}
+\begin{enumerate}
+\item {[5 points]} This function \emph{is not} a linear operator.\\
+Suppose $\Bu, \Bv \in \Rn$.  Then 
+\[
+f(\Bu+\Bv) = \BA(\Bu+\Bv) + \Bb  = \BA\Bu + \BA\Bv + \Bb
+\]
+but
+\[
+f(\Bu)+f(\Bv) = \BA\Bu + \Bb + \BA\Bv + \Bb = \BA\Bu + \BA\Bv + 2\Bb
+\]
+and so $f(\Bu+\Bv)$ does not equal $f(\Bu) + f(\Bv)$ when $\Bb\ne \Bzero$.
+
+\item {[5 points]} This function \emph{is not} a linear operator.\\
+      Suppose $\Bx\in \Rn$ and $\alpha\in\R$.  Then 
+             \[ f(\alpha\Bx) = (\alpha \Bx)^T(\alpha \Bx) 
+                             = \alpha^2 \Bx^T\Bx 
+                             = \alpha^2 f(\Bx),\]
+      and thus if $\alpha \ne \pm 1$, we have $f(\alpha \Bx) \ne \alpha f(\Bx)$.
+
+\item {[5 points]} This function \emph{is} a linear operator.\\
+      Suppose $\BX, \BY \in \Rnn$.  Then 
+            \[ f(\BX+\BY) = \BA(\BX+\BY) + (\BX+\BY)\BB
+                          = \BA\BX + \BX \BB + \BA\BY + \BY\BB
+                          = f(\BX) + f(\BY),\]
+      and if $\alpha\in\R$, then
+            \[ f(\alpha \BX) = \BA(\alpha\BX) + (\alpha \BX) \BB
+                             = \alpha (\BA\BX + \BX\BB)
+                             = \alpha f(\BX).\]
+
+\item {[5 points]} This function \emph{is not} a linear operator.\\
+      Suppose that $u(x) = x$.  Then 
+          \[ Lu = u {d u \over dx} = x \cdot 1 = x,\]
+      yet for any $\alpha \in \R$ we have
+          \[ L(\alpha u) = (\alpha u) {d (\alpha u) \over dx}
+                         = (\alpha x) \cdot \alpha = \alpha^2 x,\]
+      so if $\alpha \ne \pm 1$, we have $L(\alpha u) \ne \alpha L u$.
+
+\item {[5 points]} This function \emph{is} a linear operator.\\
+      Suppose that $u, v \in C^2[0,1]$.  Then 
+        \begin{eqnarray*}
+               L(u+v) &=& {d^2(u+v) \over dx^2} - \sin(x) {d(u+v) \over dx} 
+                           + \cos(x) (u+v)  \\[0.25em]
+                  &=& {d^2 u \over dx^2} - \sin(x) {du \over dx} + \cos(x) u
+                  + {d^2 v \over dx^2} - \sin(x) {dv \over dx} + \cos(x) v \\[0.25em]
+                  &=& Lu + Lv,
+        \end{eqnarray*}
+      and for any $\alpha \in \R$,
+        \[ L(\alpha u) = {d^2 (\alpha u) \over dx^2} - \sin(x) {d(\alpha u) \over dx} + \cos(x) (\alpha u) 
+                       = \alpha \Big({d^2 u \over dx^2} - \sin(x) {du \over dx} + \cos(x) u\Big) = \alpha L(u).\]
+\end{enumerate}
+\end{solution}

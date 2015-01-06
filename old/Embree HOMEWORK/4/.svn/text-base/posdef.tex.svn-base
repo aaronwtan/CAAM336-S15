@@ -1,0 +1,44 @@
+A symmetric matrix $\BA\in\Rnn$ is \emph{positive definite} provided that
+\[ \Bx^T\BA\Bx > 0\]
+for all nonzero $\Bx\in\Rn$.
+
+Show that a symmetric matrix $\BA$ is positive definite 
+if and only if all its eigenvalues are positive.
+
+This means that you need to prove two things:  
+\begin{enumerate}
+\item If $\BA$ is symmetric and positive definite and $\BA\Bu = \lambda \Bu$
+    for $\Bu\ne \Bzero$, then $\lambda>0$;
+\item If $\BA$ is symmetric and all its eigenvalues are positive, 
+    then $\BA$ must be positive definite, 
+    i.e., $\Bx^T\BA\Bx>0$ for all nonzero $\Bx\in\Rn$.  
+    Hint: Write $\Bx$ as a weighted sum of the eigenvectors of $\BA$.
+\end{enumerate}
+   
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+Proof.  Suppose that $\BA$ is symmetric and positive definite, and that $\BA\Bu = \lambda\Bu$
+for some $\Bu\ne 0$.  Then 
+\[ \Bu^*\BA\Bu = \lambda\Bu^*\Bu = \lambda \norm{\Bu}^2.\]
+Since $\BA$ is positive definite, $\Bu^*\BA\Bu$, and since $\Bu\ne 0$, $\norm{\Bu}>0$.
+Hence can write $\lambda$ as the ratio of two positive numbers,
+ \[ \lambda = {\Bu^*\BA\Bu \over \norm{\Bu}^2},\]
+which must be positive.
+
+Now suppose that $\BA$ is symmetric and all its eigenvalues are positive.
+The Spectral Theorem ensures that we can construct a set of eigenvectors
+$\{\Bu_1, \Bu_2, \ldots, \Bu_n\}$ that are orthogonal and each of unit
+length, i.e., $\Bu_j^*\Bu_j^{}=1$ and $\Bu_j^*\Bu_k^{}=0$ provided $j\ne k$.
+For any $\Bx\in\C^n$, write 
+\[ \Bx = \sum_{j=1}^n y_j \Bu_j,\]
+i.e., $\Bx = \BU\By$, where $\BU=[\Bu_1\ \Bu_2\ \cdots \Bu_n]$.
+In this basis we have
+\[ \Bx^*\BA\Bx = (\BU\By)^*\BA(\BU\By) = \sum_{j=1}^n \lambda_j^{} |y_j|^2.\]
+Since $\lambda_j>0$ for $j=1,\ldots, n$ by assumption and $|y_j|^2\ge 0$ for all $j=1,\ldots n$,
+we have $\Bx^*\BA\Bx \ge 0$.  The only way to achieve $\Bx^*\BA\Bx = 0$ 
+is for $|y_j|=0$ for $j=1,\ldots, n$, i.e., when $\By=\Bzero$, and hence $\Bx=\Bzero$.
+It follows that if $\Bx\ne \Bzero$, then $\Bx^*\BA\Bx>0$, and hence $\BA$ is positive definite.
+\quad\qed
+
+[{\bf GRADERS}: I have used complex arithmetic here, but it is acceptable if 
+the solution is restricted to real vectors.]
+\end{solution}}{} 

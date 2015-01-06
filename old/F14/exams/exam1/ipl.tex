@@ -1,0 +1,51 @@
+
+\begin{enumerate}
+\item Let $\CV = C^1[0,1]$ be the space of all continuously differentiable real valued functions on the interval $[0,1]$, and let $\displaystyle{\ip{\cdot,\cdot}:\mbox{ }\CV\times\CV\rightarrow\R}$ defined by 
+\[
+\ip{f,g} = \int_0^1 f(x) g(x) \, dx + \int_0^1 f'(x) g'(x) \, dx
+\]
+Prove that $\ip{\cdot,\cdot}$  is an inner product on $\CV$.
+%\\
+%\item Let $\CV =C^1[a,b]$. Define $\displaystyle{\|f\| = \int_a^b |f (x)| \, dx + \int_a^b |f'(x)| \, dx }$. Prove that this defines a norm on $\CV$ bu using the fact: \emph{ if a continuous function is positive anywhere, its integral is also positive.}
+%\\
+\item Let $V$ be a vector space with an inner product and let $u$ be a vector in $V$ such that
+\[
+\norm{u}^2 = (u,u) = 1.
+\]
+Let $ L_u:V \rightarrow V$ be the operator defined by
+\[
+ L_u(v)=v-2\ip{v,u} u 
+\]
+for all $v \in V$. Show that $L_u$ is linear, and that $L_u$ satisfies 
+$$\ip{L_u(v),L_u(w)}= \ip{v,w}$$ 
+for all $v,w \in V$ (this implies that $L_u$ is \emph{unitary}, and that $\norm{L_u(v)} = \norm{v}$).  
+\\
+\item Let $W\subset C[-1,1]$ now be a vector space with inner product 
+\[
+\displaystyle{\ip{f,g} = \int_{-1}^1 f(x) g(x) \, dx }
+\]
+We will use the orthonormal basis
+\[
+\{\phi_1, \phi_2, \phi_3\}= \left\{\frac{1}{\sqrt{2}}, \quad \sqrt{\frac{3}{2}}x, \quad \sqrt{\frac{5}{8}}(3x^2 - 1)\right\}.
+\] 
+\begin{itemize}
+\item[i] Verify that $\phi_1,\phi_2,\phi_3$ have unit norm (i.e. $\|\phi_i\| = 1$ for $i = 1,2,3$).  
+\item[i] Find the linear polynomial $p(x)$ that best approximates $g(x)= \sin(\pi x)$ from ${\rm span}\{\phi_1, \phi_2\}$. 
+\item[ii] Find the quadratic polynomial $q(x)$ that best approximates $g(x)= \sin(\pi x)$ from ${\rm span}\{\phi_1, \phi_2, \phi_3\}$. 
+\end{itemize}
+%\emph{Hint:\[\int x sin(\pi x) \, dx= \frac{\sin(\pi x) - \pi x \cos(\pi x)}{\pi^2} + constant\]}
+You may use the following without proof:
+\[
+\int_{-1}^1 x \sin(\pi x) \, dx= \frac{2}{\pi}
+\] 
+\[
+\int_{-1}^1 x^2 \sin(\pi x) \, dx= 0.
+\]
+
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input ipl_sol}{}
+

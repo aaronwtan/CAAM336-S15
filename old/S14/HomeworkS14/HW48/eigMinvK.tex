@@ -1,0 +1,57 @@
+
+Let $H^1_D\left(0,1\right)=\{v\in H^1\left(0,1\right):\,v(0)=v(1)=0\}$. Let N be a positive integer, let $\displaystyle{h={1 \over N+1}}$ and let $x_k=kh$ for $k=0,1,\ldots,N+1$. Let the continuous piecewise linear hat functions $\phi_j\in H^1_D(0,1)$ be such that
+\[
+\phi_j(x) = \left\{\begin{array}{ll}
+\displaystyle{{x-x_{j-1} \over h}} & \displaystyle{\mbox{if }x\in[x_{j-1},x_j)},
+\\[10pt]
+\displaystyle{{x_{j+1}-x \over h}} & \displaystyle{\mbox{if }x\in[x_j,x_{j+1})},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\]
+for $j=1,\ldots,N$. Let $V_N={\rm span}\{\phi_1,...,\phi_N\}$. Let $\rho\in C[0,1]$ be such that $\rho(x)>0$ for all $x\in[0,1]$, let $c\in C[0,1]$ be such that $c(x)>0$ for all $x\in[0,1]$ and let $\kappa\in C[0,1]$ be such that $\kappa(x)>0$ for all $x\in[0,1]$. Let the inner product $\ip{\cdot,\cdot}:L^2(0,1)\times L^2(0,1)\to\R$ be defined by
+\[
+\ip{u,v}=\int_0^1\rho(x)c(x)u(x)v(x)\,dx
+\]
+and let the inner product $a\ip{\cdot,\cdot}:H^1_D(0,1)\times H^1_D(0,1)\to\R$ be defined by
+\[
+a\ip{u,v}=\int_0^1\kappa(x)u'(x)v'(x)\,dx.
+\]
+Let $\BM\in\R^{N\times N}$ be the matrix with entries
+\[
+M_{jk}=\ip{\phi_k,\phi_j}
+\]
+and let $\BK\in\R^{N\times N}$ be the matrix with entries
+\[
+K_{jk}=a\ip{\phi_k,\phi_j}.
+\]
+For $\Bw\in\R^N$, let
+\[
+\hat{w}_N=\sum_{j=1}^Nw_j\phi_j
+\]
+where $w_j\in\R$ is the $j$th entry of the vector $\Bw$.
+
+In class we had stated that the eigenvalues of $\BM^{-1}\BK$ are real. In class we had also stated that the eigenvalues of $-\BM^{-1}\BK$ are negative since the eigenvalues of $\BM^{-1}\BK$ are positive. This question will walk you through the process of showing that the eigenvalues of $\BM^{-1}\BK$ are positive given that we know that the eigenvalues of $\BM^{-1}\BK$ are real.
+\\
+\begin{enumerate}
+\item For $\Bw\in\R^N$, show that
+\[
+\Bw^T\BM\Bw=\ip{\hat{w}_N,\hat{w}_N}.
+\]
+\\
+\item Show that if $\BM^{-1}\BK\Bw=\lambda\Bw$, for $\lambda\in\R$ and $\Bw\in\R^N$, then
+\[
+a\ip{\hat{w}_N,\hat{w}_N}=\lambda\ip{\hat{w}_N,\hat{w}_N}.
+\]
+In addition to the information given previously in the question you may use the fact that
+\[
+\Bw^T\BK\Bw=a\ip{\hat{w}_N,\hat{w}_N}.
+\]
+\\
+\item Use the properties satisfied by inner products to show that if $\lambda\in\R$ is an eigenvalue of $\BM^{-1}\BK$ then $\lambda>0$.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input eigMinvK_sol}{}

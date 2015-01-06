@@ -1,0 +1,60 @@
+Let the inner product $\ip{\cdot,\cdot}:\mbox{ }C[0,1]\times C[0,1]\rightarrow\R$ be defined by
+\[
+\ip{v,w}=\int_0^1v(x)w(x)\,dx
+\]
+and let the norm $\norm{\cdot}:\mbox{ }C[0,1]\rightarrow\R$ be defined by
+\[
+\norm{v}=\sqrt{\ip{v,v}}.
+\]
+Let the linear operator $L: S\to C[0,1]$ be defined by
+\[
+L v = -v''
+\]
+where
+\[
+S = \{ w \in C^2[0,1] : w(0) = w'(1) = 0\}.
+\]
+Note that
+\[
+\ip{Lv,w}=\ip{v,Lw}\mbox{ for all }v,w\in S.
+\]
+
+\begin{enumerate}
+\item The operator $L$ has eigenvalues $\lambda_n$ with corresponding eigenfunctions
+\[
+\psi_n(x) = \sqrt{2} \sin\left(\left(n-{1\over 2}\right)\pi x\right)
+\]
+for $n=1,2,\ldots$. Obtain a formula for the eigenvalues $\lambda_n$ for $n=1,2,\ldots$.
+\\
+\item Use the spectral method to obtain a series solution to the problem of finding $\tilde{u}\in C^2[0,1]$ such that
+\[
+-\tilde{u}''(x) = x + \sin(\pi x),\quad 0<x<1
+\]
+and
+\[
+\tilde{u}(0) = \tilde{u}'(1) = 0.
+\]
+Note that, for $m,n=1,2,\ldots$,
+\[
+\ip{\psi_m,\psi_n}=\left\{\begin{array}{rl}1&\mbox{if }m=n;\\0&\mbox{if }m\ne n.\end{array}\right.
+\]
+
+\item Plot the approximation to $\tilde{u}$ obtained by replacing the upper limit of the summation in your series solution with $20$.
+\\
+\item By shifting the data, obtain a series solution to the problem of finding $u\in C^2[0,1]$ such that
+\[
+-u''(x) = x + \sin(\pi x),\quad 0<x<1
+\]
+and
+\[
+u(0) = u'(1) = 1.
+\]
+
+\item Plot the approximation to $u$ obtained by replacing the upper limit of the summation in your series solution with $20$.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input bvps_sol}{}
+

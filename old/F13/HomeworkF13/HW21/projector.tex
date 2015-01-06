@@ -1,0 +1,25 @@
+Let the inner product $\ip{\cdot,\cdot}:\mbox{ }C[-1,1]\times C[-1,1]\rightarrow\R$ be defined by
+\[
+(u,v) = \int_{-1}^1 u(x) v(x)\,dx.
+\]
+Let the linear operator $P_e:\mbox{ }C[-1,1]\rightarrow C[-1,1]$ be defined by
+\[
+(P_e f)(x) = {f(x) + f(-x) \over 2}
+\]
+and let the linear operator $P_o:\mbox{ }C[-1,1]\rightarrow C[-1,1]$ be defined by
+\[
+(P_o f)(x) = {f(x) - f(-x) \over 2}.
+\]
+Note that $P_e$ and $P_o$ project functions onto their even and odd parts, respectively.
+
+\begin{enumerate}
+\item Verify that $P_e$ and $P_o$ are projections.
+\\
+\item For all $f\in C[-1,1]$, verify that $P_e f$ and $P_o f$ are orthogonal with respect to the inner product $\ip{\cdot,\cdot}$.
+\\
+\item Is $P_e+P_o$ a projection? Note that $P_e+P_o:\mbox{ }C[-1,1]\rightarrow C[-1,1]$ is defined by $(P_e+P_o)f=P_ef+P_of$.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input projector_sol}{}

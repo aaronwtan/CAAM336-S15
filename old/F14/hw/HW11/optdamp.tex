@@ -1,0 +1,46 @@
+\def\bmatrix#1{\left[\matrix{#1}\right]}
+In class we will see that the wave equation $u_{tt} = u_{xx}$ can
+be written as a first order system.  We will introduce the velocity variable
+\[ v(x,t) = u_t(x,t),\]
+then notice that the wave equation is equivalent to the first order equation
+\[ {\partial \over \partial t} \bmatrix{u(x,t)\cr v(x,t)}
+    = \bmatrix{ 0 & I \cr \partial^2/\partial x^2 & 0} 
+      \bmatrix{u(x,t)\cr v(x,t)}\]
+where $I$ is the identity operator (i.e., $I v = v$ for any function $v$). 
+The first row of this system gives $u_t = v$, while the second row
+gives $v_t = u_{xx}$, which is just another way of writing $u_{tt} = u_{xx}$.
+
+We also have the usual initial conditions,
+\[ \bmatrix{u(x,0) \cr v(x,0)} = \bmatrix{u_0(x) \cr v_0(x)}.\]
+This system can be analyzed in terms of its eigenvalues and eigenfunctions.
+In this problem, we will use the same approach to study the damped wave equation
+from Problem~2.
+\begin{enumerate}
+\item Verify that the damped wave equation $u_{tt} = u_{xx} - 2@d@u_t$ is equivalent
+      to the system
+\[ {\partial \over \partial t} \bmatrix{u(x,t)\cr v(x,t)}
+    = \bmatrix{ 0 & I \cr \partial^2/\partial x^2 & -2d I} 
+      \bmatrix{u(x,t)\cr v(x,t)}.\]
+\item For any value of $d$, the operator
+      \[ A(d) = \bmatrix{ 0 & I \cr \partial^2/\partial x^2 & -2@d@I}\]
+      has all its eigenvectors of the same form:
+      \[ \Psi_{\pm k}(x) = \bmatrix{ \sin(k \pi x)\cr  \lambda_{\pm k} \sin(k\pi x)}.\]
+      Use these eigenvectors to determine the eigenvalues $\lambda_{\pm k}$.
+\item Plot the eigenvalues from part~(b) in the complex plane for $d=0, \pi/2, \pi$, and
+      $3\pi/2$.
+\item What value of $d\ge 0$ optimizes the \emph{asymptotic decay} of the system?
+      That is, what value of $d$ moves \emph{all} the eigenvalues as far to the
+      left in the complex plane as possible?  Said yet another way, which $d$ 
+      minimizes the real part of the rightmost eigenvalue?
+      Does larger damping always imply faster asymptotic decay?
+\item Confirm this result by plotting the solution at $t = 1.5$ for $d = 2.5, 3.2, 20$
+      on the same plot with vertical axis $[-.002,.002]$, using the same values for
+      $u_0$ and $v_0$ as in part~(d) of Problem~2.  (You should simply adapt the code
+      you developed for Problem~2 to produce these plots.)
+   
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\boolean{showsols}}{\input optdamp_sol}{}
+
+

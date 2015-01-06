@@ -1,0 +1,44 @@
+In this problem, we will derive a finite difference discretization for the equation
+\[
+\alpha u(x) - \pd{u(x)}{x}{2} = f(x), \quad 0<x<1
+\]
+with boundary conditions
+\[
+u'(0) = 0, \quad u'(1) = 0.
+\]
+Since we cannot solve the equation exactly, we will wish to satisfy it at a finite number of points $x_i$, such that
+\[
+\alpha u(x_i) - \pd{u(x_i)}{x}{2} = f(x_i), \quad 0 < x_i < 1.
+\]
+To do so, we will replace $\pd{u(x_i)}{x}{2}$ with a finite difference approximation using $u(x_i)$ at the 5 points 
+\[
+x_0 = 0, \quad x_1 = \frac{1}{4}, \quad x_2 = \frac{1}{2}, \quad x_3 = \frac{3}{4}, \quad x_4 = 1.
+\]
+\begin{enumerate}
+\item Using the finite difference approximations for the boundary conditions
+\[
+u'(0) = u'(x_0) \approx \frac{u(x_1)-u(x_0)}{h} = 0
+\]
+and
+\[
+u'(1) = u'(x_{4}) \approx \frac{u(x_{4})-u(x_3)}{h} = 0,
+\]
+write down the finite difference approximation to the differential equation at $0< x_1, x_2, x_3 < 1$, and construct explicitly the matrix system ${\bf A}{\bf u} = {\bf b}$ resulting from the finite difference approximation of $\alpha u(x)-u''(x)=f(x)$, where%Give explicit expressions for $\bf A$ and $\bf b$.  
+\[
+{\bf u} = \left[\begin{array}{c}u(x_1)\\u(x_2)\\u(x_3)\end{array}\right].
+\]\item Solve the above system for $\alpha = 1$, $f(x) = e^x$, and report the solution at the interior points $u(x_1), u(x_2), u(x_3)$.  
+\item Consider the case where $\alpha = 0$, or
+\begin{align*}
+-u''(x) &= f(x), \quad 0< x< 1\\
+u'(0) &= 0\\
+u'(1) &= 0.
+\end{align*}
+In the previous homework, we showed that this equation does not have a unique solution; as a result, neither does the finite difference system for this system.  Verify that $\bf e$ is in the null space of ${\bf A}$, where ${\bf e} = (1,1,1)^T$ is the vector of all ones.  Suppose that, instead of 5 points, we have $N+2$ points.  Would the vector of all ones be in the null space of ${\bf A}$ for arbitrary $N$ as well?  
+%\item For this $5\times 5$ system, show that for any $\alpha > 0$, the eigenvalues $\lambda_1,\ldots, \lambda_5$ of ${\bf A}$ are positive (implying that ${\bf A}$ is nonsingular).  Hint: if $I$ is the identity matrix, what are the eigenvalues of a matrix $\alpha I + A$ in terms of the eigenvalues $\mu_i$ of $A$?  You may use \textsc{Matlab} to compute the eigenvalues 
+%\item Is 
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input FDsimple_sol}{}

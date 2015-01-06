@@ -1,0 +1,301 @@
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2007.5.18)  11 OCT 2010 19:58
+entering extended mode
+\write18 enabled.
+ %&-line parsing enabled.
+**sol6.tex
+(./sol6.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, arabic, basque, bulgarian, coptic, welsh, czech, slovak, german, ng
+erman, danish, esperanto, spanish, catalan, galician, estonian, farsi, finnish,
+ french, greek, monogreek, ancientgreek, croatian, hungarian, interlingua, ibyc
+us, indonesian, icelandic, italian, latin, mongolian, dutch, norsk, polish, por
+tuguese, pinyin, romanian, russian, slovenian, uppersorbian, serbian, swedish, 
+turkish, ukenglish, ukrainian, loaded.
+(/usr/local/texlive/2007/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
+(/usr/local/texlive/2007/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2007/texmf-dist/tex/latex/preprint/fullpage.sty
+Package: fullpage 1999/02/23 1.1 (PWD)
+\FP@margin=\skip43
+)
+(/Users/embree/Library/texmf/tex/latex/336notes.sty
+(/usr/local/texlive/2007/texmf-dist/tex/latex/amsfonts/euscript.sty
+Package: euscript 2001/10/01 v2.2d Euler Script fonts
+LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
+(Font)                  U/eus/m/n --> U/eus/b/n on input line 55.
+)
+(/usr/local/texlive/2007/texmf-dist/tex/latex/bbm/bbm.sty
+Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
+LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
+(Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
+(Font)                  U/bbmss/m/n --> U/bbmss/bx/n on input line 35.
+)
+(/Users/embree/Library/texmf/tex/latex/fancyheadings/fancyheadings.sty
+\headrulewidth=\dimen103
+\footrulewidth=\dimen104
+\plainheadrulewidth=\dimen105
+\plainfootrulewidth=\dimen106
+\headwidth=\dimen107
+\footruleskip=\dimen108
+)
+(/usr/local/texlive/2007/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2007/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2007/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2007/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2007/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 90.
+
+(/usr/local/texlive/2007/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2007/01/08 v0.04d Graphics/color for pdfTeX
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen109
+\Gin@req@width=\dimen110
+)
+(/usr/local/texlive/2007/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2002/01/22 v2.2d
+
+(/usr/local/texlive/2007/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2001/10/25 v2.2f
+\@emptytoks=\toks15
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 132.
+))
+Style Option FULLPAGE Version 2 as of 15 Dec 1988
+) (/usr/local/texlive/2007/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/local/texlive/2007/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2007/texmf/tex/latex/config/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+) (./sol6.aux)
+\openout1 = `sol6.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+
+(/usr/local/texlive/2007/texmf-dist/tex/context/base/supp-pdf.tex
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count88
+\scratchdimen=\dimen111
+\scratchbox=\box26
+\nofMPsegments=\count89
+\nofMParguments=\count90
+\MPscratchCnt=\count91
+\MPscratchDim=\dimen112
+\MPnumerator=\count92
+\everyMPtoPDFconversion=\toks16
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 16.
+ (/usr/local/texlive/2007/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 16.
+
+(/usr/local/texlive/2007/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2002/01/19 v2.2g AMS font definitions
+) (./bvps.tex
+Underfull \hbox (badness 10000) in paragraph at lines 12--14
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--16
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--18
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--20
+
+ []
+
+[1
+
+{/usr/local/texlive/2007/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+<bvps1_0.pdf, id=15, 491.8375pt x 427.5975pt>
+File: bvps1_0.pdf Graphic file (type pdf)
+ <use bvps1_0.pdf>
+<bvps1_1.pdf, id=16, 491.8375pt x 427.5975pt>
+File: bvps1_1.pdf Graphic file (type pdf)
+ <use bvps1_1.pdf> [2]
+<bvps1_2.pdf, id=20, 491.8375pt x 427.5975pt>
+File: bvps1_2.pdf Graphic file (type pdf)
+ <use bvps1_2.pdf>
+<bvps1_20.pdf, id=21, 491.8375pt x 427.5975pt>
+File: bvps1_20.pdf Graphic file (type pdf)
+ <use bvps1_20.pdf>
+(./bvps_code1.tex) [3 <./bvps1_0.pdf> <./bvps1_1.pdf> <./bvps1_2.pdf> <./bvps1_
+20.pdf>] <bvps4_1.pdf, id=54, 487.8225pt x 427.5975pt>
+File: bvps4_1.pdf Graphic file (type pdf)
+ <use bvps4_1.pdf>
+<bvps4_2.pdf, id=55, 487.8225pt x 427.5975pt>
+File: bvps4_2.pdf Graphic file (type pdf)
+ <use bvps4_2.pdf>
+<bvps4_20.pdf, id=56, 487.8225pt x 427.5975pt>
+File: bvps4_20.pdf Graphic file (type pdf)
+ <use bvps4_20.pdf>
+<bvps4_20_err.pdf, id=57, 491.8375pt x 427.5975pt>
+File: bvps4_20_err.pdf Graphic file (type pdf)
+ <use bvps4_20_err.pdf>
+(./bvps_code1.tex [4 <./bvps4_1.pdf> <./bvps4_2.pdf> <./bvps4_20.pdf> <./bvps4_
+20_err.pdf>]) <bvps2_1.pdf, id=81, 482.80376pt x 427.5975pt>
+File: bvps2_1.pdf Graphic file (type pdf)
+ <use bvps2_1.pdf>
+<bvps2_2.pdf, id=82, 482.80376pt x 427.5975pt>
+File: bvps2_2.pdf Graphic file (type pdf)
+ <use bvps2_2.pdf> [5]
+<bvps2_3.pdf, id=86, 482.80376pt x 427.5975pt>
+File: bvps2_3.pdf Graphic file (type pdf)
+ <use bvps2_3.pdf>
+<bvps2_20.pdf, id=87, 482.80376pt x 427.5975pt>
+File: bvps2_20.pdf Graphic file (type pdf)
+ <use bvps2_20.pdf>
+(./bvps_code2.tex) [6 <./bvps2_1.pdf> <./bvps2_2.pdf> <./bvps2_3.pdf> <./bvps2_
+20.pdf>] <bvps2b_1.pdf, id=119, 481.8pt x 427.5975pt>
+File: bvps2b_1.pdf Graphic file (type pdf)
+ <use bvps2b_1.pdf>
+<bvps2b_2.pdf, id=120, 481.8pt x 427.5975pt>
+File: bvps2b_2.pdf Graphic file (type pdf)
+ <use bvps2b_2.pdf>
+<bvps2b_3.pdf, id=121, 481.8pt x 427.5975pt>
+File: bvps2b_3.pdf Graphic file (type pdf)
+ <use bvps2b_3.pdf>
+<bvps2b_20.pdf, id=122, 481.8pt x 427.5975pt>
+File: bvps2b_20.pdf Graphic file (type pdf)
+ <use bvps2b_20.pdf>
+(./bvps_code2b.tex [7 <./bvps2b_1.pdf> <./bvps2b_2.pdf> <./bvps2b_3.pdf> <./bvp
+s2b_20.pdf>]) <bvps3_1b.pdf, id=143, 482.80376pt x 427.5975pt>
+File: bvps3_1b.pdf Graphic file (type pdf)
+
+<use bvps3_1b.pdf> <bvps3_2b.pdf, id=144, 482.80376pt x 427.5975pt>
+File: bvps3_2b.pdf Graphic file (type pdf)
+
+<use bvps3_2b.pdf> <bvps3_3b.pdf, id=145, 482.80376pt x 427.5975pt>
+File: bvps3_3b.pdf Graphic file (type pdf)
+
+<use bvps3_3b.pdf> <bvps3_20b.pdf, id=146, 482.80376pt x 427.5975pt>
+File: bvps3_20b.pdf Graphic file (type pdf)
+
+<use bvps3_20b.pdf> [8 <./bvps3_1b.pdf> <./bvps3_2b.pdf> <./bvps3_3b.pdf> <./bv
+ps3_20b.pdf>] <bvps3_1a.pdf, id=179, 491.8375pt x 430.60875pt>
+File: bvps3_1a.pdf Graphic file (type pdf)
+
+<use bvps3_1a.pdf> <bvps3_2a.pdf, id=180, 491.8375pt x 430.60875pt>
+File: bvps3_2a.pdf Graphic file (type pdf)
+
+<use bvps3_2a.pdf> <bvps3_3a.pdf, id=181, 491.8375pt x 430.60875pt>
+File: bvps3_3a.pdf Graphic file (type pdf)
+
+<use bvps3_3a.pdf> <bvps3_20a.pdf, id=182, 491.8375pt x 430.60875pt>
+File: bvps3_20a.pdf Graphic file (type pdf)
+
+<use bvps3_20a.pdf> (./bvps_code2.tex)) (./hats.tex
+Underfull \hbox (badness 10000) in paragraph at lines 28--4
+
+ []
+
+[9 <./bvps3_1a.pdf> <./bvps3_2a.pdf> <./bvps3_3a.pdf> <./bvps3_20a.pdf>]
+<hats.pdf, id=223, 463.7325pt x 279.0425pt>
+File: hats.pdf Graphic file (type pdf)
+ <use hats.pdf>
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 32.
+
+(/usr/local/texlive/2007/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 32.
+ [10 <./hats.pdf>] <hats_3a.pdf, id=241, 482.80376pt x 427.5975pt>
+File: hats_3a.pdf Graphic file (type pdf)
+ <use hats_3a.pdf>
+<hats_3b.pdf, id=242, 531.9875pt x 427.5975pt>
+File: hats_3b.pdf Graphic file (type pdf)
+ <use hats_3b.pdf>
+<hats_9a.pdf, id=243, 482.80376pt x 427.5975pt>
+File: hats_9a.pdf Graphic file (type pdf)
+ <use hats_9a.pdf>
+<hats_9b.pdf, id=244, 511.9125pt x 427.5975pt>
+File: hats_9b.pdf Graphic file (type pdf)
+ <use hats_9b.pdf>
+(./hats_code.tex [11 <./hats_3a.pdf> <./hats_3b.pdf> <./hats_9a.pdf> <./hats_9b
+.pdf>])) [12] (./sol6.aux) ) 
+Here is how much of TeX's memory you used:
+ 1700 strings out of 94073
+ 20828 string characters out of 1162984
+ 69279 words of memory out of 1500000
+ 4925 multiletter control sequences out of 10000+50000
+ 11889 words of font info for 47 fonts, out of 1200000 for 2000
+ 645 hyphenation exceptions out of 8191
+ 32i,11n,26p,275b,466s stack positions out of 5000i,500n,6000p,200000b,5000s
+</usr/local/texlive/2007/texmf-dist/fonts/type1/blu
+esky/cm/cmbx10.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/c
+mex10.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmmi10.pfb
+></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmmi5.pfb></usr/loc
+al/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmmi7.pfb></usr/local/texlive
+/2007/texmf-dist/fonts/type1/bluesky/cm/cmmi8.pfb></usr/local/texlive/2007/texm
+f-dist/fonts/type1/bluesky/cm/cmr10.pfb></usr/local/texlive/2007/texmf-dist/fon
+ts/type1/bluesky/cm/cmr5.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/bl
+uesky/cm/cmr6.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cm
+r7.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmr8.pfb></us
+r/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmss10.pfb></usr/local/t
+exlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmss12.pfb></usr/local/texlive/20
+07/texmf-dist/fonts/type1/bluesky/cm/cmssbx10.pfb></usr/local/texlive/2007/texm
+f-dist/fonts/type1/bluesky/cm/cmsy10.pfb></usr/local/texlive/2007/texmf-dist/fo
+nts/type1/bluesky/cm/cmsy5.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/
+bluesky/cm/cmsy7.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm
+/cmti10.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmtt10.p
+fb></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmtt8.pfb>
+Output written on sol6.pdf (12 pages, 492128 bytes).
+PDF statistics:
+ 372 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 131072)
+ 146 words of extra memory for PDF output out of 10000 (max. 10000000)
+

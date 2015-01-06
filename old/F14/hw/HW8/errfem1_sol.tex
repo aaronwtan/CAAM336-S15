@@ -1,0 +1,69 @@
+\begin{solution}
+\begin{enumerate}
+\item {[13 points]} The properties satisfied by the inner product allow us to say that
+\begin{eqnarray*}
+a\ip{u-u_N,u-u_N}&=&a\ip{u,u-u_N}-a\ip{u_N,u-u_N}
+\\
+&=&a\ip{u,u}-a\ip{u,u_N}-a\ip{u_N,u}+a\ip{u_N,u_N}
+\\
+&=&a\ip{u,u}-2a\ip{u,u_N}+a\ip{u_N,u_N}.
+\end{eqnarray*}
+Now, $u_N\in V_N$ and so the fact that
+\[
+a\ip{u_N,v}=\ip{f,v}\mbox{ for all }v\in V_N
+\]
+means that
+\[
+a\ip{u_N,u_N}=\ip{f,u_N}.
+\]
+Moreover, $u_N\in H^1_D(0,1)$, since $V_N$ is a subspace of $H^1_D(0,1)$ and $u_N\in V_N$, and so the fact that
+\[
+a\ip{u,v}=\ip{f,v}\mbox{ for all }v\in H^1_D(0,1)
+\]
+means that
+\[
+a\ip{u,u_N}=\ip{f,u_N}.
+\]
+So,
+\[
+a\ip{u,u}-2a\ip{u,u_N}+a\ip{u_N,u_N}=a\ip{u,u}-2\ip{f,u_N}+\ip{f,u_N}=a\ip{u,u}-\ip{f,u_N}.
+\]
+Therefore,
+\[
+a\ip{u-u_N,u-u_N}=a\ip{u,u}-\ip{f,u_N}=a\ip{u,u}-a\ip{u_N,u_N}
+\]
+because
+\[
+a\ip{u_N,u_N}=\ip{f,u_N}.
+\]
+\\
+\item {[12 points]} We first compute that
+\[
+\BK\Bc=\Bd
+\]
+where $\Bd\in\R^{N}$ is the vector with entries
+\[
+d_j=\sum_{k=1}^Na\ip{\phi_k,\phi_j}c_k
+\]
+for $j=1,\ldots,N$. Moreover, since
+\[
+u_N=\sum_{j=1}^Nc_j\phi_j=\sum_{k=1}^Nc_k\phi_k,
+\]
+the properties satisfied by the inner product yield that
+\[
+\sum_{k=1}^Na\ip{\phi_k,\phi_j}c_k=a\left(\sum_{k=1}^Nc_k\phi_k,\phi_j\right)=a\ip{u_N,\phi_j}
+\]
+and so
+\[
+d_j=a\ip{u_N,\phi_j}
+\]
+for $j=1,\ldots,N$. Therefore,
+\[
+\Bc^T\BK\Bc=\Bc^T\Bd=\sum_{j=1}^Nc_ja\ip{u_N,\phi_j}=a\left(u_N,\sum_{j=1}^Nc_j\phi_j\right)=a\ip{u_N,u_N}
+\]
+by the properties satisfied by the inner product and the fact that
+\[
+u_N=\sum_{j=1}^Nc_j\phi_j.
+\]
+\end{enumerate}
+\end{solution}

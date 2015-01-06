@@ -1,0 +1,124 @@
+% time dependent problem
+
+Consider, for $\alpha, \kappa > 0$, the partial differential equation
+\[
+\pd{u(x,t)}{t}{} + \alpha u(x,t) - \kappa \pd{u(x,t)}{x}{2} = 0.
+\]
+with initial/boundary conditions
+\begin{eqnarray*}
+u(x,0) &= \psi(x)\\
+u(0,t) &= 0\\
+u(1,t) &= 0.
+\end{eqnarray*}
+Define finite difference points $x_0, x_1, \ldots, x_N, x_{N+1}$; we wish to simulate the solution $u(x,t)$ at points $x_i$ and times $t_j$.  Further, define vector of solution values $u^j$ and finite difference matrix $A$ such that
+\[
+u^j = \bmatrix{u(x_1,t_j)\cr u(x_2,t_j) \cr \vdots\cr u(x_N,t_j)}, \qquad A = \frac{\kappa}{h^2} \bmatrix{2 &-1 & &&\cr -1 &2 &-1 &&\cr &\ddots &\ddots & \ddots&\cr &&&&-1\cr & & &-1&2}. 
+\]
+You may use that $Au^j$ gives back the vector of finite difference approximations of $-\kappa\pd{u(x_i,t_j)}{x}{2}$ at all points $x_i$.
+\begin{enumerate}
+\item Using a forward difference approximation of the derivative $\pd{u}{t}{}$, derive that the resulting finite difference equations for the above equation satisfy the update formula
+\[
+u^{j+1} = \left[ (1 - dt \alpha) I - dt A\right]u^j
+\]
+and that this formula can be rewritten as
+\[
+u^{j+1} = \left[ (1 - dt \alpha) I - dt A\right]^{j+1}u^0.
+\]
+\item Derive an expression for $\lambda_i$, the eigenvalues of $$ (1 - dt \alpha) I - dt A$$ in terms of $\mu_i$, the eigenvalues of $A$.  Assuming that 
+\[
+0 < \mu_i \leq 4\frac{\kappa}{h^2}, \quad i = 1,\ldots, N,
+\] 
+derive a bound on $dt$ 
+\[
+dt \leq (???)
+\]
+in terms of $\kappa, h^2$, and $\alpha$ which guarantees $|\lambda_i| \leq 1$.  
+%show that 
+%\item We showed in class that 
+%\[
+%| \lambda_i | = | 1- dt(\alpha + \mu_i) | \leq 1
+%\]
+%is a requirement for $u^j$ to not blow up as $j\rightarrow \infty$.  Show that 
+%\[
+%dt \leq \frac{2}{\alpha + \mu_i} 
+%\]
+%satisfies this condition.  
+%Assume that the eigenvalues $\mu_i$ of $A$ satisfy 
+%$$0 < \mu_i \leq 4\frac{\kappa}{h^2}, \quad i = 1,\ldots, N.$$  
+%Verify that the following bound
+%\[
+%dt \leq \frac{2}{(\alpha + 4\frac{\kappa}{h^2})}
+%\]
+%gives $|\lambda_i | \leq 1$.  
+%guarantees $| \lambda_i | = | 1- dt(\alpha + \mu_i) | \leq 1$.  
+\end{enumerate}
+
+
+\ifthenelse{\boolean{showsols}}{
+\begin{solution}
+\begin{enumerate}
+\item If we choose to satisfy our differential equation at points $x_i$ and times $t_j$, it becomes
+\[
+\pd{u_i^j}{t}{} + \alpha u_i^j - \kappa \pd{u_i^j}{x}{2} = 0
+\]
+where $u_i^j = u(x_i,t_j)$.  If we replace the second derivative term by  
+\[
+- \kappa \pd{u_i^j}{x}{2} = \frac{-\kappa}{h^2}\left(u_{i+1}^j - 2u_i^j + u_{i-1}^j\right)
+\]
+we get 
+\[
+\pd{u_i^j}{t}{} + \alpha u_i^j + \frac{\kappa}{h^2}\left(-u_{i+1}^j + 2u_i^j - u_{i-1}^j\right) = 0.
+\]
+At this point, we may express this in matrix form, to get
+\[
+\pd{u^j}{t}{} + \alpha u^j + Au^j=  \pd{u^j}{t}{} + (\alpha I + A)u^j = 0
+\]
+Applying a forward difference approximation in time gives
+\[
+\pd{u^j}{t}{} \approx \frac{u^{j+1}-u^j}{dt}
+\]
+which, substituted in, gives
+\[
+\frac{u^{j+1}-u^j}{dt}+ (\alpha I + A)u^j = 0.
+\]
+Now, since we wish to use the previous time solution $u^j$ to determine $u^{j+1}$, we multiply the equation on both sides by $dt$ and then rearrange the equation to read
+\[
+u^{j+1} = u^j - dt(\alpha I + A)u^j = (I-dt(\alpha I + A))u^j.
+\]
+Since
+\[
+u^{1} = (I-dt(\alpha I + A))u^0, \qquad u^{2} = (I-dt(\alpha I + A))u^1 = (I-dt(\alpha I + A))^2 u^0, \ldots
+\]
+we can see that 
+\[
+u^{j+1} = (I-dt(\alpha I + A))^{j+1} u^0.
+\]
+\item Assuming that $A$ has eigenvalues $\mu_i$, $\alpha I + A$ has eigenvalues $\alpha + \mu_i$.  Similarly, if a matrix is scaled by a constant, the eigenvalues are also scaled by that same constant.  
+
+Thus, if we add $\alpha I + A$, the eigenvalues are $\alpha + \mu_i$.  Scaling this by $dt$ gives that the matrix $(I-dt(\alpha I + A))$ has eigenvalues 
+\[
+\lambda_i = 1 - dt(\alpha + \mu_i).  
+\]
+Since 
+\[
+0< \mu_i < 4\kappa/h^2,
+\]
+ $dt(\alpha + \mu_i)$ is always positive, and $|\lambda_i| = |1 - dt(\alpha + \mu_i)|$ is largest when $dt(\alpha + \mu_i)$ is most positive.  Since $\mu_i$ has a maximum value, $|\lambda_i|$  is smaller than 
+\[
+|\lambda_i| \leq |1 - dt(\alpha + 4\kappa/h^2)|.
+\]
+If 
+\[
+dt(\alpha + 4\kappa/h^2) > 2,
+\]
+then $|\lambda_i | > 1$, and we violate the stability condition.  Thus, we require
+\[
+dt(\alpha + 4\kappa/h^2) \leq 2
+\]
+which, after rearrangement, gives
+\[
+dt \leq \frac{2}{(\alpha + 4\kappa/h^2)}
+\]
+\end{enumerate}
+\end{solution}
+}{}

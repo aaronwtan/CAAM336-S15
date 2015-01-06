@@ -1,0 +1,45 @@
+The Euler--Bernoulli beam equation equates the fourth derivative of
+the deflection $u(x)$ of a thin uniform beam under the load $f(x)$:
+\[ u''''(x) = f(x).\]
+We seek solutions $u$ for a beam of length~1 that satisfies
+the \emph{hinged} boundary conditions
+\[ u(0) = u''(0) = u(1) = u''(1) = 0.\]
+That is, we look for solutions $u\in C^4_H[0,1]$, where
+\[ C^4_H[0,1] = \{ v\in C^4[0,1]: v(0)=v''(0)= v(1)=v''(1)=0\}.\]
+
+
+\vspace*{1em} 
+\begin{enumerate}
+\item Prove that the operator $L$ defined by $Lu = u''''$ is
+      symmetric on the space $C^4_H[0,1]$ with inner product
+\[ (u,v) = \int_0^1 u(x) v(x)\,dx.\]
+
+\vspace*{1em} 
+\item Compute the eigenvalues $\{\lambda_n\}$ and eigenfunctions $\{\psi_n\}$ 
+      of the operator $L$.\\  Hint:  the eigenfunctions must have the form
+      \[ \psi_n(x) = A \sin(\omega_n x) + B \cos(\omega_n x),\]
+      where the values of $A$, $B$, and/or $\omega_n$ are affected
+      by the hinged boundary conditions.
+
+\vspace*{1em}
+\item Given the function $f(x) = 1$, compute the expansion in the eigenfunction basis,
+      \[ f(x) = \sum_{n=1}^\infty c_n \psi_n(x).\]
+       That is, explicitly compute a formula for the coefficients $c_n$. 
+
+\vspace*{1em}
+\item Use the spectral method to write down the solution to $Lu = f$ for
+      $f(x) = 1$ in the form
+      \[ u(x) = \sum_{n=1}^\infty \gamma_n \psi_n(x).\]
+      That is, specify the values of the coefficients $\gamma_n$.
+
+\vspace*{1em}
+\item Suppose you instead want to solve $u''''(x) = f(x)$ with
+      boundary conditions
+     \begin{eqnarray*}
+        u(0) &=& \alpha, \qquad u(1) = 0 \\
+        u''(0) &=& 0, \qquad \kern-4pt u''(1) = \beta.
+     \end{eqnarray*}
+     Explain how you can compute such a solution in the form $u(x) = \widehat{u}(x) + v(x)$,
+     where $\widehat{u}(x)$ is a solution to the problem with \emph{homogeneous} hinged boundary
+     conditions and $v(x)$ is some correction that you should specify as completely as possible.
+\end{enumerate}

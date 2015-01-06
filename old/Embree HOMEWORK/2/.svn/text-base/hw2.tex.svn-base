@@ -1,0 +1,31 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+
+\begin{document}
+\setboolean{showsols}{false}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+Problem Set 2 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Wednesday 1 September 2010.  (Corrected 6 Sept.~2010.) Due Wednesday 8 September 2010, 5pm.
+
+\begin{enumerate}
+\item {[27 points]}\\  \input vectorspace
+
+\vspace*{1em}
+\item {[18 points]}\\  \input matrixform
+
+\vspace*{1em}
+\item {[27 points]}\\  \input linops
+\vspace*{2em}
+
+\item {[28 points]}\\  \input findiff
+
+\end{enumerate}
+\end{document}

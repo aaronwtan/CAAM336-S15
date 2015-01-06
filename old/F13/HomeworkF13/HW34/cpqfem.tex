@@ -1,0 +1,178 @@
+Let $H^1_D\left(0,1\right)=\{w\in H^1(0,1):\,w(0)=w(1)=0\}$ and let the inner product $\ip{\cdot,\cdot}:L^2\left(0,1\right)\times L^2\left(0,1\right)\to\R$ be defined by
+\[
+\ip{v,w}=\int_0^1v(x)w(x)\,dx
+\]
+and the inner product $a\ip{\cdot,\cdot}:H^1_D\left(0,1\right)\times H^1_D\left(0,1\right)\to\R$ be defined by
+\[
+a\ip{v,w}=\int_0^1v'(x)w'(x)\,dx.
+\]
+Let the norm $\left|\left|\left|\cdot\right|\right|\right|:\,H^1_D\left(0,1\right)\to\R$ be defined by
+\[
+\left|\left|\left|v\right|\right|\right|=\sqrt{a\ip{v,v}}.
+\]
+Let N be a positive integer, let $\displaystyle{h={1 \over N+1}}$ and let $x_k=kh$ for $k=0,1,\ldots,N+1$. Let the continuous piecewise linear hat functions $\widehat{\phi}_j\in H^1_D\left(0,1\right)$ be defined by
+\[
+\widehat{\phi}_j(x) = \left\{\begin{array}{ll}
+\displaystyle{{(x-x_{j-1}) \over h}} & \displaystyle{\mbox{if }x\in[x_{j-1},x_j)},
+\\[10pt]
+\displaystyle{{(x_{j+1}-x) \over h}} & \displaystyle{\mbox{if }x\in[x_j,x_{j+1})},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\]
+for $j=1,\ldots,N$. Also, let the continuous piecewise quadratic functions $\phi_j\in H^1_D\left(0,1\right)$ be defined by
+\[
+\phi_j(x)=\left\{\begin{array}{ll}
+\displaystyle{{(x-x_{j-1})(2x-x_{j-1}-x_j) \over h^2}} & \displaystyle{\mbox{if }x\in[x_{j-1},x_j)},
+\\[10pt]
+\displaystyle{{(x_j+x_{j+1}-2x)(x_{j+1}-x) \over h^2}} & \displaystyle{\mbox{if }x\in[x_j,x_{j+1})},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\]
+for $j=1,\ldots,N$ and let the continuous piecewise quadratic bubble functions $\psi_j\in H^1_D\left(0,1\right)$ be defined by
+\[
+\psi_j(x)=\left\{\begin{array}{ll}
+\displaystyle{{4(x-x_{j-1})(x_j-x) \over h^2}} & \displaystyle{\mbox{if }x\in[x_{j-1},x_j)},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\]
+for $j=1,\ldots,N+1$. Let $\widehat{V}_N={\rm span}\{\widehat{\phi}_1,\ldots,\widehat{\phi}_N\}$ and let $V_N={\rm span}\{\phi_1,\ldots,\phi_N,\psi_1,\ldots,\psi_{N+1}\}$. Also, let $f\in L^2\left(0,1\right)$ be defined by
+\[
+f(x)={12\sqrt{35} \over \sqrt{17}}x(1-x)
+\]
+and let $u\in H^1_D\left(0,1\right)$ be such that
+\[
+a\ip{u,v}=\ip{f,v}\mbox{ for all }v\in H^1_D\left(0,1\right).
+\]
+Note that $a\ip{u,u}=1$ and that
+\[
+\ip{f,\widehat{\phi}_j}=-{2\sqrt{35} \over \sqrt{17}}h(h^2+6x_j^2 - 6x_j)
+\]
+for $j=1,\ldots,N$;
+\[
+\ip{f,\phi_j}={2\sqrt{35} \over 5\sqrt{17}}h(h^2-10x_j^2+10x_j)
+\]
+for $j=1,\ldots,N$; and
+\[
+\ip{f,\psi_j}=-{4\sqrt{35} \over 5\sqrt{17}}h(3h^2-10hx_j+5h+10x_j^2-10x_j)
+\]
+for $j=1,\ldots,N+1$.
+
+We can obtain a finite element approximation to $u$ by finding $\widehat{u}_N\in\widehat{V}_N$ such that
+\[
+a\ip{\widehat{u}_N,v}=\ip{f,v}\mbox{ for all }v\in\widehat{V}_N.
+\]
+However, we can obtain a better finite element approximation to $u$ by finding $u_N\in V_N$ such that
+\[
+a\ip{u_N,v}=\ip{f,v}\mbox{ for all }v\in V_N.
+\]
+The stiffness matrix associated with finding $u_N$ is
+\[
+\BK=\left[\begin{array}{cc}\BP & \BQ \\ \BQ^T & \BR\end{array}\right]
+\]
+where $\BP\in\R^{N\times N}$ is the matrix with entries
+\[
+P_{jk}=a\ip{\phi_j,\phi_k};
+\]
+$\BQ\in\R^{N\times N+1}$ is the matrix with entries
+\[
+Q_{jk}=a\ip{\phi_j,\psi_k};
+\]
+and $\BR\in\R^{N+1\times N+1}$ is the matrix with entries
+\[
+R_{jk}=a\ip{\psi_j,\psi_k};
+\]
+and the load vector associated with finding $u_N$ is
+\[
+\Bb=\left[\begin{array}{c}\Bd \\ \Bg\end{array}\right]
+\]
+where $\Bd\in\R^N$ is the vector with entries
+\[
+d_j=\ip{f,\phi_j};
+\]
+and $\Bg\in\R^{N+1}$ is the vector with entries
+\[
+g_j=\ip{f,\psi_j}.
+\]
+
+\begin{enumerate}
+\item Write a code which can compute the energy norm of the error 
+\[
+\left|\left|\left|u-u_N\right|\right|\right|.
+\]
+Use your code to produce a \verb|loglog| plot of the energy norm of the error
+\[
+\left|\left|\left|u-u_N\right|\right|\right|
+\]
+for $N=1,3,7,15,31,63,127$. On the same figure plot
+\[
+\left|\left|\left|u-\widehat{u}_N\right|\right|\right|;
+\]
+\[
+\left|\left|\left|u-\widetilde{u}_N\right|\right|\right|;
+\]
+and
+\[
+\left|\left|\left|u-u_N^*\right|\right|\right|;
+\]
+for the same values of $N$, where $\widetilde{u}_N\in{\rm span}\{\phi_1,\ldots,\phi_N\}$ is such that
+\[
+a\ip{\widetilde{u}_N,v}=\ip{f,v}\mbox{ for all }v\in{\rm span}\{\phi_1,\ldots,\phi_N\}
+\]
+and $u_N^*\in{\rm span}\{\psi_1,\ldots,\psi_{N+1}\}$ is such that
+\[
+a\ip{u_N^*,v}=\ip{f,v}\mbox{ for all }v\in{\rm span}\{\psi_1,\ldots,\psi_{N+1}\}.
+\]
+Note that even though using the Galerkin method means that our approximations will be the best approximations, from the spaces that we are using, with respect to the energy norm $\left|\left|\left|\cdot\right|\right|\right|$, this does not mean that approximations obtained in this way will actually be any good.
+
+\vspace*{1em}
+\item Since obtaining $u_N$ involves solving a larger system of equations than that which has to be solved in order to obtain $\widehat{u}_N$, a fairer comparison of the accuracy of $\widehat{u}_N$ and $u_N$ would be to plot $\left|\left|\left|u-\widehat{u}_N\right|\right|\right|$ and $\left|\left|\left|u-u_N\right|\right|\right|$ against the dimension of the spaces $\widehat{V}_N$ and $V_N$, respectively, instead of $N$. Produce a \verb|loglog| plot showing this.
+
+\vspace*{1em}
+\item Fill in the blanks in the below table where we use $\rm{dim}\left(W\right)$ to denote the dimension of a space $W$. If done correctly the table should show the factor that $\left|\left|\left|u-\widehat{u}_N\right|\right|\right|$ goes down by between each consecutive pair of values of $N$, and of the dimension of $\widehat{V}_N$, for which we computed $\left|\left|\left|u-\widehat{u}_N\right|\right|\right|$. If you wish you can reproduce the table yourself and so do not necessarily have to print out this page and fill it in.
+\[
+\begin{array}{r|r|r|r|r}
+N_1 & N_2 & {\rm dim}\left(\widehat{V}_{N_1}\right) & {\rm dim}\left(\widehat{V}_{N_2}\right) & \displaystyle{{\left|\left|\left|u-\widehat{u}_{N_1}\right|\right|\right| \over \left|\left|\left|u-\widehat{u}_{N_2}\right|\right|\right|}}
+\\[.75em]
+\hline
+1 & 3 & \mbox{ } & \mbox{ } & 1.9688
+\\
+3 & 7 & \mbox{ } & \mbox{ } & \mbox{ }
+\\
+7 & 15 & \mbox{ } & \mbox{ } & \mbox{ }
+\\
+15 & 31 & \mbox{ } & \mbox{ } & \mbox{ }
+\\
+31 & 63 & \mbox{ } & \mbox{ } & \mbox{ }
+\\
+63 & 127 & \mbox{ }  & \mbox{ } & \mbox{ }
+\end{array}
+\]
+
+\vspace*{1em}
+\item Fill in the blanks in the below table where we use $\rm{dim}\left(W\right)$ to denote the dimension of a space $W$. If done correctly the table should show the factor that $\left|\left|\left|u-u_N\right|\right|\right|$ goes down by between each consecutive pair of values of $N$, and of the dimension of $V_N$, for which we computed $\left|\left|\left|u-u_N\right|\right|\right|$. If you wish you can reproduce the table yourself and so do not necessarily have to print out this page and fill it in.
+\[
+\begin{array}{r|r|r|r|r}
+N_1 & N_2 & {\rm dim}\left(V_{N_1}\right) & {\rm dim}\left(V_{N_2}\right) & \displaystyle{{\left|\left|\left|u-u_{N_1}\right|\right|\right| \over \left|\left|\left|u-u_{N_2}\right|\right|\right|}}
+\\[.75em]
+\hline
+1 & 3 & \mbox{ } & \mbox{ } & 3.6181
+\\
+3 & 7 & \mbox{ } & \mbox{ } & \mbox{ }
+\\
+7 & 15 & \mbox{ } & \mbox{ } & \mbox{ }
+\\
+15 & 31 & \mbox{ } & \mbox{ } & \mbox{ }
+\\
+31 & 63 & \mbox{ } & \mbox{ } & \mbox{ }
+\\
+63 & 127 & \mbox{ } & \mbox{ } & \mbox{ }
+\end{array}
+\]
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\boolean{showsols}}{\input cpqfem_sol}{}
+

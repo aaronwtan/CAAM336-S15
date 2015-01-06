@@ -1,0 +1,34 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen,color}
+\def\hot#1{\color{red}{#1}}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+
+\begin{document}
+\setboolean{showsols}{false}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+ Problem Set 3 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Wednesday 8 September 2010.  Corrected 14 September. Due Wednesday 15 September 2010, 5pm.
+
+\begin{enumerate}
+\item {[20 points]}\\  \input ip
+
+\vspace*{2em}
+\item {[20 points]}\\  \input monomials
+
+\vspace*{2em}
+\item {[25 points]}\\  \input legendre
+
+\vfill\hfill \emph{please turn over}
+
+\newpage
+\item {[35 points]}\\  \input diffmats
+\end{enumerate}
+
+\end{document}

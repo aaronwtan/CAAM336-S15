@@ -1,0 +1,49 @@
+\begin{enumerate}
+\item In class we considered the `forward difference' approximation
+      \[ u'(x) \approx {u(x+h) - u(x) \over h}.\]
+      Let $u(x) = \exp(2x)$.  For each value 
+      $N = 2, 4, 8, 16, \ldots, 256$, compute (in MATLAB) the error
+         \[ \Big| u'(1/2) -  {u(1/2+h) - u(1/2) \over h}\Big|,\]
+      where $h = 1/(N+1)$.
+      Print out these errors, and use MATLAB's \verb|loglog| command to 
+      produce a plot of $N$ versus the corresponding error.
+      
+\vspace*{1em} 
+\item Consider the `centered difference' approximation
+      \[ u'(x) \approx {u(x+h) - u(x-h) \over 2 h}.\]
+      Use Taylor series to show that
+      \[ u'(x) - {u(x+h) - u(x-h) \over 2 h}
+             = -{h^2 \over 6} u'''(x) + \mbox{higher order terms},\]
+      where the `higher order terms' all involve higher powers of $h$.
+      (We say such an approximation is `$O(h^2)$ accurate,' since the
+      error is dominated by the $h^2$ term as $h\to 0$.)
+
+\item Repeat part~(a) with the approximation from part~(b).
+      That is, for $u(x) = \exp(2x)$, compute the error
+         \[ \Big| u'(1/2) -  {u(1/2+h) - u(1/2-h) \over 2h}\Big|\]
+      for $N = 2, 4, 8, 16, \ldots, 256$ with $h=1/(N+1)$.  
+      Print out these errors, and use MATLAB's \verb|loglog| command to 
+      produce a plot of $N$ versus the corresponding error.
+      \emph{Use the {\tt hold on} command to superimpose the plot for~(c)
+      on your plot for part~(a):  you should only turn in one plot for
+      this problem.}      
+\end{enumerate}
+
+\vspace*{2em}
+Challenge problem (not for credit):  Given an integer $N\ge 1$, 
+define $h = 1/(N+1)$ and consider the grid of points $x_j = jh$
+for $j=0, \ldots, N+1$.
+It is often desirable to construct an
+$O(h^2)$ approximation to $u'(x_0)$.  The centered difference in part~(b)
+above is unsuitable, as it would require a value $u(x_{-1}) = u(-h)$, and
+$-h$ is outside the domain $[0,1]$.
+Show an alternative way to approximate
+$u'(x_0)$ using only the values $u(x_0)$, $u(x_1)$, and $u(x_2)$, i.e.,
+find coefficients $\alpha$, $\beta$, and $\gamma$ such that
+\[ u'(x_0) = \alpha u(x_0) + \beta u(x_1) + \gamma u(x_2) + O(h^2).\]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input findiff_sol}{}
+

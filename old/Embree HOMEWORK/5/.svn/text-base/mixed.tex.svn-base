@@ -1,0 +1,96 @@
+Consider the linear operator $L_b:C_b^2[0,1] \to C[0,1]$ defined by
+\[ L_b u = -{d^2 u \over dx^2},\]
+where 
+\[ C_b^2[0,1] = \Big\{ u\in C^2[0,1]: {du\over dx}(0) = u(1) = 0\Big\}.\]
+\begin{enumerate}
+\item Is $L_b$ symmetric?
+\item What is the null space of $L_b$?\\
+      That is, find all $u\in C_b^2[0,1]$ such that $L_b u (x) = 0$ for all $x\in[0,1]$.
+\item Show that $(L_b u,u)\ge 0$ for all nonzero $u\in C^2_b[0,1]$
+      and explain why this implies that $\lambda\ge 0$ for all eigenvalues $\lambda$.
+\item Find the eigenvalues and eigenfunctions of $L_b$.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+\begin{enumerate}
+\item Yes, \emph{$L_b$ is symmetric}.\\
+      To prove this, we shall show that for any $u,v \in C_b^2[0,1]$, 
+      we have $(L_bu, v) = (u,L_bv)$.
+      He we shall use primes to denote derivation with respect to $x$.
+      Integrating by parts twice, we have
+       \begin{eqnarray*}
+        (L_bu, v) &=& \int_0^1 -u''(x) v(x)\, dx  \\[0.5em]
+                &=& -[u'(x) v(x)]_0^1 + \int_0^1 u'(x) v'(x)\, dx \\[0.5em]
+                &=& -[u'(x) v(x)]_0^1 + [u(x) v'(x)]_0^1 - \int_0^1 u(x) v''(x)\, dx.
+       \end{eqnarray*}
+       Since $u, v\in C_b^2[0,1]$ we have $u'(0)=0$ and $v(1) = 0$, and hence
+       the first term in square brackets must be zero.  
+       Again using $u, v\in C_b^2[0,1]$ we have $v'(0)=0$ and $u(1) = 0$,  
+       and hence the second term in square brackets is also zero.  
+       It follows that
+        \[ (L_b u, v) = \int_0^1 u(x) (-v''(x))\, dx = (u, L_b v).\]
+
+\item  The general solution to the differential equation 
+          \[ -{d^2 u\over dx^2} = 0\]
+        has the form
+          \[ u(x) = A + B x\]
+        for constants $A$ and $B$ that are determined by the boundary conditions.
+        In order for $u$ to be in $C_b^2[0,1]$, we must have $u'(0)=0$; 
+        since $u'(x) = B$, we have $B=0$.  Now $u\in C_b^2[0,1]$ also requires
+        $u(1) = 0$, and since $u(1)=A$, we conclude that $A=0$ too, meaning that
+        $u(x) = A+Bx = 0$ for all $x\in[0,1]$.  
+        Thus, the only element of the null space is the zero function,
+        that is, the null space is trivial, $\ker(L_b) = \{0\}$.
+
+\item   {[\textbf{GRADERS}: please count $(L_b u,u)\ge 0$ for 5~points,
+            and count $\lambda\ge 0$ for 4~points.]}
+
+        We wish to show that $(L_b u, u) \ge 0$ for all $\in C_b^2[0,1]$.
+        Using the first integration by parts from part~(a), we have
+          \begin{eqnarray*}
+               (L_b u, u) &=&  -[u'(x) u(x)]_0^1 + \int_0^1 u'(x) u'(x)\, dx \\[0.5em]
+                          &=&  \int_0^1 (u'(x))^2\, dx.
+          \end{eqnarray*}
+         Thus, $(L_b u, u)$ is the integral of a nonnegative function, so it is nonnegative.
+
+         
+          This statement implies that all eigenvalues are non-negative, since
+           \[ \lambda (u, u) = (\lambda u, u) = (L_b u, u) \ge 0,\]
+          and we know that $(u,u)>0$ for all nonzero $u$ due to the positivity
+          of the inner product. 
+
+         (Though not asked for in the problem statement, 
+          one can show that $u'(x) \ne 0$ for some $x\in[0,1]$: otherwise
+          $u$ would be a constant, and the only constant that satisfies the boundary
+          conditions is $u(x)=0$, which is prohibited from consideration in the problem
+          statement.  Thus, we can actually say $(L_b u, u) > 0$ for all nonzero $u$.)
+
+\item   Suppose that $L_b u = \lambda u$.  The general solution to the equivalent
+        differential equation
+                   \[  -{d^2 u\over dx^2} (x) = \lambda u(x)\]
+        has the form
+                   \[ u(x) = A \sin(\sqrt{\lambda} x) + B \cos(\sqrt{\lambda}x).\]
+        Now we must find values of the constants $A$, $B$, and $\sqrt{\lambda}$
+        that will satisfy the boundary conditions.  Since
+                    \[ u'(x) = A\sqrt{\lambda} \cos(\sqrt{\lambda}x)
+                               - B \sqrt{\lambda} \sin(\sqrt{\lambda}x)\]
+        and thus
+                    \[ u'(0) = A \sqrt{\lambda},\]
+        the condition $u'(0) = 0$ implies that $A=0$.
+        On the other hand, the condition $u(1) = 0$ implies that
+                    \[ u(1) = B \cos(\sqrt{\lambda}) = 0,\]
+        which can be achieved with nonzero $B$ provided that 
+        $\sqrt{\lambda} = (n-1/2)\pi$ for integers $n$.
+        We thus have the eigenvalues
+                    \[ \lambda_n = (n-1/2)^2 \pi^2\]
+        with corresponding eigenfunctions
+                    \[ u_n(x) = \cos(\sqrt{\lambda_n} x)\]
+        or any nonzero scaling of the same function, such as the normalized version:
+                    \[ u_n(x) = \sqrt{2} \cos(\sqrt{\lambda_n} x).\]
+        Since $n = 0, -1, -2, \ldots$ give the same eigenvalues and eigenvectors
+        as $n = 1, 2, 3, \ldots$, we can restrict $n$ to the positive integers.
+\end{enumerate}
+\end{solution}}{}
+

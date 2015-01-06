@@ -1,0 +1,189 @@
+\begin{solution}
+\begin{enumerate}
+\item {[2 points]} We can compute that, for $n=1,2,\ldots$,
+\[
+\psi_n'(x)=\sqrt{2} \left({2n-1\over 2}\right) \pi \cos\left({2n-1\over 2} \pi x\right).
+\]
+and
+\[
+\psi_n''(x)=-\sqrt{2} \left({2n-1\over 2}\right)^2 \pi^2 \sin\left({2n-1\over 2} \pi x\right).
+\]
+and so
+\[
+L\psi_n=-\psi_n''=\left({2n-1\over 2}\right)^2\pi^2\psi_n.
+\]
+Hence,
+\[
+\lambda_n = \left({2n-1\over 2}\right)^2 \pi^2 = \left(2n-1\right)^2 {\pi^2\over4}\mbox{ for } n = 1, 2, \ldots.
+\]
+\\
+\item {[3 points]} For $n=1,2,\ldots$,
+\begin{eqnarray*}
+&&\int_0^1f(x)\psi_n(x)\,dx
+\\
+&=&\int_0^{1/2}f(x)\psi_n(x)\,dx+\int_{1/2}^1f(x)\psi_n(x)\,dx
+\\
+&=&\int_0^{1/2}\left(1-2x\right)\sqrt{2}\sin\left({2n-1\over 2}\pi x\right)\,dx+\int_{1/2}^10\,dx
+\\
+&=&\sqrt{2}\int_0^{1/2}\left(1-2x\right)\sin\left({2n-1\over 2}\pi x\right)\,dx+0
+\\
+&=&\sqrt{2}\left(\left[-\left(1-2x\right){2\over \left(2n-1\right)\pi}\cos\left({2n-1\over 2}\pi x\right)\right]_0^{1/2}-\int_0^{1/2}{4\over \left(2n-1\right)\pi}\cos\left({2n-1\over 2}\pi x\right)\,dx\right)
+\\
+&=&\sqrt{2}\left(0+{2\over \left(2n-1\right)\pi}-{4\over \left(2n-1\right)\pi}\int_0^{1/2}\cos\left({2n-1\over 2}\pi x\right)\,dx\right)
+\\
+&=&{2\sqrt{2}\over \left(2n-1\right)\pi}\left(1-2\int_0^{1/2}\cos\left({2n-1\over 2}\pi x\right)\,dx\right)
+\\
+&=&{2\sqrt{2}\over \left(2n-1\right)\pi}\left(1-2\left[{2\over \left(2n-1\right)\pi}\sin\left({2n-1\over 2}\pi x\right)\right]_0^{1/2}\right)
+\\
+&=&{2\sqrt{2}\over \left(2n-1\right)\pi}\left(1-{4\over \left(2n-1\right)\pi}\sin\left({2n-1\over 4}\pi\right)-0\right)
+\\
+&=&{2\sqrt{2}\over \left(2n-1\right)\pi}\left(1-{4\over \left(2n-1\right)\pi}\sin\left({2n-1\over 4}\pi\right)\right).
+\end{eqnarray*}
+\\
+\item {[3 points]} The general solution to
+\[
+-w''(x)=0
+\]
+is $w(x)=Ax+B$ where $A$ and $B$ are constants. Moreover, $w'(x)=A$ and so $w'(1)=2$ when $A=2$. Hence, $w(x)=2x+B$ and so $w(0)=B$ and hence $w(0)=1$ when $B=1$. Consequently,
+\[
+w(x)=1+2x.
+\]
+\\
+\item {[4 points]} We can compute that $u(x,t)=w(x)+\hat{u}(x,t)$ will be such that
+\[
+u(x,0)=w(x)+\hat{u}(x,0)=1+2x+\hat{u}_0(x)
+\]
+and so since
+\[
+u(x,0)=x^2+1
+\]
+we can conclude that
+\[
+\hat{u}_0(x)=x^2+1-\left(1+2x\right)=x^2-2x.
+\]
+\\
+\item {[3 points]} For $n=1,2,\ldots$,
+\begin{eqnarray*}
+&&\int_0^1\hat{u}_0(x)\psi_n(x)\,dx
+\\
+&=&\int_0^1\left(x^2-2x\right)\psi_n(x)\,dx
+\\
+&=&\sqrt{2}\int_0^1\left(x^2-2x\right)\sin\left({2n-1\over 2}\pi x\right)\,dx
+\\
+&=&\sqrt{2}\left(\left[-\left(x^2-2x\right){2\over \left(2n-1\right)\pi}\cos\left({2n-1\over 2}\pi x\right)\right]_0^1+\int_0^1\left(2x-2\right){2\over \left(2n-1\right)\pi}\cos\left({2n-1\over 2}\pi x\right)\,dx\right)
+\\
+&=&{2\sqrt{2}\over \left(2n-1\right)\pi}\left(0-0+\int_0^1\left(2x-2\right)\cos\left({2n-1\over 2}\pi x\right)\,dx\right)
+\\
+&=&{2\sqrt{2}\over \left(2n-1\right)\pi}\left(\left[\left(2x-2\right){2\over \left(2n-1\right)\pi}\sin\left({2n-1\over 2}\pi x\right)\right]_0^1-\int_0^1{4\over \left(2n-1\right)\pi}\sin\left({2n-1\over 2}\pi x\right)\,dx\right)
+\\
+&=&{8\sqrt{2}\over \left(2n-1\right)^2\pi^2}\left(0-0-\int_0^1\sin\left({2n-1\over 2}\pi x\right)\,dx\right)
+\\
+&=&{8\sqrt{2}\over \left(2n-1\right)^2\pi^2}\left(-\left[-{2\over \left(2n-1\right)\pi}\cos\left({2n-1\over 2}\pi x\right)\right]_0^1\right)
+\\
+&=&{8\sqrt{2}\over \left(2n-1\right)^2\pi^2}\left(0-{2\over \left(2n-1\right)\pi}\right)
+\\
+&=&-{16\sqrt{2}\over \left(2n-1\right)^3\pi^3}.
+\end{eqnarray*}
+\\
+\item {[3 points]} Substituting the expressions for $\hat{u}(x,t)$ and $f(x)$ into the partial differential equation yields
+\[
+\sum_{n=1}^\infty a'_n(t) \psi_n (x)-\sum_{n=1}^\infty a_n(t) \left(-\left(L\psi_n\right) (x)\right)=\sum_{n=1}^\infty b_n \psi_n (x)
+\]
+and hence
+\[
+\sum_{n=1}^\infty \left(a'_n(t)+\lambda_na_n(t)\right)\psi_n (x)=\sum_{n=1}^\infty b_n \psi_n (x).
+\]
+We can then say that
+\[
+\sum_{n=1}^\infty \left(a'_n(t)+\lambda_na_n(t)\right)\int_0^1\psi_n (x)\psi_m (x)\,dx=\sum_{n=1}^\infty b_n \int_0^1\psi_n (x)\psi_m (x)\,dx
+\]
+for $m=1,2,\ldots$, from which it follows that
+\[
+a_m'(t)+\lambda_m a_m(t)=b_m
+\]
+for $m=1,2,\ldots$, since
+\[
+\int_0^1\psi_n (x)\psi_m (x)\,dx = \left\{\begin{array}{ll} 1 & \mbox{if }m=n, \\ 0 & \mbox{otherwise,} \end{array}\right.
+\]
+for $m,n=1,2,\ldots$. Hence, for $n=1,2,\ldots$,
+\[
+a_n'(t)+\left(2n-1\right)^2 {\pi^2\over4} a_n(t)={2\sqrt{2}\over \left(2n-1\right)\pi}\left(1-{4\over \left(2n-1\right)\pi}\sin\left({2n-1\over 4}\pi\right)\right).
+\]
+
+Also,
+\[
+\hat{u}(x,0)=x^2-2x
+\]
+means that
+\[
+\sum_{n=1}^\infty a_n(0) \psi_n (x)=x^2-2x
+\]
+and so
+\[
+\sum_{n=1}^\infty a_n(0) \int_0^1\psi_n (x)\psi_m (x)\,dx=\int_0^1\left(x^2-2x\right)\psi_m (x)\,dx
+\]
+for $m=1,2,\ldots$, from which it follows that
+\[
+a_m(0)=\int_0^1\left(x^2-2x\right)\psi_m (x)\,dx
+\]
+for $m=1,2,\ldots$, since
+\[
+\int_0^1\psi_n (x)\psi_m (x)\,dx = \left\{\begin{array}{ll} 1 & \mbox{if }m=n, \\ 0 & \mbox{otherwise,} \end{array}\right.
+\]
+for $m,n=1,2,\ldots$. Hence, for $n=1,2,\ldots$,
+\[
+a_n(0)=-{16\sqrt{2}\over \left(2n-1\right)^3\pi^3}.
+\]
+
+Therefore, for $n=1,2,\ldots$, $a_n(t)$ is the solution to the differential equation
+\[
+a_n'(t)=-\left(2n-1\right)^2 {\pi^2\over4}a_n(t)+{2\sqrt{2}\over \left(2n-1\right)\pi}\left(1-{4\over \left(2n-1\right)\pi}\sin\left({2n-1\over 4}\pi\right)\right)
+\]
+with initial condition
+\[
+a_n(0)=-{16\sqrt{2}\over \left(2n-1\right)^3\pi^3}.
+\]
+\\
+\item {[4 points]} For $n=1,2,\ldots$,
+\begin{eqnarray*}
+a_n(t)&=&\int_0^1\left(x^2-2x\right)\psi_n(x)\,dx e^{-\left(2n-1\right)^2\pi^2t/4}+\int_0^te^{\left(2n-1\right)^2\pi^2\left(s-t\right)/4}b_n\,ds
+\\
+&=&\int_0^1\left(x^2-2x\right)\psi_n(x)\,dx e^{-\left(2n-1\right)^2\pi^2t/4}+b_n\int_0^te^{\left(2n-1\right)^2\pi^2\left(s-t\right)/4}\,ds
+\\
+&=&\int_0^1\left(x^2-2x\right)\psi_n(x)\,dx e^{-\left(2n-1\right)^2\pi^2t/4}+b_n\left[\frac{4}{\left(2n-1\right)^2\pi^2}e^{\left(2n-1\right)^2\pi^2\left(s-t\right)/4}\right]_{s=0}^{s=t}
+\\
+&=&\int_0^1\left(x^2-2x\right)\psi_n(x)\,dx e^{-\left(2n-1\right)^2\pi^2t/4}+b_n\left(\frac{4}{\left(2n-1\right)^2\pi^2}-\frac{4}{\left(2n-1\right)^2\pi^2}e^{-\left(2n-1\right)^2\pi^2t/4}\right)
+\\
+&=&\int_0^1\left(x^2-2x\right)\psi_n(x)\,dx e^{-\left(2n-1\right)^2\pi^2t/4}+b_n\frac{4}{\left(2n-1\right)^2\pi^2}\left(1-e^{-\left(2n-1\right)^2\pi^2t/4}\right)
+\\
+&=&-{16\sqrt{2}\over \left(2n-1\right)^3\pi^3}e^{-\left(2n-1\right)^2\pi^2t/4}
+\\
+&&+{8\sqrt{2}\over\left(2n-1\right)^3\pi^3}\left(1-{4\over \left(2n-1\right)\pi}\sin\left({2n-1\over 4}\pi\right)\right)\left(1-e^{-\left(2n-1\right)^2\pi^2t/4}\right)
+\\
+&=&-{8\sqrt{2}\over\left(2n-1\right)^3\pi^3}\left(2e^{-\left(2n-1\right)^2\pi^2t/4}+\left(1-{4\over \left(2n-1\right)\pi}\sin\left({2n-1\over 4}\pi\right)\right)\left(e^{-\left(2n-1\right)^2\pi^2t/4}-1\right)\right)
+\\
+&=&-{8\sqrt{2}\over\left(2n-1\right)^3\pi^3}\bigg{(}\left(3-{4\over \left(2n-1\right)\pi}\sin\left({2n-1\over 4}\pi\right)\right)e^{-\left(2n-1\right)^2\pi^2t/4}
+\\
+&&+{4\over \left(2n-1\right)\pi}\sin\left({2n-1\over 4}\pi\right)-1\bigg{)}
+\\
+&=&{8\sqrt{2}\over\left(2n-1\right)^3\pi^3}\bigg{(}\left({4\over \left(2n-1\right)\pi}\sin\left({2n-1\over 4}\pi\right)-3\right)e^{-\left(2n-1\right)^2\pi^2t/4}
+\\
+&&+1-{4\over \left(2n-1\right)\pi}\sin\left({2n-1\over 4}\pi\right)\bigg{)}.
+\end{eqnarray*}
+\\
+\item {[3 points]} We can write
+\begin{eqnarray*}
+u(x,t) &=& w(x)+\hat{u}(x,t)
+\\
+&=& 1+2x+\sum_{n=1}^\infty a_n(t) \psi_n(x)
+\\
+&=& 1+2x+\sum_{n=1}^\infty {8\sqrt{2}\over\left(2n-1\right)^3\pi^3}\bigg{(}\left({4\over \left(2n-1\right)\pi}\sin\left({2n-1\over 4}\pi\right)-3\right)e^{-\left(2n-1\right)^2\pi^2t/4}
+\\
+&&+1-{4\over \left(2n-1\right)\pi}\sin\left({2n-1\over 4}\pi\right)\bigg{)} \psi_n(x)
+\\
+&=& 1+2x+\sum_{n=1}^\infty {16\over\left(2n-1\right)^3\pi^3}\bigg{(}\left({4\over \left(2n-1\right)\pi}\sin\left({2n-1\over 4}\pi\right)-3\right)e^{-\left(2n-1\right)^2\pi^2t/4}
+\\
+&&+1-{4\over \left(2n-1\right)\pi}\sin\left({2n-1\over 4}\pi\right)\bigg{)}\sin\left({2n-1\over 2} \pi x\right).
+\end{eqnarray*}
+\end{enumerate}
+\end{solution}

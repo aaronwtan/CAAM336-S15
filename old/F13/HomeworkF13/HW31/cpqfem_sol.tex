@@ -1,0 +1,203 @@
+\begin{solution}
+\begin{enumerate}
+\item {[25 points]}
+\begin{enumerate}
+\item For $j=1,\ldots,N$,
+\begin{eqnarray*}
+\phi_j'(x)&=&\left\{\begin{array}{ll}
+\displaystyle{{(2x-x_{j-1}-x_j)+2(x-x_{j-1}) \over h^2}} & \displaystyle{\mbox{if }x\in(x_{j-1},x_j)},
+\\[10pt]
+\displaystyle{{-2(x_{j+1}-x)-(x_j+x_{j+1}-2x) \over h^2}} & \displaystyle{\mbox{if }x\in(x_j,x_{j+1})},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\\
+&=&\left\{\begin{array}{ll}
+\displaystyle{{4x-3x_{j-1}-x_j \over h^2}} & \displaystyle{\mbox{if }x\in(x_{j-1},x_j)},
+\\[10pt]
+\displaystyle{{4x-3x_{j+1}-x_j \over h^2}} & \displaystyle{\mbox{if }x\in(x_j,x_{j+1})},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\end{eqnarray*}
+and so we can compute that, for $j=1,\ldots,N$,
+\begin{eqnarray*}
+&&a\ip{\phi_j,\phi_j}
+\\
+&=&\int_0^1\left(\phi_j'(x)\right)^2\,dx
+\\
+&=&\int_{x_{j-1}}^{x_j}\left({4x-3x_{j-1}-x_j \over h^2}\right)^2\,dx+\int_{x_j}^{x_{j+1}}\left({4x-3x_{j+1}-x_j \over h^2}\right)^2\,dx
+\\
+&=&\int_{x_{j-1}-x_{j-1}}^{x_j-x_{j-1}}\left({4\left(s+x_{j-1}\right)-3x_{j-1}-x_j \over h^2}\right)^2\,ds+\int_{x_j-x_{j+1}}^{x_{j+1}-x_{j+1}}\left({4\left(t+x_{j+1}\right)-3x_{j+1}-x_j \over h^2}\right)^2\,dt
+\\
+&=&\int_0^h\left({4s+x_{j-1}-x_j \over h^2}\right)^2\,ds+\int_{-h}^0\left({4t+x_{j+1}-x_j \over h^2}\right)^2\,dt
+\\
+&=&\int_0^h\left({4s-h \over h^2}\right)^2\,ds+\int_{-h}^0\left({4t+h \over h^2}\right)^2\,dt
+\\
+&=&\left[{1 \over 3}{h^2 \over 4}\left({4s-h \over h^2}\right)^3\right]_0^h+\left[{1 \over 3}{h^2 \over 4}\left({4t+h \over h^2}\right)^3\right]_{-h}^0
+\\
+&=&{h^2 \over 12}\left({3h \over h^2}\right)^3-{h^2 \over 12}\left({-h \over h^2}\right)^3+{h^2 \over 12}\left({h \over h^2}\right)^3-{h^2 \over 12}\left({-3h \over h^2}\right)^3
+\\
+&=&{h^2 \over 12}\left({27h^3 \over h^6}+{h^3 \over h^6}+{h^3 \over h^6}+{27h^3 \over h^6}\right)
+\\
+&=&{h^2 \over 12}{56 \over h^3}
+\\
+&=&{14 \over 3h}
+\end{eqnarray*}
+where $s=x-x_{j-1}$ and $t=x-x_{j+1}$.
+
+Moreover, for $j=1,\ldots,N-1$,
+\[
+\phi_{j+1}'(x)=\left\{\begin{array}{ll}
+\displaystyle{{4x-3x_j-x_{j+1} \over h^2}} & \displaystyle{\mbox{if }x\in(x_j,x_{j+1})},
+\\[10pt]
+\displaystyle{{4x-3x_{j+2}-x_{j+1} \over h^2}} & \displaystyle{\mbox{if }x\in(x_{j+1},x_{j+2})},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\]
+and so we can compute that, for $j=1,\ldots,N-1$,
+\begin{eqnarray*}
+a\ip{\phi_{j+1},\phi_j}&=&a\ip{\phi_j,\phi_{j+1}}
+\\
+&=&\int_0^1\phi_j'(x)\phi_{j+1}'(x)\,dx
+\\
+&=&\int_{x_j}^{x_{j+1}}{4x-3x_{j+1}-x_j \over h^2}{4x-3x_j-x_{j+1} \over h^2}\,dx
+\\
+&=&\int_{x_j-x_j}^{x_{j+1}-x_j}{4\left(s+x_j\right)-3x_{j+1}-x_j \over h^2}{4\left(s+x_j\right)-3x_j-x_{j+1} \over h^2}\,ds
+\\
+&=&\int_0^h{4s-3h \over h^2}{4s-h \over h^2}\,ds
+\\
+&=&{1 \over h^4}\int_0^h16s^2-16hs+3h^2\,ds
+\\
+&=&{1 \over h^4}\left[{16 \over 3}s^3-8hs^2+3h^2s\right]_0^h
+\\
+&=&{1 \over h^4}\left({16 \over 3}h^3-8h^3+3h^3\right)
+\\
+&=&{1 \over h^4}{1 \over 3}h^3
+\\
+&=&{1 \over 3h}
+\end{eqnarray*}
+where $s=x-x_j$.
+
+Finally, we note that, for $j,k=1,\ldots,N$,
+\[
+a\ip{\phi_j,\phi_k}=0\mbox{ if }|j-k|>1.
+\]
+
+For $j,k=1,\ldots,N$,
+\[
+a\ip{\phi_j,\phi_k}=\left\{\begin{array}{ll}\displaystyle{{14 \over 3h}} & \mbox{if }k=j, \\[.75em] \displaystyle{{1 \over 3h}} & \mbox{if }\left|j-k\right|=1, \\[.75em] \displaystyle{0} & \mbox{otherwise}.\end{array}\right.
+\]
+
+\item For $j=1,\ldots,N+1$,
+\begin{eqnarray*}
+\psi_j'(x)&=&\left\{\begin{array}{ll}
+\displaystyle{{4(x_j-x)-4(x-x_{j-1}) \over h^2}} & \displaystyle{\mbox{if }x\in(x_{j-1},x_j)},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\\
+&=&\left\{\begin{array}{ll}
+\displaystyle{{4(x_j+x_{j-1}-2x) \over h^2}} & \displaystyle{\mbox{if }x\in(x_{j-1},x_j)},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\end{eqnarray*}
+and so we can compute that, for $j=1,\ldots,N+1$,
+\begin{eqnarray*}
+a\ip{\psi_j,\psi_j}&=&\int_0^1\left(\psi_j'(x)\right)^2\,dx
+\\
+&=&\int_{x_{j-1}}^{x_j}\left({4\left(x_j+x_{j-1}-2x\right) \over h^2}\right)^2\,dx
+\\
+&=&\int_{x_{j-1}-x_{j-1}}^{x_j-x_{j-1}}\left({4\left(x_j+x_{j-1}-2\left(s+x_{j-1}\right)\right) \over h^2}\right)^2\,ds
+\\
+&=&\int_0^h\left({4\left(x_j-x_{j-1}-2s\right) \over h^2}\right)^2\,ds
+\\
+&=&{16 \over h^4}\int_0^h\left(h-2s\right)^2\,ds
+\\
+&=&{16 \over h^4}\left[-{1 \over 6}\left(h-2s\right)^3\right]_0^h
+\\
+&=&{16 \over h^4}\left(-{1 \over 6}\left(-h\right)^3+{1 \over 6}h^3\right)
+\\
+&=&{16 \over h^4}\left({1 \over 6}h^3+{1 \over 6}h^3\right)
+\\
+&=&{16 \over h^4}{h^3 \over 3}
+\\
+&=&{16 \over 3h}
+\end{eqnarray*}
+where $s=x-x_{j-1}$.
+
+Finally, we note that, for $j,k=1,\ldots,N+1$,
+\[
+a\ip{\psi_j,\psi_k}=0\mbox{ if }j\ne k.
+\]
+
+Therefore, for $j,k=1,\ldots,N+1$,
+\[
+a\ip{\psi_j,\psi_k}=\left\{\begin{array}{ll}\displaystyle{{16 \over 3h}} & \mbox{if }k=j, \\[.75em] \displaystyle{0} & \mbox{otherwise}.\end{array}\right.
+\]
+
+\item We can compute that, for $j=1,\ldots,N$,
+\begin{eqnarray*}
+a\ip{\phi_j,\psi_j}&=&\int_0^1\phi_j'(x)\psi_j'(x)\,dx
+\\
+&=&\int_{x_{j-1}}^{x_j}{4x-3x_{j-1}-x_j \over h^2}{4(x_j+x_{j-1}-2x) \over h^2}\,dx
+\\
+&=&{4 \over h^4}\int_{x_{j-1}-x_{j-1}}^{x_j-x_{j-1}}(4s-h)(h-2s)\,ds
+\\
+&=&{4 \over h^4}\int_0^h6hs-8s^2-h^2\,ds
+\\
+&=&{4 \over h^4}\left[3hs^2-{8 \over 3}s^3-h^2s\right]_0^h
+\\
+&=&{4 \over h^4}\left(3h^3-{8 \over 3}h^3-h^3\right)
+\\
+&=&{4 \over h^4}\left(-{2 \over 3}h^3\right)
+\\
+&=&-{8 \over 3h}
+\end{eqnarray*}
+where $s=x-x_{j-1}$.
+
+Moreover, for $j=1,\ldots,N$,
+\[
+\psi_{j+1}'(x)=\left\{\begin{array}{ll}
+\displaystyle{{4(x_{j+1}+x_j-2x) \over h^2}} & \displaystyle{\mbox{if }x\in(x_j,x_{j+1})},
+\\[10pt]
+0 & \mbox{otherwise},
+\end{array}\right.
+\]
+and so we can compute that, for $j=1,\ldots,N$,
+\begin{eqnarray*}
+a\ip{\phi_j,\psi_{j+1}}&=&\int_0^1\phi_j'(x)\psi_{j+1}'(x)\,dx
+\\
+&=&\int_{x_j}^{x_{j+1}}{4x-3x_{j+1}-x_j \over h^2}{4(x_{j+1}+x_j-2x) \over h^2}\,dx
+\\
+&=&\int_{x_j-x_j}^{x_{j+1}-x_j}{4(s+x_j)-3x_{j+1}-x_j \over h^2}{4(x_{j+1}+x_j-2(s+x_j)) \over h^2}\,ds
+\\
+&=&{4 \over h^4}\int_0^h(4s-3h)(h-2s)\,ds
+\\
+&=&{4 \over h^4}\int_0^h10hs-8s^2-3h^2\,ds
+\\
+&=&{4 \over h^4}\left[5hs^2-{8 \over 3}s^3-3h^2s\right]_0^h
+\\
+&=&{4 \over h^4}\left(5h^3-{8 \over 3}h^3-3h^3\right)
+\\
+&=&{4 \over h^4}\left(-{2 \over 3}h^3\right)
+\\
+&=&-{8 \over 3h}
+\end{eqnarray*}
+where $s=x-x_j$.
+
+Finally, we note that, for $j=1,\ldots,N$ and $k=1,\ldots,N+1$,
+\[
+a\ip{\phi_j,\psi_k}=0\mbox{ if }k-j>1\mbox{ or }k-j<0.
+\]
+
+Therefore, for $j=1,\ldots,N$ and $k=1,\ldots,N+1$,
+\[
+a\ip{\phi_j,\psi_k}=\left\{\begin{array}{ll}\displaystyle{-{8 \over 3h}} & \mbox{if }k=j\mbox{ or }k=j+1, \\[.75em] \displaystyle{0} & \mbox{otherwise}.\end{array}\right.
+\]
+\end{enumerate}
+\end{enumerate}
+\end{solution}
+

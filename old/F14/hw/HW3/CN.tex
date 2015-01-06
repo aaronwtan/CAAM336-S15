@@ -1,0 +1,76 @@
+The 1D heat equation with $\kappa = 1$ over the interval $[0,1]$ is given by
+\[
+\pd{u}{t}{}-\pd{u}{x}{2} = 0
+\]
+with boundary conditions and initial condition 
+\begin{align*}
+u(0,t) &= u(1,t) = 0\qquad t > 0,\\
+u(x,0)&=\sin(\pi x).
+\end{align*}
+As we've seen in class, \emph{centered} finite difference approximations are more accurate than both forwards/backwards difference approximations.   To this end, we would like to find a way to leverage central differences for our approximation of the time derivative $\pd{u}{t}{}$.  
+
+The trick to doing so is to write down the finite difference equations in space and time at the point $(x_i,t_{j+ 1/2})$
+\[
+\pd{u}{t}{}(x_i,t_{j+ 1/2}) = \pd{u}{x}{2}(x_i,t_{j+ 1/2}).
+\]
+We can then proceed in two steps:
+\begin{itemize}
+\item Central differences \emph{in time} then gives us
+\[
+\pd{u}{t}{}(x_i,t_{j+ 1/2})\approx \frac{u(x_i,t_{j+ 1})-u(x_i,t_{j})}{dt}
+\] 
+as an approximation for $\pd{u(x_i,t_{j+ 1/2})}{t}{}$ , where $dt = t_{j+1}-t_j$ is time step. 
+\vspace{1em}
+\item To approximate the term $\pd{u}{x}{2}(x_i,t_{j+ 1/2} )$ we can average our finite difference approximations for $\pd{u}{x}{2}(x_i,t_j+1)$ and $\pd{u}{x}{2}(x_i,t_j)$: defining $u(x_i,t_j)=u_i^n$, we can set
+\[
+\pd{u}{x}{2}(x_i,t_{j+ 1/2} ) \approx \frac{1}{2}\left[\frac{u^{j+1}_{i+1} - 2u_i^{j+1} + u_{i-1}^{j+1}}{h^2} + \frac{u^j_{i+1} - 2u_i^j + u_{i-1}^{j}}{h^2}\right].
+\]
+where $h = x_{i+1}-x_i$ is the grid spacing/mesh size in $x$.  
+
+\end{itemize}
+\vspace{1em}
+
+Notice now that, if we combine the above two approximations, we no longer have any terms involving $t_{j+1/2}$!  We have just defined the \emph{Crank-Nicolson} scheme for $u_i^{j}$
+\[
+\frac{u_i^{j+ 1}-u_i^{j}}{dt} = \frac{1}{2}\left[\frac{u_{i+1}^{j+1} - 2u_i^{j+1} + u_{i-1}^{j+1}}{h^2} + \frac{u_{i+1}^{j} - 2u_i^{j} + u_{i-1}^{j}}{h^2}\right]
+\] 
+\vspace{2cm}
+\begin{center}
+\emph{Turn to the next page for the rest of Problem 3.}
+\end{center} 
+\newpage
+\begin{enumerate}
+\item We know that $\frac{u(x,t+\Delta t)-u(x,t)}{\Delta t}$ is an $O(\Delta t^2)$ approximation to $\pd{u(x,t + \Delta t/2)}{t}{}$.  Show that 
+\[
+\frac{1}{2}\left[\frac{u(x+ \Delta x,t+\Delta t) - 2u(x,t+\Delta t) + u( x - \Delta x,t+\Delta t)}{\Delta x^2} + \frac{u(x+ \Delta x,t) - 2u(x,t) + u( x - \Delta x,t)}{\Delta x^2} \right]
+\]
+is an $O(\Delta x^2)$ approximation to $\pd{u(x,t + \frac{\Delta}{2})}{x}{2}$.  With this, we can conclude Crank-Nicolson is a second order accurate approximation to the PDE in both space and time, or that 
+\[
+\left| \pd{u(x,t + \Delta t/2)}{t}{}-\pd{u(x,t + \Delta t/2)}{x}{2} - \text{Crank-Nicolson formula}\right| = O(\Delta t^2 + \Delta x^2).
+\]
+\item Write the Crank-Nicolson scheme as an update step
+\[
+{\bf u}^{j+1} = ({{\bf I} + {\bf A}})^{-1} ({{\bf I} - {\bf B}}) {\bf u}^{j},
+\]
+specifying exactly what the matrices $\bf A$ and $\bf B$ are.  
+\item As with any timestepping method, we can rewrite the Crank-Nicolson scheme as
+\[
+{\bf u}^{j+1} = (({{\bf I} + {\bf A}})^{-1} ({{\bf I} - {\bf B}}))^{j+1} {\bf u}^{0}.
+\]
+Show that Crank-Nicolson scheme is unconditionally stable by showing that, for eigenvalues $\lambda_i$ of $({I + \bf A})^{-1}{I -\bf B}$, 
+\[
+\lambda_i^j < \infty, \quad \text{for any } j >0.
+\]
+(Hint: $\bf I + A$ and $\bf I- B$ should have the same eigenvectors.)
+%\item Construct the linear system $Au=b$ for the given Crank-Nicolson scheme.
+\item Create a Matlab script that implements the Crank-Nicolson method. Compute the numerical solution at points $x_i$ and times $t_j$ and plot the computed solution values $u_i^j$ for $i = 0, . . . , N + 1$ and $j = 0, 10, 50$ where $N = 8, 16, 32$.  
+\item Given that $u(x,t)=e^{-\pi^2 t} \sin(\pi x)$  is the exact solution for the above problem, plot the error at each point $|u_{\rm exact}(x_i,t_j) - u_i^j)|$, for $i = 0, . . . , N + 1$ and $j = 0, 10, 50$ for $N = 8, 16, 32$ for $3$ successive time steps (use $dt = h$).  
+
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\ifthenelse{\boolean{showsols}}{\input CN_sol}{}
+

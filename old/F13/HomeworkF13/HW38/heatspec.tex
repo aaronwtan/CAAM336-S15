@@ -1,0 +1,49 @@
+Parts (a) and (c) of this question should be done by hand.
+
+Let
+\[
+f(x,t)=\left\{\begin{array}{ll}
+2x & \displaystyle{\mbox{if }x\in\left[0,{1 \over 2}\right)},
+\\[10pt]
+2-2x & \displaystyle{\mbox{if }x\in\left[{1 \over 2},1\right]}.
+\end{array}\right.
+\]
+\begin{enumerate}
+\item Use the spectral method to obtain a series solution to the problem of finding the solution $\tilde{u}(x,t)$ to the heat equation
+\[
+\tilde{u}_t(x,t)-\tilde{u}_{xx}(x,t) = f(x,t),\quad 0<x<1,\quad t>0
+\]
+with Dirichlet boundary conditions
+\[
+\tilde{u}(0,t) = \tilde{u}(1,t) = 0,\quad t\ge0
+\]
+and initial condition
+\[
+\tilde{u}(x,0)=0,\quad 0<x<1.
+\]
+
+\item Plot the approximations to $\tilde{u}(x,t)$ obtained by replacing the upper limit of the summation in your series solution with $20$ for $t=0,0.1,0.2,0.3,0.5,1,2$.
+
+\item By shifting the data and then using the spectral method, obtain a series solution to the problem of finding the solution $u(x,t)$ to the heat equation
+\[
+u_t(x,t)-u_{xx}(x,t) = f(x,t),\quad 0<x<1,\quad t>0
+\]
+with Dirichlet boundary conditions
+\[
+u(0,t) =0,\quad t\ge0
+\]
+and
+\[
+u(1,t) = 1,\quad t\ge0
+\]
+and initial condition
+\[
+u(x,0)=x^3,\quad 0<x<1.
+\]
+
+\item Plot the approximations to $u(x,t)$ obtained by replacing the upper limit of the summation in your series solution with $20$ for $t=0,0.1,0.2,0.3,0.5,1,2$.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\boolean{showsols}}{\input heatspec_sol}{}

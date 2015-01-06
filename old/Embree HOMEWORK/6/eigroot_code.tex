@@ -1,0 +1,58 @@
+{\footnotesize\begin{verbatim}
+ figure(1), clf
+ for j=0:5
+    x = linspace((j-1/2)*pi,(j+1/2)*pi,500);
+    x = x(2:end-1); 
+    tanplt = plot(x,-tan(x),'b-','linewidth',2);
+    hold on
+ end 
+ x = linspace(0,5*pi,100);
+ linplt = plot(x,x,'r-','linewidth',2);
+ ylim([-5*pi 5*pi])
+ xlim([0 5*pi])
+
+ lgd = legend([tanplt,linplt],'$\ -\tan(x)$', '$x$',...
+        'location','northoutside','orientation','horizontal');
+ set(lgd,'interpreter','latex')
+ set(gca,'fontsize',14)
+
+ guess = [2 5 7.98 11 14.21]';
+ bracket = [1.6 2.5; 
+            4.8 5; 
+            7.9 8.1; 
+            11 11.2;
+            14.15 14.3];
+
+ ew = zeros(size(guess));
+ fprintf('   sqrt(lambda)          lambda     (n-1/2)^2 pi^2 \n', ew(k), ew(k)^2)
+ for k=1:length(guess)
+%     ew(k) = fzero(@(x) x+tan(x),guess(k));
+     ew(k) = bisect(@(x) x+tan(x),bracket(k,1),bracket(k,2));
+     plot(ew(k),ew(k),'k.','markersize',20)
+     fprintf(' %15.10f   %15.10f  %15.10f\n', ew(k), ew(k)^2, (k-1/2)^2*pi^2)
+ end
+ print -depsc2 eigroot
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ function xstar = bisect(f,a,b)
+
+% function xstar = bisect(f,a,b)
+% Compute a root of the function f using bisection.
+% f:    a function name, e.g., bisect('sin',3,4), or bisect('myfun',0,1)
+% a, b: a starting bracket:  f(a)*f(b) < 0.
+
+ fa = feval(f,a);
+ fb = feval(f,b);         % evaluate f at the bracket endpoints
+ delta = (b-a);           % width of initial bracket
+ k = 0; fc = inf;         % initialize loop control variables
+
+ c = (a+b)/2; 
+ while (delta/(2^k)>1e-18) & abs(fc)>1e-18
+    c = (a+b)/2; fc = feval(f,c);   % evaluate function at bracket midpoint
+    if fa*fc < 0, b=c; fb = fc;     % update new bracket
+    else a=c; fa=fc; end
+    k = k+1;  
+%    fprintf(' %3d  %20.14f  %16.8e\n', k, c, fc);
+ end
+ xstar = c; 
+\end{verbatim}}

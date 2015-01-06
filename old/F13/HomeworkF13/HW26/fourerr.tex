@@ -1,0 +1,58 @@
+Let the inner product $\ip{\cdot,\cdot}:\mbox{ }C[0,1]\times C[0,1]\rightarrow\R$ be defined by
+\[
+\ip{v,w}=\int_0^1v(x)w(x)\,dx
+\]
+and let the norm $\norm{\cdot}:\mbox{ }C[0,1]\rightarrow\R$ be defined by
+\[
+\norm{v}=\sqrt{\ip{v,v}}.
+\]
+Let $N$ be a posivitive integer and let $\psi_1,\ldots,\psi_N\in C[0,1]$ be such that $\left\{\psi_1,\ldots,\psi_N\right\}$ is orthonormal with respect to the inner product $\ip{\cdot,\cdot}$. For $g\in C[0,1]$, let
+\[
+g_N=\sum_{n=1}^N\alpha_n\psi_n
+\]
+where $\alpha_n=\ip{g,\psi_n}$. Note that $g_N$ is the best approximation to $g$ from ${\rm span}\left\{\psi_1,\ldots,\psi_N\right\}$ with respect to the norm $\norm{\cdot}$. Moreover, let $u\in C^2[0,1]$ be such that
+\[
+-u''(x)=f(x),\quad 0<x<1
+\]
+and
+\[
+u(0)=u(1)=0
+\]
+with $f(x)=1$ for all $x\in[0,1]$. Note that $u(x) = {1 \over 2}x(1-x)$.
+
+\begin{enumerate}
+\item Show that
+\[
+\norm{g-g_N}^2  = \norm{g}^2 - \sum_{n=1}^N \alpha_n^2.
+\]
+
+\item For the remainder of this question we will just consider the case when
+\[
+\psi_n(x) = \sqrt{2} \sin(n \pi x)\mbox{ for }n=1,2,\ldots,N.
+\]
+The best approximation to $f$ from ${\rm span}\{\psi_1, \ldots, \psi_N\}$ with respect to the norm $\norm{\cdot}$ is
+\[ 
+f_N = \sum_{n=1}^N \ip{f,\psi_n} \psi_n
+\]
+where
+\[
+\ip{f,\psi_n}={\sqrt{2} \over n\pi}\left(1-\cos\left(n\pi\right)\right).
+\]
+Produce a \verb|loglog| plot of $\norm{f-f_N}$ for $N=1,2,\ldots, 1000000$.
+
+\item We can use the spectral method to conclude that the best approximation to $u$ from ${\rm span}\{\psi_1, \ldots, \psi_N\}$ with respect to the norm $\norm{\cdot}$ is
+\[ 
+u_N = \sum_{n=1}^N \ip{u,\psi_n} \psi_n
+\]
+where
+\[
+\ip{u,\psi_n}={\ip{f,\psi_n} \over n^2\pi^2}={\sqrt{2} \over n^3\pi^3}\left(1-\cos\left(n\pi\right)\right).
+\]
+Add a \verb|loglog| plot of $\norm{u-u_N}$ for $N=1,2,\ldots, 1000000$ to the plot that you produced in part (b).
+
+(Be aware that the norm of the error may appear to flatline or become imaginary around $10^{-8}$: this is a consequence of the computer's floating point arithmetic, and so you will not lose points because of this.)
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input fourerr_sol}{}

@@ -1,0 +1,16 @@
+% finite difference problem
+
+In this problem, we will investigate the order of accuracy for an alternative finite difference approximation for the second derivative.  In this problem, let $u(x)$ be a smooth function with the Taylor series expansion (around the point $x$)
+\[
+u(x+\Delta x) = u(x) + u'(x)\Delta x + \frac{u''(x)}{2}\Delta x^2 + \frac{u'''(x)}{3!}\Delta x^3 + \ldots 
+\]
+\begin{enumerate}
+\item Derive the finite difference approximation to $u''(x)$
+\[
+u''(x) \approx \frac{u(x)-2u(x-\Delta x) + u(x-2\Delta x)}{\Delta x^2}
+\]
+with backwards difference formulas.  In other words, approximate $u''(x) = (u'(x))'$ using a backwards difference formula involving $u'(x)$, and then approximate $u'(x)$ using another backwards difference formula involving $u(x)$. 
+\item Show that the above finite difference approximation is $O(h)$ accurate (compared to the $O(h^2)$ accurate finite difference approximation using central differences).
+\item We may also approximate the second derivative using 
+
+\end{enumerate}

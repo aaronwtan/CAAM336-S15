@@ -1,0 +1,59 @@
+Suppose $N\ge 1$ is an integer and define $h = 1/(N+1)$ and $x_j = jh$ for $j=0,\ldots, N+1$.
+
+We can approximate the differential equation
+\[ {d^2 \over dx^2} u = f(x), \quad x\in (0,1),\]
+with homogeneous Dirichlet boundary conditions $u(0)=u(1) = 0$ by the matrix equation
+\[ {1\over h^2} \left[\begin{array}{rrrrr}
+              -2 & 1 \\[0.25em]
+               1 & -2 & 1 \\
+                 &  1  & -2 & \ddots \\
+                 & & \ddots & \ddots & 1 \\[0.25em]
+                 & & & 1 & -2 
+               \end{array}\right]
+          \left[\begin{array}{c} u_1 \\[0.25em] u_2 \\[0.25em] \vdots \\[0.25em] u_{N-1} \\[0.25em] u_N \end{array}\right]
+ =   \left[\begin{array}{c} f(x_1) \\[0.25em] f(x_2) \\[0.25em] \vdots \\[0.25em] f(x_{N-1}) \\[0.25em] f(x_N) \end{array}\right],\]
+where $u_j \approx u(x_j)$.  (Entries of the matrix that are not specified are zero.)
+
+\begin{enumerate}
+\item Suppose that $f(x) = 25 \pi^2 \cos (5\pi x)$.\\
+      Compute and plot the approximate solutions obtained when $N=8, 16, 32, 64, 128$.\\
+      You may superimpose these on one plot.  
+       To solve the linear systems, you may use MATLAB's `backslash' command: 
+        \verb| u = A\f|.
+      
+      For each value of $N$ compute the maximum error $|u_j - u(x_j)|$, given that
+      the true solution is  \[u(x) = 1-2x-\cos(5\pi x).\]
+      Plot this error using a \verb|loglog| plot 
+      with error on the vertical axis and $N$ on the horizontal axis.
+     
+\vspace*{1.5em} 
+\item Explain what adjustments to the right hand side of the matrix equation 
+      are necessary to accommodate the inhomogeneous Dirichlet boundary conditions 
+      \[ u(0)=1,\quad  u(1)=2.\]
+      Compute and plot solutions for $N=8, 32, 128$. 
+
+\vspace*{1.5em} 
+\item Now suppose that we have mixed boundary conditions
+           \[ u(0) = 1, \quad {d u\over dx}(1) = -5.\]
+      The matrix equation will now have the form
+\[ {1\over h^2} \left[\begin{array}{rrrrrr}
+              -2 & 1 \\[0.25em]
+               1 & -2 & 1 \\
+                 &  1  & -2 & \ddots \\
+                 & & \ddots & \ddots & 1 & 0 \\[0.25em]
+                 & & & 1 & -2 & \star \\[0.25em]
+                 & & & \star &  \star & \star \end{array}\right]
+          \left[\begin{array}{c} u_1 \\[0.25em] u_2 \\[0.25em] \vdots \\[0.25em] u_{N-1} \\[0.25em] u_N \\[0.25em] u_{N+1}\end{array}\right]
+ =   \left[\begin{array}{c} f(x_1) - *\\[0.25em] f(x_2) \\[0.25em] \vdots \\[0.25em] f(x_{N-1}) \\[0.25em] f(x_N)\\[0.25em] \star \end{array}\right].\]
+      Specify values for the entries marked by $\star$ to impose the approximation
+            \[ {{{du \over dx}(1)} \approx {u_{N-1} - 4u_N + 3u_{N+1} \over 2h} = -5}.\]
+      Compute and plot solutions for $N=8, 32, 128$. 
+
+      Optional:  What happens to the overall accuracy of the approximate solution if, 
+      instead of the $O(h^2)$ accurate approximation given above, you only use the $O(h)$ approximation
+           \[ {d u \over dx}(1) \approx {u_{N+1} - u_{N} \over h}\,?\]
+\end{enumerate} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input diffmats_sol}{}

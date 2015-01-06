@@ -1,0 +1,37 @@
+Suppose $N\ge 1$ is an integer and define $h = 1/(N + 1)$ and $x_k = kh$ for $k = 0,\ldots,N + 1$. Consider the $N+2$ hat functions, defined as
+\[
+\phi_k(x) = \left\{\begin{array}{ll}
+(x-x_{k-1})/h, & x\in[x_{k-1},x_k);\\
+(x_{k+1}-x)/h, & x\in[x_k,x_{k+1});\\
+0,& \mbox{otherwise.}
+\end{array}\right.
+\]
+for $x\in[0,1]$ and $k=0,\ldots, N+1$. We call these piecewise linear functions {\em hat functions} 
+because of their shape.  They will be important functions later in the course.  
+For example, when $N=9$ and $k=3$, this function takes the following form.
+\begin{center}
+\includegraphics[scale=0.6]{plothat}
+\begin{picture}(0,0)
+\put(-215,0){$x_2$}
+\put(-190,0){$x_3$}
+\put(-165,0){$x_4$}
+\put(-175,50){$\phi_3(x)$}
+\end{picture}
+\end{center}
+
+\begin{enumerate}
+\item Write a MATLAB function for $\phi_k(x)$.  It should take in as input $x$, $k$, and $N$.  It should return the value $\phi_k(x)$.  It should also be able to take in a vector for $\Bx=(x_1,\ldots,x_m)$ and return the vector $\phi_k(\Bx)=(\phi_k(x_1),\ldots,\phi_k(x_m))$. 
+\item Let $N=9$.  Plot $\phi_0(x),\phi_4(x), \phi_5(x),\phi_6(x), \phi_{10}(x)$ on the same figure.  Make sure to:
+\begin{itemize}
+\item plot each function with a different color;
+\item label the axes and provide a title;
+\item create an accurate legend for the figure.
+\end{itemize}
+Optional but encouraged:  Adjust the text sizes (if necessary) to make the labels easily 
+legible, and use the \LaTeX\ interpreter to make your labels, titles, and legend look stylish.
+See the MATLAB Primer on the course web site for details.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\boolean{showsols}}{\input codeHatsol}{}
+

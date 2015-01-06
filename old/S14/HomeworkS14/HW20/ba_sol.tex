@@ -1,0 +1,101 @@
+\begin{solution}
+\begin{enumerate}
+\item {[5 points]} Since $\left\{\phi_1,\phi_2\right\}$ is orthonormal with respect to the inner product $\ip{\cdot,\cdot}$, the best approximation to $f_1$ from ${\rm span}\left\{\phi_1,\phi_2\right\}$ with respect to the norm $\norm{\cdot}$ is
+\[
+\tilde{f}_1(x)=\ip{f_1,\phi_1}\phi_1(x)+\ip{f_1,\phi_2}\phi_2(x)=0+{\sqrt{6}\over\pi}{\sqrt{3}\over\sqrt{2}}x={\sqrt{2}\sqrt{3}\over\pi}{\sqrt{3}\over\sqrt{2}}x={\sqrt{9}\over\pi}x={3\over\pi}x.
+\]
+\\
+\item {[4 points]} Since $\left\{\phi_1,\phi_2\right\}$ is orthonormal with respect to the inner product $\ip{\cdot,\cdot}$, the best approximation to $f_2$ from ${\rm span}\left\{\phi_1,\phi_2\right\}$ with respect to the norm $\norm{\cdot}$ is
+\[
+\tilde{f}_2(x)=\ip{f_2,\phi_1}\phi_1(x)+\ip{f_2,\phi_2}\phi_2(x)=0+0=0.
+\]
+\\
+\item {[10 points]} Now,
+\[
+B\ip{\psi_1,\psi_2}=\int_0^1\psi_1(x)\psi_2(x)\,dx=\int_0^1{1\over\sqrt{2}}{\sqrt{3}\over\sqrt{2}}x\,dx={\sqrt{3}\over 2}\int_0^1x\,dx={\sqrt{3}\over 2}\left[{1\over 2}x^2\right]_0^1={\sqrt{3}\over 2}{1\over 2}={\sqrt{3}\over 4}
+\]
+and so $\left\{\psi_1,\psi_2\right\}$ is not orthogonal with respect to the inner product $B\ip{\cdot,\cdot}$. Consequently, the best approximation to $g_1$ from ${\rm span}\left\{\psi_1,\psi_2\right\}$ with respect to the norm $\norm{\cdot}_B$ is
+\[
+\tilde{g}_1(x)=c_1\psi_1(x)+c_2\psi_2(x)
+\]
+where the coefficients $c_1,c_2\in\R$ are such that
+\[
+\BG\left[\begin{array}{c}c_1 \\ c_2\end{array}\right]=\left[\begin{array}{c}B\ip{g_1,\psi_1} \\ B\ip{g_1,\psi_2}\end{array}\right]=\left[\begin{array}{c}{\sqrt{2}\over\pi} \\ {\sqrt{6}\over 2\pi}\end{array}\right]
+\]
+where
+\[
+\BG=\left[\begin{array}{cc} B\ip{\psi_1,\psi_1} & B\ip{\psi_1,\psi_2} \\ B\ip{\psi_1,\psi_2} & B\ip{\psi_2,\psi_2}\end{array}\right].
+\]
+Now,
+\[
+B\ip{\psi_1,\psi_1}=\int_0^1\psi_1(x)\psi_1(x)\,dx=\int_0^1{1\over\sqrt{2}}{1\over\sqrt{2}}\,dx={1\over 2}\int_0^11\,dx={1\over 2}\left[x\right]_0^1={1\over 2}
+\]
+and
+\[
+B\ip{\psi_2,\psi_2}=\int_0^1\psi_2(x)\psi_2(x)\,dx=\int_0^1{\sqrt{3}\over\sqrt{2}}x{\sqrt{3}\over\sqrt{2}}x\,dx={3\over 2}\int_0^1x^2\,dx={3\over 2}\left[{1\over 3}x^3\right]_0^1={3\over 2}{1\over 3}={1\over 2}.
+\]
+Hence,
+\[
+\BG=\left[\begin{array}{cc} {1\over 2} & {\sqrt{3}\over 4} \\ {\sqrt{3}\over 4} & {1\over 2}\end{array}\right]
+\]
+and so
+\[
+\BG^{-1}=16\left[\begin{array}{cc} {1\over 2} & -{\sqrt{3}\over 4} \\ -{\sqrt{3}\over 4} & {1\over 2}\end{array}\right]=\left[\begin{array}{cc} 8 & -4\sqrt{3} \\ -4\sqrt{3} & 8\end{array}\right]
+\]
+since
+\[
+{1\over2}{1\over2}-{\sqrt{3}\over 4}{\sqrt{3}\over 4}={1\over4}-{3\over 16}={4\over16}-{3\over 16}={1\over 16}.
+\]
+Therefore
+\begin{eqnarray*}
+\left[\begin{array}{c}c_1 \\ c_2\end{array}\right]&=&\BG^{-1}\left[\begin{array}{c}{\sqrt{2}\over\pi} \\ {\sqrt{6}\over 2\pi}\end{array}\right]
+\\
+&=&\left[\begin{array}{cc} 8 & -4\sqrt{3} \\ -4\sqrt{3} & 8\end{array}\right]\left[\begin{array}{c}{\sqrt{2}\over\pi} \\ {\sqrt{6}\over 2\pi}\end{array}\right]
+\\
+&=&\left[\begin{array}{c}8{\sqrt{2}\over\pi}-4\sqrt{3}{\sqrt{6}\over 2\pi}\\-4\sqrt{3}{\sqrt{2}\over\pi}+8{\sqrt{6}\over 2\pi}\end{array}\right]
+\\
+&=&\left[\begin{array}{c}{8\sqrt{2}\over\pi}-{2\sqrt{18}\over\pi}\\{4\sqrt{6}\over\pi}+{4\sqrt{6}\over \pi}\end{array}\right]
+\\
+&=&\left[\begin{array}{c}{8\sqrt{2}\over\pi}-{2\sqrt{2}\sqrt{9}\over\pi}\\{4\sqrt{6}\over\pi}+{4\sqrt{6}\over \pi}\end{array}\right]
+\\
+&=&\left[\begin{array}{c}{8\sqrt{2}\over\pi}-{6\sqrt{2}\over\pi}\\{4\sqrt{6}\over\pi}+{4\sqrt{6}\over \pi}\end{array}\right]
+\\
+&=&\left[\begin{array}{c}{2\sqrt{2}\over\pi}\\0\end{array}\right].
+\end{eqnarray*}
+Consequently, the best approximation to $g_1$ from ${\rm span}\left\{\psi_1,\psi_2\right\}$ with respect to the norm $\norm{\cdot}_B$ is
+\[
+\tilde{g}_1(x)=c_1\psi_1(x)+c_2\psi_2(x)={2\sqrt{2}\over\pi}{1\over\sqrt{2}}+0={2\over\pi}.
+\]
+\\
+\item {[6 points]} Since $B\ip{\psi_1,\psi_2}\ne0$, the best approximation to $g_2$ from ${\rm span}\left\{\psi_1,\psi_2\right\}$ with respect to the norm $\norm{\cdot}_B$ is
+\[
+\tilde{g}_2(x)=d_1\psi_1(x)+d_2\psi_2(x)
+\]
+where the coefficients $d_1,d_2\in\R$ are such that
+\[
+\BG\left[\begin{array}{c}d_1 \\ d_2\end{array}\right]=\left[\begin{array}{c}B\ip{g_2,\psi_1} \\ B\ip{g_2,\psi_2}\end{array}\right]=\left[\begin{array}{c}0 \\ -{\sqrt{6}\over \pi^2}\end{array}\right]
+\]
+where
+\[
+\BG=\left[\begin{array}{cc} B\ip{\psi_1,\psi_1} & B\ip{\psi_1,\psi_2} \\ B\ip{\psi_1,\psi_2} & B\ip{\psi_2,\psi_2}\end{array}\right]=\left[\begin{array}{cc} {1\over 2} & {\sqrt{3}\over 4} \\ {\sqrt{3}\over 4} & {1\over 2}\end{array}\right].
+\]
+Therefore
+\begin{eqnarray*}
+\left[\begin{array}{c}d_1 \\ d_2\end{array}\right]&=&\BG^{-1}\left[\begin{array}{c}0 \\ -{\sqrt{6}\over \pi^2}\end{array}\right]
+\\
+&=&\left[\begin{array}{cc} 8 & -4\sqrt{3} \\ -4\sqrt{3} & 8\end{array}\right]\left[\begin{array}{c}0 \\ -{\sqrt{6}\over \pi^2}\end{array}\right]
+\\
+&=&\left[\begin{array}{c}4\sqrt{3}{\sqrt{6}\over \pi^2}\\-8{\sqrt{6}\over \pi^2}\end{array}\right]
+\\
+&=&\left[\begin{array}{c}4{\sqrt{18}\over \pi^2}\\-8{\sqrt{6}\over \pi^2}\end{array}\right]
+\\
+&=&\left[\begin{array}{c}4{\sqrt{2}\sqrt{9}\over \pi^2}\\-8{\sqrt{2}\sqrt{3}\over \pi^2}\end{array}\right]
+\\
+&=&\left[\begin{array}{c}12{\sqrt{2}\over \pi^2}\\-8{\sqrt{2}\sqrt{3}\over \pi^2}\end{array}\right]
+\end{eqnarray*}
+Consequently, the best approximation to $g_2$ from ${\rm span}\left\{\psi_1,\psi_2\right\}$ with respect to the norm $\norm{\cdot}_B$ is
+\[
+\tilde{g}_2(x)=d_1\psi_1(x)+d_2\psi_2(x)=12{\sqrt{2}\over \pi^2}{1\over\sqrt{2}}-8{\sqrt{2}\sqrt{3}\over \pi^2}{\sqrt{3}\over\sqrt{2}}x={12\over \pi^2}-{24\over \pi^2}x={12\over \pi^2}\left(1-2x\right).
+\]
+\end{enumerate} 
+\end{solution}

@@ -1,0 +1,83 @@
+
+Let the operator $L:\mbox{ }C^2[0,1]\rightarrow C[0,1]$ be defined by 
+\[
+Lv=-v''+9v.
+\]
+Let $u\in C^2[0,1]$ be the solution to the differential equation
+\[
+-u''(x)+9u(x)=f(x),\quad0<x<1
+\]
+with boundary conditions
+\[
+u(0)=\alpha
+\]
+and
+\[
+u(1)=\beta
+\]
+where $f\in C[0,1]$ and $\alpha,\beta\in\R$. Note that
+\[
+(Lu)(x)=-u''(x)+9u(x)
+\]
+for all $x\in[0,1]$. Let $N$ be an integer which is such that $N\ge2$ and let $\displaystyle{h = {1\over N+1}}$ and $x_j = jh$ for $j=0,\ldots, N+1$.
+
+\begin{enumerate}
+\item Determine whether or not $L$ is a linear operator.
+\\
+\item By using the approximation
+\[
+u''(x_j)\approx\frac{u(x_{j-1})-2u(x_j)+u(x_{j+1})}{h^2}
+\]
+for $j=1,\ldots,N$ we can write
+\[
+\left[\begin{array}{c} (Lu)(x_1) \\ (Lu)(x_2) \\ \vdots \\ (Lu)(x_{N-1}) \\ (Lu)(x_N) \end{array}\right]\approx\BD\left[\begin{array}{c} u(x_0) \\ u(x_1) \\u(x_2) \\ \vdots \\ u(x_{N-1}) \\ u(x_N) \\ u(x_{N+1}) \end{array}\right]
+\]
+where $\BD\in\R^{N\times\left(N+2\right)}$. What are the entries of the matrix $\BD$? An acceptable way to present your final answer is
+\[
+D_{jk}=\left\{\begin{array}{rl}
+? & \mbox{if }k=?;
+\\
+? & \mbox{if }k=?\mbox{ or }k=?;
+\\
+? & \mbox{otherwise};
+\end{array}\right.
+\]
+with the question marks replaced with the correct values.
+\\
+\item We can use the differential equation and boundary conditions satisfied by $u$ and the approximation from the previous part to write
+\[
+\BA\left[\begin{array}{c} u(x_1) \\u(x_2) \\ \vdots \\ u(x_{N-1}) \\ u(x_N) \end{array}\right]\approx\Bb
+\]
+where $\BA\in\R^{N\times N}$ and $\Bb\in\R^N$. What are the entries of the matrix $\BA$ and the vector $\Bb$? An acceptable way to present your final answer is
+\[
+A_{jk}=\left\{\begin{array}{rl}
+? & \mbox{if }k=?;
+\\
+? & \mbox{if }k=?\mbox{ or }k=?;
+\\
+? & \mbox{otherwise};
+\end{array}\right.
+\]
+and
+\[
+b_j=\left\{\begin{array}{rl}
+? & \mbox{if }j=?;
+\\
+? & \mbox{if }j=?;
+\\
+? & \mbox{otherwise};
+\end{array}\right.
+\]
+with the question marks replaced with the correct values.
+\\
+\item Let $f(x)=18$, $\alpha=\beta=0$ and $N=2$. Obtain approximations $u_1$ and $u_2$ to $u(x_1)$ and $u(x_2)$, respectively, by solving
+\[
+\BA\left[\begin{array}{c} u_1 \\u_2 \end{array}\right]=\Bb
+\]
+by hand.
+\end{enumerate} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input fdm_sol}{}

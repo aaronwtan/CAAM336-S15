@@ -1,0 +1,70 @@
+\begin{solution}
+\begin{enumerate}
+\item {[7 points]} We first compute that
+\[
+\BM\Bw=\Bg
+\]
+where $\Bg\in\R^{N}$ is the vector with entries
+\[
+g_j=\sum_{k=1}^N\ip{\phi_k,\phi_j}w_k
+\]
+for $j=1,\ldots,N$. Moreover, since
+\[
+\hat{w}_N=\sum_{j=1}^Nw_j\phi_j=\sum_{k=1}^Nw_k\phi_k,
+\]
+the properties satisfied by the inner product yield that
+\[
+\sum_{k=1}^N\ip{\phi_k,\phi_j}w_k=\left(\sum_{k=1}^Nw_k\phi_k,\phi_j\right)=\ip{\hat{w}_N,\phi_j}
+\]
+and so
+\[
+g_j=\ip{\hat{w}_N,\phi_j}
+\]
+for $j=1,\ldots,N$. Therefore,
+\[
+\Bw^T\BM\Bw=\Bw^T\Bg=\sum_{j=1}^Nw_j\ip{\hat{w}_N,\phi_j}=\left(\hat{w}_N,\sum_{j=1}^Nw_j\phi_j\right)=\ip{\hat{w}_N,\hat{w}_N}
+\]
+by the properties satisfied by the inner product and the fact that
+\[
+\hat{w}_N=\sum_{j=1}^Nw_j\phi_j.
+\]
+
+\item {[8 points]} If $\BM^{-1}\BK\Bw=\lambda\Bw$, for $\lambda\in\R$ and $\Bw\in\R^N$, then
+\[
+\BK\Bw=\lambda\BM\Bw
+\]
+and hence
+\[
+\Bw^T\BK\Bw=\lambda\Bw^T\BM\Bw
+\]
+from which it follows that
+\[
+a\ip{\hat{w}_N,\hat{w}_N}=\lambda\ip{\hat{w}_N,\hat{w}_N}
+\]
+using the information given in parts (a) and (b).
+
+\item {[10 points]} Let $\lambda\in\R$ be an eigenvalue of $\BM^{-1}\BK$. Then there exist nonzero $\Bv\in\R^N$ which are such that
+\[
+\BM^{-1}\BK\Bv=\lambda\Bv.
+\]
+Let $\Bw\in\R^N$ be such that
+\[
+\BM^{-1}\BK\Bw=\lambda\Bw
+\]
+and $\Bw\ne\Bzero$. From part (b) we then have that
+\[
+a\ip{\hat{w}_N,\hat{w}_N}=\lambda\ip{\hat{w}_N,\hat{w}_N}.
+\]
+Moreover, since $\Bw\ne\Bzero$ then $\hat{w}_N\ne 0$ because $\{\phi_1,...,\phi_N\}$ is linearly independent. Hence, since $\hat{w}_N\ne 0$, the properties satisfied by an inner product mean that $a\ip{\hat{w}_N,\hat{w}_N}>0$ and so
+\[
+\lambda\ip{\hat{w}_N,\hat{w}_N}>0.
+\]
+Consequently, 
+\[
+\lambda>0
+\]
+since, because $\hat{w}_N\ne 0$, the properties satisfied by an inner product mean that $\ip{\hat{w}_N,\hat{w}_N}>0$.
+
+
+\end{enumerate}
+\end{solution}

@@ -1,0 +1,31 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+
+\begin{document}
+\setboolean{showsols}{true}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+Problem Set 1 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Wednesday 25 August 2010.  Due Wednesday 1 September 2010, 5pm.
+
+\begin{enumerate}
+\item {[18 points: 3 points per part]}\\  \input classify
+
+\vspace*{1em}
+\item {[18 points: 6 points per part]}\\  \input solve
+
+\vspace*{3em}
+\item {[36 points: 12 points per part]}\\  \input checksol
+\vspace*{2em}
+
+\item {[28 points: 9 points for (a) and (b); 10 points for (c)]}\\  \input steady
+
+\end{enumerate}
+\end{document}

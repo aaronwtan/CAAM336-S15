@@ -1,0 +1,6 @@
+
+The units of heat flux are J/(m^2 sec), not deg/sec.
+
+The problem should state that the bar has "unit cross-sectional area".
+Then everything cleans up by stating that the heat flux at the left
+end is gamma J/(m^2 sec).

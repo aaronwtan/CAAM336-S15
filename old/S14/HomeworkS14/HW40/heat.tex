@@ -1,0 +1,107 @@
+
+All parts of this question should be done by hand.
+
+Let
+\[
+f(x)=\left\{\begin{array}{rl}1-2x&\mbox{if }x\in\left[0,{1\over2}\right];\\0&\mbox{otherwise}.\end{array}\right.
+\]
+In this question we will consider the problem of finding the solution $u(x,t)$ to the heat equation
+\[ 
+u_t(x,t)-u_{xx}(x,t) = f(x), \qquad 0\le x \le 1, \quad t\ge 0,
+\]
+with boundary conditions
+\[
+u(0,t)=1, \quad t\ge 0,
+\]
+and
+\[
+u_x(1,t)=2, \quad t\ge 0,
+\]
+and initial condition
+\[
+u(x,0) = x^2+1, \qquad 0\le x\le 1.
+\]
+Let
+\[
+S = \left\{ w \in C^2[0,1] : w(0) = w'(1) = 0 \right\}
+\]
+and let the linear operator $L: S\to C[0,1]$ be defined by
+\[
+L v = -v''.
+\]
+\\
+\begin{enumerate}
+\item The operator $L$ has eigenvalues $\lambda_n$ with corresponding eigenfunctions
+\[
+\psi_n(x) = \sqrt{2} \sin\left({2n-1\over 2}\pi x\right)
+\]
+for $n=1,2,\ldots$. Note that, for $m,n=1,2,\ldots$,
+\[
+\int_0^1\psi_m(x)\psi_n(x)\,dx=\left\{\begin{array}{rl}1&\mbox{if }m=n;\\0&\mbox{if }m\ne n.\end{array}\right.
+\]
+Obtain a formula for the eigenvalues $\lambda_n$ for $n=1,2,\ldots$.
+\\
+\item For $n=1,2,\ldots$, compute
+\[
+\int_0^1f(x)\psi_n(x)\,dx.
+\]
+\\
+\item Let $w(x)$ be such that
+\[
+w''(x)=0,
+\]
+\[
+w(0)=1
+\]
+and
+\[
+w'(1)=2.
+\]
+Obtain a formula for $w(x)$.
+\\
+\item Let $\hat{u}(x,t)$ be such that
+\[ 
+\hat{u}_t(x,t)-\hat{u}_{xx}(x,t) = f(x), \qquad 0\le x \le 1, \quad t\ge 0,
+\]
+\[
+\hat{u}(0,t)=\hat{u}_x(1,t)=0, \qquad t\ge 0,
+\]
+and
+\[
+\hat{u}(x,0) = \hat{u}_0(x), \qquad 0\le x\le 1,
+\]
+where $\hat{u}_0(x)$ is such that
+\[
+u(x,t) = w(x)+\hat{u}(x,t).
+\]
+Obtain a formula for $\hat{u}_0(x)$.
+\\
+\item For $n=1,2,\ldots$, compute
+\[
+\int_0^1\hat{u}_0(x)\psi_n(x)\,dx.
+\]
+\\
+\item We can write
+\[
+\hat{u}(x,t) = \sum_{n=1}^\infty a_n(t) \psi_n(x)
+\]
+and
+\[
+f(x) = \sum_{n=1}^\infty b_n\psi_n(x)
+\]
+where, for $n = 1,2,\ldots$,
+\[
+b_n = \int_0^1f(x) \psi_n(x)\,dx.
+\]
+What ordinary differential equation and initial condition does $a_n(t)$ satisfy for $n = 1,2,\ldots$?
+\\
+\item Obtain an expression for $a_n(t)$ for $n=1,2,\ldots$.
+\\
+\item Write out a formula for $u(x,t)$.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input heat_sol}{}
+

@@ -1,0 +1,24 @@
+\begin{solution}
+
+\begin{enumerate}
+\item {[5 points]} We have
+\[ (x^n, x^m) = \int_0^1 x^{n+m}\, dx = {1\over n+m+1}.\]
+\\
+\item {[5 points]} We also have 
+\[  \norm{x^n} = \sqrt{(x^n, x^n)} = {1\over \sqrt{2n+1}}\]
+and
+\[  \norm{x^m} = \sqrt{(x^m, x^m)} = {1\over \sqrt{2m+1}}.\]
+\\
+\item {[5 points]} Altogether, we have the following formula for $\cos \angle(x^n,x^m)$ between $x^n$ and $x^m$:
+\[ \cos \angle(x^n,x^m) = {(x^n, x^m) \over \norm{x^n} \norm{x^m}}
+               = {\sqrt{(2n+1)(2m+1)} \over n+m+1}.\]
+\\
+\item {[5 points]} If $m=n+1$ we have the following formula for $\cos \angle(x^n,x^{n+1})$ between $x^n$ and $x^{n+1}$:
+\[ \cos \angle(x^n,x^{n+1}) = {\sqrt{(2n+1)(2n+3)} \over 2n+2}.\]
+\\
+\item {[5 points]} As $n\to\infty$, we see that $\cos \angle(x^n,x^{n+1}) \to 1$,
+implying that the angle between $x^n$ and $x^{n+1}$ shrinks to zero as
+$n\to\infty$.
+\end{enumerate}
+
+\end{solution}
