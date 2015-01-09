@@ -1,0 +1,152 @@
+<html>
+<head> <title>CAAM 336 - Rice University - Fall 2014</title>
+       <link rel="stylesheet"
+              href="class_style.css"
+              type="text/css">
+</head>
+
+<body bgcolor="#f0f0f0">
+ <br>
+<center>
+<table width="95%" bgcolor="#f0f0f0">
+<tr><td><br>
+<center>
+   <h1> CAAM 336 &#183 Differential Equations in Science and Engineering</h1>
+   <h2> Fall 2014 &#183 Rice University </h2><br>
+
+<a href="cal.html">CALENDAR</a>
+   &nbsp;&nbsp;//&nbsp;&nbsp;   
+<a href="notes.html">REFERENCES</a>
+   &nbsp;&nbsp;//&nbsp;&nbsp;   
+<a href="homework.html">PROBLEM SETS</a> 
+   &nbsp;&nbsp;//&nbsp;&nbsp;   
+<a href="exams.html">EXAMS</a> 
+<br><br>
+<a href="https://piazza.com/rice/fall2014/caam336">PIAZZA Q&A FORUM</a><br><br>
+
+
+<br>
+<table width="85%"><tr><td>
+  <tr><td valign="top" width="15%">Instructors:</td>
+      <td valign="top"> 
+     Section 1: Jesse Chan (<a href="mailto:Jesse.Chan@rice.edu">Jesse.Chan@rice.edu</a>), Duncan Hall 3023, (713) 348-6613 <br>
+     Lectures: MWF 1.00-1.50PM, Duncan Hall 1070<br>
+     Office hours: Monday/Wednesday 2-3PM, or by appointment.
+<br><br>
+     Section 2: Sevtap Ozisik (<a href="mailto:so2@rice.edu">so2@rice.edu</a>), Duncan Hall 2038, (713) 348-3336 <br>
+     Lectures: MWF 1.00-1.50PM, Mechanical Lab 254<br>
+     Office hours: Tuesday 2-3PM, Friday 10-11AM, or by appointment.
+     </td></tr>
+  <tr><td></td></tr>
+  <tr><td></td></tr>  
+<tr><td valign="top" width="15%">Teaching<br> Assistant:</td>
+      <td valign="top">
+      Xiaodi Deng (<a href="mailto:xd3@rice.edu">xd3@rice.edu</a>), Duncan Hall 2106 <br> Office hours: Thursday 12:30-2:30PM.
+       </td></tr>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td valign="top" width="15%">Recitations:</td>
+    <td valign="top"> Monday 7-9PM, Duncan Hall 1046 <br>       </td></tr>
+
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td valign="top">Syllabus:</td>
+      <td valign="top"><a href="syllabus.pdf">pdf</a></td></tr>
+  <tr><td></td></tr>
+  <tr><td colspan="2"><hr></td></tr>
+  <tr><td></td></tr>
+  <tr><td valign="top">Prerequisites:</td>
+      <td valign="top">CAAM 210 (Introduction to Engineering Computation) and MATH 212 (Multivariable Calculus), or permission of the instructor. Less formally: you should be able to write elementary MATLAB programs, and be comfortable with vector calculus and basic vector and matrix operations.
+       </td></tr>
+  <tr><td valign="top">Objectives:</td>
+      <td valign="top">CAAM 336 students learn to identify partial differential equations and solve canonical cases using both analytical and computational techniques.
+       </td></tr>
+  <tr><td valign="top">Outcomes:</td>
+      <td valign="top"> Upon completing this course, students should be able to:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+	1) explain the concept and computation of a best approximation from a subspace; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+	2) identify linear operators and compute their spectra in basic cases; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+	3) apply these concepts to obtain exact series solutions to differential equations; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+	4) develop finite element approximations to the exact solutions; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+	5) assess the stability requirement for time-dependent approximations; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+	6) create MATLAB programs that compute and visualize series and finite element solutions. <br>
+       </td></tr>
+
+  <tr><td colspan="2"><hr></td></tr>
+  <tr><td></td></tr>
+  <tr><td valign="top">Grade Policy:</td>
+      <td valign="top">60% exams, 40% problem sets<br>
+                 Class and forum participation will influence borderline and potential A+ grades.<br>
+                 Improving performance over the course of the semester will also be considered.
+       </td></tr>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td valign="top">Absence Policy:</td>
+      <td valign="top">Students are strongly encouraged to contribute to our class community 
+                       by attending and participating in lectures and active learning activities.
+       </td></tr>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td valign="top">Text:</td>
+      <td valign="top">Mark S. Gockenbach, <em>Partial Differential Equations: Analytical and Numerical Methods</em>, SIAM, Philadelphia, 2011.<br>
+More info: <a href="http://www.math.mtu.edu/~msgocken/pdebook2/">http://www.math.mtu.edu/~msgocken/pdebook2</a>
+       </td></tr>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td valign="top">Exams:</td>
+      <td valign="top">Three scheduled, three-hour exams will each account for 20% of the final grade.
+                       Each of these pledged exams must be your individual, unassisted effort.
+                       Please consult the <a href="cal.html">calendar</a> for approximate exam dates.
+        </td></tr>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td valign="top">Problem Sets:</td>
+      <td valign="top">Problem sets will be assigned roughly once a week, due at 5pm on the specified date.<br>
+                       Mathematically rigorous solutions are expected; strive for clarity and elegance.
+                       You may collaborate on the problems, but your write-up must be your own independent work.<br>
+                       <font color="#ff0000"><em>Transcribed solutions and copied MATLAB code are both unacceptable.  
+                       You may not consult solutions from previous sections of this class.</em></font><br>
+                </td></tr>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td valign="top">Late Policy:</td>
+      <td valign="top">You may turn in two problem sets at 5pm on the next class day without penalty.
+                          Subsequent late assignments will be penalized 20% each.  Homework will not be
+                          accepted more than one class period late.  (You <em>may not</em> use
+                          two `lates' on one assignment.) In exceptional circumstances, contact the
+                          instructor as soon as possible:  we adhere to Student Health's 
+                       `<a href="http://health.rice.edu/Content.aspx?id=98">No Note</a href>' policy.
+      </td></tr>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td valign="top">Re-Grade Policy:</td>
+      <td valign="top">If your work has been graded incorrectly, you may submit a re-grade request.
+                       Clearly explain the perceived error on a separate sheet of paper, staple it to the front
+                       of your graded paper, and give it to the instructor.
+      </td></tr>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td valign="top">MATLAB:</td>  
+      <td valign="top">Most homework assignments will require a modest amount of MATLAB programming.
+                       Your solutions should adhere to good programming standards, and must not be copied
+                       from another student.  Consult the course web site for pointers to MATLAB resources.
+                       You might also consult:<br>
+                       D. J. Higham and N. J. Higham, <a href="http://www.ma.man.ac.uk/~higham/mg/"><em>MATLAB Guide</em></a>, 2nd ed.<br>
+                       <a href="http://www.mathworks.com/help/matlab/getting-started-with-matlab.html">Getting Started with MATLAB</a> from MathWorks<br>
+      </td></tr>
+</table>
+<br><br>
+<em>Any student with a disability requiring accommodation in this course is encouraged<br>
+to contact the instructor during the first week of class, and also to contact <br>
+<a href="http://www.dss.rice.edu">Disability Support Services</a> in the Ley Student Center.</em><br><br>
+</center><br>
+</td></tr></table>
+</center>
+<br><br>
+</body>
+</html> 

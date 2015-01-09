@@ -1,0 +1,145 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage}
+\usepackage{hyperref}
+\parindent0em\parskip1em
+\textheight10in
+\pagestyle{empty}
+\begin{document}
+\vspace*{-6em}
+\begin{center}
+\large \textsf{\textbf{CAAM 336}}\\[0.5em]
+       \textsf{\textbf{DIFFERENTIAL EQUATIONS IN SCIENCE AND ENGINEERING}\\[0.5em]
+ Fall 2014 $\cdot$ Rice University}
+\end{center}
+
+
+\hspace*{-3em}
+\begin{tabular}{rl}
+\hline & \\[-.5em]
+Lectures:			& Section 1: MWF 1:00-1:50pm, Duncan Hall 1070 \\
+				& Section 2: MWF 1:00-1:50pm, Mechanical Lab 254 \\[.75em]
+%
+Web Site: 			& http://www.caam.rice.edu/\raisebox{1pt}{$\sim$}caam336 \\[.75em]
+%
+Instructors:  		& Section 1: Jesse Chan (Jesse.Chan@rice.edu), Duncan Hall 3023, (713) 348-6113 \\
+				& Office hours: Monday, Wednesday 2-3PM.\\
+		  		& Section 2: Sevtap Ozisik (so2@rice.edu), Duncan Hall 2038, (713) 348-3336 \\
+				& Office hours: Tuesday 2-3PM, Friday 10-11AM.\\[.75em]
+%
+Teaching Assistant: 	& Xiaodi Deng (xd3@rice.edu), Duncan Hall 2106. \\
+				& Office hours: Thursday 12:30-2:30PM\\[.75em]
+Recitations: 		& TBD
+\end{tabular}
+
+\hspace*{-3em}
+\begin{tabular}{rl}
+\hline & \\[-.5em]
+%
+%Absence Policy: 	& Students are strongly encouraged to contribute to our class community by attending and\\
+%				& participating in lectures. If you can not attend a lecture, please find another student in the class\\
+%				& who can communicate what material was covered. Failure to attend a scheduled exam may \\
+%				& result in you being given a score of zero for that exam.\\[1.25em]
+%
+Text: 			& The content of this course is based on material from:\\
+				& Mark S. Gockenbach, \emph{Partial Differential Equations: Analytical and Numerical}\\
+				& \emph{Methods}, SIAM, Philadelphia, 2011.\\[1.25em]
+%
+Grade Policy: 		& Homework will account for 40\% of the final grade and exams will account for the \\
+				& remaining 60\%.  The last exam will be a scheduled exam which will take place during\\
+				& the final exam period. Failure to attend a scheduled exam may result in a score of zero\\
+				& for that exam.\\[1.25em]
+%
+Matlab: 			& Most homework questions will require some MATLAB programming. Any MATLAB codes\\
+				& that you write for the homework must be printed out and attached to the corresponding\\
+				& homework in order to receive credit. For assistance with parts of the homework requiring \\
+				& MATLAB, please consult the class website for additional materials.\\[1.25em] 
+%
+Honor Code:		& It is an honor code violation to turn in code or solutions which have, in all or in part, been\\
+				& copied from another student. It is also an honor code violation to consult solutions to the\\
+				& homework or exams from previous sections of this class.\\[1.25em]
+%			
+Homework: 		& Problem sets will be assigned roughly once a week, due at 5pm on the specified date.\\
+				& Mathematically rigorous solutions are expected; strive for clarity and elegance.\\
+				& You may collaborate on the problems, but your write-up must be your own independent work.\\
+				& Transcribed solutions and copied MATLAB code are both unacceptable.  \\
+				& \emph{You may not consult solutions from previous sections of this class.}\\[1.25em] 
+
+Late Policy:		& You may turn in two problem sets at 5pm on the next class day without penalty. Subsequent\\
+     				& late assignments will be penalized 20\% each.  Homework will not be accepted more than one\\
+				& class period late.  (You \textit{may not} use two `lates' on one assignment.) In exceptional \\
+				& circumstances, contact the instructor as soon as possible:  we adhere to Student Health's \\
+				& \href{http://health.rice.edu/Content.aspx?id=98}{No Note} policy.\\[1.25em] 
+				
+Re-grade Policy: 	& If your work has been graded incorrectly, you may submit a re-grade request. Clearly explain the\\
+				& perceived error on a separate sheet of paper, staple it to the front of your graded paper, and give\\
+				& it to the instructor. \\[1.25em]
+
+\hline
+\end{tabular}
+\begin{center}
+\em Any student with a disability requiring accommodation in this course is encouraged\\
+to contact the instructor during the first week of class, and also to contact\\
+ Disability Support Services in the Ley Student Center.
+\end{center}
+\newpage
+\vspace{-1em}
+\hspace*{-3em}
+\begin{tabular}{rp{42em}}
+\hline & \\[-.5em]
+Prerequisites:           & CAAM 210 (Introduction to Engineering Computation) and MATH 212 (Multivariable Calculus), \\
+                         & or permission of the instructor.   Less formally: you should be able to write elementary MATLAB\\
+                         & programs, and be comfortable with vector calculus and basic vector and matrix operations.\\[1.25em]
+
+Course Objectives:       & CAAM 336 students learn to identify partial differential equations
+                                and solve canonical cases using both analytical and computational techniques.\\[1em]
+%
+Course Outcomes:         & Upon completing this course, students should be able to:\\
+                         & \ \ \ 1) explain the concept and computation of a best approximation from a subspace;\\
+                         & \ \ \ 2) identify linear operators and compute their spectra in basic cases;\\
+                         & \ \ \ 3) apply these concepts to obtain exact series solutions to differential equations;\\
+                         & \ \ \ 4) develop finite element approximations to the exact solutions;\\
+                         & \ \ \ 5) assess the stability requirement for time-dependent approximations;\\
+                         & \ \ \ 6) create MATLAB programs that compute and visualize series and finite element solutions. \\[1em] 
+%
+\hline & \\[-.5em]
+\end{tabular}
+
+\vspace*{-1em}
+\begin{center} 
+   CAAM 336 $\cdot$ Manifesto and Outline
+\end{center}
+
+\vspace*{-1em}
+
+Differential equations form the heart of applied mathematics:
+they capture an amazing variety of phenomena in fields ranging from 
+physical science and engineering to biology, from financial derivatives
+to traffic flow.
+As useful as these equations are, in practice they can be quite
+difficult to solve:  as you read these words, many of the world's 
+fastest computers are busily calculating solutions to such equations.
+Though the roots of this field reach back to the 18th century,
+many important, fascinating problems remain for you to tackle.
+% When you engage in science and engineering research, 
+% you will almost certainly encounter a differential equation.
+Nearly all disciplines in science and engineering rely 
+fundamentally on differential equations.
+
+
+This course focuses on the three most famous partial differential equations:  
+the Poisson (diffusion) equation, the heat equation, and the wave equation.
+There are two main approaches to solving these equations: 
+one that constructs the exact solution as an infinite series 
+(the `spectral method') 
+and another that uses numerical methods to quickly 
+build approximations to the solution.
+For historical reasons these two approaches are usually taught
+in distinct courses---an unfortunate fissure that masks
+beautiful and deep connections.
+This course will emphasize these connections.  
+By mastering these ideas you will not only learn elegant techniques
+for solving classical problems; you will also develop tools 
+to solve the problems you will discover for yourselves as 
+professional scientists and engineers.
+
+\end{document}

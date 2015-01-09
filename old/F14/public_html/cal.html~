@@ -1,0 +1,41 @@
+<html>
+<head> <title>CAAM 336 - Rice University - Fall 2014</title>
+       <link rel="stylesheet"
+              href="class_style.css"
+              type="text/css">
+</head>
+
+<body bgcolor="#f0f0f0">
+ <br>
+<center>
+<table width="95%" bgcolor="#f0f0f0">
+<tr><td><br>
+<center>
+   <h1> CAAM 336 &#183 Differential Equations in Science and Engineering</h1>
+   <h2> Fall 2014 &#183 Rice University </h2><br>
+
+<a href="index.html">HOME</a>
+   &nbsp;&nbsp;//&nbsp;&nbsp;
+<a href="notes.html">REFERENCES</a>
+   &nbsp;&nbsp;//&nbsp;&nbsp;
+<a href="homework.html">PROBLEM SETS</a>
+   &nbsp;&nbsp;//&nbsp;&nbsp;
+<a href="exams.html">EXAMS</a>
+   &nbsp;&nbsp;//&nbsp;&nbsp;
+<a href="http://www.caam.rice.edu/~caam336lab">LABORATORY</a>
+<br><br>
+<a href="https://piazza.com/rice/fall2014/caam336">PIAZZA Q&A FORUM</a><br><br>
+
+ <h2>Tentative Course Calendar</h2>
+
+Section 1 lectures are held in Duncan Hall 1070.<br><br>
+Section 2 lectures are held in Mechanical Lab 254.<br><br><br>
+
+<iframe src="https://www.google.com/calendar/embed?src=qc34pnf77n6da89makobvnbtt4%40group.calendar.google.com&ctz=America/Chicago" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+
+</center>
+<br><br>
+</td></tr></tbody></table>
+</center>
+</body></html>
