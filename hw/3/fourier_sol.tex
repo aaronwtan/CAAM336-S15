@@ -1,0 +1,88 @@
+\begin{solution}
+
+Let $V$ be defined as
+\[
+V = \left\{ u\in C_D^2[0,1]: u(x) = \sum_{j = 1}^N c_j \sin( j \pi x), \quad c_j \in \R \right\}.
+\]
+\begin{enumerate}
+\item Suppose $u(x) \in V$.  Then, 
+\[
+u(0) =  \sum_{j = 1}^N c_j \sin( 0), \qquad  u(1) = \sum_{j = 1}^N c_j \sin( j \pi )
+\]
+Since $\sin(0) = 0$, $u(0) = 0$.  Similarly, since $j$ is an integer in the above expression, $\sin(j\pi 1) = \sin(j\pi) = 0$, since sine evaluated at any multiple of $\pi$ is zero, and $u(1) = 0$ as well.  Since the sum of sines is a continuous function, any $u(x)\in V$ is also contained in $C^2_D[0,1]$, and $V$ is contained in $C^2_D[0,1]$.  
+ 
+ 
+Next, we just need to show that $V$ itself is a vector space.  If $u(x)$ and $v(x)$ are in the set of $V$, then we have the representations
+\[
+u(x)= \sum_{j = 1}^N d_j \sin( j \pi x), \qquad v(x)= \sum_{j = 1}^N e_j \sin( j \pi x)
+\]
+for $d_j, e_j \in \R$.  We wish to show that, for any $\alpha, \beta \in \R$, the sum $w(x) = \alpha u(x) +\beta v(x)$ is contained in $V$ as well.  
+\begin{eqnarray*}
+w(x)= \alpha u(x) +\beta v(x)&=& \alpha \sum_{j = 1}^N d_j \sin( j \pi x) + \beta \sum_{j = 1}^N e_j \sin( j \pi x)\\
+&=& \sum_{j = 1}^N \underbrace{\alpha d_j}_{\tilde{d}_j} \sin( j \pi x) + \sum_{j = 1}^N \underbrace{\beta e_j}_{\tilde{e}_j} \sin( j \pi x)\\
+&=& \sum_{j = 1}^N \underbrace{(\tilde{d}_j + \tilde{e}_j)}_{c_j} \sin( j \pi x)\\
+&=& \sum_{j = 1}^N c_j \sin( j \pi x) 
+\end{eqnarray*}
+Therefore $w \in V$, and since $V$ is contained in $C^2_D[0,1]$ as well, $V$ is a subspace of $C_D^2[0,1]$.
+
+\item The operator $L$ be defined as
+\[
+Lu = -\frac{\partial^2 u}{\partial x^2}.
+\]
+We are going to show that for all $u\in V$, $Lu\in V$ as well. Let
+\[
+u= \sum_{j = 1}^N c_j \sin( j \pi x) \in V 
+\]
+for $c_j \in \R$. Then
+\begin{eqnarray*}
+Lu = -\frac{\partial^2 u}{\partial x^2} &=& -\frac{\partial^2}{ \partial x^2}\left( \sum_{j = 1}^N c_j \sin( j \pi x)\right)\\
+                               &=&-\frac{\partial}{\partial x}\left[ \sum_{j = 1}^N c_j \frac{\partial (\sin( j \pi x))}{\partial x} \right]\\
+                               &=&-\frac{\partial}{\partial x}\left[ \sum_{j = 1}^N c_j (j \pi ) \cos( j \pi x)  \right]\\
+                               &=& -\sum_{j = 1}^N c_j (j \pi ) \frac{ \partial {(\cos( j \pi x))}}{\partial x}\\
+                               &=& \sum_{j = 1}^N c_j (j \pi )^2 \sin( j \pi x).
+\end{eqnarray*}
+If we define $\tilde{c}_j= c_j (j \pi )^2 \in \R$ then 
+\[
+Lu = \sum_{j = 1}^N \tilde{c}_j \sin( j \pi x)
+\]
+which is also in $V$ for all $ \tilde{c}_j \in \R$. This shows that $L$ can be viewed as 
+\[
+L: V\rightarrow V,
+\]
+a map from $V$ to $V$.
+
+\item We define the operator $\tilde{L}: V\rightarrow V$ as
+\[
+\tilde{L} u =  \sum_{j = 1}^N \frac{c_j}{(j\pi)^2} \sin( j \pi x).
+\]
+We will show that $L\tilde{L}u = u$ and $\tilde{L}Lu = u$ for any $u\in V$. First, let us show $L\tilde{L}u = u$. 
+
+From part (b) we can deduce that if $u= \sum_{j = 1}^N c_j \sin( j \pi x) $
+\[
+Lu= L\left(\sum_{j = 1}^N c_j \sin( j \pi x)\right)= \sum_{j = 1}^N c_j (j \pi )^2 \sin( j \pi x)
+\]
+Then
+\begin{eqnarray*}
+L\tilde{L}u = L (\tilde{L}u) &=& L \left(\sum_{j = 1}^N \frac{c_j}{(j\pi)^2} \sin( j \pi x)\right)\\
+														 &=& \sum_{j = 1}^N \frac{c_j (j \pi)^2}{(j\pi)^2} \sin( j \pi x)\\
+														 &=& \sum_{j = 1}^N c_j \sin( j \pi x)\\
+														 &=&u
+\end{eqnarray*}
+
+Now, let us show $\tilde{L}Lu=u$ as well. Remember that from problem if $u= \sum_{j = 1}^N c_j \sin( j \pi x) $ then $\tilde{L}u$ is given as follows
+\[
+\tilde{L} u = \tilde{L}\left(\sum_{j = 1}^N c_j \sin( j \pi x)\right) = \sum_{j = 1}^N \frac{c_j}{(j\pi)^2} \sin( j \pi x)
+\]
+
+Then, similarly
+\begin{eqnarray*}
+\tilde{L}Lu = \tilde{L}(Lu) &=& \tilde{L} \left(\sum_{j = 1}^N c_j (j\pi)^2 \sin( j \pi x)\right)\\
+														 &=& \sum_{j = 1}^N \frac{c_j (j \pi)^2}{(j\pi)^2} \sin( j \pi x)\\
+														 &=& \sum_{j = 1}^N c_j \sin( j \pi x)\\
+														 &=&u
+\end{eqnarray*}
+
+Since both $L\tilde{L}u = u$ and $\tilde{L}Lu = u$ for any $u\in V$, we can refer to $\tilde{L}$ as the inverse $L^{-1}$ of $L:V\rightarrow V$.  
+
+\end{enumerate}
+\end{solution}

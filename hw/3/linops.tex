@@ -1,0 +1,80 @@
+
+Recall that a function $f: \CV \to \CW$ that maps a vector space $\CV$ to
+a vector space $\CW$ is a \emph{linear operator}
+provided (1) $f(u+v) = f(u)+f(v)$ for all $u, v$ in $\CV$,
+and (2) $f(\alpha v) = \alpha f(v)$ for all $\alpha\in \R$ and $v\in\CV$.
+
+Demonstrate whether each of the following functions is a linear operator.\\
+(Show that both properties hold, or give an example showing that one 
+of the properties must fail.)
+
+\begin{enumerate}
+\item $f:\R^n\to \R^m$, $f(\Bu) = \BA \Bu$ for a fixed matrix $\BA\in\Rmn$.
+\item $f:\R^n\to \R^m$, $f(\Bu) = \BA \Bu + \Bb$ for a fixed matrix $\BA\in\Rmn$ 
+       and fixed nonzero vector $\Bb\in\Rm$.
+\item $f:\R^2 \to \R$,  $f(\Bx) = \Bx^T \Bx$.
+\item $f:\Rnn\to \Rnn$, $f(\BX) = \BA\BX + \BX\BB$ for fixed matrices $\BA, \BB\in\Rnn$.
+\item $L: C^1[0,1] \to C[0,1]$, ${\displaystyle{ Lu = u {\dop u \over \dop x}}}$.
+\item $L: C^2[0,1] \to C[0,1]$, ${\displaystyle{ Lu = {\dop^2 u \over \dop x^2} - \sin(x) {\dop u \over \dop x} + \cos(x) u}}$.
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+\begin{enumerate}
+\item This function \emph{is} a linear operator.\\
+      Suppose $\Bu, \Bv \in \Rn$.  Then 
+           \[ f(\Bu+\Bv) = \BA(\Bu+\Bv) = \BA\Bu + \BA\Bv = f(\Bu)+f(\Bv),\]
+      and
+           \[ f(\alpha \Bv) = \BA(\alpha \Bv) = \alpha \BA \Bv = \alpha f(\Bv).\] 
+
+\item This function \emph{is not} a linear operator (provided $\Bb\ne \Bzero$).\\
+      Suppose $\Bu, \Bv \in \Rn$.  Then 
+           \[ f(\Bu+\Bv) = \BA(\Bu+\Bv) + \Bb  
+                         = \BA\Bu + \BA\Bv \Bb = f(\Bu)+\BA\Bv,\]
+       which does not equal $f(\Bu) + f(\Bv)$ when $\Bb\ne \Bzero$.
+
+      [\textbf{GRADERS}: please \emph{do not} take off points if the solutions
+       fail to note the special case of $\Bb = \Bzero$.]
+
+\item This function \emph{is not} a linear operator.\\
+      Suppose $\Bx\in \Rn$.  Then 
+             \[ f(\alpha\Bx) = (\alpha \Bx)^T(\alpha \Bx) 
+                             = \alpha^2 \Bx^T\Bx 
+                             = \alpha^2 f(\Bx),\]
+      and thus if $\alpha \ne \pm 1$, we have $f(\alpha \Bx) \ne \alpha f(\Bx)$.
+
+\item This function \emph{is} a linear operator.\\
+      Suppose $\BX, \BY \in \Rnn$.  Then 
+            \[ f(\BX+\BY) = \BA(\BX+\BY) + (\BX+\BY)\BB
+                          = \BA\BX + \BX \BB + \BA\BY + \BY\BB
+                          = f(\BX) + f(\BY),\]
+      and if $\alpha\in\R$, then
+            \[ f(\alpha \BX) = \BA(\alpha\BX) + (\alpha \BX) \BB
+                             = \alpha (\BA\BX + \BX\BB)
+                             = \alpha f(\BX).\]
+
+\item This function \emph{is not} a linear operator.\\
+      Suppose that $u(x) = x$.  Then 
+          \[ Lu = u {d u \over dx} = x \cdot 1 = x,\]
+      yet for any $\alpha \in \R$ we have
+          \[ L(\alpha u) = (\alpha u) {d (\alpha u) \over dx}
+                         = (\alpha x) \cdot \alpha = \alpha^2 x,\]
+      so if $\alpha \ne \pm 1$, we have $L(\alpha u) \ne \alpha L u$.
+
+\item This function \emph{is} a linear operator.\\
+      Suppose that $u, v \in C^2[0,1]$.  Then 
+        \begin{eqnarray*}
+               L(u+v) &=& {d^2(u+v) \over dx^2} - \sin(x) {d(u+v) \over dx} 
+                           + \cos(x) (u+v)  \\[0.25em]
+                  &=& {d^2 u \over dx^2} - \sin(x) {du \over dx} + \cos(x) u
+                  + {d^2 v \over dx^2} - \sin(x) {dv \over dx} + \cos(x) v \\[0.25em]
+                  &=& Lu + Lv,
+        \end{eqnarray*}
+      and for any $\alpha \in \R$,
+        \[ L(\alpha u) = {d^2 (\alpha u) \over dx^2} - \sin(x) {d(\alpha u) \over dx} + \cos(x) (\alpha u) 
+                       = \alpha \Big({d^2 u \over dx^2} - \sin(x) {du \over dx} + \cos(x) u\Big) = \alpha L(u).\]
+\end{enumerate}
+\end{solution}}{}
+

@@ -1,0 +1,35 @@
+
+In this problem we'll consider a linear operator mapping to and from a very specific vector space, and use it to explore what an operator inverse can look like.  
+
+Consider the $V$ defined as
+\[
+V = \left\{ u(x) = \sum_{j = 1}^N c_j \sin( j \pi x), \quad c_j \in \R \right\}.
+\]
+In other words, $V$ is the set of all functions that are linear combinations of a finite number of different sine functions.  This means that, for each $u\in V$, there is a set of coefficients $c_1,\ldots, c_N$ that is also associated with $u$.  
+
+\begin{enumerate}
+\item Show that $V$ is a subspace of the vector space $C^2_D[0,1]$, where 
+\[
+C^2_D[0,1] = \{ u(x)\in C^2[0,1], \quad u(0) = u(1) = 0\}.
+\]
+\item Let the operator $L$ be defined as
+\[
+Lu = -\frac{\partial^2 u}{ \partial x^2}
+\]
+Show that, for $u\in V$, $Lu\in V$.  This shows that $L$ can be viewed as 
+\[
+L: V\rightarrow V,
+\]
+a map from $V$ to $V$.
+\item We can define the operator $\tilde{L}: V\rightarrow V$ as
+\[
+\tilde{L} u =  \sum_{j = 1}^N \frac{c_j}{(j\pi)^2} \sin( j \pi x).
+\]
+Show that both $L\tilde{L}u = u$ and $\tilde{L}Lu = u$ for any $u\in V$.  
+\end{enumerate}
+Since both $L\tilde{L}u = u$ and $\tilde{L}Lu = u$ for any $u\in V$, we can refer to $\tilde{L}$ as the inverse $L^{-1}$ of $L:V\rightarrow V$.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input fourier_sol}{}
+
