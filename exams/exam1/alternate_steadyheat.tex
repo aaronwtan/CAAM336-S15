@@ -1,0 +1,21 @@
+
+The derivation of the heat equation given at the beginning of the course arrived at the condition $\rho c \frac{\partial u}{\partial t} (x,t) + \frac{\partial q}{\partial x} = f(x)$ where $q(x,t)$ is the heat flux per unit volume, $\rho$ is the density of the material and $c$ is the specific heat.  The relationship of \textit{Fourier's Law}, which says that $q(x,t) = \kappa \frac{\partial u}{\partial x}(x,t)$, was used to derive the heat equation.  An alien substance has been found for which Fourier's law has been shown not to hold.  However, scientists have determined that a slightly different relation $q(x,t) = \kappa\frac{\partial u}{\partial x}(x,t) + \beta u(x,t)$ does describe the heat flux.
+
+
+\begin{enumerate}
+\item Write the modified, time-dependent heat equation for the newly discovered substance
+
+\item Suppose a bar of length $L$ of the alien substance is manufactured with $\kappa = 3$, $\beta = 2$.  Determine a general formula for the steady-state termperature distribution of this bar, which should include two free constants.  (Assume no additional source term f(x) is present).
+
+\item Find formulas for these free constants in the case that the left end, at $x=0$, has a fixed \textit{heat flux} equal to $0$ and the right end, at $x=L$, is held constant at $\delta$ degrees.
+
+%\item  Consider the sub-vector space $W \subset V$ of linear functions given by the span of $\left\{1,x\right\}$.  Find the best approximation $m(x) \in W$ to the function $g(x) \in V$ defined by $g(x) = 2x^3 - x^2 - x + \frac{1}{2}$ by solving the $2\times2$ Gram system $Gx = b$.   You may use the fact that the inverse of a $2\times 2$ matrix is
+%\[
+%\bmatrix{a & b \cr c & d}^{-1} = \frac{1}{ad-bc}\bmatrix{d & -b \cr -c & a}.
+%\]
+%
+%\item Let $p(x) = a + bx$ be an arbitrary element of the subvector space of linear functions $W$.  Show explicitly the orthogonality condition of the best approximation $m(x)$ holds by computing $\ip{g(x)-m(x),p(x)}$ and showing that it must be zero.
+%
+%\item Since the Gram matrix is symmetric the spectral theorem guarantees that two orthogonal eigenvectors $v_1$ and $v_2$ can be found.  One such eigenvector of the Gram matrix for this problem is $v_2 = \left[\begin{array}{c} \frac{1}{3}\left(2+\sqrt{13}\right) \\ 1 \end{array}\right] $ corresponding to the linear function $v_2(x) = x + \frac{1}{3}\left(2+\sqrt{13}\right)$.  Apply the Gram-Schmidt procedure to the set of linearly independent functions $\left\{ u_1 = x, u_2 = v_2 \right\}$ to construct an alternate, orthogonal basis for $W$.  Your basis does not need to be orthonormal. 
+
+\end{enumerate}

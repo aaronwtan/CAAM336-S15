@@ -1,0 +1,17 @@
+
+Consider the vector space $V$ of polynomials of degree less than or equal to three.  This vector space is the span of the monomials $\left\{1,x,x^2,x^3\right\}$.  Let $\displaystyle{\ip{\cdot,\cdot}:\mbox{ }\CV\times\CV\rightarrow\R}$ be an inner product on $V$ defined by 
+\[
+\ip{f,g} = \int_0^1 f(x) g(x) \, dx + \int_0^1 f'(x) g'(x) \, dx
+\]
+
+\begin{enumerate}
+\item  Consider the sub-vector space $W \subset V$ of linear functions given by the span of $\left\{1,x\right\}$.  Find the best approximation $m(x) \in W$ to the function $g(x) \in V$ defined by $g(x) = 2x^3 - x^2 - x + \frac{1}{2}$ by solving the $2\times2$ Gram system $Gx = b$.   You may use the fact that the inverse of a $2\times 2$ matrix is
+\[
+\bmatrix{a & b \cr c & d}^{-1} = \frac{1}{ad-bc}\bmatrix{d & -b \cr -c & a}.
+\]
+
+\item Let $p(x) = a + bx$ be an arbitrary element of the subvector space of linear functions $W$.  Show explicitly the orthogonality condition of the best approximation $m(x)$ holds by computing $\ip{g(x)-m(x),p(x)}$ and showing that it must be zero.
+
+\item Since the Gram matrix is symmetric the spectral theorem guarantees that two orthogonal eigenvectors $v_1$ and $v_2$ can be found.  One such eigenvector of the Gram matrix for this problem is $v_2 = \left[\begin{array}{c} \frac{1}{3}\left(2+\sqrt{13}\right) \\ 1 \end{array}\right] $ corresponding to the linear function $v_2(x) = x + \frac{1}{3}\left(2+\sqrt{13}\right)$.  Apply the Gram-Schmidt procedure to the set of linearly independent functions $\left\{ u_1 = x, u_2 = v_2 \right\}$ to construct an alternate, orthogonal basis for $W$.  Your basis does not need to be orthonormal. 
+
+\end{enumerate}
