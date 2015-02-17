@@ -1,4 +1,5 @@
 syms x
+figure
 
 % define orthogonal basis functions
 v1 = 1;
@@ -14,8 +15,6 @@ alpha2 = int(f*v2,x,0,1)/int(v2*v2,x,0,1);
 alpha3 = int(f*v3,x,0,1)/int(v3*v3,x,0,1);
 
 error = f - (alpha1*v1 + alpha2*v2 + alpha3*v3);
-
-%%
 
 % convert to numerical from symbolic
 alpha1 = double(alpha1);

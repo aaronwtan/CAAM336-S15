@@ -1,5 +1,8 @@
 \documentclass[11pt]{article}
 
+
+%\usepackage{amsmath}
+%\let\bmatrix\relax
 \usepackage{336notes,ifthen,color}
 
 \lfoot[\small \fancyplain{}{}]
@@ -15,7 +18,7 @@
 \def\pd#1#2#3{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
 
 \begin{document}
-\setboolean{showsols}{true}
+\setboolean{showsols}{false}
 \thispagestyle{empty}
 \vspace*{0em}
    \begin{center}
@@ -62,6 +65,11 @@ You \emph{may not} use any outside resources, such as books, notes, problem sets
 \item {[25 points: (a) = 5, (b),(c) = 10]}
 \vspace*{.5em}
 \input alternate_steadyheat
+
+\newpage
+\item {[25 points: (a) = 5, (b),(c) = 10]}
+\vspace*{.5em}
+\input fd
 
 \newpage
 \item {[25 points: (a), (b) = 10,(c)=5]}

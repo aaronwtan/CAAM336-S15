@@ -1,4 +1,5 @@
 syms x
+figure
 
 % define orthogonal basis functions
 v1 = 1;

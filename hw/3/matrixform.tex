@@ -18,16 +18,19 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ifthenelse{\boolean{showsols}}{\begin{solution}
+\ifthenelse{\boolean{showsols}}{
+\begin{solution}
 \begin{enumerate}
 \item Write $\Bu\in\R^2$ in the form
-         \[   \Bu = \bmatrix{u_1 \cr u_2}. \]
+         \[   
+         \Bu = \left[\begin{array}{cc}u_1 & u_2\end{array}\right]. 
+         \]
       Any matrix $\BA\in\R^{2\times 2}$ can be written as
-          \[ \BA = \Big[\matrix{ \Ba_1 & \Ba_2}\Big],\]
+          \[ \BA = \left[\begin{array}{cc} \Ba_1 & \Ba_2\end{array}\right],\]
       where $\Ba_1, \Ba_2\in\R^2$ are the columns of $\BA$.
       Now the matrix-vector product $\BA\Bu$ is a linear combination
       of the columns of $\BA$:
-          $$ \BA\Bu = \Big[\matrix{ \Ba_1 & \Ba_2}\Big] \bmatrix{u_1\cr u_2} 
+          $$ \BA\Bu = \left[\begin{array}{cc} \Ba_1 & \Ba_2\end{array}\right] \left[\begin{array}{c}u_1\\ u_2\end{array}\right]
                     = u_1 \Ba_1 + u_2 \Ba_2. \eqno{(*)} $$
       We are trying to find a formula for $\BA$ (or, equivalently, for
       $\Ba_1$ and $\Ba_2$) such that $f(\Bu) = \BA\Bu$.
@@ -36,22 +39,24 @@
       Comparing $(*)$ and $(**)$  and equating like terms, we see that
           \[ \Ba_1 = f(\Be_1), \qquad \Ba_2 = f(\Be_2),\]
       and hence
-          \[ \BA = \Big[\matrix{f(\Be_1) & f(\Be_2)}\Big].\]
+          \[ \BA = \left[\begin{array}{cc}f(\Be_1) & f(\Be_2)\end{array}\right].\]
 
-\item Follow the same tack as in part~(a). Write $\Bu\in\Rn$ as
-           \[ \Bu = \bmatrix{ u_1 \cr \vdots \cr u_n}\]
+\item We follow the same idea as in part~(a). Write $\Bu\in\Rn$ as
+           \[ \Bu = 
+           \left[\begin{array}{c} u_1 \\ \vdots \\ u_n\end{array}\right]
+           \]
       and $\BA\in\Rmn$ by column,
-          \[ \BA = \Big[\matrix{ \Ba_1 & \Ba_2 & \cdots & \Ba_n}\Big],\]
+          \[ \BA = \left[\begin{array}{cccc} \Ba_1 & \Ba_2 & \cdots & \Ba_n\end{array}\right],\]
       where $\Ba_1, \ldots, \Ba_n \in \Rm$.  
       Equating like terms in
-          $$ \BA\Bu = \Big[\matrix{ \Ba_1 & \Ba_2 & \cdots & \Ba_n}\Big] 
-                       \bmatrix{u_1\cr u_2\cr \vdots \cr u_n} 
+          $$ \BA\Bu = \left[\begin{array}{cccc} \Ba_1 & \Ba_2 & \cdots & \Ba_n\end{array}\right] 
+           \left[\begin{array}{c} u_1\\ u_2\\ \vdots \\ u_n\end{array}\right]
                     = u_1 \Ba_1 + u_2 \Ba_2 + \cdots u_n \Ba_n$$
       and
           $$ f(\Bu) = u_1 f(\Be_1) + u_2 f(\Be_2) + \cdots u_n f(\Be_n),$$
       we arrive at
-          \[ \BA = \Big[\matrix{f(\Be_1) & f(\Be_2) & \cdots & f(\Be_n)}\Big].\]
+          \[ \BA = \left[\begin{array}{cccc}f(\Be_1) & f(\Be_2) & \cdots & f(\Be_n)\end{array}\right].
+          \]
 
-      
-\end{enumerate}
+      \end{enumerate}
 \end{solution}}{}

@@ -1,0 +1,160 @@
+In this problem, we will derive a finite difference discretization for slight variations on the steady state heat equation on the interval $[0,1]$.  The motivation for finite difference equations is to satisfy an approximations to the differential equation at a finite number of points $x_i$.  These approximate equations are found by replacing $\pd{u(x_i)}{x}{2}$ with a central finite difference approximation
+\[
+\pd{u(x_i)}{x}{2} \approx \frac{ u_{i+1} - 2u_i + u_{i-1}}{h^2}.
+\]
+where $u_i$ approximates $u(x_i)$ at one the 5 points 
+\[
+x_0 = 0, \quad x_1 = \frac{1}{4}, \quad x_2 = \frac{1}{2}, \quad x_3 = \frac{3}{4}, \quad x_4 = 1.
+\]
+\begin{enumerate}
+\item Derive the finite difference equations for 
+\[
+\alpha \cos(\pi x) u - \pd{u(x)}{x}{2} = f(x), \quad 0<x<1
+\]
+with boundary conditions 
+\[
+u(0) = u(1) = 0.
+\]
+Write down the finite difference equations and the corresponding matrix system for the unknowns $u_1, u_2, u_3$.  Please write your answers in terms of $h$, rather than using the specific values of $x_i$.
+\vspace{1em}
+\item Derive the finite difference equations for 
+\[
+- \pd{u(x)}{x}{2} = f(x), \quad 0<x<1
+\]
+with boundary conditions 
+\[
+u(0) = u_0, \quad u(1) = u_1,
+\]
+where $u_0, u_1$ are some non-zero (but unspecified) values.  Write down the resulting matrix system for the unknowns $u_1, u_2, u_3$.  Please write your answers in terms of $h$, rather than using the specific values of $x_i$.
+\vspace{1em}
+\item Consider now the case of Neumann boundary conditions on both sides
+\[
+u'(0) = u'(1) = 0.
+\]
+We may approximate these boundary conditions with the forward difference
+\[
+u'(0) = u'(x_0) \approx \frac{u(x_1)-u(x_0)}{h} = 0
+\]
+and the backward difference formula
+\[
+u'(1) = u'(x_{4}) \approx \frac{u(x_{4})-u(x_3)}{h} = 0.
+\]
+Using these approximations, write down the finite difference equations, and construct explicitly the corresponding matrix system.  Please write your answers in terms of $h$, rather than using the specific values of $x_i$.
+\item Using the specific values of $x_i$ given at the beginning of the problem and $f(x) = e^x$, set up the finite difference matrix equation $Au=b$ for part (d).  Verify that ${\bf e}$ is in the null space of ${A}$, where ${\bf e} = (1,1,1)^T$ is the vector of all ones.  What does this imply about the solution to the system?  
+%\item Consider the case where $\alpha = 0$, or
+%\begin{eqnarray*}
+%-u''(x) &= f(x), \quad 0< x< 1\\
+%u'(0) &= 0\\
+%u'(1) &= 0.
+%\end{eqnarray*}
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{
+\begin{solution}
+%\begin{enumerate}
+%\item The finite difference approximation for second derivative $u''(x)$ around the point $x_i$ can be written by central difference difference scheme as follows
+% 
+%\[
+%\frac{\partial^2 u}{\partial x^2}(x_i)=u''(x_i)=\frac{u(x_{i+1}) - 2u(x_i) + u(x_{i-1})}{h^2}.
+%\] where $i=1,2,3$.
+%Note that from boundary conditions we have 
+%\[
+%u'(0) = u'(x_0) \approx \frac{u(x_1)-u(x_0)}{h} = 0
+%\] which can be written $u(x_1)=u(x_0)$, and
+%\[
+%u'(1) = u'(x_{4}) \approx \frac{u(x_{4})-u(x_3)}{h} = 0,
+%\] similarly, we can write $u(x_{4})=u(x_3)$
+%
+%Let $u(x_i)=u_i$ for simplicity. Then, the finite difference approximations for equation $\alpha u(x)-u''(x)=f(x)$ at the point $x_i$ are given by:
+%\[\alpha u_i-\frac{u_{i+1} - 2u_i + u_{i-1}}{h^2}=f_i.\] If we reorganize above scheme, our discretised PDE becomes;
+%\[(\alpha+\frac{2}{h^2}) u_i -\frac{1}{h^2}(u_{i+1} + u_{i-1})=f_i.\] Then 
+%
+%\begin{eqnarray*}
+%(\alpha+\frac{2}{h^2}) u_1 -\frac{1}{h^2}(u_{2} + u_{0})&=&f_1 \qquad for \:\: i=1\\
+%(\alpha+\frac{2}{h^2}) u_2 -\frac{1}{h^2}(u_{3} + u_{1})&=&f_2 \qquad for \:\: i=2\\
+%(\alpha+\frac{2}{h^2}) u_3 -\frac{1}{h^2}(u_{4} + u_{2})&=&f_3 \qquad for \:\: i=1
+%\end{eqnarray*}
+%
+%Using boundary conditions which are given as $u_0=u_1$ and $u_4=u_3$ we get 
+%
+%\begin{eqnarray*}
+%(\alpha+\frac{1}{h^2}) u_1 -\frac{1}{h^2}u_{2}&=&f_1 \qquad for \:\: i=1\\
+%(\alpha+\frac{2}{h^2}) u_2 -\frac{1}{h^2}(u_{3} + u_{1})&=&f_2 \qquad for \:\: i=2\\
+%(\alpha+\frac{1}{h^2}) u_3 -\frac{1}{h^2}u_{4}&=&f_3 \qquad for \:\: i=1
+%\end{eqnarray*}
+%We can rewrite in matrix form ${\bf A}{\bf u} = {\bf b}$
+%\[
+%  \underbrace{\left[\begin{array}{rrr}
+%              \alpha+\frac{1}{h^2} & -\frac{1}{h^2}&0 \\[0.25em]
+%               -\frac{1}{h^2} & \alpha+\frac{2}{h^2} &  -\frac{1}{h^2}  \\[0.25em]
+%                 0 &   -\frac{1}{h^2}   & \alpha+\frac{1}{h^2} 
+%               \end{array}\right]}_{\bf A}
+%          \underbrace{\left[\begin{array}{c} u_1 \\[0.25em] u_2 \\[0.25em] u_{3} \end{array}\right]}_{\bf u}
+% =   \underbrace{\left[\begin{array}{c} f_1 \\[0.25em] f_2 \\[0.25em] f_3  \end{array}\right]}_{\bf b},
+%\] since $h=1/4$ we end up with the following linear system,
+%
+%\[
+%  \underbrace{\left[\begin{array}{rrr}
+%              \alpha+\frac{1}{(1/4)^2} & -\frac{1}{(1/4)^2}&0 \\[0.25em]
+%               -\frac{1}{(1/4)^2} & \alpha+\frac{2}{(1/4)^2} &  -\frac{1}{(1/4)^2}  \\[0.25em]
+%                 0 &   -\frac{1}{(1/4)^2}   & \alpha+\frac{1}{(1/4)^2} 
+%               \end{array}\right]}_{\bf A}
+%          \underbrace{\left[\begin{array}{c} u_1 \\[0.25em] u_2 \\[0.25em] u_{3} \end{array}\right]}_{\bf u}
+% =   \underbrace{\left[\begin{array}{c} f_1 \\[0.25em] f_2 \\[0.25em] f_3  \end{array}\right]}_{\bf b},
+%\]
+%
+%
+%\item if $\alpha=1$ and $f(x)=e^x$ and our system of ODE becomes
+%
+%\[
+%  \left[\begin{array}{rrr}
+%              17 & -16&0 \\[0.25em]
+%               -16 & 33 &  -16  \\[0.25em]
+%                 0 &   -16  & 17 
+%               \end{array}\right]
+%          \left[\begin{array}{c} u_1 \\[0.25em] u_2 \\[0.25em] u_{3} \end{array}\right]
+% = \left[\begin{array}{c} e^{1/4} \\[0.25em] e^{2/4} \\[0.25em] e^{3/4}  \end{array}\right]
+%\]
+%By solving the given system such that $u=A^{-1} b$ we get
+%\[\left[\begin{array}{c} u_1 \\[0.25em] u_2 \\[0.25em] u_{3}\end{array}\right]=\left[\begin{array}{c} 1.6591 \\[0.25em]  1.6825 \\[0.25em] 1.7081 \end{array}\right]
+% \]
+% 
+%\item First let us remember definition of null space. The null space of an $mxn$ matrix $\bf{A}$, denoted $Null \:\:\bf{A}$, is
+%the set of all solutions to the homogeneous equation $\bf{A}x = 0$. Written in set
+%notation, we have
+%\[
+%d%Null \:\:\bf{A} = \{x : x \in \mathbb{R}^n \:\:\text{and} \:\: \bf{A}x = 0\}
+%\]
+%To prove that $e$ is in the null space of $A$, we must show that $\bf{A}e=0$. By $1(b)$ we can say that if $\alpha=0$
+%\[
+%\bf{A}=\left[\begin{array}{rrr}
+%              16 & -16&0 \\[0.25em]
+%               -16 & 32 &  -16  \\[0.25em]
+%                 0 &   -16  & 16 
+%               \end{array}\right]
+%\]
+%Then it is easy to show that  
+%\[
+%\bf{A}e= \left[\begin{array}{rrr}
+%              16 & -16 &  0 \\[0.25em]
+%               -16 & 32 &  -16  \\[0.25em]
+%                 0 &   -16  & 16 
+%               \end{array}\right]
+%          \left[\begin{array}{c} 1 \\[0.25em] 1 \\[0.25em] 1 \end{array}\right] 
+%       =0   
+%\] 
+%Assume that $u$ is the solution of the given problem $\bf{A}u=f$ for $N\times N$ matrix $\bf{A}$. In the previous homework, we showed that this equation does not have a unique solution. Then, let assume  $v$ is another solution of this problem. Then by linearity we can say that $u+Cv$ is also solution for this problem for arbitrary constant $C$. Since $u$ is one solution then it satisfies the following linear system
+%\[
+%\bf{A} u=f
+%\] 
+%and $u+Cv$ also another solution and satisfy this system too
+%\[
+%\bf{A}(u+Cv) = f \Rightarrow \underbrace{\bf{A}u}_{=f}+C\bf{A} v = f \Rightarrow  C\bf{A}v=0
+%\]
+%Then for $N \times N$ matrix $\bf{A}$ we show that $v$ is the solution of the homogeneous equation $\bf{A} v = 0$. This implies $v$ is in the null space of $A\in \mathbb{R^{N\times N}}$. 
+%\end{enumerate}
+\end{solution}
+}{}

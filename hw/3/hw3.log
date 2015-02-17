@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  28 JAN 2015 16:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  11 FEB 2015 18:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -300,7 +300,7 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfig@top=\skip51
 \subfig@bottom=\skip52
 )
-No file hw3.aux.
+(./hw3.aux)
 \openout1 = `hw3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
@@ -317,7 +317,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 9.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 9.
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 9.
@@ -405,10 +405,13 @@ LaTeX Font Info:    Try loading font information for U+bbm on input line 2.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
-))
-(./linops.tex
+) [1
+
+{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./lin
+ops.tex
 LaTeX Font Info:    Try loading font information for U+eus on input line 2.
- (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/ueus.fd
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/ueus.fd
 File: ueus.fd 2013/01/14 v3.01 Euler Script
 )
 
@@ -416,10 +419,7 @@ Package amsmath Warning: Foreign command \over;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 17.
 
-) [1
-
-{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./fourier.tex) (./ip.tex
+[2]) [3] (./fourier.tex (./fourier_sol.tex [4] [5])) (./ip.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--4
 
  []
@@ -429,7 +429,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--7
 
  []
 
-
+[6]
 Underfull \hbox (badness 10000) in paragraph at lines 7--9
 
  []
@@ -444,36 +444,58 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--13
 
  []
 
-) [2] (./hw3.aux) ) 
+(./ip_sol.tex
+Underfull \hbox (badness 10000) in paragraph at lines 25--28
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 57--60
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--84
+
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 112--115
+
+ []
+
+)) [9] (./hw3.aux) ) 
 Here is how much of TeX's memory you used:
- 5169 strings out of 493117
- 69057 string characters out of 6135433
- 134117 words of memory out of 5000000
- 8517 multiletter control sequences out of 15000+600000
- 16436 words of font info for 55 fonts, out of 8000000 for 9000
+ 5179 strings out of 493117
+ 69166 string characters out of 6135433
+ 136117 words of memory out of 5000000
+ 8518 multiletter control sequences out of 15000+600000
+ 17197 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,8n,44p,338b,250s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/cm-super
-/cm-super-t1.enc} </Users/jessechan/Library/texlive/2014/texmf-var/fonts/pk/ljf
-our/public/bbm/bbm10.600pk></usr/local/texlive/2014/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmex10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/e
-uler/eusm10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super
-/sfbx1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/s
-frm1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfs
-s1200.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfsx1
-200.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfti100
-0.pfb>
-Output written on hw3.pdf (2 pages, 161111 bytes).
+ 40i,14n,44p,500b,298s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/cm-supe
+r/cm-super-t1.enc} </Users/jessechan/Library/texlive/2014/texmf-var/fonts/pk/lj
+four/public/bbm/bbm10.600pk></usr/local/texlive/2014/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmex10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/eu
+ler/eusm10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/
+sfbx1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sf
+rm1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfss
+1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfss12
+00.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfsx1200
+.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfti1000.p
+fb>
+Output written on hw3.pdf (9 pages, 199970 bytes).
 PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
+ 104 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
