@@ -8,22 +8,22 @@ in $\R^{n\times n}$.
 e.g., at the roots of how Netflix recommends movies.) 
 
       Let $V = \R^{2\times 2}$, the set of all $2\times 2$ matrices,
-      and define the inner product
+      and define the inner product for matrices as
       \[ (\BA,\BB) = \sum_{j=1}^2 \sum_{k=1}^2 a_{jk} b_{jk},\]
        where
       \[ \BA = \bmatrix{a_{11} & a_{12} \cr a_{21} & a_{22}}, \quad
          \BB = \bmatrix{b_{11} & b_{12} \cr b_{21} & b_{22}}.\]
-      With this inner product we associate the norm $\|\BA\| = \sqrt{(\BA,\BA)}$.
+%      With this inner product we associate the norm $\|\BA\| = \sqrt{(\BA,\BA)}$.
 
 \begin{enumerate}
 
 \item Verify that $(\cdot, \cdot)$ is an inner product on $V=\R^{2\times 2}$.
 \vspace*{1em}
-\item Given that the space of $2\times 2$ matrices is a vector space, show that the set $V_s$ of all symmetric $2\times 2$ matrices
+\item Given that $V$ (the set of all possible $2\times 2$ matrices) is a vector space, show that the set $V_s$ of all symmetric $2\times 2$ matrices
 \[
 V_s = \left\{ \BA =   \bmatrix{a_{11} & a_{12} \cr a_{21} & a_{22}} \in \R^{2\times 2}, \qquad a_{12} = a_{21}\right\}
 \]
-is a subspace.
+is a subspace of $V$.
 \vspace*{1em}
 \item Consider the operators $S: \R^{2\times 2} \rightarrow \R^{2\times 2}$ and $K: \R^{2\times 2} \rightarrow \R^{2\times 2}$ 
 \[
@@ -34,7 +34,7 @@ where $\BA^T$ is the matrix transpose
 \BA^T = \bmatrix{a_{11} & a_{21} \cr a_{12} & a_{22}}.
 \]
 Show that both of these operators are linear operators.  
-\item Show that 
+\item Show that, for any $\BA\in \R^{2\times 2}$, 
 \[
 S(K(\BA)) = K(S(\BA)) = {\bf 0}
 \]
