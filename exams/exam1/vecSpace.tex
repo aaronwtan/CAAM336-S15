@@ -1,0 +1,62 @@
+
+In class we considered inner products for vectors in $\R^n$ and
+functions in $C[0,1]$, and used these inner products to generate
+best approximations.  
+This problem will introduce you to an inner product of \emph{matrices} 
+in $\R^{n\times n}$.
+(Related math arises in many modern applications;
+e.g., at the roots of how Netflix recommends movies.) 
+
+      Let $V = \R^{2\times 2}$, the set of all $2\times 2$ matrices,
+      and define the inner product
+      \[ (\BA,\BB) = \sum_{j=1}^2 \sum_{k=1}^2 a_{jk} b_{jk},\]
+       where
+      \[ \BA = \bmatrix{a_{11} & a_{12} \cr a_{21} & a_{22}}, \quad
+         \BB = \bmatrix{b_{11} & b_{12} \cr b_{21} & b_{22}}.\]
+      With this inner product we associate the norm $\|\BA\| = \sqrt{(\BA,\BA)}$.
+
+\begin{enumerate}
+
+\item The space of $2\times 2$ matrices is a vector space --- show that the set of all symmetric matrices is a subspace.
+
+\vspace*{1em}
+\item Verify that $(\cdot, \cdot)$ is an inner product on $V=\R^{2\times 2}$.
+\vspace*{1em}
+\item Consider the operators $S: \R^{2\times 2} \rightarrow \R^{2\times 2}$ and $K: \R^{2\times 2} \rightarrow \R^{2\times 2}$ 
+\[
+S(\BA) = \BA + \BA^T, \qquad K(\BA) = \BA - \BA^T,
+\]
+where $\BA^T$ is the matrix transpose 
+\[
+\BA^T = \bmatrix{a_{11} & a_{21} \cr a_{12} & a_{22}}.
+\]
+Show that both of these operators is a linear operator.  
+\item \textcolor{red}{Todo: finish, add something about the null space of each operator and how that implies that $S(K(\BA)) = K(S(\BA)) = 0$.  }
+%\vspace*{1em}
+%\item Consider the subspace of $V$ consisting of all symmetric matrices:
+%      \[  V_3 = {\rm span}\bigg\{ 
+%       \bmatrix{1 & 0 \cr 0 & 0}, 
+%       \bmatrix{0 & 0 \cr 0 & 1}, 
+%       \bmatrix{0 & 1 \cr 1 & 0}\bigg\}.\]
+%      
+%      Compute the best approximation $\BM_3$ to the matrix
+%      \[ \BM = \bmatrix{ 1 & 3 \cr 7 & 9}\]
+%      from the subspace $V_3$.
+%
+%\item Now let $\BM\in\R^{2\times2}$ be any $2\times 2$ matrix, and let
+%           $\BM_3$ be its best approximation from $V_3$.
+%           Explain why the error $\BM-\BM_3$ must \emph{always} have zero 
+%           diagonal entries.
+%
+%\item Now consider the subspace
+%      \[  \widehat{V}_3 = {\rm span}\Bigg\{ 
+%       \bmatrix{{1\over\sqrt{2}}  & 0 \cr 0 & {1\over \sqrt{2}}}, 
+%       \bmatrix{{1\over\sqrt{10}} & {2\over\sqrt{10}} \cr {2\over\sqrt{10}} & {1\over \sqrt{10}}}, 
+%       \bmatrix{{1\over\sqrt{2}} & 0 \cr 0 & -{1\over\sqrt{2}}}\Bigg\}.\]
+%       What is the best approximation $\widehat{\BM}_3$ from $\widehat{V}_3$ to 
+%      \[ \BM = \bmatrix{ 1 & 3 \cr 7 & 9}\,?\]
+%
+%\item Write down a basis for the set of symmetric matrices in $\R^{3\times 3}$ (i.e., $3\times 3$ matrices).\\
+%       In general, what is the dimension of the set of symmetric matrices
+%       in $\R^{n\times n}$?
+\end{enumerate}

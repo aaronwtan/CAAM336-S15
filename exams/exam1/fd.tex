@@ -9,16 +9,6 @@ x_0 = 0, \quad x_1 = \frac{1}{4}, \quad x_2 = \frac{1}{2}, \quad x_3 = \frac{3}{
 \begin{enumerate}
 \item Derive the finite difference equations for 
 \[
-\alpha \cos(\pi x) u - \pd{u(x)}{x}{2} = f(x), \quad 0<x<1
-\]
-with boundary conditions 
-\[
-u(0) = u(1) = 0.
-\]
-Write down the finite difference equations and the corresponding matrix system for the unknowns $u_1, u_2, u_3$.  Please write your answers in terms of $h$, rather than using the specific values of $x_i$.
-\vspace{1em}
-\item Derive the finite difference equations for 
-\[
 - \pd{u(x)}{x}{2} = f(x), \quad 0<x<1
 \]
 with boundary conditions 
@@ -47,6 +37,18 @@ Using these approximations, write down the finite difference equations, and cons
 %u'(0) &= 0\\
 %u'(1) &= 0.
 %\end{eqnarray*}
+\vspace{1em}
+\item Derive the finite difference equations for the following modification of the heat equation:
+\[
+\cos(x) u - \pd{u(x)}{x}{2} = f(x), \quad 0<x<1
+\]
+with boundary conditions 
+\[
+u(0) = u(1) = 0.
+\]
+Write down the finite difference equations and the corresponding matrix system for the unknowns $u_1, u_2, u_3$.  Please write your answers in terms of $h$, rather than using the specific values of $x_i$.
+
+
 \end{enumerate}
 
 
