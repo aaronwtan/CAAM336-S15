@@ -17,10 +17,13 @@ e.g., at the roots of how Netflix recommends movies.)
 
 \begin{enumerate}
 
-\item The space of $2\times 2$ matrices is a vector space --- show that the set of all symmetric matrices is a subspace.
-
-\vspace*{1em}
 \item Verify that $(\cdot, \cdot)$ is an inner product on $V=\R^{2\times 2}$.
+\vspace*{1em}
+\item Given that the space of $2\times 2$ matrices is a vector space, show that the set $V_s$ of all symmetric $2\times 2$ matrices
+\[
+V_s = \left\{ \BA =   \bmatrix{a_{11} & a_{12} \cr a_{21} & a_{22}} \in \R^{2\times 2}, \qquad a_{12} = a_{21}\right\}
+\]
+is a subspace.
 \vspace*{1em}
 \item Consider the operators $S: \R^{2\times 2} \rightarrow \R^{2\times 2}$ and $K: \R^{2\times 2} \rightarrow \R^{2\times 2}$ 
 \[
@@ -30,8 +33,13 @@ where $\BA^T$ is the matrix transpose
 \[
 \BA^T = \bmatrix{a_{11} & a_{21} \cr a_{12} & a_{22}}.
 \]
-Show that both of these operators is a linear operator.  
-\item \textcolor{red}{Todo: finish, add something about the null space of each operator and how that implies that $S(K(\BA)) = K(S(\BA)) = 0$.  }
+Show that both of these operators are linear operators.  
+\item Show that 
+\[
+S(K(\BA)) = K(S(\BA)) = {\bf 0}
+\]
+where $\bf 0$ is the $2\times 2$ zero matrix.  Use this fact to explain how the range and null space of $S$ and range and null space of $K$ are related.
+%\textcolor{red}{Todo: finish, add something about the null space of each operator and how that implies that $S(K(\BA)) = K(S(\BA)) = 0$.  }
 %\vspace*{1em}
 %\item Consider the subspace of $V$ consisting of all symmetric matrices:
 %      \[  V_3 = {\rm span}\bigg\{ 
