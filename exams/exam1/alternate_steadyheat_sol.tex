@@ -1,0 +1,49 @@
+\begin{center} Solution \end{center}
+\begin{enumerate}
+\item Using the form $\rho c \frac{\partial u}{\partial t} (x,t) + \frac{\partial q}{\partial x} = f(x)$ with the heat flux given as $q(x,t) = \kappa\frac{\partial u}{\partial x}(x,t) + \beta u(x,t)$ gives the final modified heat equation :
+ \[
+\rho c \frac{\partial u}{\partial t} (x,t) + \frac{\partial}{\partial x}\left(\kappa\frac{\partial u}{\partial x}(x,t) + \beta u(x,t)\right) = f(x)
+\]
+
+
+\item We want to find a general solution, involving two free constants, to the time-independent problem 
+ \[
+\frac{\partial}{\partial x}\left(3\frac{\partial u}{\partial x}(x) + 2 u(x)\right) = 0
+\]
+
+Integrating both sides once with respect to $x$ gives 
+\[
+3\frac{\partial u}{\partial x}(x,t) + 2 u(x,t) = C_1
+\]
+
+Dividing both sides by $3$ and (in order to use the hint) multiplying each side by $e^{\frac{2}{3}x}$ gives 
+
+\[
+\frac{\partial u}{\partial x}e^{\frac{2}{3}x} + \frac{2}{3} u e^{\frac{2}{3}x} = C_1 e^{\frac{2}{3}x}
+\]
+
+Which, again by the hint, can be rewritten as
+
+\[
+\frac{\partial}{\partial x}\left(  u e^{\frac{2}{3}x} \right) = C_1 e^{\frac{2}{3}x}
+\]
+
+Integrating both sides with respect to $x$ and dividing by $e^{\frac{2}{3}x}$ gives
+
+\[
+u(x) = \frac{3}{2}C_1 + C_2 e^{-\frac{2}{3} x}
+\]
+
+\item The condition on the heat flux, with $\kappa = 3$ and $\beta = 2$ for this problem, gives 
+\[
+0 = q(0) = 3\frac{\partial u}{\partial x}(0) + 2 u(0) 
+\] 
+
+Using the general form from part (b) the expressions $\frac{\partial u}{\partial x}(0) = - \frac{2}{3}C_2 $ and $u(0) = \frac{3}{2} C_1 + C_2$.  It follows that $0 = q(0) = -3\left(\frac{2}{3}C_2\right) + 2\left(\frac{3}{2} C_1 + C_2\right) = -2 C_2 + 3 C_1 + 2 C_2$ so that $C_1 = 0$ follows from this condition.  The second boundary condition says that $u(L) = \delta$.  Using $C_1 = 0$ in the general form from (b) gives $\delta = u(L) = C_2 e^{-\frac{2}{3}L}$ which determines $C_2 = \delta e^{\frac{2}{3}L}$.  The solution to the modified, steady state heat equation with $\kappa=3$, $\beta = 2$ and the given boundary conditions is therefore
+\[
+u(x) = \delta e^{\frac{2}{3}\left( L-x\right)}
+\]
+
+
+
+\end{enumerate}

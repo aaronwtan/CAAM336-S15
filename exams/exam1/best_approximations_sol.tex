@@ -1,0 +1,52 @@
+\begin{center} Solution \end{center}
+
+\begin{enumerate}
+
+\item To solve this problem we first set up the associated Gram system $Gx = b$ where 
+\[
+\begin{array}{lr}
+G = \left[ \begin{array}{cc} (1,1) & (x,1) \\ (1,x) & (x,x) \end{array} \right],
+&
+b = \left[ \begin{array}{c} (1,g) \\ (x,g) \end{array} \right]
+\end{array}
+\]
+
+Using the definition of the inner prodct to evaluate each of the above vector entries yields
+
+\[
+\begin{array}{lr}
+G = \left[ \begin{array}{cc} 1 & 1/2 \\ 1/2 & 1/3 \end{array} \right],
+&
+b = \left[ \begin{array}{c} 1/6 \\ 1/15 \end{array} \right]
+\end{array}
+\]
+
+Using the hint we can solve $Gx = b$ by multiplying both sides by $G^{-1}$ giving $x = G^{-1}b$ which gives
+
+\[
+\left[ \begin{array}{c} x_1 \\ x_2 \end{array}\right] = 
+\left[ \begin{array}{cc} 4 & -6 \\ -6 & 12 \end{array} \right]\left[ \begin{array}{c} 1/6 \\ 1/15 \end{array} \right] = \left[ \begin{array}{c} 4/15 \\ -1/5 \end{array} \right] 
+\]
+
+So that the best approximation to $g(x)$ in $W$ is $m(x) = \left(\frac{4}{15}\right) 1 + \left(-\frac{1}{5}\right)x = -\frac{1}{5}x + \frac{4}{15}$
+
+
+\item We have $g(x) - m(x) = 2x^3 - x^2 - \frac{4}{5}x + \frac{7}{30}$.  To show that $g(x) - m(x)$ is orthogonal to any polynomial of the form $p(x) = ax + b$ in $W$ it sufficies to show that $(g(x)-m(x),1) = 0$ and $(g(x)-m(x),x) = 0$ since $(g(x) - m(x),ax+b) = a(g(x)-m(x),x) + b(g(x)-m(x),1)$. So that the general result follows from the two integrals below 
+
+\[
+\left( g(x) - m(x), 1 \right)  = \int\limits_{0}^{1} 2x^3 - x^2 - \frac{4}{5}x + \frac{7}{30} \, dx = \left. \frac{2x^4}{4} - \frac{x^3}{3} - \frac{4x^2}{10} + \frac{7x}{30} \right\vert_{0}^{1} = 0 \\
+\]
+\[
+\left( g(x) - m(x), x \right)  = \int\limits_{0}^{1} 2x^4 - x^3 - \frac{4}{5}x^2 + \frac{7}{30}x \, dx = \left. \frac{2x^5}{5} - \frac{x^4}{4} - \frac{4x^3}{15} + \frac{7x^2}{60} \right\vert_{0}^{1} = 0 
+\]
+
+\item Take the first vector of the new basis to be $w_1 = x$.  Applying the formula given on the exam the second vector is given by the following calculation
+\[
+w_2 = (x+2) -  \frac{\left(x+2,x\right)}{\left(x,x\right)}x = (x+2) - \frac{4/3}{1/3}x = -3x + 2 
+\]
+
+You can check that $w_1 = x$ and $w_2 = -3x + 2$ satisfy $(w_1,w_2) = 0$.  Therefore $\left\{ x, -3x+2 \right\}$ is an alternate basis for $W = {\rm span}\left\{1,x\right\}$ consisting of orthogonal vectors.
+
+\item The vectors $\left\{ 7, 2x, x^2 + 5x, 13x^3 \right\}$ are all linearly independent and there are four of them.  Therefore $Y = {\rm span}\left\{ 7, 2x, x^2 + 5x, 13x^3 \right\}$ is a 4-dimensional subspace of  the vector space $V = {\rm span}\left\{ 1, x, x^2, x^3 \right\}$.  However, $V$ is also 4-dimensional so that $Y$ must be \textbf{all} of $V$.  So $g(x) \in V$ implies $g(x) \in Y$ and so the best approximation to $g(x)$ in $Y$ is, of course, $g(x)$ itself.  That is, $m(x) = g(x)$. 
+
+\end{enumerate}
