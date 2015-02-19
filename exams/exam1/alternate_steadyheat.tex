@@ -7,19 +7,30 @@ where $q(x,t)$ is the heat flux per unit volume, $\rho$ is the density of the ma
 \[
 q(x,t) = \kappa \frac{\partial u}{\partial x}(x,t),
 \]
-was used to derive the heat equation.  An alien substance has been found for which Fourier's law has been shown not to hold.  However, scientists have determined that a slightly different relation
+was used to derive the heat equation.  
+
+Suppose that an alien substance has been found, for which Fourier's law has been shown not to hold, and that scientists have determined that a slightly different relation
 \[
 q(x,t) = \kappa\frac{\partial u}{\partial x}(x,t) + \beta u(x,t)
 \]
-does describe the heat flux.
+describes the heat flux more accurately.  
 
 \begin{enumerate}
 \item Write the modified, time-dependent heat equation for the newly discovered substance.  
 
-\item Suppose a bar of length $L$ of the alien substance is manufactured with $\kappa = 3$, $\beta = 2$.  Determine a general formula for the steady-state termperature distribution of this bar, which should include two free constants.  (Assume no additional source term f(x) is present). \\ \vspace{0.1em} Hint: (Integrating Factors) Remember from Ordinary differential equations that for $\mu$ any constant we have $\frac{\partial}{\partial x} \left( u e^{\mu x}\right) = \frac{\partial u}{\partial x} e^{\mu x} + \mu u e^{\mu x} $
-
-
-\item Find formulas for these free constants in the case where the following two conditions hold: the left end, at $x=0$, has a fixed \textit{heat flux} equal to $0$ (i.e. q(0) = 0 where q(x) is the heat flux function given above) and the temperature at $x=L$ is held constant at $\delta$ degrees.
+\item Suppose a bar of length $L=1$ of the alien substance is manufactured with $\kappa = 3$, $\beta = 2$.  Determine a general formula for the steady-state termperature distribution of this bar, which should include two free constants (assume the source term $f(x)=0$). \\ \vspace{0.1em} \emph{Hint: You may wish to use the idea of ``integrating factors''.  From ordinary differential equations, for any constant $\mu$ we have}
+\[
+\frac{\partial}{\partial x} \left( u e^{\mu x}\right) = \frac{\partial u}{\partial x} e^{\mu x} + \mu u e^{\mu x}.
+\]
+\emph{You may wish to manipulate the steady state equation such that it resembles the form of the hint, and then proceed in deriving the solution.}
+\item Find formulas for these free constants in the case where the following two conditions hold: the left end, at $x=0$, has a fixed \textit{heat flux} equal to $0$, i.e.
+\[
+q(0) = \kappa\frac{\partial u}{\partial x}(0) + \beta u(0)= 0
+\]
+and the temperature at $x=1$ is held constant at $\delta$ degrees, so that
+\[
+u(1) = \delta.
+\]
 
 
 
