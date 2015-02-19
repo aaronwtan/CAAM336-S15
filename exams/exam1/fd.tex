@@ -3,7 +3,7 @@ In this problem, we will derive a finite difference discretization for slight va
 \[
 \pd{u(x_i)}{x}{2} \approx \frac{ u_{i+1} - 2u_i + u_{i-1}}{h^2}.
 \]
-where $u_i$ approximates $u(x_i)$ at one the 5 points 
+where $u_i$ approximates $u(x_i)$ at one the 5 points with spacing $h = 1/4$
 \[
 x_0 = 0, \quad x_1 = \frac{1}{4}, \quad x_2 = \frac{1}{2}, \quad x_3 = \frac{3}{4}, \quad x_4 = 1.
 \]
@@ -32,7 +32,7 @@ and the backward difference formula
 u'(1) = u'(x_{4}) \approx \frac{u_{4}-u_3}{h} = 0.
 \]
 Using these approximations, write down the finite difference equations, and construct explicitly the corresponding matrix system.  Please write your answers in terms of $h$, rather than using the specific values of $x_i$.
-\item Using the specific values of $x_i$ given at the beginning of the problem and specific $f(x) = e^x$, set up the matrix equation $Au=b$ for part (b).  Verify that ${\bf e}$ is in the null space of ${A}$, where ${\bf e} = (1,1,1)^T$ is the vector of all ones.  What does this imply about the solution to the system?  
+\item Using the specific values of $h$ and $x_i$ given at the beginning of the problem and specific $f(x) = e^x$, set up the matrix equation $Au=b$ for part (b).  Verify that ${\bf e}$ is in the null space of ${A}$, where ${\bf e} = (1,1,1)^T$ is the vector of all ones.  What does this imply about the solution to the system?  
 %\item Consider the case where $\alpha = 0$, or
 %\begin{eqnarray*}
 %-u''(x) &= f(x), \quad 0< x< 1\\
