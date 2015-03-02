@@ -68,3 +68,71 @@ where $\bf 0$ is the $2\times 2$ zero matrix.  Use this fact to explain how the 
 %       In general, what is the dimension of the set of symmetric matrices
 %       in $\R^{n\times n}$?
 \end{enumerate}
+
+\ifthenelse{\boolean{showsols}}{
+\begin{solution}
+\begin{enumerate}
+\item We need to show 2 properties:
+\begin{itemize}
+\item $(\alpha\BA + \beta\BB, {\bf C}) = \alpha(\BA,{\bf C}) + \beta(\BB,{\bf C})$: we may show this using the formula
+\begin{eqnarray*}
+(\alpha\BA + \beta\BB, {\bf C}) &=& \sum_{j=1}^2\sum_{k=1}^2 (\alpha a_{jk} + \beta b_{jk})c_{jk} \\
+&=& \sum_{j=1}^2\sum_{k=1}^2\left( \alpha a_{jk}c_{jk} + \beta b_{jk}c_{jk}\right)\\
+&=& \alpha \sum_{j=1}^2\sum_{k=1}^2 a_{jk}c_{jk} + \beta \sum_{j=1}^2\sum_{k=1}^2 b_{jk}c_{jk}\\
+&=& \alpha(\BA,{\bf C}) + \beta(\BB,{\bf C}).
+\end{eqnarray*}
+\item $(\BA,\BA) \geq 0$, and $(\BA,\BA) = 0$ only if $\BA$ is the zero matrix.  This may be shown by again using the formula
+\[
+(\BA,\BA) =  \sum_{j=1}^2\sum_{k=1}^2 a_{jk}^2 \geq 0,
+\]
+because $a_{jk}^2$ is positive.  If $(\BA,\BA) = 0$, then $a_{jk}^2$ must equal 0, and then the matrix $\BA = 0$.  
+\end{itemize}
+\item Let $\BA,\BB \in V_s$.  We just need to show that $\alpha \BA + \beta\BB \in V_s$, or that $\alpha \BA + \beta\BB$ is a symmetric matrix.  Note that
+\[
+\alpha \BA + \beta\BB = \left[
+\begin{array}{cc}
+\alpha a_{11} + \beta b_{11}& \alpha a_{12} + \beta b_{12}\\
+\alpha a_{21} + \beta b_{21}& \alpha a_{22} + \beta b_{22}
+\end{array}
+\right].
+\]
+Since $\BA,\BB \in V_s$, $a_{12} = a_{21}$ and $b_{12} = b_{21}$, so 
+\[
+\alpha \BA + \beta\BB = \left[
+\begin{array}{cc}
+\alpha a_{11} + \beta b_{11}& \alpha a_{12} + \beta b_{12}\\
+\alpha a_{21} + \beta b_{21}& \alpha a_{22} + \beta b_{22}
+\end{array}
+\right]
+= \left[
+\begin{array}{cc}
+\alpha a_{11} + \beta b_{11}& \alpha a_{12} + \beta b_{12}\\
+\alpha a_{12} + \beta b_{12}& \alpha a_{22} + \beta b_{22}
+\end{array}
+\right].
+\]
+The result is a symmetric matrix, so $\alpha \BA + \beta\BB\in V_s$, and $V_s$ is a subspace of $\R^{2\times 2}$.  
+\item For $S$ and $K$ to be linear operators, we need
+\[
+S(\alpha \BA + \beta\BB) = \alpha S(\BA) + \beta S(\BB), \quad 
+K(\alpha \BA + \beta\BB) = \alpha K(\BA) + \beta K(\BB).
+\]
+You may prove this element-wise or using matrices: for $S$, we have
+\[
+S(\alpha \BA + \beta\BB) = \alpha \BA + \alpha \BA^T + \beta \BB + \beta \BB^T = \alpha (\BA + \BA^T) + \beta (\BB + \BB^T )=\alpha S(\BA) + \beta S(\BB).
+\]
+and for $K$ we have
+\[
+K(\alpha \BA + \beta\BB) = \alpha \BA - \alpha \BA^T + \beta \BB - \beta \BB^T = \alpha (\BA - \BA^T) + \beta (\BB - \BB^T )=\alpha K(\BA) + \beta K(\BB).
+\]
+\item We can show the result by noting that $(\BA^T)^T = \BA$:
+\[
+S(K(\BA)) = S(\BA - \BA^T) = (\BA - \BA^T) + (\BA - \BA^T)^T = \BA - \BA^T + \BA^T - \BA = 0
+\]
+\[
+K(S(\BA)) = K(\BA + \BA^T) = (\BA + \BA^T) - (\BA + \BA^T)^T = \BA + \BA^T - \BA^T - \BA = 0
+\]
+What this implies is that the range of $S$ (and possible matrix $\BA$ such that $\BA = S(\BB)$ for some $\BB$) is contained in the null space of $K$, and the range of $K$ is contained in the null space of $S$ (the two are actually equal, which also receives full credit as an answer).  
+\end{enumerate}
+\end{solution}
+}{}
