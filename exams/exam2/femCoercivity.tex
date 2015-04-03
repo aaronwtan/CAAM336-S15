@@ -1,0 +1,44 @@
+In this problem, we consider the finite element method for the equation
+\[
+-\pd{}{x}{}\left(k(x)\pd{u}{x}{}\right) = f(x).
+\]
+This models the steady state distribution of temperature in a bar, where $k(x)$ is the diffusivity of the bar at the point $x$.  Diffusivity must be positive for the equation to be physically realistic; however, if $k(x)$ is not positive, the finite element method may run into issues as well.  
+
+It may be helpful to use the fact that the determinant of a $2\times 2$ matrix is
+\[
+{\rm det}\left(\left[
+\begin{array}{cc}
+a &b\\
+c &d
+\end{array}
+\right]\right) = ad-bc.
+\]
+
+\begin{enumerate}
+\item Show that, if $k(x) > 0$ for $0 < x < 1$ that $a(u,v)$
+\[
+a(u,v) = \int_0^1 k(x)\pd{u}{x}{}\pd{v}{x}{}
+\]
+defines an inner product.  Then, explain why, if $k(x) = 0$ over some interval $[a,b] \subset [0,1]$, $a(u,v)$ may not be positive definite (and hence not an inner product).  
+\item Compute the finite element matrix $K_{ij} = a(\phi_j,\phi_i)$ for $N = 2$ and $k(x)$ 
+\[
+k(x) = x.
+\]
+\item Let $k(x)$ be the function
+\[
+k(x) = \begin{cases}
+0 & x \leq 2/3\\
+1 & x > 2/3.
+\end{cases}
+\]
+Verify that the finite element stiffness matrix for $N=2$ is
+\[
+A = \left[
+\begin{array}{cc}
+0 &0\\
+0 &3
+\end{array}
+\right].
+\]
+Compute the eigenvalues of this matrix.  Explain what complications arise when attempting to solve this system using the spectral method.  
+\end{enumerate}
