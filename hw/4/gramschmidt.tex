@@ -1,0 +1,40 @@
+
+\begin{enumerate}
+\item Show that if we have an orthogonal set of vectors $\phi_1,\ldots, \phi_k$, then $\phi_1,\ldots, \phi_k$ are linearly independent as well, i.e. 
+\[
+\sum_{i = 1}^k \alpha_i\phi_i = 0
+\]
+is only true if $\alpha_1, \ldots, \alpha_k = 0$. 
+\item Let $ V$ be an inner product space (i.e. $V$ a vector space with an inner product). Suppose  $ \{{v}_1, {v}_2, { v}_3\} $ is a basis for $V$, and we would like to construct a is possible to construct a new \emph{orthogonal} basis $ \{{ \phi}_1, { \phi}_2, { \phi}_3 \}$ through the following procedure:
+\begin{eqnarray*}
+{ \phi}_1 &=& { v}_1 \\
+{ \phi}_2 &=& { v}_2-\frac{({ \phi}_1, { v}_2)}{({ \phi}_1, { \phi}_1)} { \phi}_1\\
+{ \phi}_3 &=& { v}_3-\frac{({ \phi}_1, { v}_3)}{({ \phi}_1, { \phi}_1)} { \phi}_1 - \frac{({ \phi}_2, { v}_3)}{({ \phi}_2, { \phi}_2)} { \phi}_2\\
+\vdots\\
+{ \phi}_k &=& { v}_k- \sum_{i = 1}^{k-1}\frac{({ \phi}_i, { v}_k)}{({ \phi}_i, { \phi}_i)} { \phi}_i
+\end{eqnarray*}
+This is called the \emph{Gram-Schmidt} procedure.  
+
+We refer to nonzero vectors $u_1, u_2, . . . , u_k \in V$ an orthogonal set if they are orthogonal to each other: i.e. if 
+\[
+\ip{u_i, u_j} = 0, \quad i\neq j.
+\]
+Assuming we have $v_1, v_2, v_3$ and we define $\phi_1, \phi_2, \phi_3$ under the above process, show that $\phi_1,\phi_2,\phi_3$ form an orthogonal set, i.e. 
+\[
+\ip{\phi_i, \phi_j}=0, \quad \text{ if } 1 \leq i \neq j\leq 3.  
+\]
+\item Since we can define an inner product $\ip{\cdot,\cdot}$ on the function space $C[-1,1]$ as
+\[
+\ip{u,v} = \int_{-1}^1 u(x)v(x)\, dx,
+\]
+we can also use the Gram-Schmidt procedure to create orthogonal sets of \emph{functions}.  Using the Gram-Schmidt procedure above, compute the orthogonal vectors $ \{{\phi}_1, {\phi}_2, { \phi}_3\} $ given starting vectors $\{v_1, v_2, v_3\}=\{1, x, x^2\}$.  
+
+%\emph{Remark: Note that indeed $V$ is a function space, because $V$ include a set of functions. But we know that every function space is also vector space.} 
+\end{enumerate}
+
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input gramschmidt_sol}{}
+

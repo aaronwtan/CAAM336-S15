@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  30 NOV 2014 10:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  2 APR 2015 13:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -245,18 +245,18 @@ e
 ))
 (./spectral.tex [1
 
-{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Underfull \hbox (badness 10000) in paragraph at lines 213--213
 
  []
 
-
+[2]
 Underfull \hbox (badness 10000) in paragraph at lines 213--213
 
  []
 
-[3] [4]) [5] (./spectralNeumann.tex [6] [7]) [8] (./robinBC.tex [9] [10]
-[11] [12]
+[3]) [4] (./spectralNeumann.tex [5] [6]) [7] (./robinBC.tex [8] [9] [10]
+[11]
 Overfull \hbox (30.78877pt too wide) detected at line 296
 \OML/cmm/m/it/10.95 a\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 u[]; v\OT1/cmr/m/n
 /10.95 ) = \OML/cmm/m/it/10.95 c[]^^^[]\OT1/cmr/m/n/10.95 (0)\OML/cmm/m/it/10.
@@ -269,7 +269,7 @@ L/cmm/m/it/10.95 ^^^[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.
 ; \OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 ; []  ; N \OT1/cmr/m/n/10.95 + 1
  []
 
-[13] [14]) [15] (./fem.tex [16] [17] [18]) [19] (./exam2.aux) ) 
+[12] [13]) [14] (./fem.tex [15] [16] [17]) [18] (./exam2.aux) ) 
 Here is how much of TeX's memory you used:
  2465 strings out of 493117
  32255 string characters out of 6135433
@@ -277,7 +277,7 @@ Here is how much of TeX's memory you used:
  5886 multiletter control sequences out of 15000+600000
  8463 words of font info for 31 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,15n,47p,399b,482s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,15n,47p,399b,473s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texl
 ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texli
 ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texliv
@@ -291,10 +291,10 @@ dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2014/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2014/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on exam2.pdf (19 pages, 183261 bytes).
+Output written on exam2.pdf (18 pages, 181395 bytes).
 PDF statistics:
- 114 PDF objects out of 1000 (max. 8388607)
- 80 compressed objects within 1 object stream
+ 110 PDF objects out of 1000 (max. 8388607)
+ 77 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

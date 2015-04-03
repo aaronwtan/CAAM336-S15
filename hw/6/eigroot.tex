@@ -1,0 +1,35 @@
+
+We have been able to obtain nice formulas for the eigenvalues of the operators that we have considered thus far. This problem illustrates that this is not always the case.
+
+Let the inner product $\ip{\cdot,\cdot}:C[0,1]\times C[0,1]\to\R$ be defined by
+\[
+\ip{v,w}=\int_0^1v(x)w(x)\,dx.
+\]
+Let the linear operator $L: V\to C[0,1]$ be defined by
+\[
+Lu = -u''
+\]
+where
+\[ V = \{u\in C^2[0,1]:  u(0)-u'(0)=u(1)=0\}.\]
+Note that if $u\in V$ then $u$ satisfies the homogeneous Robin boundary condition
+\[ u(0) - u'(0) = 0\]
+and the homogeneous Dirichlet boundary condition
+\[ u(1) = 0.\]
+\\
+\begin{enumerate}
+\item Prove that $L$ is symmetric.
+\\
+\item Is zero an eigenvalue of $L$?
+\\
+\item Show that $\ip{Lu,u}\ge0$ for all $u\in V$. What does this and the answer to part (b) then allow us to say about the eigenvalues of $L$?
+\\
+\item Show that the eigenvalues $\lambda$ of $L$ must satisfy the equation $\sqrt{\lambda} = - \tan(\sqrt{\lambda})$.
+\\
+\item Use MATLAB to plot $g(x) = -\tan(x)$ and $h(x)=x$ on the same figure. Use the command \verb|axis([0 5*pi -5*pi 5*pi])| and make sure that your plot gives an accurate representation of these functions on the region shown on the figure when this command is used. By hand or using MATLAB, mark on your plot the points where $g(x)$ and $h(x)$ intersect for $x\in(0,5\pi]$. Note that $g\notin C[0, 5\pi]$. How many eigenvalues $\lambda$ does $L$ have which are such that $\sqrt{\lambda}\le 5\pi$?
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input eigroot_sol}{}
+

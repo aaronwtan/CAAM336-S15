@@ -1,0 +1,39 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen,color}
+\usepackage{amsmath}
+\def\hot#1{\color{red}{#1}}
+\parindent0em\parskip1em
+\newboolean{showsols}
+%\textheight10in
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+
+\begin{document}
+\setboolean{showsols}{true}
+
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+ Problem Set 7 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Wednesday 25 March 2015.  Due Wednesday 1 April 2015, 5pm.
+
+
+\ifthenelse{\boolean{showsols}}{}{\begin{center}\textbf{\emph{Please write your name and instructor on your homework.}}\end{center}}
+
+General advice: You may compute any integrals you encounter using symbolic mathematics 
+tools such as WolframAlpha, Mathematica, or the Symbolic Math Toolbox in MATLAB.
+
+\begin{enumerate}
+\item {[40 points: 8 points each]}  \input weakform
+\item {[40 points: 10 points each]}  \input fem
+
+\item {[20 points: 5 points each]}  \input delta
+
+%\item {[25 points]}\\  \input beam
+
+%\item {[25 points]}\\  \input fem
+\end{enumerate}
+
+\end{document}

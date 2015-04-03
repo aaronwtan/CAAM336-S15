@@ -1,0 +1,45 @@
+Suppose that you have a solution $u$ of the equation
+  $$  a(t) {d^2 u \over dt^2}(t) + b(t) {du\over dt}(t) + c(t) u(t) = f(t)   \eqno{(4.1)} $$
+and that $v$ is a nonzero solution of the homogeneous equation
+  \[  a(t) {d^2 v \over dt^2}(t) + b(t) {dv\over dt}(t) + c(t) v(t) = 0. \]
+Explain how to produce infinitely many different solutions of (4.1).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+If $v(t)$ is a nonzero solution to the homogeneous equation, 
+then for any constant $\alpha$,
+$\alpha v(t)$ will be a different solution 
+to the same homogeneous equation, for  
+  \begin{eqnarray*}
+         {a(t) d^2 \over dt^2} (\alpha v) 
+           + b(t) {d\over dt} (\alpha v)  + c(t) (\alpha v) 
+      &=& 
+         \alpha\left(a(t) {d^2v \over dt^2} + b(t) {dv\over dt}  + c(t) v\right) \\[0.5em]
+      &=& \alpha\cdot 0 \\[0.5em]
+      &=& 0. 
+  \end{eqnarray*}
+Now notice that if $u$ solves the inhomogeneous equation, 
+$u$ plus any solution of the homogeneous equation will
+also be a solution to the inhomogeneous equation.
+In particular,
+  \begin{eqnarray*}
+         a(t) {d^2 \over dt^2} (u+\alpha v) 
+           + b(t) {d\over dt} (u+\alpha v)  + c(t) (u+\alpha v) 
+      &=& 
+         \left(a(t) {d^2u \over dt^2} + b(t) {du\over dt}  + c(t) u\right) 
+          + \alpha\left(a(t) {d^2v \over dt^2} + b(t) {dv\over dt}  + c(t) v\right) \\[0.5em]
+      &=& f(t) + \alpha\cdot 0 \\[0.5em]
+      &=& f(t). 
+  \end{eqnarray*}   
+Thus we can construct infinitely many solutions for the inhomogeneous equation 
+of the form $u(t) + \alpha v(t)$, where $\alpha$ is any constant.
+
+Note that this is a general result that also holds for linear 
+partial differential equations.   For example, suppose that
+\[ {\partial u \over \partial t} - \kappa {\partial^2 u \over \partial x^2} = f(x)\]
+and 
+\[ {\partial v \over \partial t} - \kappa {\partial^2 v \over \partial x^2} = 0.\]
+Then, by the same reasoning we used above,
+ $u(x,t) + \alpha v(x,t)$ will solve the inhomogeneous equation for any constant $\alpha$.
+\end{solution}}{}
+

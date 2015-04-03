@@ -1,0 +1,71 @@
+Define the inner product $\ip{u,v}$ to be
+\[
+\ip{u,v}=\int_0^1u(x)v(x)\,dx
+\]
+and let the norm $\norm{v(x)}$ be defined by
+\[
+\norm{v}=\sqrt{\ip{v,v}}.
+\]
+Let $N$ be a positive integer and let $\phi_1,\ldots,\phi_N\in C[0,1]$ be such that $\left\{\phi_1,\ldots,\phi_N\right\}$ is orthonormal with respect to the inner product $\ip{\cdot,\cdot}$. We wish to approximate a continuous function $f(x)$ with $f_N(x)$
+\[
+f_N(x)=\sum_{n=1}^N\alpha_n\phi_n(x)
+\]
+where
+\[
+\phi_n(x) = \sqrt{2} \sin(n \pi x),\quad n=1,2,\ldots.
+\]
+and where $\alpha_n=\ip{f,\phi_n}$. (Note that $f_N$ is the best approximation to $g$ from ${\rm span}\left\{\phi_1,\ldots,\phi_N\right\}$ with respect to the norm $\norm{\cdot}$.)
+
+\begin{enumerate}
+\item Assume that $f_N \rightarrow f$ as $N\rightarrow \infty$.  Show that, since $\phi_1,\ldots,\phi_N$ are orthonormal, 
+\[
+\norm{f-f_N}^2  = \norm{f}^2 - \sum_{n=1}^N \alpha_n^2.
+\]
+\item The best approximation to $f(x) = x(1-x)$ has coefficients $\alpha_n$ which satisfy
+\[
+\alpha_n = \frac{2\sqrt{2}}{n^3\pi^3}(1-(-1)^n).
+\]
+Plot the true function $f(x)$ and compare it to $f_N(x)$ for $N = 5$.  On a separate figure, plot the norm of the error $\|f-f_N\|$ using the above formula for $N = 1,2,\ldots,100$ on a log-log scale by using \verb|loglog| in \textsc{Matlab}.  
+%\item Verify that the best approximation to the function $f(x) = 1-x$ (which does not satisfy the same boundary conditions as $\phi_n(x)$!) has coefficients
+%\[
+%\alpha_n =  \frac{\sqrt{2}}{\pi n}.
+%\]
+%Plot the true function $f(x)$ and compare it to $f_N(x)$ for $N = 100$.  On a separate figure, plot the error using the above formula for $N = 1,2,\ldots,100$ on a log-log scale by using \verb|loglog| in \textsc{Matlab}.  
+\item For $f(x) = 1$  (which does not satisfy the same boundary conditions as $\phi_n(x)$!), we computed in class that 
+      $$c_n = 2\sqrt{2}/(n \pi)$$
+       for odd $n$, and $c_n = 0$ for even $n$.
+      Plot the true function $f(x)$ and compare it to $f_N(x)$ for $N = 100$.  On a separate figure, plot the norm of the error $\|f-f_N\|$ using the above formula for $N = 1,2,\ldots,100$ on a log-log scale by using \verb|loglog| in \textsc{Matlab}.  
+%      Use this expression for $c_n$ and your formula from part~(a) to produce 
+%      a \verb|loglog| plot of the error $\norm{f-f_N}$ versus $N$ for 
+%      all integers $N = 1, \ldots, 10^4$.  
+
+\emph{You may have noticed that the rate at which the coefficients $\alpha_n \rightarrow 0$ determines how fast the error decreases --- this is not coincidental!}  %Time permitting, we will explore this idea more in the future.  %In the meantime, food for thought: what happens if $\alpha_n = 1/N$, and never decays?  Does $f_N(x)$ approach a particular ``function''?
+
+\item For $f(x) = 1$, the equation $Lu = f$ has the exact solution $u(x) = x(1-x)/2$.
+%      Confirm that the spectral method approximation
+%      \[ u_N = \sum_{n=1}^N {c_n \over \lambda_n} \psi_n\] 
+%      provides the best approximation to $u$ from the
+%      subspace ${\rm span}\{\psi_1, \ldots, \psi_N\}$.  To do this, simply show that
+%      the coefficient of $\psi_n$ you would get for the best approximation of $u$ 
+%      (which requires knowledge of $u$) matches the coefficient produced by the 
+%      spectral method (which did not require knowledge of $u$) for this particular 
+%      $f$ and $u$:
+%          \[ {\ip{u, \psi_n} \over \ip{\psi_n,\psi_n}} = {c_n \over \lambda_n},\]
+%      where $c_n$ comes from the best approximation to $f$ given in part~(b).
+%
+%\item
+ Given the result of part~(c), the same argument used in part~(a) tells us that 
+      \[ \norm{u - u_N}^{2} = \norm{u}^2 - \sum_{n=1}^N {c_n^2 \over \lambda_n^2}.\]
+      (You do not need to show this explicitly.)  Use this formula to produce a 
+      \verb|loglog| plot of the error $\norm{u-u_N}$ for $N=1,\ldots, 100$ 
+      on the same plot you made in part~(b).  
+      (Be aware that the error may appear to flatline 
+      around $10^{-8}$: this is a consequence of the computer's floating point
+      arithmetic, and is not a concern of ours here.  To learn more about this
+      phenomenon, take CAAM 453!)
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input gibbs_sol}{}

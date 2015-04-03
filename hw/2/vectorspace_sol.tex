@@ -1,0 +1,37 @@
+\begin{solution}
+\begin{enumerate}
+\item {[4 points]} The set $S_1$ is not a subspace of $\R^2$.\\
+The vector $\displaystyle{\Bx = \left[\begin{array}{c}1\\ 1\end{array}\right]}$  is in the set $S_1$, yet $\displaystyle{2\Bx = \left[\begin{array}{c}2\\ 2\end{array}\right]}$ is not, since $2 \ne 2^3 = 8$. Consequently, the set $S_1$ is not a subspace of $\R^2$.
+\\
+\item {[4 points]} The set $S_2$ is a subspace of $\R^3$.\\
+The set $S_2$ is a subset of $\R^3$ and $\left[\begin{array}{c} 0 \\ 0 \\ 0\end{array}\right]$ is a member of the set $S_2$. Now, suppose $\Bx$ and $\By$ are members of the set $S_2$. Then $3x_1 + 2x_2 + x_3 = 0$ and  $3y_1 + 2y_2 + y_3 = 0$. Adding these two equations gives
+\[
+ 3(x_1+y_1) + 2(x_2+y_2) + (x_3+y_3) = 0,
+\]
+and hence $\Bx + \By$ is also in the set $S_2$. Multiplying $3x_1 + 2x_2 + x_3 = 0$ by an arbitrary constant $\alpha\in\R$ gives
+\[
+3(\alpha x_1) + 2(\alpha x_2) + \alpha x_3 = 0,
+\]
+and hence $\alpha \Bx$ is also in the set $S_2$. Consequently, the set $S_2$ is a subspace of $\R^3$.
+\\
+\item {[4 points]} The set $S_3$ is not a subspace of $C[0,1]$.\\
+Let $f(x) = 1$ for $x\in[0,1]$. Then $f$ is in the set $S_3$, but a scalar multiple, $-1\cdot f(x) = -1$ for $x\in[0,1]$, takes negative values and thus violates the requirement for membership in the set $S_3$. Consequently, the set $S_3$ is not a subspace of $C[0,1]$.
+\\
+\item {[4 points]} The set $S_4$ is not a subspace of $C[0,1]$.\\
+Let $f(x) = 1$ for $x\in[0,1]$. Then $f$ is in the set $S_4$, but a scalar multiple, $2\cdot f(x) = 2$ for $x\in[0,1]$, takes values greater than one and thus violates the requirement for membership in the set $S_4$. Consequently, the set $S_4$ is not a subspace of $C[0,1]$.
+\\
+\item {[4 points]} The set $S_5$ \emph{is not} a subspace of $C^2[0,1]$.\\
+The function $z$ defined by $z(x)=0$ for $x\in[0,1]$ is not in the set $S_5$ since $z(1)=0$ and thus violates the requirement for membership in the set $S_5$. Consequently, the set $S_5$ is not a subspace of $C^2[0,1]$.
+\\
+\item {[5 points]} The set $S_6$ subspace of $C^2[0,1]$.\\
+The set $S_6$ is a subset of $C^2[0,1]$ and the function $z$ defined by $z(x)=0$ for $x\in[0,1]$ is in the set $S_6$. If $f$ and $g$ are in the set $S_6$, then $f(1)=g(1)=0$, so
+\[
+(f+g)(1) = f(1)+g(1) = 0+0 = 0
+\]
+and hence $f+g$ is in the set $S_6$. Also, if $f$ is in the set $S_6$ and $\alpha\in\R$, then
+\[
+(\alpha f)(1) = \alpha f(1) = \alpha\cdot 0 = 0
+\]
+and hence $\alpha f$ is in the set $S_6$. Consequently, the set $S_6$ is a subspace of $C^2[0,1]$.
+\end{enumerate}
+\end{solution}

@@ -1,0 +1,36 @@
+On the previous homework, we showed that the steady-state heat equation 
+\begin{align*}
+-u''(x) &= f, \quad 0 < x < 1\\
+u'(0) &= 0\\
+u'(1) &= 0
+\end{align*}
+did not have a unique solution (in fact, $u+C$ was a solution for any constant $C$).  We will show that the resulting discretized finite difference equations also do not have a unique solution.  
+\begin{enumerate}
+\item Consider points $x_0, x_1, \ldots, x_N, x_{N+1} \in [0,1]$, such that $x_0 = 0, x_1 = 1$.  Using the finite difference approximations 
+\[
+u'(0) = u'(x_0) \approx \frac{u(x_1)-u(x_0)}{h} = 0
+\]
+and
+\[
+u'(1) = u'(x_{N+1}) \approx \frac{u(x_{N+1})-u(x_N)}{h} = 0
+\]
+we can construct the matrix system ${\bf A}{\bf u} = {\bf b}$ resulting from the finite difference approximation of $-u''(x)=f$ at points $x_1, \ldots, x_N$, where
+\[
+{\bf u}_i = u(x_i), \quad i = 1,\ldots, N.
+\]
+Give expressions for ${\bf A}$ and $\bf b$.
+\item Verify that $\bf e$ is in the null space of ${\bf A}$, where ${\bf e} = (1,1,\ldots, 1)^T$ is the vector of all ones.  
+\item Consider the homogeneous time-dependent heat equation with zero-flux boundary conditions and initial condition $\psi(x)$:
+\begin{align*}
+\pd{u}{t}{}-\kappa\pd{u}{x}{2} &= 0, \quad x\in (0,1)\\
+u'(0,t) &= 0\\
+u'(1,t) &= 0\\
+u(x,0) &= \psi(x).
+\end{align*}
+Assume that there is a steady state solution $u_\infty(x)$ such that
+\[
+\lim_{t \rightarrow \infty} u(x,t)= u_\infty(x).
+\]
+This implies that while the solution to the steady state heat equation is not unique, the solution as $t\rightarrow \infty$ to the time-dependent  heat equation is unique.  
+
+\end{enumerate}

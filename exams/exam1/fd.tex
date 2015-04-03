@@ -72,9 +72,9 @@ This leads to three equations:
 \end{eqnarray*}
 Since $u(x_0) = u(0) = a$ and $u(x_4) = u(1) = b$, we may substitute those values in to get
 \begin{eqnarray*}
-\frac{-u_2 + 2u_1}{h^2} &=&  f(x_1) + \frac{a}{h}^2\\
+\frac{-u_2 + 2u_1}{h^2} &=&  f(x_1) + \frac{a}{h^2}\\
 \frac{-u_3 +2u_2 - u_{1}}{h^2} &=&  f(x_2)\\
-\frac{2u_3 - u_2}{h^2} &=&  f(x_3) + \frac{b}{h}^2.
+\frac{2u_3 - u_2}{h^2} &=&  f(x_3) + \frac{b}{h^2}.
 \end{eqnarray*}
 The resulting matrix system is
 \[
@@ -122,7 +122,7 @@ The corresponding matrix system can be written
 \]
 \item Substituting in the specific value of $h = 1/4$ (or $1/h = 4$)
 \[
-4\left[\begin{array}{ccc}
+16\left[\begin{array}{ccc}
               1 & -1&0 \\
                -1 & 2 &  -1  \\
                  0 &   -1  & 1 
@@ -136,7 +136,7 @@ The corresponding matrix system can be written
 \]
 If we multiply the system matrix by ${\bf e} = (1,1,1)^T$, we can see that 
 \[
-4\left[\begin{array}{ccc}
+16\left[\begin{array}{ccc}
               1 & -1&0 \\
                -1 & 2 &  -1  \\
                  0 &   -1  & 1 
@@ -158,16 +158,16 @@ This implies that the system matrix has a non-trivial nullspace, so that the sol
 \cos(x_2) u(x_2) +\frac{-u(x_{3}) + 2u(x_2) - u(x_{1})}{h^2} =  f(x_2)\\
 \cos(x_3) u(x_3) +\frac{-u(x_{4}) + 2u(x_3) - u(x_{2})}{h^2} =  f(x_3).
 \end{eqnarray*}
-The resulting matrix equation gives
+Applying zero Dirichlet boundary conditions removes $u_4$ and $u_0$ from the above equations, and the resulting matrix equation gives
 \[
 \left(\left[\begin{array}{ccc}
               \cos(x_1) &0 & 0 \\
                0 & \cos(x_2) &  0  \\
                  0 &   0  & \cos(x_3) 
                \end{array}\right] + \frac{1}{h^2}\left[\begin{array}{ccc}
-              1 & -1&0 \\
+              2 & -1&0 \\
                -1 & 2 &  -1  \\
-                 0 &   -1  & 1 
+                 0 &   -1  & 2 
                \end{array}\right]\right)
                \left[\begin{array}{c}
                u_1\\u_2\\u_3

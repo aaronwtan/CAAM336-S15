@@ -1,0 +1,97 @@
+One of the most intriguing results in mathematics is the idea that continuous functions (especially those whose derivatives are also continuous) can be very well approximated using combinations of trigonometric functions --- i.e. sines and cosines --- of different frequencies.  This is encapsulated in the idea of \emph{Fourier Series}: a large class of functions $u(x)$ can be represented by the infinite sum 
+\[
+u(x) = C + \sum_{j = 1}^\infty\left( \alpha_j \sin(j\pi x) + \beta_j \cos(j\pi x)\right).
+\]
+Additionally, it turns out that the finite sum (i.e. a linear combination of sines and cosines)
+\[
+u(x) \approx C + \sum_{j=1}^n  \left( \alpha_j \sin(j\pi x) + \beta_j \cos(j\pi x)\right)
+\]
+is often a very good approximation to $u(x)$.  We will go more into depth on these ideas later in the semester.  
+
+In this problem, unless specified otherwise, we will examine orthogonality properties of sines and cosines using the following inner product on $C^2[0,1]$: for $u, v\in C^2[0,1]$, 
+\[
+(u,v) = \int_0^1 u(x)v(x)dx.
+\]
+For all parts, assume $j$ and $k$ are integers.
+
+\begin{enumerate}
+\item Show, by hand, that sines of different frequencies are orthogonal to each other, i.e. that
+\[
+\left( \sin( j \pi x), \sin(k \pi x)\right) = \int_0^1 \sin( j \pi x) \sin(k \pi x)dx = 0, \quad j \neq k.
+\]
+\item Show, by hand, that cosines of different nonzero frequencies are orthogonal to each other, i.e. that
+\[
+\left( \cos( j \pi x), \cos(k\pi x) \right) = \int_0^1 \cos( j \pi x) \cos(k\pi x)dx = 0, \quad j\neq k.
+\]
+\item Show, by hand, that sines and cosines of different frequencies are orthogonal to each other \emph{over the interval $[-1,1]$}, i.e. that
+\[
+\left( \sin( j \pi x), \cos(k\pi x)\right) = \int_{-1}^1 \sin( j \pi x) \cos(k\pi x)dx = 0, \quad j \neq k. 
+\]
+Unlike the previous two parts, cosines and sines of different frequencies are not orthogonal to each other using the inner product on $[0,1]$, and must be shown to be orthogonal using the inner product
+\[
+(u,v) = \int_{-1}^1 u(x)v(x)dx.
+\]
+\item Show, by hand, that sines and cosines, in addition to being orthogonal, can easily be made \emph{orthonormal} over $[0,1]$ by scaling by $\sqrt{2}$: i.e. that
+\[
+\left\|\sqrt{2}\sin(j\pi x)\right\|^2 = 2\int_0^1 \sin(j\pi x)^2 dx = 1, \qquad \left\|\sqrt{2}\cos(j\pi x)\right\|^2 = 2\int_0^1 \cos(j\pi x)^2 dx = 1.
+\]
+
+%\item Given the function
+%\[
+%f(x) = e^x
+%\]
+%compute the best approximation to 
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{
+\begin{solution}
+\begin{enumerate}
+\item Using the sum formula 
+\[
+\sin( j \pi x) \sin(k \pi x)dx = \frac{1}{2}\left(\cos((j-k)\pi x) - \cos((j+k)\pi x)\right)
+\]
+we can conclude that $\int_0^1\sin( j \pi x) \sin(k \pi x)dx$ is
+\[
+\frac{1}{2}\int_0^1\left(\cos((j-k)\pi x) - \cos((j+k)\pi x)\right) = \frac{1}{2}\left.\left(\frac{\sin((j-k)\pi x)}{(j-k)\pi} - \frac{\sin((j+k)\pi x)}{(j+k)\pi}\right)\right|_{0}^1.
+\]
+Since $j$ and $k$ are integers, $j-k$ and $j+k$ are also integers.  Since $\sin(n\pi x) = 0$ for any integer $n$, we can conclude that $\sin( j \pi x) \sin(k \pi x)dx = 0$.  
+\item Using the sum formula 
+\[
+\cos( j \pi x) \cos(k \pi x)dx = \frac{1}{2}\left(\cos((j-k)\pi x) + \cos((j+k)\pi x)\right)
+\]
+we can repeat the steps in (a) to compute $\int_0^1 \cos( j \pi x) \cos(k \pi x)dx$ as
+\[
+\frac{1}{2}\int_0^1\left(\cos((j-k)\pi x) + \cos((j+k)\pi x)\right) = \frac{1}{2}\left.\left(\frac{\sin((j-k)\pi x)}{(j-k)\pi} + \frac{\sin((j+k)\pi x)}{(j+k)\pi}\right)\right|_{0}^1 = 0.
+\]
+\item We may use another sum formula 
+\[
+\sin(j\pi x) \cos(k\pi x) = \frac{1}{2}\left(\sin((j+k)\pi x) + \sin((j-k)\pi x)\right)
+\]
+Then, $\int_{-1}^1 \sin(j\pi x) \cos(k\pi x)$ gives
+\[
+\frac{1}{2}\int_{-1}^1\left(\sin((j+k)\pi x) + \sin((j-k)\pi x)\right) = \frac{-1}{2}\left.\left(\frac{\cos((j+k)\pi x)}{(j+k)\pi} + \frac{\cos((j-k)\pi x)}{(j-k)\pi}\right)\right|_{-1}^1
+\]
+Since $\cos(x)$ is even, evaluating the above at $x=1$ and $x=-1$ yields the same result, which cancels out to zero.  
+
+You may also conclude the above by noting that $\cos(j\pi x)\sin(k\pi x)$ is odd, and thus its integral from $[-1,1]$ is zero.  
+\item By the above sum formulas,
+\[
+\sin( j \pi x)^2 = \frac{1}{2}\left(\cos(0\pi x) - \cos(2j\pi x)\right) = \frac{1}{2}\left(1 - \cos(2j\pi x)\right)
+\]
+so $\|\sin(j\pi x)\|^2 = \int_0^1\sin( j \pi x)^2$ gives
+\[
+\frac{1}{2} - \int_0^1 \cos(2j\pi x) = \frac{1}{2} - (\cos(2j\pi) - \cos(0)) = \frac{1}{2}
+\]
+since $2j$ is even, and $\cos(2j\pi) = (-1)^(2j) = 1$.  
+
+We may conclude similarly that 
+\[
+\|\sin(j\pi x)\|^2 = \cos( j \pi x)^2 = \frac{1}{2}\left(\cos(0\pi x) + \cos(2j\pi x)\right) = 2.
+\]
+
+\end{enumerate}
+\end{solution}
+
+}{}

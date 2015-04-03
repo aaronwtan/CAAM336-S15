@@ -40,12 +40,12 @@ Show that $\tilde{L}$ is symmetric and positive definite, and calculate the eige
 \end{eqnarray*}
 
 
-\item Explain (as specifically as possible) how to modify the solution $u(x)$ given in part (d) so in order to solve the problem with inhomogeneous boundary conditions.  
-\begin{eqnarray*}
-\frac{-d^2u(x)}{dx^2}+ u(x)  &=& f(x) \\
-                        u'(0) &=& 5\\
-                        u(1)&=& 1
-\end{eqnarray*}
+%\item Explain (as specifically as possible) how to modify the solution $u(x)$ given in part (d) so in order to solve the problem with inhomogeneous boundary conditions.  
+%\begin{eqnarray*}
+%\frac{-d^2u(x)}{dx^2}+ u(x)  &=& f(x) \\
+%                        u'(0) &=& 5\\
+%                        u(1)&=& 1
+%\end{eqnarray*}
 
 \end{enumerate}
 
@@ -187,25 +187,25 @@ and
 
 where $c_n$ is given in part (c) and $\tilde{\lambda_n}$ in part (b).
 
-\item A function that satisfies the BC $u'(0) = 5 $ and $ u(1) = 1$  does not belong to $C^2_M [0; 1]$ . To deal
-with it, we find a function $g(x)$ that does satisfy the BC's. Let  $g(x) = 5x-4$ satisfies this.
-Let $w(x)= u(x)-p(x)$. We then note that  $w(x)= u(x)-p(x)$ belongs to $C^2_M [0; 1]$ and solves the following original differential equation with the right hand side modified:
-\begin{align*}
-\tilde{L}w &= \tilde{L}u- \tilde{L}g = f-\tilde{L}g = f-g\\
-w'(0) &= u'(0) - g'(0) = 0\\
-w(1) &= u(1)-g(1) = 0\\
-\end{align*}
-
-or
-
-\begin{eqnarray*}
-\frac{-d^2w(x)}{dx^2}+ w(x)  &=& f(x)-g(x) \\
-                        w'(0) &=& 0\\
-                        w(1)&=& 0
-\end{eqnarray*}
-
-Then, we solve for $w$ as above, with $f(x)$ replaced by $f(x)-g(x) = f(x)-(5x-4)$
-Our final solution will be $u(x) = w(x) + g(x)$.
+%\item A function that satisfies the BC $u'(0) = 5 $ and $ u(1) = 1$  does not belong to $C^2_M [0; 1]$ . To deal
+%with it, we find a function $g(x)$ that does satisfy the BC's. Let  $g(x) = 5x-4$ satisfies this.
+%Let $w(x)= u(x)-p(x)$. We then note that  $w(x)= u(x)-p(x)$ belongs to $C^2_M [0; 1]$ and solves the following original differential equation with the right hand side modified:
+%\begin{align*}
+%\tilde{L}w &= \tilde{L}u- \tilde{L}g = f-\tilde{L}g = f-g\\
+%w'(0) &= u'(0) - g'(0) = 0\\
+%w(1) &= u(1)-g(1) = 0\\
+%\end{align*}
+%
+%or
+%
+%\begin{eqnarray*}
+%\frac{-d^2w(x)}{dx^2}+ w(x)  &=& f(x)-g(x) \\
+%                        w'(0) &=& 0\\
+%                        w(1)&=& 0
+%\end{eqnarray*}
+%
+%Then, we solve for $w$ as above, with $f(x)$ replaced by $f(x)-g(x) = f(x)-(5x-4)$
+%Our final solution will be $u(x) = w(x) + g(x)$.
 
 
 \end{enumerate}

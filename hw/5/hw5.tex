@@ -1,0 +1,35 @@
+ \documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen}
+\usepackage{epstopdf}
+\usepackage{subfigure}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+
+\begin{document}
+\setboolean{showsols}{true}
+\vspace*{-5em}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+Homework 6 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Wednesday 18 March, 2015.  Due 5pm Wednesday 25 March, 2015.
+\begin{center}
+\emph{Please write your name and instructor on your homework.}
+\end{center}
+
+\begin{enumerate}
+\item {[10 points: 5 points each]}\\  \input mateig
+\item {[20 points: 5 points each]}\\  \input  mixed
+\newpage
+\item {[20 points: 4 points (b), 7 points (a),(c),(d)]}\\  \input gibbs
+\newpage
+\item {[25 points: 4 points (a), 7 points (b)-(d)]}\\  \input sineseries
+\newpage
+\item {[25 points: 5 points each]}\\  \input sm
+
+\end{enumerate}
+\end{document}

@@ -1,0 +1,42 @@
+In class, we derived the second-order central finite difference approximation to the second derivative 
+\begin{eqnarray*}
+\frac{\partial^2 u}{\partial x^2} = \frac{\partial }{\partial x} \left(\frac{\partial u}{\partial x}\right)&\approx &= \frac{u(x+h)-2u(x) + u(x-h)}{h^2}.
+\end{eqnarray*} 
+Using the Taylor series expansion for $u(x+h)$ 
+\begin{eqnarray*}
+u(x+h) &=& u(x) + u'(x)h + \frac{u''(x)}{2}h^2 + \frac{u'''(x)}{3!}h^3 + \ldots,\\
+%u(x-h) &=& u(x) - u'(x)h + \frac{u''(x)}{2}h^2 - \frac{u'''(x)}{3!}h^3 + \ldots
+\end{eqnarray*}
+and the equivalent Taylor expansion for $u(x-h)$, show that the second order finite difference approximation
+\[
+u''(x) \approx \frac{u(x+h)-2u(x) + u(x-h)}{h^2}
+\]
+has accuracy $O(h^2)$.  In other words, if $u''(x)$ is the exact second derivative, show that 
+\[
+\left| u''(x) - \frac{u(x+h)-2u(x) + u(x-h)}{h^2}\right| = O(h^2).
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{
+
+\begin{solution}
+
+Adding together the Taylor expansions 
+\begin{align*}
+u(x+h) &= u(x) + u'(x)h + \frac{u''(x)}{2}h^2 + \frac{u'''(x)}{3!}h^3 + \ldots\\
+u(x-h) &= u(x) - u'(x)h + \frac{u''(x)}{2}h^2 - \frac{u'''(x)}{3!}h^3 + \ldots
+\end{align*}
+gives 
+\[
+u(x+h) + u(x-h) = 2u(x) + u''(x)h^2 + 2\frac{u''''(x)}{4!}h^4 + \ldots.
+\]
+Subtracting $2u(x)$ from both sides and dividing by $h^2$ gives
+\[
+\frac{u(x+h) -2u(x) + u(x-h)}{h^2} = u''(x) + 2\frac{u''''(x)}{4!}h^2 + \ldots,
+\]
+implying that the truncation error decreases at the same rate that $h^2$ decreases (if $h$ is small enough).  This implies the 2nd order central finite difference formula is $O(h^2)$ accurate.  
+
+\end{solution}
+}
+

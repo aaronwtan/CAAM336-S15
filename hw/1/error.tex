@@ -1,0 +1,19 @@
+Is there any \emph{constant} $f$ such that $u(t) = e^t$ is a solution of the ODE
+\[ {d^2 u \over dt^2} + 4 {d u \over dt} - 3 u = f\,? \]
+If so, specify $f$.  Otherwise, explain why no such $f$ exists.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+
+There exists no constant $f$ such that $u(t)=e^t$ is a solution.\\
+To see this, for $u(t)=e^t$ compute $du/dt = e^t$ and $d^2u/dt^2 = e^t$.
+Thus the left-hand side of this equation becomes
+\[ e^t + 4e^t - 3e^t = 2e^t.\]
+This formula for the left-hand side clearly depends on $t$, 
+and is not equal to any constant.  
+Indeed, with this left-hand side of the equation fixed, 
+$u(t)=e^t$ will only be a solution of the equation
+\[ {d^2 u \over dt^2} + 4 {d u \over dt} - 3 u = 2e^t.\]
+
+\end{solution}}{}
+

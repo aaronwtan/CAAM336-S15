@@ -1,0 +1,39 @@
+{\footnotesize
+\begin{verbatim}
+
+iter = 1;
+C = hsv(3);
+for ep = [1 .25 .1];
+    N = 32;
+    h = 1/(N+1);
+    x = [1:N]*h;
+    
+    M = (2/3)*diag(ones(N,1)) + (1/6)*diag(ones(N-1,1),1) + (1/6)*diag(ones(N-1,1),-1);
+    M = h*M;
+    
+    K = 2*diag(ones(N,1)) - diag(ones(N-1,1),1) - diag(ones(N-1,1),-1);
+    K = (1/h)*K;
+    
+    A = M + ep*K;
+    
+    b = h*ones(N,1);
+    
+    c = A\b;
+    
+    xx = linspace(0,1,500)';     % finely spaced points between 0 and 1.
+    hold on
+    % plot the approximation solution
+    uN = zeros(size(xx));
+    for j=1:N
+        uN = uN + c(j)*hat(xx,j,N);
+    end
+    plot(xx,uN,'color',C(iter,:),'linewidth',2)
+    iter = iter + 1;
+end
+legend('\epsilon = 1','\epsilon = .25','\epsilon = .1')
+set(gca,'fontsize',14)
+xlabel('x','fontsize',15)
+ylabel('Solution u(x)','fontsize',15)
+print(gcf,'-depsc','../ep1.eps')
+\end{verbatim}
+}

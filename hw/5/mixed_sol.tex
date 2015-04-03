@@ -1,0 +1,69 @@
+\begin{solution}
+\begin{enumerate}
+\item {[5 points]} Yes, $L$ is symmetric.\\
+      Let $u,v \in C_m^2[0,1]$. Integrating by parts twice, we have
+       \begin{eqnarray*}
+        (Lu, v) &=& \int_0^1 -u''(x) v(x)\, dx  \\[0.5em]
+                &=& -[u'(x) v(x)]_0^1 + \int_0^1 u'(x) v'(x)\, dx \\[0.5em]
+                &=& -[u'(x) v(x)]_0^1 + [u(x) v'(x)]_0^1 - \int_0^1 u(x) v''(x)\, dx.
+       \end{eqnarray*}
+       Since $u, v\in C_m^2[0,1]$ we have $u'(0)=0$ and $v(1) = 0$, and hence
+       the first term in square brackets must be zero.  
+       Again using the fact that $u, v\in C_m^2[0,1]$ we have $v'(0)=0$ and $u(1) = 0$,  
+       and hence the second term in square brackets is also zero.  
+       It follows that
+\[
+(L u, v) = \int_0^1 u(x) (-v''(x))\, dx = (u, L v)
+\]
+for all $u, v\in C_m^2[0,1]$.
+\\
+\item {[5 points]} The general solution to the differential equation 
+          \[ -u''(x) = 0\]
+        has the form
+          \[ u(x) = A + B x\]
+        for constants $A$ and $B$. In order for $u$ to be in $C_m^2[0,1]$, we must have $u'(0)=0$ and so
+        since $u'(x) = B$, we must have $B=0$.  Now $u\in C_m^2[0,1]$ also requires
+        $u(1) = 0$, and since $u(1)=A$, we conclude that $A=0$ too, meaning that
+        $u(x) = A+Bx = 0$ for all $x\in[0,1]$.  
+        Thus, the only element of the null space is the zero function,
+        that is, $\mathcal{N}(L) = \{0\}$.
+\\
+\item {[7 points]} Let $u\in C_m^2[0,1]$.
+        Using the first integration by parts from part~(a), we have
+          \begin{eqnarray*}
+               (L u, u) &=&  -[u'(x) u(x)]_0^1 + \int_0^1 u'(x) u'(x)\, dx \\[0.5em]
+                          &=&  \int_0^1 (u'(x))^2\, dx.
+          \end{eqnarray*}
+         Thus, $(L u, u)$ is the integral of a nonnegative function, so it is nonnegative. Consequently, $(L u, u)\ge0$ for all $u\in C_m^2[0,1]$.
+
+          This statement implies that all eigenvalues of $L$ are non-negative, since if $\lambda$ is an eigenfunction of $L$ then, since $L$ is a symmetric linear operator, $\lambda\in\R$ and there exist nonzero $u\in C_m^2[0,1]$ which are such that $Lu=\lambda u$ and hence
+           \[ \lambda (u, u) = (\lambda u, u) = (L u, u) \ge 0,\]
+          and so, since we know that $(u,u)>0$ for all nonzero $u\in C_m^2[0,1]$ due to the positivite-definiteness
+          of the inner product, we have that
+\[
+\lambda = {(L u, u) \over (u, u)}\ge 0.
+\]
+If zero was an eigenvalue of $L$, then there would exist nonzero $u\in C_m^2[0,1]$ which were such that $Lu=0$. However, we showed in part (b) that there were no nonzero $u\in C_m^2[0,1]$ which satisfied this and so zero cannot be an eigenvalue of $L$ and hence we can say that $\lambda > 0$ for all eigenvalues $\lambda$ of $L$.
+\\
+\item  {[8 points]} The eigenvalues of $L$ are the real numbers $\lambda>0$ for which there exist nonzero $u\in C_m^2[0,1]$ which are such that $L u = \lambda u$.  When $\lambda>0$, the general solution to the equivalent
+        differential equation
+                   \[  -u'' (x) = \lambda u(x)\]
+        has the form
+                   \[ u(x) = A \sin(\sqrt{\lambda} x) + B \cos(\sqrt{\lambda}x)\]
+        where $A$ and $B$ are constants. Since
+                    \[ u'(x) = A\sqrt{\lambda} \cos(\sqrt{\lambda}x)
+                               - B \sqrt{\lambda} \sin(\sqrt{\lambda}x)\]
+        and thus
+                    \[ u'(0) = A \sqrt{\lambda},\]
+        the boundary condition $u'(0) = 0$ implies that $A=0$.
+        On the other hand, the boundary condition $u(1) = 0$ implies that
+                    \[ u(1) = B \cos(\sqrt{\lambda}) = 0,\]
+        which can be achieved with nonzero $B$ provided that 
+        $\sqrt{\lambda} = (n-1/2)\pi$ for positive integers $n$.
+        We thus have that $L$ has eigenvalues
+                    \[ \lambda_n = (n-1/2)^2 \pi^2\]
+        with corresponding eigenfunctions
+                    \[ u_n(x) = B_n\cos(\sqrt{\lambda_n} x) = B_n\cos((n-1/2)\pi x)\]
+for nonzero constants $B_n$, for $n=1,2,3,\ldots$.
+\end{enumerate}
+\end{solution}

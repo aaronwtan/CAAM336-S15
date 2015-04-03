@@ -1,0 +1,26 @@
+
+Let $V$ be the space of all continuously differentiable real valued functions on [a,b].
+
+\begin{enumerate}
+\item Define $\displaystyle{\ip{\cdot,\cdot}:\mbox{ }\CV\times\CV\rightarrow\R}$ defined by $\displaystyle{\ip{f,g} = \int_a^b f(x) g(x) \, dx + \int_a^b f'(x) g'(x) \, dx}$ where $\CV =C^1[a,b]$.
+
+Prove that $\ip{\cdot,\cdot}$  is an inner product on $\CV$.
+\\
+\item Define that $\displaystyle{\|f\| = \int_a^b |f (x)| \, dx + \int_a^b |f'(x)| \, dx }$ Prove that this defines a norm on $\CV$ bu using the fact that the property of integrals : if a continuous function is positive anywhere, its integral is also positive.
+\\
+\item Let $V$ be a finite dimensional vector space with an inner product and let $u$ be a vector in $V$. Let $ Lu:V \rightarrow V$ be the linear operator defined by $\displaystyle{Lu(v)=v-2\ip{v,u} u}$ for all $v \in V}$. Prove that $Lu$ is unitary, i.e., $\ip{Lu(v),Lu(w)}= \ip{v,w}$ for all $v,w \in V$.
+\\
+\item Let $V$ be inner product space defined by $\displaystyle{\ip{f,g} = \int_0^1 f(x) g(x) \, dx }$ where $\V =C[0,1]$. Using the orthonormal bases $\displaystyle{\{\phi_1, \phi_2, \phi_3\}= \{1, 2\sqrt{3} (x-\frac{1}{2}), 6\sqrt{5} (x^2 -x +\frac{1}{6})\}}$ 
+\begin{itemize}
+\item{i} Find the linear polynomial $p(x)$ that best approximates $g(x)= sin(\pi x)$. 
+\\
+\item{ii} Find the quadratic polynomial $k(x)$ that best approximates $g(x)= sin(\pi x)$. 
+\end{itemize}
+
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{\input ip_sol}{}
+
