@@ -1,0 +1,178 @@
+Consider the \textit{Euler Bernoulli beam equation},
+\[
+(k(x)u''(x))'' = f(x), \qquad 0 < x < 1,
+\]
+with boundary conditions describing a beam that is \textit{clamped} at both ends:
+\[u(0) = u(1) = 0; \qquad  u'(0) = u'(1) = 0
+\]
+Here $k(x)$ is a positive-valued function that describes the material properties of the beam.
+With these boundary conditions, the eigenvalues and eigenvectors of this operator are diffcult to
+compute even if $k(x)=1$. We will consider finite element solutions of this problem.
+
+\begin{enumerate}
+\item Derive the weak form of the beam equation with the above boundary conditions, i.e., derive the
+weak problem
+\[
+a(u,v) = (f, v); \qquad \mbox{for all} \:\:v \in V = C_D^4[0, 1],
+\]
+where
+\[
+C_D^4[0, 1] = \{u \in C^4[0, 1] : u(0) = u(1) = u'(0) = u'(1) = 0\}.
+\]
+
+Specify the bilinear form $a(u, v)$, and show that it is an inner product on $C_D^4[0, 1]$
+\\
+\emph{Note: for the problem $-(k u')' = f$, we do not explicitly impose Neumann boundary conditions, they follow 'naturally'. For the beam equation, we must impose all four boundary conditions on the space of test functions, $V =C_D^4[0, 1].$}
+
+\item Suppose that $V_n = span\{\phi_1, \cdots, \phi_n\}$ is an n-dimensional subspace of $C_D^4[0, 1].$
+(Do not assume a particular form for the functions $\phi_1, \cdots, \phi_n$ at this point.)
+
+Show how the Galerkin problem
+\[
+a(u_n, v) = (f, v), \qquad \mbox{for all}\:\: v \in V_n
+\]
+leads to the linear system $Ku = f$ . Be sure to specify the entries of $K, u$, and $f$ .
+
+\item Now suppose we take for $\phi_1, \cdots, \phi_n$  the standard piecewise linear 'hat' functions used, for example, in Problem 2. Are these functions suitable for this problem? If so, describe the location of the
+nonzero entries of the matrix $K$. If not, roughly describe a better choice for the functions $\phi_1, \cdots, \phi_n$ 
+and the explain which entries of $K$ are nonzero for that choice.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{
+\begin{solution}
+\begin{enumerate}
+
+\item For all $v \in V$ multiply both side of BVP with the test function $v$
+
+\[
+(k(x)u''(x))'' v  = f(x) v, \qquad \forall v \in V,
+\]
+
+Now integrate over $0$ to $1$ 
+
+\[
+\int_0^1 (k(x)u''(x))'' v(x) dx = \int_0^1 f(x) v(x) dx   \qquad \forall v \in V\\
+\]
+Apply integration by parts  the left hand side
+\begin{eqnarray*}
+\int_0^1 (k(x)u''(x))'' v(x) dx &=& \left[(k(x)u''(x))' v(x)\right]_0^1 - \int_0^1 (k(x)u''(x))' v'(x) dx\\
+																&=& \left((k(1)u''(1))' v(1)- (k(0)u''(0))' v(0)\right) - \int_0^1 (k(x)u''(x))' v'(x) dx \\ 
+																&=& - \int_0^1 (k(x)u''(x))' v'(x) dx  \:\:\: \mbox{by imposing $v(0)=0, v(1)=0$}\\
+																&=& \left[-(k(x)u''(x)) v'(x)\right]_0^1 + \int_0^1 (k(x)u''(x)) v''(x) dx \qquad \mbox{by integration by parts }\\
+																&=& \left(-(k(1)u''(1)) v'(1)+ (k(0)u''(0)) v'(0)\right) + \int_0^1 (k(x)u''(x)) v''(x) dx \\
+																&=& \int_0^1 (k(x)u''(x)) v''(x) dx  \:\:\: \mbox{by imposing $v'(0)=0, v'(1)=0$} \qquad \forall v\in V
+\end{eqnarray*}
+
+Thus we get 
+\[
+\int_0^1 (k(x)u''(x)) v''(x) dx = \int_0^1 f(x) v(x) dx 
+\]
+where 
+\[
+a(u,v)= \int_0^1 (k(x)u''(x)) v''(x) dx \qquad \mbox{and} \qquad (f,v)= \int_0^1 f(x) v(x)\, dx \qquad \forall v\in V
+\]
+To show that the form $a(u,v)$ in part is an inner product, we must verify the three basic properties:
+      \begin{itemize}
+      \item \textbf{Symmetry} is apparent by inspection:
+            \begin{eqnarray*}
+               a(u,v) 
+               &=& \int_0^1  k(x) u''(x) v''(x)  \,dx   \\[0.5em]
+               &=& \int_0^1  k(x) v''(x) u''(x) \,dx 
+               \,=\, a(v,u).
+           \end{eqnarray*}
+
+      \item \textbf{Linearity} follows from the
+            linearity of differentiation and integration:
+            \begin{eqnarray*}
+              a(\alpha u + \beta v, w)
+               &=& \int_0^1 k(x) (\alpha u + \beta v)''(x) w''(x) \,dx \\[0.5em]
+               &=& \int_0^1 k(x) (\alpha u''(x) + \beta v''(x)) w''(x) \,dx \\[0.5em]
+               &=& \int_0^1 \alpha k(x) u''(x)  w''(x) + \beta k(x)  v''(x) w''(x) \,dx \\[0.5em]
+                &=& \alpha \int_0^1 k(x) u''(x)  w''(x) + \beta \int_0^1 k(x)  v''(x) w''(x) \,dx \\[0.5em]
+               &=& \alpha @ a(u,w) + \beta @ a(v,w).
+               \end{eqnarray*}
+      \item \textbf{Positivity} requires that $a(u,u) \ge 0$ and $a(u,u) = 0$ only when $u=0$.
+            Note that
+               \begin{eqnarray*}
+               a(u,u) &=& \int_0^1 k(x) u''(x) u''(x)  \,dx \\[0.5em]
+                      &=& \int_0^1  k(x) \Big(u''(x)\Big)^2 \,dx.
+               \end{eqnarray*}
+            Since $k(x)$ is  positive for all $x\in[0,1]$, 
+            integrand is non-negative, and hence $a(u,u)\ge 0$.
+            To have $a(u,u)=0$,we must have  $u''(x) = 0$ for all $x\in[0,1]$, which is only possible
+            if $u(x)= bx+c$ by BC $b=c=0$ then $u(x)=0$ for all $x\in[0,1]$, i.e., $u=0$.
+      \end{itemize}
+      
+     
+ \item   Let $V_n = span\{\phi_1, \cdots, \phi_n\}$ is an n-dimensional subspace of $C_D^4[0, 1].$ We would like to shot that 
+\[
+a(u_n, v) = (f, v), \qquad \mbox{for all}\:\: v \in V_n
+\]
+ leads to a linear system.\\
+ 
+
+The Galerkin solution can be defined by the linear combination of basis function $u_n = \sum_{j=1}^n u_j \phi_j(x)$ for coefficients  $u_j$. Then 
+\[
+a(\sum_{j=1}^n u_j \phi_j(x), \phi_i(x)) = (f, \phi_i(x)), \qquad \mbox{for}\:\: i=1, \cdots , n 
+\]  
+By the linearity of bilinear form 
+
+\[
+\sum_{j=1}^n a(\phi_j(x), \phi_i(x))  u_j  = (f, \phi_i(x)), \qquad \mbox{for}\:\: i=1, \cdots , n 
+\] 
+This leads to a linear system of $N$ equations with $N$ unknown. If we define that system as $Ku=f$ then each component of $K$ and $f$ will be
+\[
+K_{ij}=  a(\phi_j(x), \phi_i(x))= \int_0^1 k(x) \phi_j''(x) \phi_i''(x) \, dx \qquad \mbox{for} \:\:\:i,j=1, \cdots , n 
+\]
+and 
+\[
+f_{i}= (f(x), \phi_i(x))= \int_0^1 f(x) \phi_i(x) \, dx \qquad \mbox{for} \:\:\:i=1, \cdots , n 
+\]
+$u$ is our solution vector with $u= [u_1, u_2, \cdots, u_n]^T$.
+
+\item Now if we take for $\phi_1, \cdots, \phi_n$  the standard piecewise linear 'hat' functions as in Problem 2. We will get $ \phi_i''(x) = 0$ for $i=1,\cdots , n$. That leads our stiffness matrix $K=0$. Therefore, this hat function is not suitable for Euler Bernoulli beam problem.\\
+
+By the same idea, we want to define a hat function satisfy following property
+
+															\[
+															\phi_i(x_j) = \left\{
+															\begin{array}{ll}
+															1 & \mbox{if }i = j;\\
+															0 & \mbox{if} i\neq j;
+															\end{array}\right.
+															\]
+
+Also for $$K_{ij}= \int_0^1 k(x) \phi_j''(x) \phi_i''(x) \, dx $$ we need second derivative of the hat function. For simplify, let pick a hat function second derivative is constant.\\
+
+In that case , the  new hat function
+ 
+																			 \[
+																			\phi_i(x) = \left\{
+																			\begin{array}{ll}
+																			\displaystyle{\left({x-x_{i-1}\over h}\right)^2} & \mbox{if }x\in [x_{i-1}, x_i];\\
+																			\displaystyle{\left({x_{i+1}-x\over h}\right)^2} & \mbox{if }x\in [x_i, x_{i+1});\\
+																			0 & \mbox{otherwise};
+																			\end{array}\right.
+																			\]
+ 
+With these choose we will get again tridiagonal matrix $K$ such that
+\[
+K_{ii}=  \int_0^1 k(x) \phi_i''(x) \phi_i''(x) \, dx=  \int_{x_{i-1}}^{x_{i+1}} k(x) \phi_i''(x) \phi_i''(x) \, dx
+\] 
+
+\[
+K_{i(i+1)}=  \int_0^1 k(x) \phi_i''(x) \phi_{i+1}''(x) \, dx=  \int_{x_{i}}^{x_{i+1}} k(x) \phi_i''(x) \phi_{i+1}''(x) \, dx
+\] 
+
+By symmetry $K_{ij} = K_{ji}$. \\
+Finally, for  $|i-j|>1$, 
+
+\[
+K_{ij}=  \int_0^1 k(x) \phi_i''(x) \phi_{j}''(x) \, dx = 0
+\] 
+
+\end{enumerate}
+\end{solution}
+}{}
