@@ -1,3 +1,4 @@
+
 In the homeworks and in class we used the hat function basis $\left\{ \phi_{i}(x) \right\}_{i=1}^{N}$ defined on an evenly
 spaced mesh $\left\{  x_0, x_1, \ldots x_N, x_{N+1}  \right\}$ of the interval $[0,1]$ where $x_0=0$, $x_{N+1}=1$ and $h = x_n - x_{n-1}$ is a constant value to boundary value problems like equation (\ref{eqn:bvp2}) using the finite element method. 
  
@@ -12,14 +13,15 @@ spaced mesh $\left\{  x_0, x_1, \ldots x_N, x_{N+1}  \right\}$ of the interval $
 \end{equation}
 %\]
 
-Suppose that the number of internal mesh points, $N$, on the interval $[0,1]$ is odd. Define a basis $\left\{ \psi_{i} \right\}_{i=1}^{N}$ by $\psi_{i} = \phi_{i}$ for $i \neq \frac{N+1}{2}$  For $i = \frac{N+1}{2}$ we define $\psi_{i}$ to be the "super-hat" function of formula (\ref{eqn:superhat}).  Define $V_{h} = \text{span}\left\{\psi_{0},\ldots,\psi_{N}\right\}$
+Suppose that the number of internal mesh points, $N$, on the interval $[0,1]$ is odd.  Since the mesh is assumed to be evenly spaced the middle point $x_{ (N+1)/2} = 1/2$. Define a basis $\left\{ \psi_{i} \right\}_{i=1}^{N}$ by $\psi_{i} = \phi_{i}$ for $i \neq \frac{N+1}{2}$  For $i = \frac{N+1}{2}$ we define $\psi_{i}$ to be the `super-hat' function of formula (\ref{eqn:superhat}).  Define $V_{h} = \text{span}\left\{\psi_{0},\ldots,\psi_{N}\right\}$
+
 
 \begin{equation}\label{eqn:superhat}
 \psi_{(N+1)/2} = 
 \left\{
      \begin{array}{cc}
-     f(x) & x \in [0,x_{(N+1)/2}]\\
-     g(x) & x\in [ x_{(N+1)/2},1]
+       2x       & x \in [0,\frac12]\\ %[0,x_{(N+1)/2}]\\
+      -2x+2  & x\in [\frac12,1] %[ x_{(N+1)/2},1] 
      \end{array}
    \right.
 \end{equation}
@@ -32,12 +34,15 @@ Suppose that the number of internal mesh points, $N$, on the interval $[0,1]$ is
 \item Write the discrete weak problem, also called the variational formulation, for the finite element method corresponding to solving the problem (\ref{eqn:bvp2}) in $V_{h}$.
 
 \item If the solution $u_h(x) \in V_h$ is written $u_h = \Sigma_{i=1}^{N} \alpha_{i}\psi_{i}(x)$ then the discrete weak problem is a matrix problem $A\mathbf{\alpha} = \mathbf{f}$ where $A_{ij} = a(\psi_j,\psi_i)$ and $\mathbf{f}_i = \int_{0}^{1}  f \psi_i$.  Supposing that $k(x) = f(x) = 1$ determine the general form for the entries for the matrix $A$ and vector $\mathbf{f}$.
-
 \item Explain in one sentence the effect of the large support set of the super-hat function on the matrix $A$. (A `support set' of a function $f(x)$ can be thought of as the set of points where f(x) is nonzero)
-
-
-
 \end{enumerate}
+
+
+%\begin{figure}[h] 
+%\centering
+%\includegraphics[width=0.2\textwidth]{superhat.png}
+%\caption{The `super hat' function $\psi_{(N+1)/2}$}    \label{fig:zal2D_1r_2r}
+%\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

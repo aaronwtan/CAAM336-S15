@@ -2,16 +2,26 @@ Consider the \textit{Euler Bernoulli beam equation},
 \[
 (k(x)u''(x))'' = f(x), \qquad 0 < x < 1,
 \]
-with boundary conditions describing a beam that is \textit{clamped} at both ends:
-\[u(0) = u(1) = 0; \qquad  u'(0) = u'(1) = 0
-\]
 Here $k(x)$ is a positive-valued function that describes the material properties of the beam.
-With these boundary conditions, the eigenvalues and eigenvectors of this operator are diffcult to
-compute even if $k(x)=1$. We will consider finite element solutions of this problem.
 
 \begin{enumerate}
-\item Derive the weak form of the beam equation with the above boundary conditions, i.e., derive the
-weak problem
+\item Verify that, for $k(x) = 1$, the functions 
+\[
+\sin(\mu_j x),\quad \cos(\mu_jx), \quad \sinh(\mu_jx),\quad \cosh(\mu_jx)
+\]
+are all eigenfunctions the operator $Lu = u''''$ with eigenvalues $\lambda_j$, where $\mu_j = \lambda_j^{1/4}$ and where hyperbolic sine/cosine are defined as
+\[
+\sinh(x) = \frac{e^x-e^{-x}}{2}, \quad \cosh(x) = \frac{e^x+e^{-x}}{2}.
+\]
+\emph{Hint: the derivatives of $\sinh$ and $\cosh$ may be written in terms of $\sinh$ and $\cosh$.}
+
+\item Consider boundary conditions describing a beam that is \textit{clamped} at both ends:
+\[
+u(0) = u(1) = 0; \qquad  u'(0) = u'(1) = 0.
+\]
+With these boundary conditions, the eigenvalues and eigenvectors of this operator are diffcult to compute, even if $k(x)=1$.  As a result, we will consider the finite element approximation of this problem.  
+
+Derive the weak form of the beam equation with the above boundary conditions, i.e., derive the weak problem
 \[
 a(u,v) = (f, v); \qquad \mbox{for all} \:\:v \in V = C_D^4[0, 1],
 \]

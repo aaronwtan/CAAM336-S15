@@ -15,30 +15,43 @@ c &d
 \]
 
 \begin{enumerate}
-\item Show that, if $k(x) > 0$ for $0 < x < 1$ that $a(u,v)$
+\item If $k(x) > 0$ for $0 < x < 1$, the weak form
 \[
 a(u,v) = \int_0^1 k(x)\pd{u}{x}{}\pd{v}{x}{}
 \]
-defines an inner product.  Then, explain why, if $k(x) = 0$ over some interval $[a,b] \subset [0,1]$, $a(u,v)$ may not be positive definite (and hence not an inner product).  
-\item Compute the finite element matrix $K_{ij} = a(\phi_j,\phi_i)$ for $N = 2$ and $k(x)$ 
+defines an inner product for $C^2_D[0,1]$.  Explain why, if $k(x) = 0$ over some interval $[a,b] \subset [0,1]$, $a(u,v)$ may not be positive definite (and hence not an inner product).  
+\item Assume that $N = 2$, such that there are two hat functions $\phi_1(x),\phi_2(x)$ centered around points 
+\[
+x_1 = 1/3, \quad x_2 = 2/3.
+\]
+Give a formula for the entries of the $2\times 2$ finite element matrix $K_{ij} = a(\phi_j,\phi_i)$ for $k(x)$
 \[
 k(x) = x.
 \]
+where $\phi_j$ are the hat functions
+\[
+\phi_j(x) = \begin{cases}
+\frac{x-x_{j-1}}{h} & x_{j-1} < x \leq x_j\\
+\frac{x_{j+1}-x}{h} & x_{j} < x \leq x_{j+1}\\
+0 & {\rm otherwise}.
+\end{cases}
+\]
+
 \item Let $k(x)$ be the function
 \[
 k(x) = \begin{cases}
-0 & x \leq a\\
-1 & x > a.
+0 & x \leq 2/3\\
+1 & x > 2/3.
 \end{cases}
 \]
-Verify that the finite element stiffness matrix for $N=2$ is
-\[
-A = \left[
-\begin{array}{cc}
-0 &0\\
-0 &3
-\end{array}
-\right].
-\]
-Explain what complications arise when attempting to solve this system.  \emph{Hint: you may wish to compute the eigenvalues of this matrix.}
+Compute the finite element stiffness matrix for $N=2$.  Verify that $A_{11} = A_{21} = 0$.  
+%\[
+%A = \left[
+%\begin{array}{cc}
+%0 &0\\
+%0 &3
+%\end{array}
+%\right].
+%\]
+Explain what complication arises if one attempts to solve this system/invert this matrix.  %\emph{Hint: you may wish to compute the eigenvalues of this matrix.}
 \end{enumerate}
