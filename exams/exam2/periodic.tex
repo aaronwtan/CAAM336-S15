@@ -8,23 +8,23 @@ C^2_P[0,1] = \left\{
 u\in C^2[0,1], \quad u(0) = u(1), \quad \pd{u(0)}{x}{} = \pd{u(1)}{x}{}.
 \right\}
 \]
-and define the operator $L:C^2_P[0,1]\rightarrow C[0,1]$ such that $Lu = -\pd{u}{x}{2}$. Note that this operator has a zero eigenvalue with zero eigenfunction $\phi_0(x) = 1$. 
+and define the operator $L:C^2_P[0,1]\rightarrow C[0,1]$ such that $Lu = -\pd{u}{x}{2}$. Note that this operator has a zero eigenvalue with zero eigenfunction $\psi_0(x) = 1$. 
 
 \begin{enumerate}
 \item Define $\phi_j, \psi_j$ 
 \[
 \phi_j(x) = \sin(j\pi x), \quad \psi_j(x) = \cos(j\pi x), \quad j = 1,2,\ldots.
 \]
-Verify that $\phi_j,\psi_j$, are eigenfunctions with eigenvalues $\lambda_j = (j\pi)^2$, and that linear combinations $f(x)$ of $\phi_j,\psi_j$, and $\psi_0$
+Verify that $\phi_j,\psi_j$, are also eigenfunctions of $L$ with eigenvalues $\lambda_j = (j\pi)^2$, and that linear combinations $f(x)$ of $\phi_j,\psi_j$, and $\psi_0$
 \[
 f(x) = d_0 + \sum_{j = 1}^\infty \left( c_j \sin(j\pi x) + d_j \cos(j\pi x)\right)
 \]
 satisfy periodic boundary conditions.
 \item Show for the operator $A:C^2_P[0,1]\rightarrow C[0,1]$, defined as
 \[
-Au = u + Lu
+Au = u + Lu = u - \pd{u}{x}{2}
 \]
-that $\phi_j, \psi_j$ are eigenfunctions of $A$ with eigenvalues $\mu_j = 1 + (j\pi)^2$, and that $\phi_0$ is an eigenfunction with eigenvalue $\mu_0 = 1$.  Explain briefly why we may solve 
+that $\phi_j, \psi_j$ are eigenfunctions of $A$ with eigenvalues $\mu_j = 1 + (j\pi)^2$, and that $\psi_0$ is an eigenfunction with eigenvalue $\mu_0 = 1$.  Explain briefly why we may solve 
 \[
 u(x) - \pd{u(x)}{x}{2} = f(x)
 \]
@@ -34,12 +34,17 @@ using the spectral method, but not the steady state heat equation $-\pd{u}{x}{2}
 f(x) = d_0 + \sum_{j = 1}^\infty \left( c_j \sin(j\pi x) + d_j \cos(j\pi x)\right),\\
 u(x) = \beta_0 + \sum_{j=1}^\infty \left( \alpha_j \sin(j\pi x) + \beta_j \cos(j\pi x) \right).
 \end{align*}
-Write down the spectral method solution for the equation
+%Write down the spectral method solution for the equation
+Derive that the spectral method solution for the equation
 \[
 u(x) - \pd{u(x)}{x}{2} = f(x), \quad u(0) = u(1), \quad \pd{u(0)}{x}{} = \pd{u(1)}{x}{}.
 \]
-In other words, give expressions for the coefficients $\alpha_j,\beta_j, \beta_0$ that depend on $c_j, d_j, d_0$, and $\lambda_j$ or $\mu_j$.  \emph{You may use without proof that $\phi_j, \psi_j$, and $\psi_0$ are linearly independent, or that they are orthogonal under the inner product $(f,g) = \int_0^1 f(x)g(x) dx$.}
-\item Use the spectral method to solve for $u(x)$ such that
+is given by the above expression for $u(x)$ where
+\[
+\beta_0 = d_0, \quad \alpha_j = \frac{c_j}{1+(j\pi)^2}, \quad \beta_j = \frac{d_j}{1+(j\pi)^2}.
+\]
+%In other words, give expressions for the coefficients $\alpha_j,\beta_j, \beta_0$ that depend on $c_j, d_j, d_0$, and $\lambda_j$ or $\mu_j$.  \emph{You may use without proof that $\phi_j, \psi_j$, and $\psi_0$ are linearly independent, or that they are orthogonal under the inner product $(f,g) = \int_0^1 f(x)g(x) dx$.}
+\item Solve for $u(x)$ such that
 \[
 u(x) - \pd{u(x)}{x}{2} = 1 + \cos(\pi x), \quad u(0) = u(1), \quad \pd{u(0)}{x}{} = \pd{u(1)}{x}{}.
 \]

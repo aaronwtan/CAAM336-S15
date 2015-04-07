@@ -2,14 +2,18 @@ Consider the \textit{Euler Bernoulli beam equation},
 \[
 (k(x)u''(x))'' = f(x), \qquad 0 < x < 1,
 \]
-Here $k(x)$ is a positive-valued function that describes the material properties of the beam.
+Here $k(x)$ is a positive-valued function that describes the material properties of the beam.  
 
 \begin{enumerate}
-\item Verify that, for $k(x) = 1$, the functions 
+\item Define the operator $L:C^4[0,1]\rightarrow C[0,1]$ 
+\[
+Lu = (k(x)u'')''
+\]
+Verify that, for $k(x) = 1$, the functions 
 \[
 \sin(\mu_j x),\quad \cos(\mu_jx), \quad \sinh(\mu_jx),\quad \cosh(\mu_jx)
 \]
-are all eigenfunctions the operator $Lu = u''''$ with eigenvalues $\lambda_j$, where $\mu_j = \lambda_j^{1/4}$ and where hyperbolic sine/cosine are defined as
+are all eigenfunctions of $L$ with eigenvalues $\lambda_j$, where $\mu_j = \lambda_j^{1/4}$ and where hyperbolic sine/cosine are defined as
 \[
 \sinh(x) = \frac{e^x-e^{-x}}{2}, \quad \cosh(x) = \frac{e^x+e^{-x}}{2}.
 \]
@@ -31,8 +35,8 @@ C_D^4[0, 1] = \{u \in C^4[0, 1] : u(0) = u(1) = u'(0) = u'(1) = 0\}.
 \]
 
 Specify the bilinear form $a(u, v)$, and show that it is an inner product on $C_D^4[0, 1]$
-\\
-\emph{Note: for the problem $-(k u')' = f$, we do not explicitly impose Neumann boundary conditions, they follow 'naturally'. For the beam equation, we must impose all four boundary conditions on the space of test functions, $V =C_D^4[0, 1].$}
+%\\
+%\emph{Note: for the problem $-(k u')' = f$, we do not explicitly impose Neumann boundary conditions, they follow 'naturally'. For the beam equation, we must impose all four boundary conditions on the space of test functions, $V =C_D^4[0, 1].$}
 
 \item Suppose that $V_n = span\{\phi_1, \cdots, \phi_n\}$ is an n-dimensional subspace of $C_D^4[0, 1].$
 (Do not assume a particular form for the functions $\phi_1, \cdots, \phi_n$ at this point.)

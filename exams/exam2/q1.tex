@@ -1,19 +1,42 @@
 In the homeworks, and in class, we used the spectral method to solve several problems of the form $Lu = f$ with boundary conditions.   The spectral method has conditions that must be satisfied before we can apply it.  In this problem we will explore the impact of boundary conditions on several theoretical facets of the spectral method.
 
-Consider the boundary value problem
-%\[
-\begin{equation}\label{eqn:bvp}
- \left\{
-     \begin{array}{c}
-       \frac{- \partial^{2}}{\partial_x^2}u = f\\
-       u(1) = a_{11} u(0) + a_{12} \frac{\partial u}{\partial_x}(0)\\
-       \frac{\partial u}{\partial x}(1) = a_{21} u(0) + a_{22}\frac{\partial u}{\partial_x}(0)
-     \end{array}
-   \right.
-\end{equation}
-%\]
+We'll study the steady state heat equation
+\[
+-\pd{u(x)}{x}{2} = f(x).  
+\]
+We'll also use the usual inner product 
+\[
+(f,g) = \int_{0}^{1} f(x)g(x)\, dx
+\]
 
-Define a matrix $A$  containing the boundary value coefficients by
+\begin{enumerate}
+\item Derive the spectral method eigenfunctions and eigenvalues for the steady heat equation under the boundary conditions
+\[
+\pd{u(0)}{x}{} = u(1) = 0.
+\]
+\item Consider now boundary conditions 
+\[
+u(1) =  \pd{u(1)}{x}{} = 0.
+\]
+Define the vector space $C^2_R[0,1]$ and the operator $L: C^2_R[0,1]\rightarrow C[0,1]$ such that 
+\[
+C^2_R[0,1] = \left\{ u\in C^2[0,1], \quad u(1)= \pd{u(1)}{x}{} = 0.\right\}, \quad Lu = -\pd{u}{x}{2}.
+\]
+Show that under these boundary conditions, $L$ is not symmetric, i.e.
+\[
+(Lu,v) \neq (u,Lv).
+\]
+\item Consider the more general set of boundary conditions
+\begin{align}
+       u(1) &= a_{11} u(0) + a_{12} \pd{u(0)}{x}{}             \label{eqn:bvp1}\\
+      \pd{u(1)}{x}{} &= a_{21} u(0) + a_{22}\pd{u(0)}{x}{}\label{eqn:bvp2}
+\end{align}
+We can define a vector space of functions $V_A$ to be those functions in $C^{2}[0,1]$ satisfying the boundary conditions of the boundary value problem of equation (\ref{eqn:bvp1}) and (\ref{eqn:bvp2}). % Show that $V_A$ is a vector space by showing that $0\in V_A$ and $\alpha f + g \in V_A$ whenever $\alpha$ is a real number and $f$, $g$ are in $V_A$.
+ Define $L:V_A \rightarrow C[0,1]$ as 
+\[
+Lu = -\pd{u}{x}{2}.
+\]
+We also define a matrix $A$ containing the boundary condition coefficients
 \[
  A = \left[
      \begin{array}{cc}
@@ -22,17 +45,11 @@ Define a matrix $A$  containing the boundary value coefficients by
      \end{array}
    \right]
 \]
+Whether or not $L$ is symmetric turns out to depend on the determinant of the matrix $A$.  What should ${\rm det}(A)$ be in order for $L$ to be symmetric on $V_A$? \emph{Hint: the determinant of a $2\times 2$ matrix is ${\rm det}(A) = a_{11}a_{22} - a_{12}a_{21}$.  Your answer should be a number}.  
 
-Recall: the determinant of a $2\times 2$ matrix is $det(A) = a_{11}a_{22} - a_{12}a_{21}$.
-
-\begin{enumerate}
-\item Define a space of functions $V_A$ to be those functions in $C^{2}[0,1]$ satisfying the boundary conditions of the boundary value problem of equation (\ref{eqn:bvp}).  Show that $V_A$ is a vector space by showing that $0\in V_A$ and $\alpha f + g \in V_A$ whenever $\alpha$ is a real number and $f$, $g$ are in $V_A$.
-
-\item Consider the usual inner product $(f,g) = \int_{0}^{1} fg\, dx$ on V and define $L= -\frac{ \partial^{2}}{\partial_x^2}$.  Whether or not $L$ is symmetric can be shown to depend on the value of the determinant of the matrix $A$.  What should $det(A)$ be in order for $L$ to be symmetric on $V_A$? (your answer should be a number, show all work).
-
-\item Consider the case where $a_{11} = a_{22} = 1$ and $a_{12} = a_{22} = 0$. Is zero an eigenvalue of $L$ in $V_A$? 
-
-\item Consider the case where $a_{11} = 1$, $a_{22} = -1$, $a_{12} = 1$ and $a_{21} = -2$. What is the null space of $L$ in $V_A$?
+%\item Consider the case where $a_{11} = a_{22} = 1$ and $a_{12} = a_{22} = 0$. Is zero an eigenvalue of $L$ in $V_A$? 
+%
+%\item Consider the case where $a_{11} = 1$, $a_{22} = -1$, $a_{12} = 1$ and $a_{21} = -2$. What is the null space of $L$ in $V_A$?
 
 %To apply the spectral theory the operator $L = -\frac{ \partial^{2}}{\partial_x^2}$ needs to be symmetric, i.e. $(Lf,g) = (f,Lg)$ for all $f,g \in V_A$.  Determine the conditions on $a_{11}, a_{12}, a_{21}, a_{22}$ so that this is true.  
 
