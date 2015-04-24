@@ -1,0 +1,250 @@
+\begin{enumerate}
+\item Let $B$ be defined as the matrix
+\[
+B =  \left[\begin{array}{rrrrr}
+              0 & 1 \\[0.25em]
+               1 & 0 & 1 \\
+                 &  1  & 0 & \ddots \\
+                 & & \ddots & \ddots & 1 \\[0.25em]
+                 & & & 1 & 0 
+               \end{array}\right].
+\]
+Using trigonometric identities, verify that the eigenvalues $\lambda_i$  and eigenvectors $v_i$ of $B$ are
+\[
+\lambda_i = 2\cos\left(\frac{i \pi}{N+1}\right), \qquad v_i = \left[\begin{array}{c}
+\sin\left(\frac{i\pi}{N+1}\right)\\
+\sin\left(\frac{2i\pi}{N+1}\right)\\
+\vdots\\
+\sin\left(\frac{(N-1)i \pi}{N+1}\right)\\
+\sin\left(\frac{N i \pi}{N+1}\right)
+\end{array}\right], \qquad i = 1,\ldots N.
+\]
+(Note: some of you may remember this problem from CAAM 335, Spring 2014. This is intentional, and meant to give additional practice to those who did not enjoy the luxury of a semester-long CAAM excursion into matrix theory.)
+
+%\item For $A$ defined as
+%\[
+%A = {\kappa\over h^2} \left[\begin{array}{rrrrr}
+%              2 & -1 \\[0.25em]
+%               -1 & 2 & -1 \\
+%                 &  -1  & 2 & \ddots \\
+%                 & & \ddots & \ddots & -1 \\[0.25em]
+%                 & & & -1 & 2 
+%               \end{array}\right],
+%\]
+%show that $A$ is positive-definite by showing $x^TAx > 0$ for any nonzero vector $x$ (hint: $x^TAx = x^T(Ax)$, and terms should cancel). 
+
+\item The finite difference matrix $A$ for the steady heat equation
+\[
+-\kappa \pd{u}{x}{2} = f(x)
+\]
+(with zero Dirichlet boundary conditions) can be written as
+\[
+A = \frac{\kappa}{h^2}(2I - B),
+\] 
+use part (a) to determine the eigenvalues of $A$ in terms of $\kappa$, $h$, and $i, N$.  \emph{Hint: you may use that, if $B$ has eigenvalues $\lambda_i$ and eigenvectors $v_i$, then $\alpha I + B$ has eigenvalues $\alpha + \lambda_i$, $\alpha B$ has eigenvalues $\alpha \lambda_i$, and both have eigenvectors $v_i$.  }
+\item We may represent any vector $u \in \R^n$ as a linear combination of the eigenvectors 
+\[
+u  = \sum_{j=1}^N \alpha_j v_j.
+\]
+Use this representation to show that 
+\[
+A^n u = \sum_{j=1}^N \alpha_j \lambda_j^n v_j.  
+\]
+\item If we use finite differences, the forward Euler update for the unsteady heat equation may be written as
+\[
+u_{k+1} = (I - dt A)u_k.
+\]
+Show that 
+\[
+u_{k+1} = (I - dt A)^{k+1}u_0.
+\]
+and explain, using the result of part (b) and (c), why $dt > \frac{h^2}{2\kappa}$  will cause the solution to blow up as $i\rightarrow \infty$.  \emph{Hint: if $|a| > 1$, then $|a|^k \rightarrow \infty$ as $k$ increases.  What are the eigenvalues of $(I-dt A)$?}
+
+%Show that, since $A$ has an orthonormal eigenvector expansion
+%\[
+%A = V\Lambda V^T
+%\]
+%where $V^TV = I$, that $x^TAx > 0$ for any $x$ implies that the eigenvalues $\lambda_i > 0$.  Hint: choose $x$ very specifically to show a single eigenvalue is positive.  
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{
+\begin{solution}
+\begin{enumerate}
+\item We need to show that $Av_j = \lambda_j v_j$ for each $j=1\ldots, N$.  
+We will do so by showing
+that each entry of the vector $Av_j$ matches the corresponding entry of $\lambda_j v_j$.
+There are three cases to study: the first entry; the $k$th entry, $2\le k\le N-1$; the last entry.
+\begin{itemize}
+\item For the first entry, we want to show that $(Av_j)_1 = (\lambda_j v_j)_1$.
+Substituting in the formulas for $v_j$ and $\lambda_j$, we see that
+\[ (Av_j)_1 =  \sin\Big({2j\pi\over N+1}\Big), \qquad
+   (\lambda_j v_j) =  2@@\cos\Big({j \pi \over N+1}\Big)\sin\Big({j\pi\over N+1}\Big).\]
+Using the double-angle identity $2\cos(\theta)\sin(\theta) = \sin(2\theta)$, we see that
+\[    2@@\cos\Big({j\pi\over N+1}\Big) \sin\Big({j\pi\over N+1}\Big) 
+       = \sin\Big({2j\pi\over N+1}\Big),\]
+and so $(Av_j)_1 = (\lambda_j v_j)_1$.
+
+\item
+For the interior entries, we need to show that $(Av_j)_k = (\lambda_j v_j)_k$ for $k=2,\ldots, N-1$,
+where
+\[ (Av_j)_k = \sin\Big({j(k-1)\pi\over N+1}\Big) + \sin\Big({j(k+1)\pi\over N+1}\Big), \qquad
+           (\lambda_j v_j)_k = 2@@\cos\Big({j\pi\over N+1}\Big) \sin\Big({kj\pi\over N+1}\Big).\]
+Recall the ``product-to-sum'' formula $2 \cos(\phi)\sin(\theta) = \sin(\theta+\phi)+\sin(\theta-\phi)$.
+With $\phi = j\pi/(N+1)$ and $\theta = kj \pi/(N+1)$, we have
+\begin{eqnarray*}
+  (\lambda_j v_j)_k &=& 2\cos\Big({j\pi\over N+1}\Big) \sin\Big({jk\pi\over N+1}\Big) \\[.5em]
+     &=& \sin\Big({(k+1)j \pi \over N+1} \Big)+\sin\Big({(k-1)j\pi \over N+1}\Big) \\[.5em]
+     &=& (Av_j)_k,
+\end{eqnarray*}
+as required.
+
+\item To show that $(Av_j)_N = (\lambda_j v_j)_N$, we consider
+\[ (Av_j)_N =  \sin\Big({(N-1)j\pi\over N+1}\Big), \qquad
+   (\lambda_j v_j)_N =  2@@\cos\Big({j \pi \over N+1}\Big)\sin\Big({Nj\pi\over N+1}\Big).\]
+As we use the identity $2 \cos(\phi)\sin(\theta) = \sin(\theta+\phi)+\sin(\theta-\phi)$. 
+With $\phi = j\pi/(N+1)$ and $\theta = Nj \pi/(N+1)$, we have
+\begin{eqnarray*}
+  (\lambda_j v_j)_N &=& 2\cos\Big({j\pi\over N+1}\Big) \sin\Big({jk\pi\over N+1}\Big) \\[.5em]
+     &=& \sin\Big({(N+1)j \pi \over N+1} \Big)+\sin\Big({N-1)j\pi \over N+1}\Big) \\[.5em]
+     &=& \sin\Big(j \pi\Big)+\sin\Big({N-1)j\pi \over N+1}\Big) \\[.5em]
+     &=& \sin\Big({N-1)j\pi \over N+1}\Big),
+\end{eqnarray*}
+where the last step used the fact that $j$ is an integer.  Notice that this last quantity is
+precisely $(Av_j)_N$, so we have shown that $(Av_j)_N = (\lambda_j v_j)_N$.  
+\end{itemize}
+%\item Since, ${\kappa\over h^2} > 0$ if $\kappa > 0$, $A = {\kappa\over h^2}T$ is positive definite if the matrix $T$ is positive definite, where 
+%\[
+%T = \left[\begin{array}{rrrrr}
+%              2 & -1 \\[0.25em]
+%               -1 & 2 & -1 \\
+%                 &  -1  & 2 & \ddots \\
+%                 & & \ddots & \ddots & -1 \\[0.25em]
+%                 & & & -1 & 2 
+%               \end{array}\right].
+%\]
+%Multiplying out $Tx$ gives
+%\[
+%Tx = \left(
+%\begin{array}{c}
+%2x_1 - x_2\\
+%-x_1 + 2x_2 - x_3\\
+%\vdots\\
+%-x_{i-1} + 2x_i - x_{i+1}\\
+%\vdots\\
+%-x_{N-1}  + 2x_N
+%\end{array}
+%\right).
+%\]
+%Then, $x^T T x$ gives
+%\begin{align*}
+%x^T Tx =& 2x_1^2 - x_2x_1\\
+%& - x_2x_1 + 2x_2^2 - x_2 x_3 \\
+%& + \ldots + \\
+%& x_{i-1}x_{i-2} + 2x_{i-1}^2 - x_{i-1}x_i\\
+%& -x_ix_{i-1} + 2x_i^2 - x_ix_{i+1}\\
+%& + \ldots + \\
+%& -x_{N-1}x_N  + 2x_N^2.
+%\end{align*}
+%Notice that $(x_i-x_{i-1})^2 = x_{i-1}^2 - 2x_ix_{i-1} + x_i^2$.
+%Rearranging terms in the above expression gives 
+%\begin{align*}
+%x^T Tx = & x_1^2 \\
+%&+ x_1^2 - 2x_2x_1 + x_2^2\\
+%%& + x_2^2 - 2x_2 x_3 + x_3^2\\
+%& + \ldots + \\
+%& x_{i-1}^2 - 2x_ix_{i-1} + x_i^2\\
+%& + \ldots + \\
+%& x_{N-1}^2 - 2x_Nx_{N-1} + x_N^2\\
+%& x_N^2.
+%\end{align*}
+%which reduces down to 
+%\begin{align*}
+%x^T Tx = & x_1^2 \\
+%& + (x_1-x_2)^2\\
+%%& + (x_2-x_3)^2\\
+%& + \ldots + \\
+%& + (x_{i-1}-x_i)^2\\
+%& + \ldots + \\
+%& + (x_{N-1}-x_N)^2\\
+%& x_N^2.
+%\end{align*}
+%Since all these terms are positive, the matrix $T$ is positive definite, and thus $A$ is also positive definite. 
+\item This is simply algebraic manipulation: since the eigenvalues of $B$ are 
+\[
+\mu_i = 2\cos\left(\frac{i \pi}{N+1}\right).
+\]
+The eigenvalues of $2I - B$ are then $2-\mu_i$ .  Similarly, scaling by a constant scales the eigenvalues by that constant.  The eigenvalues of $A = {\kappa\over h^2}(2I-B)$ are
+\[
+\lambda_i = {\kappa \over h^2}(2-\mu_i) = {\kappa\over h^2}\left(2-2\cos\left(\frac{i \pi}{N+1}\right)\right), \quad i = 1,\ldots, N.
+\]
+\item If we take
+\[
+u = \sum_{j=1}^N\alpha_j v_j
+\]
+and multiply by $A$, we have
+\[
+Au = A(\sum_{j=1}^N\alpha_j v_j) = \sum_{j=1}^N \alpha_j Av_j = \sum_{j=1}^N \alpha_j \lambda_j v_j.  
+\]
+Applying $A$ twice, we have
+\[
+A^2u = A(Au) = A(\sum_{j=1}^N\alpha_j \lambda_j v_j) = \sum_{j=1}^N \alpha_j \lambda_j Av_j = \sum_{j=1}^N \alpha_j \lambda_j^2 v_j.  
+\]
+Continuing this pattern shows that
+\[
+A^nu = \sum_{j=1}^N \alpha_j \lambda_j^n v_j.  
+\]
+\item Since $u_1 = (I-dt A)u_0$, the formula for $u_2$ is 
+\[
+u_2 = (I-dt A)u_1 = (I-dt A)^2u_0.
+\]
+Continuing this shows that 
+\[
+u_{k+1} = (I-dt A)u_{k} = (I-dt A)^2 u_{k-1} = \ldots = (I-dt A)^{k+1} u_{0}.
+\]
+By part (c), if $u_0 = \sum \alpha_j v_j$, then $u_{k+1}$ is
+\[
+(I-dt A)^{k+1}u = \sum_{j=1}^N \alpha_j \mu_j^{k+1} v_j, 
+\]
+where $\mu_j$ are the eigenvalues of $(I-dt A)$.  By (b), these eigenvalues depend on $dt$ such that
+\[
+\mu_j = 1 - dt \left(\frac{\kappa}{h^2}(2-2\cos\left(\frac{i\pi}{N+1}\right)\right).
+\]
+If $|\mu_j| > 1$, then $u_{k+1}$ will blow up as $k$ increases.  We note that
+\[
+-1 < \cos\left(\frac{i\pi}{N+1}\right) < 1
+\]
+so we can conclude that 
+\[
+0 < 2-2\cos\left(\frac{i\pi}{N+1}\right) < 4.  
+\]
+Then, our largest eigenvalue $\mu_j$ is found when $2-2\cos\left(\frac{i\pi}{N+1}\right)$ is closest to 4.  
+\[
+|\mu_j | < \left| 1 - dt 4\frac{\kappa}{h^2} \right|.
+\]
+If we choose $dt = h^2/(2\kappa)$, this reduces to 
+\[
+|\mu_j | < \left| 1 - 2 \right| = 1.
+\]
+Choosing $dt < h^2/(2\kappa)$ guarantees the solution will not blow up.  Choosing $dt$ larger means the solution may tend to infinity as $k$ increases.  
+
+\emph{Graders: please grade generously on this problem.  Full mathematical rigor is not required, only a correct reasoning.}
+
+%\item There are several ways to show that $x^TAx > 0$ implies $\lambda_i > 0$.  The easiest is to choose $x = v_i$, the $i$th eigenvector.  Then, 
+%\[
+%0 < v_i^T Av_i = v_i^T\lambda_i v_i = \lambda_i
+%\]
+%since $v_i^Tv_i = 1$ for an orthonormal set of eigenvectors $v_i$. Another way to do so is to decompose $A = V\Lambda V^T$.  Then, $x^TAx$ is
+%\[
+%0< x^TAx = x^TV\Lambda V^Tx.
+%\]
+%Define $z = V^Tx$ and we can show then that
+%\[
+%0< x^TAx = z^T\Lambda z = \sum_{i=1}^n \lambda_i z_i^2.
+%\]
+%Since this must hold for all $x \in \mathcal{R}$, and thus all $z \in \mathcal{R}$ --- since $V$ is invertible, we know both it and its transpose must be full rank, and thus $V^Tx$ can represent any vector in $\mathcal{R}$ --- this implies all the $\lambda_i >0$ as well.  
+
+\end{enumerate}
+\end{solution}
+}{}

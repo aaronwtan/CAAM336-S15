@@ -26,10 +26,10 @@ Show that under these boundary conditions, $L$ is not symmetric, i.e.
 \[
 (Lu,v) \neq (u,Lv).
 \]
-\item Consider the more general set of boundary conditions
+\item Consider the more general set of boundary conditions with $a,b,c,d$ as constants
 \begin{align}
-       u(1) &= a_{11} u(0) + a_{12} \pd{u(0)}{x}{}             \label{eqn:bvp1}\\
-      \pd{u(1)}{x}{} &= a_{21} u(0) + a_{22}\pd{u(0)}{x}{}\label{eqn:bvp2}
+       u(1) &= a u(0) + b \pd{u(0)}{x}{}             \label{eqn:bvp1}\\
+      \pd{u(1)}{x}{} &= c u(0) + d\pd{u(0)}{x}{}\label{eqn:bvp2}
 \end{align}
 We can define a vector space of functions $V_A$ to be those functions in $C^{2}[0,1]$ satisfying the boundary conditions of the boundary value problem of equation (\ref{eqn:bvp1}) and (\ref{eqn:bvp2}). % Show that $V_A$ is a vector space by showing that $0\in V_A$ and $\alpha f + g \in V_A$ whenever $\alpha$ is a real number and $f$, $g$ are in $V_A$.
  Define $L:V_A \rightarrow C[0,1]$ as 
@@ -40,12 +40,12 @@ We also define a matrix $A$ containing the boundary condition coefficients
 \[
  A = \left[
      \begin{array}{cc}
-       a_{11} & a_{12} \\
-      a_{21} & a_{22}\\
+       a & b \\
+      c & d\\
      \end{array}
    \right]
 \]
-Whether or not $L$ is symmetric turns out to depend on the determinant of the matrix $A$.  What should ${\rm det}(A)$ be in order for $L$ to be symmetric on $V_A$? \emph{Hint: the determinant of a $2\times 2$ matrix is ${\rm det}(A) = a_{11}a_{22} - a_{12}a_{21}$.  Your answer should be a number}.  
+Whether or not $L$ is symmetric turns out to depend on the determinant of the matrix $A$, which is ${\rm det}(A) = ad - bc$.  What should ${\rm det}(A)$ be in order for $L$ to be symmetric on $V_A$? Your answer should be a number.
 
 %\item Consider the case where $a_{11} = a_{22} = 1$ and $a_{12} = a_{22} = 0$. Is zero an eigenvalue of $L$ in $V_A$? 
 %

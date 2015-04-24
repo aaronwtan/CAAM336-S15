@@ -1,0 +1,37 @@
+ N = input('enter N:  ');
+ dt = input('enter dt: ');
+
+ h = 1/(N+1);
+ x = h*[1:N];
+
+ M = (h/6)*(4*eye(N)+diag(ones(N-1,1),1)+diag(ones(N-1,1),-1));
+ K = (1/h)*(2*eye(N)-diag(ones(N-1,1),1)-diag(ones(N-1,1),-1));
+
+ tfinal = 1;
+ xx = linspace(0,1,1000)';     % finely spaced points between 0 and 1.
+
+ k = [1:N]';
+ f = 100*h^2*k;       % (f,phi_k) = 100*exp(-t)*h^2*k:  
+                      % compute it once, but add the "t" part at each step
+ a0 = zeros(N,1);     % initial condition
+
+ akp1 = a0;           % a_{k+1} will be computed in this variable
+ L = chol(M)';
+ for k=0:tfinal/dt-1
+    t = (k+1)*dt;
+    akp1 = (M+dt*K)\(M*akp1+dt*(exp(-t)*f));  % compute solution at t_{k+1}
+ end
+
+% plot the solution on a fine grid.
+
+ uN = zeros(size(xx));
+ for j=1:N
+   uN = uN + akp1(j)*hat(xx,j,N);
+ end
+ figure(1), clf 
+ plot(xx,uN,'b-','linewidth',2)
+ axis([0 1 -1.25 7])
+ set(gca,'fontsize',18)
+ xlabel('x')
+ ylabel('u_N(x,t)')
+ title(sprintf('time = %f', t))

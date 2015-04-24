@@ -1,0 +1,33 @@
+Consider the wave equation on an infinite spatial domain, 
+$x\in(-\infty,\infty)$, 
+but now with a forcing term:
+    \[ u_{tt}(x,t) = u_{xx}(x,t) + f(t), \qquad x\in(-\infty,\infty)\]
+subject again to the initial data
+    \[ u(x,0) = \psi(x), \qquad u_t(x,0) = \gamma(x).\]
+Verify that the formula
+       \[ u(x,t) = \widehat{u}(x,t) + t\int_0^t f(\tau)\, \dop\tau
+                                    - \int_0^t \tau f(\tau)\,\dop \tau\]
+is a solution to this inhomogeneous wave equation,
+where $\widehat{u}(x,t)$ denotes the solution of the homogeneous
+problem with the same initial data.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\boolean{showsols}}{\begin{solution}
+To verify the formula, we begin by taking temporal derivatives of the proposed solution:
+\begin{eqnarray*}
+    u_t(x,t) &=& \widehat{u}_t(x,t) + \Big({\dop\over \dop t} t\Big)
+                                          \int_0^t f(\tau)\,\dop \tau + 
+               t\Big( {\dop\over \dop t}\int_0^t f(\tau)\,\dop \tau\Big) 
+             - \Big( {\dop\over \dop t}\int_0^t \tau f(\tau)\,\dop \tau\Big) \\[0.25em]
+             &=& \widehat{u}_t(x,t) + \int_0^t f(\tau)\,\dop \tau + 
+                      tf(t) - tf(t) \\[0.25em]
+             &=& \widehat{u}_t(x,t) + \int_0^t f(\tau)\,\dop \tau\\[1em]
+    u_{tt}(x,t)
+             &=& \widehat{u}_{tt}(x,t) + 
+                  \Big( {\dop\over \dop t}\int_0^t f(\tau)\,\dop \tau\Big) \\[0.25em]
+             &=& \widehat{u}_{tt}(x,t) + f(t).
+\end{eqnarray*} 
+Now since $u_{xx}(x,t) = \widehat{u}_{xx}(x,t)$, so we can confirm that 
+\[u_{tt}(x,t) = \widehat{u}_{tt}(x,t) + f(t) = u_{xx}(x,t) +f(t),\]
+as required.
+\end{solution}}{}

@@ -4,26 +4,23 @@ In this problem, we consider the finite element method for the equation
 \]
 This models the steady state distribution of temperature in a bar, where $k(x)$ is the diffusivity of the bar at the point $x$.  Diffusivity must be positive for the equation to be physically realistic; however, if $k(x)$ is not positive, the finite element method may run into issues as well.  
 
-It may be helpful to use the fact that the determinant of a $2\times 2$ matrix is
-\[
-{\rm det}\left(\left[
-\begin{array}{cc}
-a &b\\
-c &d
-\end{array}
-\right]\right) = ad-bc.
-\]
+%It may be helpful to use the fact that the determinant of a $2\times 2$ matrix is
+%\[
+%{\rm det}\left(\left[
+%\begin{array}{cc}
+%a &b\\
+%c &d
+%\end{array}
+%\right]\right) = ad-bc.
+%\]
 
 \begin{enumerate}
 \item If $k(x) > 0$ for $0 < x < 1$, the weak form
 \[
 a(u,v) = \int_0^1 k(x)\pd{u}{x}{}\pd{v}{x}{}
 \]
-defines an inner product for $C^2_D[0,1]$.  Explain why, if $k(x) = 0$ over some interval $[a,b] \subset [0,1]$, $a(u,v)$ may not be positive definite (and hence not an inner product).  
-\item Assume that $N = 2$, such that there are two hat functions $\phi_1(x),\phi_2(x)$ centered around points 
-\[
-x_1 = 1/3, \quad x_2 = 2/3.
-\]
+defines an inner product for $C^2_D[0,1]$.  Explain roughly why, if $k(x) = 0$ over some interval $[a,b] \subset [0,1]$, $a(u,u)$ may not be positive even if $u$ is nonzero (and hence not an inner product).  It may help to try drawing a function $u(x) \neq 0$ such that $a(u,u) = 0$.
+\item 
 %Give a formula for the entries of the $2\times 2$ finite element matrix $K_{ij} = a(\phi_j,\phi_i)$ for $k(x)$
 %\[
 %k(x) = x.
@@ -38,6 +35,19 @@ x_1 = 1/3, \quad x_2 = 2/3.
 %\]
 %
 %\item 
+Let $\phi_j$ be the hat function centered around point $x_j$ with $h = 1/(N+1)$.
+\[
+\phi_j(x) = \begin{cases}
+\frac{x-x_{j-1}}{h} & x_{j-1} < x \leq x_j\\
+\frac{x_{j+1}-x}{h} & x_{j} < x \leq x_{j+1}\\
+0 & {\rm otherwise}.
+\end{cases}
+\]
+Assume that $N = 2$, such that there are two hat functions $\phi_1(x),\phi_2(x)$ centered around points 
+\[
+x_1 = 1/3, \quad x_2 = 2/3.
+\]
+
 Let $k(x)$ be the function
 \[
 k(x) = \begin{cases}

@@ -1,0 +1,169 @@
+\documentclass[10pt]{article}
+\usepackage{fullpage,336notes,ifthen}
+\parindent0em\parskip1em
+\newboolean{showsols}
+\pagestyle{empty}
+\newenvironment{solution}{\vspace*{1em} \hrule\vspace*{0.5em} {\sf Solution.} }
+                         {\vspace*{0.75em}\hrule}
+\begin{document}
+\setboolean{showsols}{false}
+%\vspace*{-3em}
+\begin{center}
+\large \textsf{\textbf{CAAM 336 $\cdot$ DIFFERENTIAL EQUATIONS}\\[0.5em]
+ Problem Set 11 \ifthenelse{\boolean{showsols}{$\cdot$ Solutions}}{}}
+\end{center}
+
+Posted Saturday 29 November 2008.  (Typos fixed 2 December.) Due Friday 5 December 2008, 5pm.\\
+This problem set is worth 100 points, plus a 20 point bonus.\\
+Your lowest homework score for the semester will be dropped when 
+computing your final mark.
+\begin{enumerate}
+
+\item {[50 points]}\\ 
+On Problem Set~10, you solved the heat equation on a two-dimensional square domain.
+Now we will investigate the wave equation on the same domain,
+a model of a vibrating membrane stretched over a square frame---that 
+is, a square drum:
+\[ u_{tt}(x,y,t) = u_{xx}(x,y,t) + u_{yy}(x,y,t),\]
+with $0\le x\le 1$, and $0\le y\le 1$, and $t\ge 0$.
+Take homogeneous Dirichlet boundary conditions
+\[ u(x,0,t) = u(x,1,t) = u(0,y,t) = u(1,y,t) = 0\]
+for all $x$ and $y$ such that $0\le x\le 1$ and $0\le y\le 1$ and all $t\ge 0$,
+and consider the initial conditions
+\[  u(x,y,0) = u_0(x,y) = \sum_{j=1}^\infty \sum_{k=1}^\infty a_{j,k}(0) \psi_{j,k}(x,y), 
+       \qquad
+   u_t(x,y,0) = v_0(x,y) 
+               = \sum_{j=1}^\infty \sum_{k=1}^\infty b_{j,k}(0) \psi_{j,k}(x,y).\]
+      Here $\psi_{j,k}(x,y) = 2 \sin(j \pi x)\sin(k \pi y)$, 
+      for $j, k\ge 1$,  are the eigenfunctions of the operator
+       \[ L u = -(u_{xx} + u_{yy}),\]
+      with homogeneous Dirichlet boundary conditions given in Problem Set~10.
+      You may use without proof that these eigenfunctions are orthogonal, 
+      and use the eigenvalues $\lambda_{j,k} = (j^2+k^2)\pi^2$ computed 
+      for Problem Set~10.
+
+\begin{enumerate}
+\item We wish to write the solution to the wave equation in the form
+       \[ u(x,y,t) = \sum_{j=1}^\infty \sum_{k=1}^\infty a_{j,k}(t) \psi_{j,k}(x,y).\]
+      Show that the coefficients $a_{j,k}(t)$ obey the ordinary differential equation
+       \[ a_{j,k}''(t) = -\lambda_{j,k} a_{j,k}(t) \]
+      with initial conditions
+       \[ a_{j,k}(0), \qquad
+         a'_{j,k}(0) = b_{j,k}(0)\]
+      derived from the initial conditions $u_0$ and $v_0$.
+
+\item Write down the solution to the differential equation in part~(a).
+
+\item Use your solution to part~(b) to write out a formula for the solution $u(x,y,t)$.
+       
+\item Suppose the string begins with zero velocity, $v_0(x)=0$, and displacement
+         \[ u_0(x,y) = 200xy (1-x) (1-y)(x-1/4)(y-1/4) 
+                     = \sum_{j=1}^\infty \sum_{k=1}^\infty 
+                        {100 (5+7(-1)^j)(5+7(-1)^k)\over j^3 k^3 \pi^6} \psi_{j,k}(x,y). \]
+
+      Submit surface (or contour) plots of the solution at times 
+      $t=0, 0.5, 1.0, 1.5, 2.5$, using $j=1,\ldots 10$ and $k=1,\ldots 10$
+      in the series.
+\end{enumerate}
+
+\item {[50 points]}\\ 
+Our model of the vibrating string predicts that motion induced by an 
+initial pluck will propagate forever with no loss of energy.
+In practice we know this is not the case: a string 
+eventually slows down due to various types of \emph{damping}.
+For example, \emph{viscous damping}, a model of air resistance,
+acts in proportion to the velocity of the string.
+The partial differential equation becomes
+\[ u_{tt}(x,t) = u_{xx}(x,t) - 2@\delta@u_t(x,t),\]
+where $\delta> 0$ controls the strength of the damping.
+Impose homogeneous Dirichlet boundary conditions,
+\[ u(0,t) = u(1,t) = 0\]
+and suppose we know the initial position and velocity of the pluck:
+\[ u(x,0) = u_0(x), \qquad u_t(x,0) = v_0(x).\]
+In our previous language, we write this PDE in the form 
+\[ u_{tt} = -L u - 2@\delta@u_t,\]
+where the operator $L$ is defined as $Lu = -u_{xx}$ with
+boundary conditions $u(0)=u(1)=0$; as you know well by now,
+this operator has eigenvalues $\lambda_k = k^2\pi^2$
+and eigenfunctions $\psi_k(x) = \sqrt{2} \sin(k \pi x)$.
+We will look for solutions to the PDE of the form
+\[ u(x,t) = \sum_{k=1}^\infty a_k(t) \psi_k(x).\]
+For simplicity, assume that $\delta\in(0,\pi)$.
+
+\begin{enumerate}
+\item From the differential equation and this form for $u(x,t)$,
+      show that the coefficients $a_k(t)$ must satisfy the
+      ordinary differential equation
+\[ a_k''(t) = -\lambda_k a_k(t) - 2 \delta a_k'(t).\]
+
+\item Show that the following function satisfies the differential equation in part~(a):
+\[ a_k(t) = C_1 \exp\!\big(\big(-\!\delta+\sqrt{\delta^2-k^2\pi^2}\big)t\big)
+            + C_2 \exp\!\big(\big(-\!\delta-\sqrt{\delta^2-k^2\pi^2}\big)t\big)\]
+      for arbitrary constants $C_1$ and $C_2$.  (Don't fret about the fact that we
+      have square roots of negative numbers; proceed in the same way you 
+      would for an exponential with real argument.)
+
+\item Now assume that the string starts with zero displacement
+      ($u_0(x) = 0$) but some velocity 
+     \[ v_0(x) = \sum_{k=1}^\infty b_k(0)  \psi(x).\]
+      Determine the values of the constants $C_1$ and $C_2$ in part~(b)
+      for these initial conditions. 
+
+\item Suppose we have $u_0(x)=0$ and initial velocity 
+      $v_0(x) = x \sin(3\pi x)$, for which
+      \[ b_k(0) = {-6@k@\sqrt{2} (1+(-1)^k) \over (k^2 -9)^2 \pi^2} \mbox{\ \ for $k\ne 3$}, 
+    \qquad b_3(0) = {\sqrt{2}\over 4}.\]
+
+      Take damping parameter $\delta=1$, and plot the solution $u(x,t)$ 
+      (using 20 terms in the series) at times $t=.15, .3, .6, 1.2, 2.4$.  
+      (You may superimpose these on one well-labeled plot; for clarity,
+      set the vertical scale to $[-0.1,0.1]$.)
+
+\item Take the same values of $u_0$ and $v_0$ used in part~(d).
+      Plot the solution at time $t=2.5$ for $\delta = 0, .5, 1, 3$
+      on one well-labeled plot, again using vertical scale $[-0.1,0.1]$.
+      How does the solution depend on the damping parameter $\delta$?
+\end{enumerate}
+
+\item[bonus] {[20 points]}\\ 
+\def\bmatrix#1{\left[\matrix{#1}\right]}
+In class we saw that the wave equation $u_{tt} = u_{xx}$ could be written
+as a first order system.  We introduce the velocity variable
+\[ v(x,t) = u_t(x,t),\]
+then notice that the wave equation is equivalent to the first order equation
+\[ {\partial \over \partial t} \bmatrix{u(x,t)\cr v(x,t)}
+    = \bmatrix{ 0 & I \cr \partial^2/\partial x^2 & 0} 
+      \bmatrix{u(x,t)\cr v(x,t)}\]
+where $I$ is the identity operator. 
+(The first row of this system gives $u_t = v$, while the second row
+gives $v_t = u_{xx}$, which is just another way of writing $u_{tt} = u_{xx}$.)
+We also have the usual initial conditions,
+\[ \bmatrix{u(x,0) \cr v(x,0)} = \bmatrix{u_0(x) \cr v_0(x)}.\]
+This system can be analyzed in terms of its eigenvalues and eigenfunctions.
+In this problem, we will use the same approach to study the damped wave equation
+from Problem~2.
+\begin{enumerate}
+\item Verify that the damped wave equation $u_{tt} = u_{xx} - 2@\delta@u_t$ is equivalent
+      to the system
+\[ {\partial \over \partial t} \bmatrix{u(x,t)\cr v(x,t)}
+    = \bmatrix{ 0 & I \cr \partial^2/\partial x^2 & -2\delta I} 
+      \bmatrix{u(x,t)\cr v(x,t)}.\]
+\item For any value of $\delta$, the operator
+      \[ A(\delta) = \bmatrix{ 0 & I \cr \partial^2/\partial x^2 & -2@\delta@I}\]
+      always has the same eigenvectors,
+      \[ \Psi_{\pm k}(x) = \bmatrix{ \sin(k \pi x)\cr  \lambda_{\pm k} \sin(k\pi x)}.\]
+      Use these eigenvectors to determine the eigenvalues $\lambda_{\pm k}$.
+\item Plot the eigenvalues from part~(b) in the complex plane for $\delta=0, \pi/2, \pi$, and
+      $3\pi/2$.
+\item What value of $\delta\ge 0$ optimizes the \emph{asymptotic decay} of the system?
+      That is, what value of $\delta$ moves \emph{all} the eigenvalues as far to the
+      left in the complex plane as possible?  Said yet another way, which $\delta$ 
+      minimizes the real part of the rightmost eigenvalue?
+\item Confirm this result by plotting the solution at $t = 1.5$ for $\delta = 2.5, 3.2, 20$
+      on the same plot with vertical axis $[-.002,.002]$, using the same values for
+      $u_0$ and $v_0$ as in part~(d) of Problem~2.  (You should simply adapt the code
+      you developed for Problem~2 to produce these plots.)
+\end{enumerate}
+\end{enumerate}
+
+\end{document}
