@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  22 APR 2015 19:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  30 APR 2015 14:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -418,17 +418,32 @@ n/10 + [][] [] \OML/cmm/m/it/10 dx \OT1/cmr/m/n/10 = [][] \OMS/cmsy/m/n/10 ^^@
 ML/cmm/m/it/10 jh[]:
  []
 
-<femex1sol.pdf, id=19, 528.97626pt x 434.62375pt>
-File: femex1sol.pdf Graphic file (type pdf)
- <use femex1sol.pdf>
-Package pdftex.def Info: femex1sol.pdf used on input line 108.
-(pdftex.def)             Requested size: 317.3882pt x 260.77626pt.
+Package epstopdf Info: Source file: <femex1sol.eps>
+(epstopdf)                    date: 2015-04-30 14:23:22
+(epstopdf)                    size: 23697 bytes
+(epstopdf)             Output file: <femex1sol-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=femex1sol-eps-converted-to
+.pdf femex1sol.eps>
+(epstopdf)             \includegraphics on input line 108.
+runsystem(repstopdf --outfile=femex1sol-eps-converted-to.pdf femex1sol.eps)...e
+xecuted safely (allowed).
 
-(./femex1code.tex
+Package epstopdf Info: Result file: <femex1sol-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-04-30 14:24:25
+(epstopdf)                    size: 15957 bytes.
+<femex1sol-eps-converted-to.pdf, id=19, 515.9275pt x 434.62375pt>
+File: femex1sol-eps-converted-to.pdf Graphic file (type pdf)
+
+<use femex1sol-eps-converted-to.pdf>
+Package pdftex.def Info: femex1sol-eps-converted-to.pdf used on input line 108.
+
+(pdftex.def)             Requested size: 309.55888pt x 260.77626pt.
+ (./femex1code.tex
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 1.
- (/usr/local/texlive/2014/texmf-dist/tex/latex/base/t1cmtt.fd
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-) [2 <./femex1sol.pdf>])) [3] (./eig.tex
+) [2 <./femex1sol-eps-converted-to.pdf>])) [3] (./eig.tex
 Underfull \hbox (badness 10000) in paragraph at lines 30--1
 
  []
@@ -440,7 +455,7 @@ File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 [6]) [7] (./hw9.aux) ) 
 Here is how much of TeX's memory you used:
  5193 strings out of 493117
- 69818 string characters out of 6135433
+ 69886 string characters out of 6135433
  140907 words of memory out of 5000000
  8537 multiletter control sequences out of 15000+600000
  17233 words of font info for 55 fonts, out of 8000000 for 9000
@@ -466,10 +481,10 @@ msy7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfrm10
 fb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><
 /usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb>
-Output written on hw9.pdf (7 pages, 239203 bytes).
+Output written on hw9.pdf (7 pages, 244591 bytes).
 PDF statistics:
  112 PDF objects out of 1000 (max. 8388607)
- 83 compressed objects within 1 object stream
+ 82 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

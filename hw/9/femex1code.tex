@@ -12,7 +12,7 @@
  xx = linspace(0,1,1000)';     % finely spaced points between 0 and 1.
 
  k = [1:N]';
- f = 100*h^2*k;       % (f,phi_k) = 100*exp(-t)*h^2*k:  
+ f = 100*h^2*k;       % (f,phi_k) = 100*h^2*k:  
                       % compute it once, but add the "exp(-t)" part at each step
  a0 = zeros(N,1);     % initial condition
 
@@ -20,7 +20,7 @@
  L = chol(M)';
  for k=0:tfinal/dt-1
     t = (k+1)*dt;
-    akp1 = (M+dt*K)\(M*akp1+dt*(exp(-t)*f));  % compute solution at t_{k+1}
+    akp1 = (M+dt*K)\(M*akp1+dt*f));  % compute solution at t_{k+1}
  end
 
 % plot the solution on a fine grid.

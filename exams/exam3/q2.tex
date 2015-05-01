@@ -1,0 +1,57 @@
+In the last part of the semester we have seen the finite element method applied to the time-dependent heat equation; the most fundamental being the case of homogeneous Dirichlet boundary conditions as in \eqref{eqn:diric_heat}.
+
+
+%\begin{align}
+%\begin{array}{rcl}
+%		 \multicolumn{3}{c}{  \pd{u}{t}{}   - \kappa \pd{u}{x}{2} = f(t,x)}\label{eqn:diric_wave}\\
+%		 &&\\
+%		   & u(0,x)  = \psi(x) & \pd{u}{t}{}(0,x) = \gamma(x) \\
+%		   & u(t,0)  =   0 & u(t,l)  = 0 
+%	\end{array}
+%\end{align}
+%
+\begin{align}
+\begin{array}{rcl}
+		 \multicolumn{3}{c}{  \pd{u}{t}{}   - \kappa \pd{u}{x}{2} = f(t,x)}\label{eqn:diric_heat}\\
+		 &&\\
+		   \multicolumn{3}{c}{u(0,x)  = \psi(x) } \\
+		    & u(t,0)  =   0  &u(t,l)  = 0 
+	\end{array}
+\end{align}
+
+We discretized equation using the finite element method and the space of linear hat functions $S_{0}^{N} = \text{span}\left\{\phi_{1}, \phi_{2}, \ldots, \phi_{N} \right\} $ where $\phi_{i}$ is the hat function corresponding to the internal mesh point $x_i$ on a uniformly spaced mesh of the interval $[0,l]$.  The discrete solution for \eqref{eqn:diric_heat} can be represented as $u_{h}(t,x) = \Sigma_{i=1}^{N} \alpha_{i}(t)\phi_{i}(x)$ and the initial condition can be approximated as $\psi_h(x) = \sum_{i=1}^{N} \psi(x_i) \phi_{i}(x)$.  Let $\vec{\alpha}$, $\vec{\psi}$, and $\vec{f}$ denote coefficient vectors with $\vec{\alpha}_{i} = \alpha_{i}(t)$, $\vec{\psi}_{i} = \psi(x_i)$.
+
+\begin{enumerate}
+\item The finite element method applied to \eqref{eqn:diric_heat} results in a first-order system of ordinary differential equations for $\vec{\alpha}(t)$. Write down this system.  Specify the entries of the right-hand side vector $\vec{f}$ in addition to each matrix in the formulation.  That is, clearly indicate formulas for the components $\vec{f}_i$ and $B_{ij}$ for every matrix $B$ involved in your answer. 
+
+\item Write down the numerical scheme for the Backward Euler method applied to the linear system of ordinary differential equations $\pd{\vec{y}}{t}{} = A\vec{y}(t) + \vec{g}(t)$ where $A$ is a matrix.  Your answer should be a formula for $\vec{y}(t_{n+1})$ in terms of $\vec{y}(t_{n})$
+
+\item Explain how you would deal with \textit{inhomogeneous} Dirichlet boundary conditions $u(t,0) = a$, $u(t,l) = b$.  If any additions are made to the function space $S_{0}^{N}$ draw a picture of the additional shape functions. ( Hint: Recall that the problem can be split into two parts; what are these parts and how do you deal with them? )
+
+%\item Taking $l=1$,  $\kappa = 1$, $f = 0$, $\psi(x) = 1-x$ in \eqref{eqn:diric_heat} and using two equally spaced internal nodes ($N=2$) gives the mass matrix $M$, stiffness matrix $K$ and  product $-M^{-1}K$ as
+%
+%\begin{align*}
+%M = \left[ \begin{array}{cc} 1/3 & 1/20 \\ 1/20 & 1/3 \end{array} \right]  &&
+%K = \left[ \begin{array}{cc} 6 & -3  \\ -3 & 6 \end{array} \right] &&
+%-M^{-1}K =  -\frac{180}{391}\left[ \begin{array}{cc} 43 & -26  \\ -26 & 43 \end{array} \right]
+%\end{align*}
+%
+%Using the fact that $-M^{-1}K$ has eigenvalues $\lambda_1 = 540/17$ and $\lambda_2 = 180/23$ with corresponding eigenvectors $v_{1} = \left[ \begin{array}{c} -1 \\ 1 \end{array} \right]$, $v_2 =  \left[ \begin{array}{c} 1 \\ 1 \end{array} \right]$ find the finite element discreet solution $u_{h}(t) = \alpha_{1}(t)\phi_{1}(x) + \alpha_2(t)\phi_{2}(x)$ to equation \eqref{eqn:diric_heat}. (Hint: you might find the fact that  $(-1/6)v_1 + (1/2)v_2 = \left[ \begin{array}{c} 2/3 \\ 1/3 \end{array} \right]$ useful.)
+
+\end{enumerate}
+
+
+%\begin{figure}[h] 
+%\centering
+%\includegraphics[width=0.2\textwidth]{superhat.png}
+%\caption{The `super hat' function $\psi_{(N+1)/2}$}    \label{fig:zal2D_1r_2r}
+%\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{showsols}}{
+\begin{solution}
+
+\end{solution}
+}{}
