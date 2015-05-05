@@ -1,38 +1,39 @@
-When studying new numerical techniques for modeling fluid phenomena periodic boundary conditions are often employed as they simulate an `infinite' space in a finite interval $\left[ -1, 1 \right]$.  As we saw in exam two the operator $L = -\frac{\partial^{2}}{\partial x^2}$ with periodic boundary conditions in space $u( \cdot, -1) = u(\cdot,1)$, $\frac{\partial}{\partial_x}u(\cdot,-1) = \frac{\partial}{\partial_{x}}u(\cdot,1)$. Has eigenvalues $\lambda_{0} = 0$ with eigenvector $\Psi_{0} = 1$ and $\lambda_{n} = \left( n\pi \right)^{2}$ corresponding to the pair of eigenvectors $\Psi_{1,n} = sin(n\pi x)$ and $\Psi_{2,n} = cos(n\pi x)$.  All of the eigenvectors are mutually orthogonal with respect to the inner product 
+When studying new numerical techniques for modeling fluid phenomena periodic boundary conditions are often employed as they simulate an `infinite' space in a finite interval $\left[ -1, 1 \right]$.  As we saw in exam two, the operator $L$ defined by
 \[
-\left(u,v\right) = \int_{-1}^{1} uv \, dx
+Lu = -\frac{\partial^{2}u}{\partial x^2}
 \]
-
-
-In this problem we will consider a modified wave equation with periodic boundary conditions on the interval $\left[ -1, 1 \right]$.  The value $p>0$ is a fixed constant.
-
-\begin{equation}\label{eqn:modif_wave_damping}
-	\begin{array}{rcl}
-		 \multicolumn{3}{c}{  \pd{u}{t}{2}   -  \pd{u}{x}{2} + pu  = 0} \\
-		 &&\\
-		  & u(0,x)  = G(x) & \pd{u}{t}{}(0,x) = H(x) \\
-		 & u(t,-1)  =   u(t,1) & \pd{u}{x}{}(t,-1)  = \pd{u}{x}{}(t,1)
-	\end{array}
-\end{equation}
+with periodic boundary conditions in space 
+\[
+u( x, -1) = u(x,1), \qquad \frac{\partial u}{\partial x}(x,-1) = \frac{\partial u}{\partial {x}}(x,1)
+\]
+has eigenvalues $\lambda_{0} = 0$ with eigenvector $\Psi_{0} = 1$ and $\lambda_{n} = \left( n\pi \right)^{2}$ corresponding to the pair of eigenvectors $\Psi_{1,n} = \sin(n\pi x)$ and $\Psi_{2,n} = \cos(n\pi x)$.  All of the eigenvectors are mutually orthogonal with respect to the inner product $\left(u,v\right) = \int_{-1}^{1} uv \, dx$.  In this problem we will consider a modified wave equation with periodic boundary conditions on $\left[ -1, 1 \right]$.  
+\begin{align}
+\label{eqn:modif_wave_damping}
+&\pd{u}{t}{2}  - \pd{u}{x}{2} + \pi^2 u  = 0 \\
+		  u(-1,t)  &=   u(1,t), \quad \pd{u}{x}{}(-1,t)  = \pd{u}{x}{}(1,t)\\
+		  		   u(x,0) &= G(x), \quad \pd{u}{t}{}(x,0) = H(x) 
+\end{align}
 
 \begin{enumerate}
-\item Show that the modified spatial operator $-\pd{u}{x}{2} + pu$ with periodic boundary conditions has eigenvalue $\tilde{\lambda}_0 = \left(\lambda_{0} + p\right)$ with eigenvector $\tilde{\Psi}_0 = \Psi_0$ and that $\tilde{\Psi}_{1,n} = \Psi_{1,n}$, $\tilde{\Psi}_{2,n} = \Psi_{2,n}$ are eigenvectors which both have eigenvalue $\tilde{\lambda}_{j} = \left( \lambda_{j} + p \right)$ .  
+\item Show that the modified spatial operator $-\pd{u}{x}{2} + \pi^2 u$ with periodic boundary conditions has eigenvalue $\tilde{\lambda}_0 = \left(\lambda_{0} + \pi^2\right)$ with eigenvector $\tilde{\Psi}_0 = \Psi_0$ and that $\tilde{\Psi}_{1,n} = \Psi_{1,n}$, $\tilde{\Psi}_{2,n} = \Psi_{2,n}$ are eigenvectors which both have eigenvalue $\tilde{\lambda}_{j} = \left( \lambda_{j} + \pi^2  \right)$ .  
 
 \item As a result of part (a) we write the solution to  the system \eqref{eqn:modif_wave_damping} as in equation \eqref{eqn:soln_exp} and expand the initial conditions as given in equations \eqref{eqn:initcond_one_expand} and \eqref{eqn:initcond_two_expand}.
 \begin{align}
-	u(t,x) &= \gamma_{0}(t) + \Sigma_{k=1}^{\infty} \left( \alpha_{k}(t)\tilde{\Psi}_{1,n}(x) + \beta_{k}(t)\tilde{\Psi}_{2,n}(x) \right)\label{eqn:soln_exp} \\
-	G(x) & = g_0 + \Sigma_{k=1}^{\infty} \left( a_{k}{\Psi}_{1,n}(x) + b_{k}\tilde{\Psi}_{2,n}(x) \right) \label{eqn:initcond_one_expand}\\
-	H(x) & = h_0 +  \Sigma_{k=1}^{\infty} \left( c_{k}{\Psi}_{1,n}(x) + d_{k}\tilde{\Psi}_{2,n}(x) \right)\label{eqn:initcond_two_expand}
+	u(x,t) &= \alpha_0(t) + \sum_{k=1}^{\infty} \left( \alpha_{k}(t)\tilde{\Psi}_{1,n}(x) + \beta_{k}(t)\tilde{\Psi}_{2,n}(x) \right)\label{eqn:soln_exp} \\
+	G(x) & = \alpha_0(0) + \sum_{k=1}^{\infty} \left( \alpha_{k}(0){\Psi}_{1,n}(x) + \beta_{k}(0)\tilde{\Psi}_{2,n}(x) \right) \label{eqn:initcond_one_expand}\\
+	H(x) & = \td{\alpha_0(0)}{t}{} +  \sum_{k=1}^{\infty} \left( \td{\alpha_{k}(0)}{t}{}{\Psi}_{1,n}(x) + \td{\beta_{k}(0)}{t}{}\tilde{\Psi}_{2,n}(x) \right)\label{eqn:initcond_two_expand}
 \end{align}
-Use these expansions in the modified damped wave equation \eqref{eqn:modif_wave_damping} and write down the system of Initial boundary value problems (ordinary differential equations) determining the unknown coefficients $\gamma_{0}(t)$ and $\alpha_{k}(t)$, $\beta_{k}(t)$ for $k = 1,2,\ldots$. 
+Use these expansions in the modified damped wave equation \eqref{eqn:modif_wave_damping} and write down the series of initial boundary value problems (ordinary differential equations) determining the unknown coefficients $\alpha_0(t)$ and $\alpha_{k}(t)$, $\beta_{k}(t)$ for $k = 1,2,\ldots$. 
 
-\item Solve the modified damped wave equation \eqref{eqn:modif_wave_damping} with $p=\pi^2$, $G(x) = 1 + sin(\pi x)$ and $H(x) = 1 + cos(\pi x)$.  You will need the fact that the solution to the Initial value problem \eqref{eqn:ivp_soln} is given by the equation $y(t) = A cos(\theta t) + \frac{B}{\theta} sin(\theta t)$
+\item Solve the modified damped wave equation \eqref{eqn:modif_wave_damping} with  $G(x) = 1 + \sin(\pi x)$ and $H(x) = 1 + \cos(\pi x)$.  You will need the fact that the solution to the differential equation \eqref{eqn:ivp_soln} 
 \begin{align}
-\pd{y}{t}{2} + \theta^{2}y & = 0 \label{eqn:ivp_soln}\\
-y(0) & = A \nonumber \\
-\pd{y}{t}{} & = B \nonumber
+\td{y}{t}{2} + \theta^{2}y & = 0 \label{eqn:ivp_soln}\\
+y(0)  = A, \quad &\td{y}{t}{}(0)  = B \nonumber
 \end{align}
-
+is given by the equation 
+\[
+y(t) = A \cos(\theta t) + \frac{B}{\theta} \sin(\theta t).
+\]
 
 
 

@@ -1,9 +1,9 @@
-In the last part of the semester we have seen the finite element method applied to the time-dependent heat equation; the most fundamental being the case of homogeneous Dirichlet boundary conditions as in \eqref{eqn:diric_heat}.
 
+In the last part of the semester we have seen the finite element method applied to the time-dependent heat equation; the most fundamental being the case of homogeneous Dirichlet boundary conditions as in \eqref{eqn:diric_heat}.
 
 %\begin{align}
 %\begin{array}{rcl}
-%		 \multicolumn{3}{c}{  \pd{u}{t}{}   - \kappa \pd{u}{x}{2} = f(t,x)}\label{eqn:diric_wave}\\
+%		 \multicolumn{3}{c}{  \pd{u}{t}{}   - \kappa \pd{u}{x}{2} = f(x,t)}\label{eqn:diric_wave}\\
 %		 &&\\
 %		   & u(0,x)  = \psi(x) & \pd{u}{t}{}(0,x) = \gamma(x) \\
 %		   & u(t,0)  =   0 & u(t,l)  = 0 
@@ -11,22 +11,34 @@ In the last part of the semester we have seen the finite element method applied 
 %\end{align}
 %
 \begin{align}
-\begin{array}{rcl}
-		 \multicolumn{3}{c}{  \pd{u}{t}{}   - \kappa \pd{u}{x}{2} = f(t,x)}\label{eqn:diric_heat}\\
-		 &&\\
-		   \multicolumn{3}{c}{u(0,x)  = \psi(x) } \\
-		    & u(t,0)  =   0  &u(t,l)  = 0 
-	\end{array}
+\pd{u(x,t)}{t}{}  - \kappa \pd{u(x,t)}{x}{2} &= f(x,t) \label{eqn:diric_heat}\\
+u(x,0) &= \psi(x) \\
+u(0,t)  &=  u(1,t)  = 0 
 \end{align}
 
-We discretized equation using the finite element method and the space of linear hat functions $S_{0}^{N} = \text{span}\left\{\phi_{1}, \phi_{2}, \ldots, \phi_{N} \right\} $ where $\phi_{i}$ is the hat function corresponding to the internal mesh point $x_i$ on a uniformly spaced mesh of the interval $[0,l]$.  The discrete solution for \eqref{eqn:diric_heat} can be represented as $u_{h}(t,x) = \Sigma_{i=1}^{N} \alpha_{i}(t)\phi_{i}(x)$ and the initial condition can be approximated as $\psi_h(x) = \sum_{i=1}^{N} \psi(x_i) \phi_{i}(x)$.  Let $\vec{\alpha}$, $\vec{\psi}$, and $\vec{f}$ denote coefficient vectors with $\vec{\alpha}_{i} = \alpha_{i}(t)$, $\vec{\psi}_{i} = \psi(x_i)$.
+We discretized equation using the finite element method and the space of linear hat functions $S_{0}^{N} = \text{span}\left\{\phi_{1}, \phi_{2}, \ldots, \phi_{N} \right\} $ where $\phi_{i}$ is the hat function corresponding to the internal mesh point $x_i$ on a uniformly spaced mesh of the interval $[0,1]$.  The discrete solution for \eqref{eqn:diric_heat} can be represented as 
+\[
+u_{h}(x,t) = \sum_{i=1}^{N} \alpha_{i}(t)\phi_{i}(x)
+\]
+and the initial condition can be approximated as 
+\[
+u_h(x,0) = \sum_{i=1}^{N} \psi(x_i) \phi_{i}(x).
+\]
+Let $\vec{\alpha}$, $\vec{\psi}$, and $\vec{b}$ denote coefficient vectors with $\vec{\alpha}_{i} = \alpha_{i}(t)$, $\vec{\psi}_{i} = \psi(x_i)$.
 
 \begin{enumerate}
-\item The finite element method applied to \eqref{eqn:diric_heat} results in a first-order system of ordinary differential equations for $\vec{\alpha}(t)$. Write down this system.  Specify the entries of the right-hand side vector $\vec{f}$ in addition to each matrix in the formulation.  That is, clearly indicate formulas for the components $\vec{f}_i$ and $B_{ij}$ for every matrix $B$ involved in your answer. 
-
-\item Write down the numerical scheme for the Backward Euler method applied to the linear system of ordinary differential equations $\pd{\vec{y}}{t}{} = A\vec{y}(t) + \vec{g}(t)$ where $A$ is a matrix.  Your answer should be a formula for $\vec{y}(t_{n+1})$ in terms of $\vec{y}(t_{n})$
-
-\item Explain how you would deal with \textit{inhomogeneous} Dirichlet boundary conditions $u(t,0) = a$, $u(t,l) = b$.  If any additions are made to the function space $S_{0}^{N}$ draw a picture of the additional shape functions. ( Hint: Recall that the problem can be split into two parts; what are these parts and how do you deal with them? )
+\item The finite element method applied to \eqref{eqn:diric_heat} results in a first-order system of ordinary differential equations for $\vec{\alpha}(t)$. Write down this system.  Specify the entries of the right-hand side vector $\vec{b}$ in addition to each matrix in the formulation.  That is, clearly indicate formulas for the components $\vec{b}_i$ and individual entries of every matrix involved in your answer. 
+\vspace{1em}
+\item Write down the numerical scheme for the Backward Euler method applied to the linear system of ordinary differential equations 
+\[
+M\td{\vec{y}}{t}{} = A\vec{y}(t) + \vec{g}(t),
+\]
+where $M$ is the mass matrix.  You should specify what the matrix $A$ is, and give a formula for $\vec{y}(t_{n+1})$ in terms of $\vec{y}(t_{n})$
+\vspace{1em}
+\item Explain how you would deal with \textit{inhomogeneous} (and possibly time-dependent) Dirichlet boundary conditions $u(0,t) = u_L(t)$, $u(1,t) = u_R(t)$.  
+%If any additions are made to the function space $S_{0}^{N}$ draw a picture of the additional shape functions. 
+If you need to introduce any additional functions to deal with these non-zero boundary conditions, please draw pictures or give expressions for them.
+\emph{Hint: Recall that the problem can be split into two parts; what are these parts and how do you deal with them?}
 
 %\item Taking $l=1$,  $\kappa = 1$, $f = 0$, $\psi(x) = 1-x$ in \eqref{eqn:diric_heat} and using two equally spaced internal nodes ($N=2$) gives the mass matrix $M$, stiffness matrix $K$ and  product $-M^{-1}K$ as
 %

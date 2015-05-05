@@ -1,48 +1,52 @@
-When studying new numerical techniques for modeling fluid phenomena periodic boundary conditions are often employed as they simulate an `infinite' space in a finite interval $\left[ -1, 1 \right]$.  As we saw in exam two the operator $L = -\frac{\partial^{2}}{\partial x^2}$ with periodic boundary conditions in space $u( \cdot, -1) = u(\cdot,1)$, $\frac{\partial}{\partial_x}u(\cdot,-1) = \frac{\partial}{\partial_{x}}u(\cdot,1)$. Has eigenvalues $\lambda_{0} = 0$ with eigenvector $\Psi_{0} = 1$ and $\lambda_{n} = \left( n\pi \right)^{2}$ corresponding to the pair of eigenvectors $\Psi_{1,n} = sin(n\pi x)$ and $\Psi_{2,n} = cos(n\pi x)$.  All of the eigenvectors are mutually orthogonal with respect to the inner product 
+Consider the time-dependent heat equation
+\begin{align*}
+\pd{u}{t}{} - \pd{u}{x}{2} &= f(x)\\
+u(0,t) &= u(1,t) = 0\\%\pd{u}{x}{}(1,t) = 0\\
+u(x,0) &= \psi(x).
+\end{align*}
+The eigenfunctions for operator $Lu = -\pd{u}{x}{2}$ under the above boundary conditions are 
 \[
-\left(u,v\right) = \int_{-1}^{1} uv \, dx
+%\phi_j(x) = \sin\left(\frac{2j-1}{2}\pi x\right), \qquad \lambda_j = \frac{2j-1}{2}\pi.
+\phi_j(x) = \sin\left(j\pi x\right), \qquad \lambda_j = (j\pi)^2.
 \]
-
-
-In this problem we will consider a modified wave equation with periodic boundary conditions on the interval $\left[ -1, 1 \right]$.  The value $p>0$ is a fixed constant.
-
-\begin{equation}\label{eqn:modif_wave_damping}
-	\begin{array}{rcl}
-		 \multicolumn{3}{c}{  \pd{u}{t}{2}   -  \pd{u}{x}{2} + pu  = 0} \\
-		 &&\\
-		  & u(0,x)  = G(x) & \pd{u}{t}{}(0,x) = H(x) \\
-		 & u(t,-1)  =   u(t,1) & \pd{u}{x}{}(t,-1)  = \pd{u}{x}{}(t,1)
-	\end{array}
-\end{equation}
-
 \begin{enumerate}
-\item Show that the modified spatial operator $-\pd{u}{x}{2} + pu$ with periodic boundary conditions has eigenvalue $\tilde{\lambda}_0 = \left(\lambda_{0} + p\right)$ with eigenvector $\tilde{\Psi}_0 = \Psi_0$ and that $\tilde{\Psi}_{1,n} = \Psi_{1,n}$, $\tilde{\Psi}_{2,n} = \Psi_{2,n}$ are eigenvectors which both have eigenvalue $\tilde{\lambda}_{j} = \left( \lambda_{j} + p \right)$ .  
-
-\item As a result of part (a) we write the solution to  the system \eqref{eqn:modif_wave_damping} as in equation \eqref{eqn:soln_exp} and expand the initial conditions as given in equations \eqref{eqn:initcond_one_expand} and \eqref{eqn:initcond_two_expand}.
-\begin{align}
-	u(t,x) &= \gamma_{0}(t) + \Sigma_{k=1}^{\infty} \left( \alpha_{k}(t)\tilde{\Psi}_{1,n}(x) + \beta_{k}(t)\tilde{\Psi}_{2,n}(x) \right)\label{eqn:soln_exp} \\
-	G(x) & = g_0 + \Sigma_{k=1}^{\infty} \left( a_{k}{\Psi}_{1,n}(x) + b_{k}\tilde{\Psi}_{2,n}(x) \right) \label{eqn:initcond_one_expand}\\
-	H(x) & = h_0 +  \Sigma_{k=1}^{\infty} \left( c_{k}{\Psi}_{1,n}(x) + d_{k}\tilde{\Psi}_{2,n}(x) \right)\label{eqn:initcond_two_expand}
-\end{align}
-Use these expansions in the modified damped wave equation \eqref{eqn:modif_wave_damping} and write down the system of Initial boundary value problems (ordinary differential equations) determining the unknown coefficients $\gamma_{0}(t)$ and $\alpha_{k}(t)$, $\beta_{k}(t)$ for $k = 1,2,\ldots$. 
-
-\item Solve the modified damped wave equation \eqref{eqn:modif_wave_damping} with $p=\pi^2$, $G(x) = 1 + sin(\pi x)$ and $H(x) = 1 + cos(\pi x)$.  You will need the fact that the solution to the Initial value problem \eqref{eqn:ivp_soln} is given by the equation $y(t) = A cos(\theta t) + \frac{B}{\theta} sin(\theta t)$
-\begin{align}
-\pd{y}{t}{2} + \theta^{2}y & = 0 \label{eqn:ivp_soln}\\
-y(0) & = A \nonumber \\
-\pd{y}{t}{} & = B \nonumber
-\end{align}
-
-
-
-
+\item Let $f(x) = 0$.  Consider the discontinuous initial condition
+\[
+\psi(x) = \begin{cases}
+1, \quad 1/3 < x < 2/3\\
+0, \quad \text{ otherwise}
+\end{cases}
+\]
+Compute the coefficients $\alpha_j(0)$ such that 
+\[
+\psi(x) = \sum_{j=1}^\infty \alpha_j(0)\phi_j(x).
+\]
+Use these computed values to give an expression for $u(x,t)$.  Your final formula should not have integrals in it (you may leave it in terms of trigonometric functions).
+\item Let now $\psi(x) = 0$ and $f(x)$ be the same discontinuous function.  
+\[
+f(x) = \begin{cases}
+1, \quad 1/3 < x < 2/3\\
+0, \quad \text{ otherwise}
+\end{cases}
+\]
+Give an expression for the solution $u(x,t)$ and for the steady state solution (i.e. $u(x,t)$ as $t\rightarrow \infty$).  You may use information from part (a), and you may use the fact that the solution to the differential equation
+\begin{align*}
+\td{\alpha(t)}{t}{} + A\alpha(t) &= B
+\end{align*}
+(where $A$ and $B$ are constant in $t$) is given by  
+\[
+\alpha(t) = e^{-At}\alpha(0) + \frac{B}{A}\left(1-e^{-At}\right).
+\]
+\item Consider now the case when $\psi(x) = f(x) = 0$, but where we have \emph{time-dependent} Dirichlet boundary conditions 
+\[
+u(0,t) = 0, \qquad u(1,t) = t.
+\]
+We may shift the data by setting $u(x,t) = w(x,t) + g(x,t)$, where $g(x,t)= xt$.  Show that $u(x,t)$ satisfies boundary conditions, and that the part $w(x,t)$ satisfies the equation
+\[
+\pd{w}{t}{} - \pd{w}{x}{2} = -x.
+\]
+Derive an expression for $u(x,t)$ by solving for $w(x,t)$.  You may use that
+\[
+\int_0^1 x\sin(j\pi x) = \frac{(-1)^{j+1}}{j\pi}.
+\]
 \end{enumerate}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\ifthenelse{\boolean{showsols}}{
-\begin{solution}
-
-\end{solution}
-}{}
